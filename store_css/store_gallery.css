@@ -1,0 +1,61 @@
+/* store_gallery.css */
+
+/* Body and general styles */
+body {
+    margin: 0;
+    overflow-x: hidden; /* Prevent horizontal scrollbar */
+}
+
+/* Gallery styles */
+.gallery {
+    position: relative;
+    overflow: hidden;
+    width: 100vw; /* Full viewport width */
+    height: calc(100vh - 50px); /* Assuming some height for buttons below */
+}
+
+.gallery-container {
+    width: 100%;
+    height: 100%;
+}
+
+.gallery-item {
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Make images fill the entire gallery */
+    height: 100%;
+    z-index: 1; /* Keep behind navigation buttons */
+    display: none; /* Hide all images by default */
+}
+
+.gallery-item.active {
+    display: block; /* Show only the active image */
+}
+
+/* Navigation buttons */
+.nav-buttons {
+    display: flex;
+    width: 100%;
+    height: 50px; /* Fixed height for the button area */
+}
+
+.nav-button {
+    flex: 1; /* Equal width for buttons */
+    font-size: 20px;
+    background-color: #007BFF; /* Button color */
+    color: white; /* Text color */
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Add a clearfix to ensure no overflow issues */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}

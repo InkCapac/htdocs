@@ -1,0 +1,43 @@
+.grid {
+    display: grid;
+}
+
+.grid-33 {
+    grid-template-columns: 33.33% 33.33% 33.33%;
+}
+
+.margen {
+    width: 80%;
+    margin: auto;
+}
+
+.fondo {
+    background-image: url(../background_1.jpg);
+    background-size: cover;
+}
+
+main {
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+article {
+    position: relative;
+}
+
+article button {
+    color: snow;
+    /*background-color: rgb(113, 113, 249);*/
+    background-color: transparent;
+    border: none;
+    padding: 10px 20px;
+    font-size: large;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    cursor: pointer;
+}
