@@ -33,7 +33,19 @@
 
     <!-- Catálogo productos -->
     <main class="fondo">
-        <section class="grid grid-33 margen">
+        <section class="grid una tablet-dos ordenador-tres grid-33 margen">
+            <article>
+                    <img style="cursor: pointer;" src="./store_images/wukong.avif" alt="Wukong">
+                    <button style="font-family: arcade;">Comprar</button>
+            </article>
+            <article>
+                <img style="cursor: pointer;" src="./store_images/gow.avif" alt="God of War">
+                <button style="font-family: arcade;">Comprar</button>
+            </article>
+            <article>
+                <img style="cursor: pointer;" src="./store_images/warhammer.avif" alt="Warhammer">
+                <button style="font-family: arcade;">Comprar</button>
+            </article>
             <article>
                     <img style="cursor: pointer;" src="./store_images/wukong.avif" alt="Wukong">
                     <button style="font-family: arcade;">Comprar</button>
@@ -52,6 +64,9 @@
     <!-- Archivos JavaScript -->
     <script src="./store_js/store_gallery.js"></script>
     <footer></footer>
+    <div class="hamburguesa">
+        
+    </div>
 </body>
 
 </html>

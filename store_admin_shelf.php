@@ -27,7 +27,9 @@ $datos = $conexion->recibir_datos("SELECT * FROM catalogo ORDER BY id_item");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin-Ingresar productos</title>
-    <link rel="stylesheet" href="./store_css/store_sell.css">
+    <!--
+        <link rel="stylesheet" href="./store_css/store_admin_shelf.css">
+    -->
 </head>
 
 <body>
@@ -47,7 +49,7 @@ $datos = $conexion->recibir_datos("SELECT * FROM catalogo ORDER BY id_item");
             </select>
             -->
             <p>Nombre Item<span class="star">*</span></p>
-            <input type="text" name="nombre_item" id="">
+            <input type="text" name="nombre_item">
             <p>Descripción del item<span class="star">*</span></p>
             <textarea name="descripcion_item" cols="30" rows="10"></textarea>
             <p>Precio del item</p>
@@ -59,7 +61,7 @@ $datos = $conexion->recibir_datos("SELECT * FROM catalogo ORDER BY id_item");
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
-                </select>
+            </select>
             <button class="boton">Siguiente</button>
         </form>
         <?php
@@ -70,16 +72,21 @@ $datos = $conexion->recibir_datos("SELECT * FROM catalogo ORDER BY id_item");
                 $descripcion_item = $datos["descripcion_item"];
                 $precio_item = $datos["precio_item"];
                 $imagen_item = $datos["imagen_item"];
-                $contenedor = $datos["tipo"];
-                if ($contenedor == 1) {
-                    echo '<h1>' . $nombre_item . '</h1><p>' . $descripcion_item . '</p><p>' . $precio_item . '</p><img src="' . $imagen_item . '" alt="' . $nombre_item . '">';
-                } elseif ($contenedor == 2) {
-                    echo "<h1>EL CONTENEDOR ES DE TIPO 2</h1>";
+                if (isset($dato["tipo"])) {
+                    $contenedor = $dato["tipo"];
+                    if ($contenedor == 1) {
+                        echo '<h1>' . $nombre_item . '</h1><p>' . $descripcion_item . '</p><p>' . $precio_item . '</p><img src="' . $imagen_item . '" alt="' . $nombre_item . '">';
+                    } elseif ($contenedor == 2) {
+                        echo "<h1>EL CONTENEDOR ES DE TIPO 2</h1>";
+                    }
+                } else {
+                    echo "<p>El tipo de contenedor no está definido para este ítem.</p>";
                 }
             }
         } else {
             echo '<p>No hay datos disponibles</p>';
         }
+
         ?>
 </body>
 
