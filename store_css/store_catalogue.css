@@ -15,7 +15,6 @@ section {
     margin: auto;
     width: 75%;
 }
-
 .hamburguesa {
     position: absolute;
     right: 10px;
@@ -28,6 +27,9 @@ section {
 
 img {
     max-width: 100%;
+}
+nav-grid{
+    display: none;
 }
 
 .una {

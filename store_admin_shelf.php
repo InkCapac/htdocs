@@ -72,8 +72,8 @@ $datos = $conexion->recibir_datos("SELECT * FROM catalogo ORDER BY id_item");
                 $descripcion_item = $datos["descripcion_item"];
                 $precio_item = $datos["precio_item"];
                 $imagen_item = $datos["imagen_item"];
-                if (isset($dato["tipo"])) {
-                    $contenedor = $dato["tipo"];
+                if (isset($datos["tipo"])) {
+                    $contenedor = $datos["tipo"];
                     if ($contenedor == 1) {
                         echo '<h1>' . $nombre_item . '</h1><p>' . $descripcion_item . '</p><p>' . $precio_item . '</p><img src="' . $imagen_item . '" alt="' . $nombre_item . '">';
                     } elseif ($contenedor == 2) {
