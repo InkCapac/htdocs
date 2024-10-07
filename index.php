@@ -65,7 +65,7 @@
     <script src="./store_js/store_gallery.js"></script>
     <footer></footer>
     <div class="hamburguesa">
-        
+        <br><br>
     </div>
 </body>
 

@@ -1,6 +1,7 @@
 .grid {
     display: grid;
 }
+
 /*
 .grid-33 {
     grid-template-columns: 33.33% 33.33% 33.33%;
@@ -10,11 +11,12 @@
 /*Clase mobile first - DANI
 - Improve it to make it work
 */
-section{
+section {
     margin: auto;
     width: 75%;
 }
-.hamburguesa{
+
+.hamburguesa {
     position: absolute;
     right: 10px;
     top: 10px;
@@ -23,26 +25,36 @@ section{
     border-radius: 50%;
     text-align: center;
 }
-.una{
+
+img {
+    max-width: 100%;
+}
+
+.una {
     grid-template-columns: 100%;
 }
-@media (min-width: 275px){
-    .tablet-dos{
+
+@media (min-width: 275px) {
+    .tablet-dos {
         grid-template-columns: 50% 50%;
     }
+
     /*Función para mostrar el nav*/
-    nav.grid{
+    nav.grid {
         display: grid;
     }
-    .hamburguesa{
+
+    .hamburguesa {
         display: none;
     }
 }
-@media (min-width: 575px){
-    .ordenador-tres{
+
+@media (min-width: 575px) {
+    .ordenador-tres {
         grid-template-columns: 33.33% 33.33% 33.33%;
     }
 }
+
 /*Fin de la clase :)*/
 .margen {
     width: 80%;
@@ -53,6 +65,7 @@ section{
     background-image: url(../background_1.jpg);
     background-size: cover;
 }
+
 main {
     text-align: center;
     padding: 20px;
