@@ -1,16 +1,3 @@
-<?php
-include_once("./conectar.php");
-$servidor = "localhost";
-$usuario = "root";
-$contrasena = "";
-$bbdd = "diseno";
-$conexion = new Conectar($servidor, $usuario, $contrasena, $bbdd);
-$footer = 3;
-$header = 3;
-$contenedor = 3;
-
-$datos = $conexion->hacer_consulta("INSERT INTO pagina (footer, header, contenedor) VALUES (?, ?, ?)","iii",[$footer,$header,$contenedor]);
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,8 +35,8 @@ $datos = $conexion->hacer_consulta("INSERT INTO pagina (footer, header, contened
     <main class="fondo">
         <section class="grid grid-33 margen">
             <article>
-                <img style="cursor: pointer;" src="./store_images/wukong.avif" alt="Wukong">
-                <button style="font-family: arcade;">Comprar</button>
+                    <img style="cursor: pointer;" src="./store_images/wukong.avif" alt="Wukong">
+                    <button style="font-family: arcade;">Comprar</button>
             </article>
             <article>
                 <img style="cursor: pointer;" src="./store_images/gow.avif" alt="God of War">
@@ -62,8 +49,8 @@ $datos = $conexion->hacer_consulta("INSERT INTO pagina (footer, header, contened
         </section>
     </main>
 
-    <!-- JavaScript Files -->
-    <script src="./store_gallery.js"></script> <!-- For gallery functionality -->
+    <!-- Archivos JavaScript -->
+    <script src="./store_js/store_gallery.js"></script>
     <footer></footer>
 </body>
 
