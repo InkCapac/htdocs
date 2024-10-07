@@ -6,14 +6,13 @@ $contrasena = "";
 $bbdd = "diseno";
 if (isset($_POST["tipo"])) {
     $conexion = new Conectar($servidor, $usuario, $contrasena, $bbdd);
-    $id_cont = 1;
-    $contenedor = $_POST["tipo"];
-    $prioridad = $_POST["prioridad"];
-    $texto = $_POST["texto"];
-    $imagen = $_POST["imagen"];
-    $titulo = $_POST["titulo"];
+    $id_item = 1;
+    $nombre_item = $_POST["nombre_item"];
+    $descripcion_item = $_POST["descripcion_item"];
+    $precio_item = $_POST["precio_item"];
+    $imagen_item = $_POST["imagen_item"];
 
-    $conexion->hacer_consulta("INSERT INTO catalogo (id_item, nombre_item, descripcion_item, precio_item) VALUES (?,?,?,?,?)", "iissi", [$id_item, $nombre_item, $descripcion_item, $precio_item]);
+    $conexion->hacer_consulta("INSERT INTO catalogo (id_item, nombre_item, descripcion_item, precio_item, imagen_item) VALUES (?,?,?,?,?,?)", "iissis", [$id_item, $nombre_item, $descripcion_item, $precio_item, $imagen_item]);
 }
 ?>
 <!---->
@@ -46,13 +45,34 @@ if (isset($_POST["tipo"])) {
                 <input type="text" name="nombre_item" id="">
                 <p>Descripción del item<span class="star">*</span></p>
                 <textarea name="texto" id="" cols="30" rows="10"></textarea>
+                <p>Precio del item</p>
+                <input type="number" name="precio_item">
+                <p>Imagen del item</p>
+                <input type="text" name="imagen_item">
             </div>
         </div>
         <div>
             <button class="boton">Siguiente</button>
         </div>
     </main>
-
+    <?php
+    if ($datos) {
+        //Mostrar datos de la tabla
+        foreach ($datos as $datos) {
+            $nombre_item = $datos["nombre_item"];
+            $descripcion_item = $datos["texto"];
+            $precio_item = $datos["precio_item"];
+            $imagen_item = $datos["imagen_item"];
+            if ($id_item == 1) {
+                echo '<h1>' . $nombre_item . '</h1><p>' . $descripcion_item . '</p><p>' . $precio_item . '</p><img src="' . $imagen_item . '" alt="' . $titulo . '">';
+            } elseif ($contenedor == 2) {
+                echo "<h1>EL CONTENEDOR ES DE TIPO 2</h1>";
+            }
+        }
+    } else {
+        echo '<p>No hay datos disponibles</p>';
+    }
+    ?>
 </body>
 
 </html>
