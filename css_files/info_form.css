@@ -1,0 +1,96 @@
+/* info_form.css */
+
+:root {
+    --naranja: #e5ab7f;
+    --naranja2: #f07212;
+    --borde: 1px solid red;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden; /* Prevent horizontal scrollbar */
+}
+
+/* Form box styling */
+.form-box {
+    position: fixed; /* Change to fixed position */
+    top: 125px; /* Keep this value for vertical spacing */
+    right: 0; /* Keep it on the right side */
+    padding: 5px;
+    width: 350px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 11px;
+    transform: translateX(350px); /* Initially hidden off-screen */
+    transition: transform 1s ease; /* Smooth slide-in transition */
+    border: var(--borde);
+    background-color: white;
+    z-index: 1000; /* Ensure form appears above other content */
+}
+
+.form-box.abierto {
+    transform: translateX(0px); /* Slide form into view when opened */
+}
+
+/* Grid layout for inputs and checkboxes inside form box */
+.form-box .grid {
+    display: grid;
+}
+
+.form-box .inputs {
+    grid-template-columns: 17.5% 82.5%;
+}
+
+.form-box .check {
+    grid-template-columns: max-content auto;
+}
+
+/* Input fields within form box */
+.form-box input {
+    background-color: whitesmoke;
+    border: 1px solid grey;
+    margin-bottom: 2px;
+}
+
+.form-box textarea {
+    width: calc(100% - 5px);
+    resize: none;
+    height: 100px;
+}
+
+/* Checkbox alignment */
+.form-box .arriba {
+    margin-top: -25px;
+}
+
+/* Button styling specific to the form box */
+.form-box button {
+    text-transform: uppercase;
+    color: white;
+    padding: 10px 25px;
+    font-size: 20px;
+    background-image: linear-gradient(to bottom, var(--naranja), var(--naranja2));
+    border: none;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+/* Styling for the "Quick callback" button */
+.callback {
+    cursor: pointer;
+    position: absolute; /* Stay aligned with the form box */
+    top: 87px; /* Adjust positioning as necessary */
+    left: -133px; /* Position to the left of the form box */
+    transform: rotate(90deg); /* Rotate label to be readable */
+    background-color: #007BFF; /* Blue background for callback button */
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    z-index: 1001; /* Ensure button appears above other content */
+}
+
+/* Gallery styling to ensure it stays behind the form box */
+.gallery {
+    position: relative;
+    z-index: 1; /* Lower than the form box */
+}

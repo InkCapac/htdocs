@@ -1,0 +1,146 @@
+/* gallery.css */
+
+/* General Reset */
+* {
+    box-sizing: border-box;
+    /* Include padding and borders in the element's total width and height */
+}
+
+body {
+    margin: 0;
+    /* Remove default body margin */
+    overflow-x: hidden;
+    /* Hide horizontal scrollbar */
+}
+
+.gallery {
+    position: relative;
+    /* Relative positioning for the gallery */
+    overflow: hidden;
+    /* Hide overflow from absolute positioned images */
+    width: 100vw;
+    /* Full viewport width */
+    height: calc(100vh - 50px);
+    /* Full viewport height minus button height */
+}
+
+.gallery-container {
+    position: relative;
+    /* Container to position images */
+    width: 100%;
+    /* Make the container fill the gallery */
+    height: 100%;
+    /* Make the container fill the gallery */
+}
+
+.gallery-item {
+    object-fit: cover;
+    /* Maintain aspect ratio and cover space */
+    position: absolute;
+    /* Position images absolutely */
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Make images fill the gallery */
+    height: 100%;
+    /* Make images fill the gallery */
+    z-index: 1;
+    /* Ensure images are behind controls */
+    display: none;
+    /* Hide all images by default */
+}
+
+.gallery-item.active {
+    display: block;
+    /* Only show active image */
+}
+
+/* gallery.css */
+
+/* Styling for the buttons below the gallery */
+.nav-buttons {
+    display: flex;
+    /* Use flexbox to align buttons */
+    width: 100vw;
+    /* Full viewport width */
+    height: 50px;
+    /* Set a height for buttons */
+    background-color: #f0f0f0;
+    /* Optional: background color for the buttons' container */
+}
+
+.nav-button {
+    flex: 1;
+    /* Each button occupies equal width */
+    font-size: 20px;
+    cursor: pointer;
+    background-color: rgb(200, 0, 0);
+    /* Change this to the desired button background color */
+    color: white;
+    /* Change this to the desired text color */
+    border: none;
+    margin: 0;
+    /* Remove margins */
+    display: flex;
+    /* Set button to flex container */
+    align-items: center;
+    /* Center text vertically */
+    justify-content: center;
+    /* Center text horizontally */
+    transition: background-color 0.3s ease;
+    /* Smooth transition for hover effects */
+}
+
+/* Hover effect */
+.nav-button:hover {
+    background-color: rgba(120, 0, 0);
+    /* Darker shade on hover */
+    color: white;
+    /* Text color on hover */
+}
+
+/* Active button state (optional) */
+.nav-button:active {
+    background-color: red;
+    /* Even darker color when pressed */
+}
+
+
+/* Content Section Styles */
+.content {
+    padding: 20px;
+    /* Padding for content area */
+}
+
+/* Grid layout for images */
+.grid {
+    display: flex;
+    /* Use flexbox for alignment */
+    justify-content: space-between;
+    /* Space between the images */
+}
+
+.image-container {
+    flex: 1;
+    /* Each container takes equal space */
+    margin: 0 10px;
+    /* Horizontal margin for spacing */
+}
+
+.macchu-picchu {
+    width: 100%;
+    /* Make images responsive */
+    height: auto;
+    /* Maintain aspect ratio */
+    border-radius: 10px;
+    /* Optional: rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    /* Optional: shadow effect */
+}
+
+.image-container p {
+    text-align: center;
+    /* Center text below images */
+    margin-top: 10px;
+    /* Spacing above the paragraph */
+}

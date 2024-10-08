@@ -1,0 +1,45 @@
+/* main.css */
+
+/* Estilos básicos para el contenido de la página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: snow;
+}
+
+.content {
+    padding: 20px; /**/
+}
+
+/* Add any additional styles for the rest of the website here */
+/* main.css */
+
+/* General styles for the content */
+.content {
+    padding: 20px; /* Padding for content area */
+}
+
+/* Grid layout for images */
+.grid {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Space between the images */
+}
+.texto-persuasivo{
+    
+}
+
+.image-container {
+    flex: 1; /* Each container takes equal space */
+    margin: 0 10px; /* Horizontal margin for spacing */
+}
+
+.macchu-picchu {
+    width: 100%; /* Make images responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Optional: rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Optional: shadow effect */
+}
+
+.image-container p {
+    text-align: center; /* Center text below images */
+    margin-top: 10px; /* Spacing above the paragraph */
+}

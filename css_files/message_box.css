@@ -1,0 +1,79 @@
+/* message_box.css */
+
+/* Overlay background */
+.fondo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.707);
+    /* Semi-transparent black background */
+    z-index: 1;
+    /* Ensure it is on top */
+    display: none;
+    /* Hidden by default */
+}
+
+/* Modal content */
+.contenido {
+    width: 70%;
+    max-width: 500px;
+    background-color: snow;
+    border-radius: 10px;
+    color: #333;
+    min-height: 100px;
+    position: fixed;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 20%;
+    padding: 20px;
+    z-index: 2;
+    /* Make sure it's on top of the background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: entrada 0.5s ease;
+}
+
+/* Close (X) button */
+.x {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgb(200, 0, 0);
+    color: snow;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+/* Close button at the bottom */
+.cerrar {
+    display: block;
+    margin: 20px auto 0 auto;
+    padding: 10px 20px;
+    background-color: rgb(200, 0, 0);
+    color: snow;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Hidden modal by default */
+.ocultar {
+    display: none;
+}
+
+/* Entrance animation */
+@keyframes entrada {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
