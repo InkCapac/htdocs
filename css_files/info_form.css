@@ -26,10 +26,10 @@ body {
 }
 
 .form-box.abierto {
-    transform: translateX(0px); /* Slide form into view when opened */
+    transform: translateX(0px); /*Línea para que el formulario se revele en la ventana*/
 }
 
-/* Grid layout for inputs and checkboxes inside form box */
+/*Grid layout para el contenido del formulario*/
 .form-box .grid {
     display: grid;
 }
@@ -42,7 +42,7 @@ body {
     grid-template-columns: max-content auto;
 }
 
-/* Input fields within form box */
+/*Campos de entrada de datos*/
 .form-box input {
     background-color: snow;
     border: 1px solid grey;
@@ -55,12 +55,12 @@ body {
     height: 100px;
 }
 
-/* Checkbox alignment */
+/*Alineación de la casilla*/
 .form-box .arriba {
     margin-top: -25px;
 }
 
-/* Button styling specific to the form box */
+/*Estilos del botón del formulario*/
 .form-box button {
     text-transform: uppercase;
     color: snow;

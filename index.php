@@ -34,6 +34,7 @@
             <img class="gallery-item" src="./gallery_images/montana_7colores.jpg" data-index="3">
             <img class="gallery-item" src="./gallery_images/peru_llamas.jpg" data-index="4">
             <img class="gallery-item" src="./gallery_images/montana_7colores.jpg" data-index="5">
+            <img class="gallery-item" src="./gallery_images/peru_llamas.jpg" data-index="6">
         </div>
     </div>
 
@@ -64,6 +65,8 @@
     </div>
 
     <!-- Consideraciones para el trabajo 'actividad 2' de MARLENE
+Llamar a la carpeta 'Mateo_Web'
+Aplicar conceptos de diseño de webs
 Explicar la teoría del color elegida
 Explicar la tipografía que usamos
 Mostrar la guía de estilo
