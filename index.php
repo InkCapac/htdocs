@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visit Peru</title>
+    <link rel="shortcut icon" href="./content_images/peru_logo.jpg" type="image/x-icon">
     <!--Archivo css de la galería principal-->
-    <link rel="stylesheet" href="./css_files/gallery.css"> 
+    <link rel="stylesheet" href="./css_files/gallery.css">
     <!--Archivo css del main del sitio web-->
     <link rel="stylesheet" href="./css_files/main.css">
     <!--Archivo css del formulario-->
@@ -38,8 +39,8 @@
 
     <!--Botones de navegación debajo de la galería-->
     <div class="nav-buttons">
-        <button class="nav-button" id="prevButton">Previous</button>
-        <button class="nav-button" id="nextButton">Next</button>
+        <button class="nav-button" id="prevButton">Anterior</button>
+        <button class="nav-button" id="nextButton">Siguiente</button>
     </div>
 
     <!--Texto Persuasivo-->
@@ -62,6 +63,16 @@
         </div>
     </div>
 
+    <!-- Consideraciones para el trabajo 'actividad 2' de MARLENE
+Explicar la teoría del color elegida
+Explicar la tipografía que usamos
+Mostrar la guía de estilo
+Mostrar la estructura del sitio web
+Mostrar la estructura de navegación
+->
+
+
+
     <!--Sección del formulario de la esquina-->
     <!--Formulario-->
     <div class="form-box">
@@ -79,19 +90,18 @@
             <textarea id="additional-info" name="additional_info" cols="30" rows="20"></textarea>
             <div class="grid check">
                 <input type="checkbox" id="consent" name="consent" class="arriba">
-                <label for="consent">Please tick this box to consent that Spencer Lion LTD will be in touch with you
-                    regarding your enquiry.</label>
+                <label for="consent">Por favor, haz click en este botón para asegurarnos que estás de acuerdo con nuestras condiciones de servicio.</label>
             </div>
-            <button type="submit">Send message</button>
+            <button type="submit">Enviar datos</button>
         </form>
-        <button class="callback">Quick callback</button>
+        <button class="callback">Contáctanos</button>
     </div>
 
 
     <!--Archivos de JavaScript-->
     <!--JS del archivo de la galería principal-->
     <script src="./js_files/gallery.js"></script>
-    <!--JS del formularío de la esquina--> 
+    <!--JS del formularío de la esquina-->
     <script src="./js_files/info_form.js"></script>
     <!--JS del main del sitio web-->
     <script src="./js_files/main.js"></script>

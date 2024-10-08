@@ -21,7 +21,7 @@ body {
     transform: translateX(350px); /*La caja esta oculta en la ventana*/
     transition: transform 1s ease; /*Transición 'suave' y revelación de la caja*/
     border: var(--borde);
-    background-color: white;
+    background-color: snow;
     z-index: 1000; /*El contenido de la caja se puede ver sobre el resto de la página*/
 }
 
@@ -44,7 +44,7 @@ body {
 
 /* Input fields within form box */
 .form-box input {
-    background-color: whitesmoke;
+    background-color: snow;
     border: 1px solid grey;
     margin-bottom: 2px;
 }
@@ -63,7 +63,7 @@ body {
 /* Button styling specific to the form box */
 .form-box button {
     text-transform: uppercase;
-    color: white;
+    color: snow;
     padding: 10px 25px;
     font-size: 20px;
     background-image: linear-gradient(to bottom, var(--naranja), var(--naranja2));
@@ -77,10 +77,11 @@ body {
     cursor: pointer;
     position: absolute; /* Stay aligned with the form box */
     top: 87px; /* Adjust positioning as necessary */
-    left: -133px; /* Position to the left of the form box */
+    left: -120px; /* Position to the left of the form box */
     transform: rotate(90deg); /* Rotate label to be readable */
     background-color: #007BFF; /* Blue background for callback button */
-    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: snow;
     padding: 10px;
     border-radius: 5px;
     font-size: 14px;

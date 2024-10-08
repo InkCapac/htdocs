@@ -74,7 +74,8 @@ body {
     cursor: pointer;
     background-color: rgb(200, 0, 0);
     /* Change this to the desired button background color */
-    color: white;
+    color: snow;
+    font-size:xx-large;
     /* Change this to the desired text color */
     border: none;
     margin: 0;
