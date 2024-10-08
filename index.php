@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visit Peru</title>
-    <!-- Link to main CSS -->
-    <link rel="stylesheet" href="./css_files/gallery.css"> <!-- Link to carousel CSS -->
+    <!--Archivo css de la galería principal-->
+    <link rel="stylesheet" href="./css_files/gallery.css"> 
+    <!--Archivo css del main del sitio web-->
     <link rel="stylesheet" href="./css_files/main.css">
     <!--Archivo css del formulario-->
     <link rel="stylesheet" href="./css_files/info_form.css">
@@ -35,7 +36,7 @@
         </div>
     </div>
 
-    <!-- Navigation Buttons Below the Gallery -->
+    <!--Botones de navegación debajo de la galería-->
     <div class="nav-buttons">
         <button class="nav-button" id="prevButton">Previous</button>
         <button class="nav-button" id="nextButton">Next</button>
@@ -47,7 +48,7 @@
             ratione nihil maiores sapiente. Sit blanditiis laborum ex quia? Quibusdam accusamus sapiente exercitationem
             sequi incidunt?</p>
     </div>
-    <!-- Content Section -->
+    <!--Sección de contenidos-->
     <div class="content">
         <div class="grid">
             <div class="image-container">
@@ -61,20 +62,20 @@
         </div>
     </div>
 
-    <!--Sección del formulario-->
-    <!-- Form Section -->
+    <!--Sección del formulario de la esquina-->
+    <!--Formulario-->
     <div class="form-box">
         <form>
-            <p>Fill in your details and we will contact you soon.</p>
+            <p>Rellena con tus datos este formulario y te contactaremos pronto:</p>
             <div class="grid inputs">
-                <label for="name">Name</label>
+                <label for="name">Nombre</label>
                 <input type="text" id="name" name="name">
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email">
-                <label for="phone">Phone</label>
+                <label for="phone">Teléfono</label>
                 <input type="tel" id="phone" name="phone">
             </div>
-            <p>Additional information</p>
+            <p>Información adicional</p>
             <textarea id="additional-info" name="additional_info" cols="30" rows="20"></textarea>
             <div class="grid check">
                 <input type="checkbox" id="consent" name="consent" class="arriba">
@@ -88,9 +89,12 @@
 
 
     <!--Archivos de JavaScript-->
-    <script src="./js_files/gallery.js"></script> <!-- Link to carousel JS -->
+    <!--JS del archivo de la galería principal-->
+    <script src="./js_files/gallery.js"></script>
+    <!--JS del formularío de la esquina--> 
     <script src="./js_files/info_form.js"></script>
-    <script src="./js_files/main.js"></script> <!-- Link to main JS -->
+    <!--JS del main del sitio web-->
+    <script src="./js_files/main.js"></script>
 
     </div>
     <footer></footer>
