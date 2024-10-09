@@ -1,3 +1,4 @@
+<!--Cambiar nombre de archivo a 'index.php'-->
 <!DOCTYPE html>
 <html lang="en">
 
