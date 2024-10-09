@@ -1,12 +1,26 @@
 <?php
-$contar_articulos = 1;
 include_once("./conectar.php");
 $servidor = "localhost";
 $usuario = "root";
 $contrasena = "";
 $bbdd = "productos";
+/*
+Estructura de la base de datos para conectar a este Php:
+- id int auto_increment
+- nombre varchar(20)
+- imagen varchar(150)
+- precio double(4,2)
+- descripcion varchar(250)
+*/
 $conexion = new Conectar($servidor, $usuario, $contrasena, $bbdd);
-$productos = $conexion->recibir_datos("SELECT * FROM PRODUCTOS");
+if (isset($_GET["pagina"])) {
+    $pagina = ($_GET("pagina") - 1) * 12;
+} else {
+    $pagina = 0;
+}
+//$productos = $conexion->recibir_datos("SELECT * FROM PRODUCTOS");
+$productos = $conexion->recibir_datos("SELECT * FROM productos LIMIT 12 OFFSET 0");
+$contar_articulos = count($productos);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,8 +57,8 @@ $productos = $conexion->recibir_datos("SELECT * FROM PRODUCTOS");
                 for ($i = 0; $i < count($productos); $i++) {
                     $nombre = $productos[$i]["nombre"];
                     $imagen = $productos[$i]["imagen"];
-                    $descripcion = "Producto bueno";
-                    $precio = "10.99";
+                    $descripcion = $productos[$i]["descripcion"];
+                    $precio = $productos[$i]["precio"];
                     echo '
                 <article>
                     <h3>' . $nombre . '</h3>
