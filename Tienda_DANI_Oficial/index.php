@@ -1,3 +1,30 @@
+<!--Traducir todo al español después, incluida la base de datos-->
+<!--
+    BASE DE DATOS: store
+    TABLA: products
+    id int AUTO_INCREMENT
+    name varchar(20);
+    image varchar(100);
+    price DOUBLE(4,2);
+    description varchar(250);
+    
+-->
+<?php
+include_once("./conectar.php");
+$servidor = "localhost";
+$usuario = "root";
+$contrasena = "";
+$bbdd = "store";
+if (isset($_GET["pagina"])) {
+    $pagina = (($_GET["pagina"]) - 1) * 12;
+} else {
+    $pagina = 0;
+}
+$conexion = new Conectar($servidor, $usuario, $contrasena, $bbdd);
+$products = $conexion->recibir_datos("SELECT * FROM products LIMIT 12 OFFSET $pagina");
+$contar_articulos = count($products);
+$paginas = ($contar_articulos / 12) + 1;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,30 +61,39 @@
     <!-- Catálogo productos -->
     <main class="fondo">
         <section class="grid una tablet-dos ordenador-tres grid-33 margen">
-            <article>
+            <!--
+                <article>
                     <img style="cursor: pointer;" src="./store_images/wukong.avif" alt="Wukong">
                     <button style="font-family: arcade;">Comprar</button>
-            </article>
-            <article>
-                <img style="cursor: pointer;" src="./store_images/gow.avif" alt="God of War">
-                <button style="font-family: arcade;">Comprar</button>
-            </article>
-            <article>
-                <img style="cursor: pointer;" src="./store_images/warhammer.avif" alt="Warhammer">
-                <button style="font-family: arcade;">Comprar</button>
-            </article>
-            <article>
-                    <img style="cursor: pointer;" src="./store_images/wukong.avif" alt="Wukong">
+                </article>
+                <article>
+                    <img style="cursor: pointer;" src="./store_images/gow.avif" alt="God of War">
                     <button style="font-family: arcade;">Comprar</button>
-            </article>
-            <article>
-                <img style="cursor: pointer;" src="./store_images/gow.avif" alt="God of War">
-                <button style="font-family: arcade;">Comprar</button>
-            </article>
-            <article>
-                <img style="cursor: pointer;" src="./store_images/warhammer.avif" alt="Warhammer">
-                <button style="font-family: arcade;">Comprar</button>
-            </article>
+                </article>
+                <article>
+                    <img style="cursor: pointer;" src="./store_images/warhammer.avif" alt="Warhammer">
+                    <button style="font-family: arcade;">Comprar</button>
+                </article>
+            -->
+            <?php
+            if ($contar_articulos < 1) {
+                echo "<p>No se han encontrado artículos</p>";
+            } else {
+                for ($i = 0; $i < count($products); $i++) {
+                    $name = $products[$i]["name"];
+                    $image = $products[$i]["image"];
+                    $description = $products[$i]["description"];
+                    $price = $products[$i]["price"];
+                    echo '
+                <article>
+                    <h3>' . $name . '</h3>
+                    <img src="' . $image . '" class="product-image" alt="' . $name . '">
+                    <p>' . $description . '</p>
+                    <p>' . $price . '</p>
+                </article>';
+                }
+            }
+            ?>
         </section>
     </main>
 
