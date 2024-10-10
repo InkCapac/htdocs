@@ -1,4 +1,4 @@
-<!--NOMBRE MOMENTÁNEO-->
+<!--NOMBRE MOMENTÁNEO, cambiar a index.php-->
 <?php
 include_once("./conectar.php");
 $servidor = "localhost";
@@ -66,12 +66,15 @@ $paginas = ($contar_articulos / 12) + 1;
                 $imagen = $productos[$i]["imagen"];
                 $descripcion = $productos[$i]["descripcion"];
                 $precio = $productos[$i]["precio"];
+                //Esta línea de código estó referenciando al file 'pagina.php' dentro de la carpeta 'tienda_DANI_linkedPages'
+                $id = $productos[$i]["id"];
                 echo '
                 <article>
                     <h3>' . $nombre . '</h3>
                     <img src="' . $imagen . '" class="product-image" alt="' . $nombre . '">
                     <p>' . $descripcion . '</p>
                     <p>' . $precio . '</p>
+                    <a href= ".productos.php?id='.$id.'"><button>Adquirir</button></a>
                 </article>';
             }
             ?>
