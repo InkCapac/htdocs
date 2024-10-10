@@ -1,5 +1,3 @@
-// box_message.js
-
 window.onload = () => {
     const modal = document.querySelector(".modal");
     const fondo = document.querySelector(".fondo");

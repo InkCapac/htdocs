@@ -1,5 +1,3 @@
-// info_form.js
-
 window.onload = () => {
     const boton = document.querySelector(".callback");
     const formulario = document.querySelector(".form-box");

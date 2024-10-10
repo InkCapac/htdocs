@@ -17,14 +17,18 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
     <link rel="stylesheet" href="./css_files/main.css">
     <!--Archivo css del formulario-->
     <link rel="stylesheet" href="./css_files/info_form.css">
-    <script>
-        window.onload = function() {
-            window.scroll(0, 0);
-        };
-    </script>
+    <!--Archivo css de la barra de navegación-->
+    <link rel="stylesheet" href="./css_files/nav_bar.css">
 </head>
 
 <body>
+    <div class="navbar">
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+        <a href="#missions">Missions</a>
+        <a href="#category4">Category 4</a>
+        <a href="#category5">Category 5</a>
+    </div>
     <!--Apartado del mensaje de notificación-->
     <script src="./js_files/box_message.js"></script>
     <link rel="stylesheet" href="./css_files/message_box.css">
