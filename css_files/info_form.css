@@ -86,6 +86,15 @@ body {
     border-radius: 5px;
     font-size: 14px;
     z-index: 1001; /* Ensure button appears above other content */
+    transition: background-color 0.3s ease;
+}
+.callback:hover{
+    background-color: rgba(120, 0, 0);
+    color: snow;
+}
+.callback:active {
+    background-color: red;
+    /* Even darker color when pressed */
 }
 
 /* Gallery styling to ensure it stays behind the form box */

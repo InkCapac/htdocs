@@ -94,7 +94,7 @@ body {
 .nav-button:hover {
     background-color: rgba(120, 0, 0);
     /* Darker shade on hover */
-    color: white;
+    color: snow;
     /* Text color on hover */
 }
 
