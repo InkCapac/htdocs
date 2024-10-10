@@ -1,3 +1,7 @@
+<?php
+header("Cache-Control: no-cache, must-revalidate");
+header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
+?>
 <!--Cambiar nombre de archivo a 'index.php'-->
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +17,11 @@
     <link rel="stylesheet" href="./css_files/main.css">
     <!--Archivo css del formulario-->
     <link rel="stylesheet" href="./css_files/info_form.css">
+    <script>
+        window.onload = function() {
+            window.scroll(0, 0);
+        };
+    </script>
 </head>
 
 <body>

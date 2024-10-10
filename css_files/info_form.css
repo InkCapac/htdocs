@@ -88,7 +88,7 @@ body {
     z-index: 1001; /* Ensure button appears above other content */
     transition: background-color 0.3s ease;
 }
-.callback:hover{
+.callback:hover {
     background-color: rgba(120, 0, 0);
     color: snow;
 }
