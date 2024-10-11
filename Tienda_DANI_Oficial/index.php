@@ -80,10 +80,10 @@ $paginas = ($contar_articulos / 12) + 1;
                 echo "<p>No se han encontrado artículos</p>";
             } else {
                 for ($i = 0; $i < count($productos); $i++) {
-                    $name = $productos[$i]["nombre"];
-                    $image = $productos[$i]["imagen"];
-                    $description = $productos[$i]["descripcion"];
-                    $price = $productos[$i]["precio"];
+                    $nombre = $productos[$i]["nombre"];
+                    $imagen = $productos[$i]["imagen"];
+                    $descripcion = $productos[$i]["descripcion"];
+                    $precio = $productos[$i]["precio"];
                     echo '
                 <article>
                     <h3>' . $nombre . '</h3>

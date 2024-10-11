@@ -45,7 +45,7 @@ $precio = $producto[0]["precio"];
     </style>
 </head>
 
-<!--
+<!-- líneas de código para meter un producto a mano desde este file:
 $producto[0]["nombre"] = "Sony's Playstation 5";
 $producto[0]["imagen"] = "https://www.trippodo.com/720259-medium_default/sony-playstation-5-825-gb-wifi-negro-blanco.jpg";
 $producto[0]["descripcion"] = "<p>Una consola que en cuanto a<span> CÁTALOGO DE JUEGOS </span>no cumplió las expectativas.</p>";
@@ -57,7 +57,7 @@ $producto[0]["precio"] = 525;
         <div class="grid cincuenta">
             <div>
                 <img src="<?= $imagen ?>" alt="<?= $nombre ?>">
-                <!--Para poner el símbolo del euro más profesional   '&euro;'
+                <!--Para poner el símbolo del euro más profesional'&euro;'
                 <p>10&euro;</p>
             -->
             </div>

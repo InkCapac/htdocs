@@ -1,0 +1,7 @@
+1.- Hacer el HTML y el class
+2.- Dejar solo 1 productos
+3.- Sustituir el valor de las variables por datos obtenidos de un array
+4.- Sustituir el valor de las variables por datos obtenidos de un array
+5.- Sustituir los datos del array por una consulta a la base de datos
+
+HINT: Si es posible, añadir la sección 'Preguntas fracuentes' a las páginas que realices.
