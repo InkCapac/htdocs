@@ -29,6 +29,8 @@ section {
 }
 img {
     max-width: 100%;
+    width: 800px;
+    height: 420px;
 }
 nav-grid{
     display: none;
@@ -67,7 +69,7 @@ nav-grid{
 
 .fondo {
     /*background-image: url(../background_1.jpg);*/
-    background-color: tomato;
+    background-color:#f7dfad;
     background-size: cover;
 }
 

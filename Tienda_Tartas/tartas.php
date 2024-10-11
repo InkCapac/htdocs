@@ -63,10 +63,22 @@ $paginas = ($contar_articulos / 12) + 1;
     <meta name="twitter:domain" content="https://www.zk.com">
     
     <!-- Archivos css del proyecto -->
+    <link rel="stylesheet" href="./tienda_tartas.css/tienda_main.css">
     <link rel="stylesheet" href="./tienda_tartas.css/tienda_catalogo.css">
 </head>
 
 <body>
+    <header>
+        <div class="grid logo">
+            <img src="./tienda_tartas_images/cake_average.png" alt="This is L4M3">
+        </div>
+        <nav class="grid cinco">
+            <a href="">Inicio</a>
+            <a href="">Ofertas</a>
+            <a href="">Tartas</a>
+            <a href="">Nosotros</a>
+        </nav>
+    </header>
     <main class="fondo">
         <section class="grid una tablet-dos ordenador-tres grid-33 margen">
             <?php
@@ -74,12 +86,13 @@ $paginas = ($contar_articulos / 12) + 1;
                 echo "<p>No se han encontrado artículos</p>";
             } else {
                 for ($i = 0; $i < count($productos); $i++) {
+                    $id = $productos[$i]["id"];
                     $nombre = $productos[$i]["nombre"];
                     $imagen = $productos[$i]["imagen"];
                     $descripcion = $productos[$i]["descripcion"];
                     $precio = $productos[$i]["precio"];
                     echo '
-                <article>
+                <article class="product-layout">
                     <h3>' . $nombre . '</h3>
                     <img src="' . $imagen . '" class="product-image" alt="' . $nombre . '">
                     <p>' . $descripcion . '</p>

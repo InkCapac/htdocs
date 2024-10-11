@@ -1,12 +1,105 @@
-:root{
+:root {
     --color1: #f7dfad;
     --color2: #f7d49e;
     --color3: #fcbbde;
     --color4: #f582bf;
 }
+
+.grid {
+    display: grid;
+}
+
+/* css del '<article>' */
+.product-layout button {
+    background-color: var(--color4);
+    color: snow;
+    font-family: "Sofia", sans-serif;
+    font-size: smaller;
+    font-weight: lighter;
+
+}
+
 /*
 Fuentes de Google:
 */
-body{
+body {
     background-color: var(--color1);
+}
+
+.product-image {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* css del logo */
+.logo {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: transparent;
+}
+
+.logo img {
+    text-align: center;
+    width: 50%;
+    height: auto;
+    display: block;
+}
+
+section {
+    margin: auto;
+    width: 75%;
+}
+
+.una {
+    grid-template-columns: 100%;
+}
+
+/* css de la barra de navegación */
+nav.grid {
+    display: none;
+}
+
+nav {
+    background-color: var(--color3);
+}
+
+.hamburguesa {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-color: aqua;
+    width: 50px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+@media (min-width: 275px) {
+    .tablet-dos {
+        grid-template-columns: 50% 50%;
+    }
+
+    nav.grid {
+        display: grid;
+    }
+
+    .hamburguesa {
+        display: none;
+    }
+}
+
+@media (min-width: 575px) {
+    .ordenador-tres {
+        grid-template-columns: 33.33% 33.33% 33.33%;
+    }
+}
+
+.cinco {
+    grid-template-columns: 20% 20% 20% 20% 20%;
+}
+
+.treinta-setenta {
+    grid-template-columns: 30% 70%;
 }
