@@ -1,0 +1,12 @@
+:root{
+    --color1: #f7dfad;
+    --color2: #f7d49e;
+    --color3: #fcbbde;
+    --color4: #f582bf;
+}
+/*
+Fuentes de Google:
+*/
+body{
+    background-color: var(--color1);
+}

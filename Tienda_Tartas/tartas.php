@@ -22,8 +22,47 @@ $paginas = ($contar_articulos / 12) + 1;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zarif Kamiso | Tienda de tartas artesanales</title>
     <!--La siguiente línea de código será para identificar más rápido las web-->
-    <meta name="keywords" content="Tartas de queso, tartas, tartaletas, queso con lotus, tarta de maracuya, tarta de pistacho, cheesecake madrid, tartas madrid, cumpleaños, celebraciones">
-    <meta name="description" content="">
+    <meta name="keywords" content="Tartas de queso, tartas, tartas artesanales, tartaletas, queso con lotus, tarta de maracuya, tarta de pistacho, cheesecake madrid, tartas madrid, cumpleaños, celebraciones">
+    <meta name="description" content="Las mejores tartas artesanales de queso de Madrid. Pistacho, maracuya o Lotus. Para cumpleaños, celebraciones...">
+    <!-- Fonts (fuentes) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+
+    <!--Favicon-->
+    <link rel="apple-touch-icon" sizes="57x57" href="./tienda_tartas_images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="48x48" href="./tienda_tartas_images/favicon-48x48.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="./tienda_tartas_images/web-app-manifest-192x192.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="./tienda_tartas_images/web-app-manifest-512x512.png">
+    <link rel="icon" type="image/png" sizes="114x114" href="./tienda_tartas_images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="./tienda_tartas_images/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="144x144" href="./tienda_tartas_images/web-app-manifest-192x192.png">
+    <link rel="icon" type="image/png" sizes="152x152" href="./tienda_tartas_images/web-app-manifest-512x512.png">
+    <link rel="manifest" href="./tienda_tartas_images/site.webmanifest">
+    <meta name="msapplication-Tilecolor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="./tienda_tartas_images/favicon-48x48.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!--Líneas de código para promocionar tu página web
+    |
+    |
+    V
+    -->
+    <!-- Meta: Facenook, Instagram y Whatsapp -->
+    <meta property="og:title" content="Zarif Kamiso | Tartas artesanales" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.zk.com" />
+    <meta property="og:image" content="https://www.zk.com/logo.jpg" />
+    <meta property="og:description" content="" />
+    <meta property="og:width" content="400" />
+    <meta property="og:heigth" content="300" />
+    <!-- Twitter -> X -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:size" content="@zk">
+    <meta name="twitter:title" content="Zarif Kamiso - Tartas Artesanales">
+    <meta name="twitter:description" content="Las mejores tartas artesanales de queso de Madrid.">
+    <meta name="twitter:image:src" content="https://www.zk.com/logo.jpg">
+    <meta name="twitter:domain" content="https://www.zk.com">
+    
+    <!-- Archivos css del proyecto -->
     <link rel="stylesheet" href="./tienda_tartas.css/tienda_catalogo.css">
 </head>
 
@@ -45,8 +84,18 @@ $paginas = ($contar_articulos / 12) + 1;
                     <img src="' . $imagen . '" class="product-image" alt="' . $nombre . '">
                     <p>' . $descripcion . '</p>
                     <p>' . $precio . '</p>
+                    <a href= "productos.php?id='.$id.'"><button>Adquirir</button><a>
                 </article>';
                 }
+            }
+            ?>
+            <!-- Páginas individuales de cada producto -->
+            <?php
+            for ($i = 1; $i <= $paginas; $i++) {
+                echo '<a href="tartas.php?pagina=' . $i . '">' . $i . '</a>';
+            }
+            for ($i = 1; $i <= $paginas; $i++) {
+                echo '<a href="tartas.php?pagina=' . ($i + 1) . '">' . ($i + 1) . '</a>';
             }
             ?>
         </section>

@@ -1,12 +1,15 @@
+body{
+    font-family: "Sofia", sans-serif;
+}
 .grid {
     display: grid;
 }
 
-/*
+
 .grid-33 {
     grid-template-columns: 33.33% 33.33% 33.33%;
 }
-*/
+
 /*CLASE 07-10*/
 /*Clase mobile first - DANI
 - Improve it to make it work
@@ -24,7 +27,6 @@ section {
     border-radius: 50%;
     text-align: center;
 }
-
 img {
     max-width: 100%;
 }
@@ -65,7 +67,7 @@ nav-grid{
 
 .fondo {
     /*background-image: url(../background_1.jpg);*/
-    background-color: beige;
+    background-color: tomato;
     background-size: cover;
 }
 
