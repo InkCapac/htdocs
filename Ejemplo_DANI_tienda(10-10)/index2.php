@@ -4,7 +4,7 @@ include_once("./conectar.php");
 $servidor = "localhost";
 $usuario = "root";
 $contrasena = "";
-$bbdd = "productos";
+$bbdd = "tienda";
 /*
 Estructura de la base de datos para conectar a este Php:
 - id int auto_increment
