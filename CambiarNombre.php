@@ -22,9 +22,10 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
 </head>
 
 <body>
+    <script src="./js_files/nav_bar.js"></script>
     <div class="navbar">
         <a href="#about">About Us</a>
-        <a href="#contact">Contact</a>
+        <a href="#contact">Contáctanos</a>
         <a href="#missions">Missions</a>
         <a href="#category4">Category 4</a>
         <a href="#category5">Category 5</a>
@@ -68,11 +69,27 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
     <div class="content">
         <div class="grid">
             <div class="image-container">
-                <img class="macchu-picchu" src="./content_images/macchu_picchu.jpg" alt="Machu Picchu">
+                <img class="image-section" src="./content_images/macchu_picchu.jpg" alt="Machu Picchu">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto optio repudiandae.</p>
             </div>
             <div class="image-container">
-                <img class="macchu-picchu" src="./content_images/peru_lake.jpg" alt="Peru Lake">
+                <img class="image-section" src="./content_images/peru_lake.jpg" alt="Peru Lake">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto optio repudiandae.</p>
+            </div>
+            <div class="image-container">
+                <img class="image-section" src="./content_images/macchu_picchu.jpg" alt="Machu Picchu">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto optio repudiandae.</p>
+            </div>
+            <div class="image-container">
+                <img class="image-section" src="./content_images/peru_lake.jpg" alt="Peru Lake">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto optio repudiandae.</p>
+            </div>
+            <div class="image-container">
+                <img class="image-section" src="./content_images/macchu_picchu.jpg" alt="Machu Picchu">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto optio repudiandae.</p>
+            </div>
+            <div class="image-container">
+                <img class="image-section" src="./content_images/peru_lake.jpg" alt="Peru Lake">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto optio repudiandae.</p>
             </div>
         </div>
@@ -105,7 +122,7 @@ Mostrar la estructura de navegación
             </div>
             <p>Información adicional</p>
             <textarea id="additional-info" name="additional_info" cols="30" rows="20"></textarea>
-            <div class="grid check">
+            <div class="grid checkbox-message">
                 <input type="checkbox" id="consent" name="consent" class="arriba">
                 <label for="consent">Por favor, haz click en este botón para asegurarnos que estás de acuerdo con nuestras condiciones de servicio.</label>
             </div>

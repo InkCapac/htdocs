@@ -5,34 +5,42 @@
     --color3: snow;
     --borde: 1px solid rgb(219, 26, 31);
 }
-
-body,
-html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
+/*Sección de los estilos*/
+@font-face{
+    font-family: Cormorant;
+    src: url(../fonts/static/Cormorant-BoldItalic.ttf);
 }
-
 .navbar {
+    position: fixed;
+    /*Fuente que usaremos en la barra de navegación*/
+    font-family: Cormorant; 
+    top: 0;
+    left: 0;
     width: 100%;
+    /*La barra ocupará 1/10 de la altura de la ventana*/
     height: 10vh;
-    /* 1/5 of the viewport height */
-    background-color: var(--color1);
+    background-color: transparent;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+.navbar.solid {
+    background-color: var(--color1);
+    color: var(--color3);
 }
 
 .navbar a {
     color:var(--color3);
     text-decoration: none;
-    font-size: 1.5em;
-    transition: background-color 0.3s ease;
+    font-size: 2em;
+    padding: 10px;
+    /*Transition permite el cambio de color con un tiempo determinado*/
+    transition: background-color 0.3s ease; 
+    /*order-radius: 5px;*/
 }
 .navbar a:hover{
     background-color: var(--color2);
     color: var(--color3);
-}
-.navbar a:active{
-    background-color: var(--color1);
 }

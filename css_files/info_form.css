@@ -6,65 +6,82 @@
     --borde: 1px solid rgb(219, 26, 31);
 }
 
+@font-face {
+    font-family: Cormorant;
+    src: url(../fonts/static/Cormorant-Regular.ttf);
+}
+
 body {
     margin: 0;
-    overflow-x: hidden;
-    /* Evita que aparezaca un 'scrollbar' horizontal */
+    overflow-x: hidden; /* Evita que aparezaca un 'scrollbar' horizontal */
 }
 
 /*Caja de mensaje*/
 .form-box {
+    font-family: Cormorant;
+    font-size: 16px;
+    color: black;
     position: fixed;
     top: 125px;
     right: 0;
     padding: 5px;
     width: 350px;
-    font-family: Verdana, Geneva, sans-serif;
-    font-size: 11px;
-    transform: translateX(350px);
-    /*La caja esta oculta en la ventana*/
+    max-width: 600px; /* Set a maximum width for the form box */
+    transform: translateX(350px); /* Transición 'suave' y revelación de la caja */
     transition: transform 1s ease;
-    /*Transición 'suave' y revelación de la caja*/
-    border: var(--borde);
+    border: var(--borde); /* Fixed border declaration */
     background-color: var(--color3);
-    /*El contenido de la caja se puede ver sobre el resto de la página*/
-    z-index: 1000;
+    z-index: 1000; /* El contenido de la caja se puede ver sobre el resto de la página */
 }
 
 .form-box.abierto {
-    transform: translateX(0px);
-    /*Línea para que el formulario se revele en la ventana*/
+    transform: translateX(0px); /* Línea para que el formulario se revele en la ventana */
 }
 
 /*Grid layout para el contenido del formulario*/
 .form-box .grid {
-    display: grid;
+    display: grid; /* Use grid layout for the form */
 }
 
+/* Input Fields */
 .form-box .inputs {
-    grid-template-columns: 17.5% 82.5%;
+    grid-template-columns: 1fr; /* Change to a single column layout */
+    gap: 5px; /* Add spacing between input rows */
 }
 
-.form-box .check {
-    grid-template-columns: max-content auto;
-}
-
-/*Campos de entrada de datos*/
-.form-box input {
-    background-color: snow;
-    border: 1px solid grey;
-    margin-bottom: 2px;
-}
-
+.form-box input[type="text"],
+.form-box input[type="email"],
+.form-box input[type="tel"],
 .form-box textarea {
-    width: calc(100% - 5px);
-    resize: none;
-    height: 100px;
+    width: 100%; /* Full width */
+    max-width: 100%; /* Prevent overflow */
+    box-sizing: border-box; /* Include padding and border in width */
+    padding: 10px; /* Padding for comfort */
+    border: 1px solid grey; /* Border for input fields */
+    margin-bottom: 2px; /* Space between inputs */
+    background-color: snow; /* Background color for inputs */
 }
 
-/*Alineación de la casilla*/
+/* Optional: Style the textarea */
+.form-box textarea {
+    resize: vertical; /* Allow vertical resizing only */
+    height: 100px; /* Default height */
+}
+.form-box .checkbox-message{
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    gap: 1px;
+}
+.checkbox-wrapper input[type="checkbox"] {
+    margin-right: 5px; /* Space between checkbox and label */
+}
+/*Campos de entrada de datos*/
+/*Estilos del 'checkbox'*/
 .form-box .arriba {
-    margin-top: -25px;
+    margin-top: 25px; /* Alineación de la casilla */
+    margin-right: 5px; /* Space between checkbox and label */
+    width: 20%;
+    height: 20%;
 }
 
 /*Estilos del botón del formulario*/
@@ -73,17 +90,18 @@ body {
     color: snow;
     padding: 10px 25px;
     font-size: 20px;
-    /* Gradient using new colors */
     background-color: var(--color1);
     border: none;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
 .form-box button:hover {
     background-color: var(--color2);
     color: snow;
 }
+
 .form-box button:active {
     background-color: var(--color1);
 }
@@ -91,24 +109,17 @@ body {
 /*Estilos para el botón 'callback', el cual en la web se ve como 'Contáctanos'*/
 .contact {
     cursor: pointer;
-    /* Stay aligned with the form box */
     position: absolute;
-    top: 76px;
-    /* Adjust positioning as necessary */
-    left: -124px;
-    /* Position to the left of the form box */
-    transform: rotate(90deg);
-    /* Rotate label to be readable */
+    top: 76px; /* Adjust positioning as necessary */
+    left: -124px; /* Position to the left of the form box */
+    transform: rotate(90deg); /* Rotate label to be readable */
     background-color: var(--color1);
-    /* Blue background for callback button */
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: snow;
     padding: 10px;
     border-radius: 5px;
     font-size: 16px;
-    /*Esto asegura que el formulario está posicionado sobre otro contenido*/
-    z-index: 1001;
-    /*transition: background-color 0.3s ease;*/
+    z-index: 1001; /*Esto asegura que el formulario está posicionado sobre otro contenido*/
     margin-right: 10px;
     transition: background-color 0.3s ease;
 }
@@ -119,16 +130,11 @@ body {
 }
 
 .contact:active {
-    background-color: var(--color1);
-    /* Even darker color when pressed */
+    background-color: var(--color1); /* Even darker color when pressed */
 }
 
 /* Gallery styling to ensure it stays behind the form box */
 .gallery {
     position: relative;
-    /* Si le pongo ese valor '2000' el formulario no aparece hasta hacer scroll-down debajo de la galería de imágenes*/
-    z-index: 1;
-    /*Con este valor '1', el formulario aparece sobre la galería desde el incio
-    z-index: 1;
-    */
+    z-index: 1; /* The form appears above the gallery */
 }
