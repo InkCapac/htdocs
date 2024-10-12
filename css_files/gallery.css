@@ -1,4 +1,11 @@
 /* General Reset */
+:root {
+    /*Los colores principales de la página*/
+    --color1: rgb(219, 26, 31);
+    --color2: rgba(120, 0, 0);
+    --color3: snow;
+    --borde: 1px solid rgb(219, 26, 31);
+}
 * {
     box-sizing: border-box;
     /* Include padding and borders in the element's total width and height */
@@ -53,9 +60,7 @@ body {
     /* Only show active image */
 }
 
-/* gallery.css */
-
-/* Styling for the buttons below the gallery */
+/*Estilos de los botones 'anterior y siguiente' debajo de la galería */
 .nav-buttons {
     display: flex;
     /* Use flexbox to align buttons */
@@ -68,13 +73,14 @@ body {
 }
 
 .nav-button {
+    /*El ancho de los botones ocupan el mismo espacio*/
     flex: 1;
-    /* Each button occupies equal width */
+    /*Tamaño de la fuente*/
     font-size: 20px;
     cursor: pointer;
-    background-color: rgb(200, 0, 0);
-    /* Change this to the desired button background color */
-    color: snow;
+    /*Color de fondo de los botones 'anterior' y 'siguiente'*/
+    background-color: var(--color1);
+    color: var(--color3);
     font-size:xx-large;
     /* Change this to the desired text color */
     border: none;
@@ -92,15 +98,15 @@ body {
 
 /* Hover effect */
 .nav-button:hover {
-    background-color: rgba(120, 0, 0);
+    background-color: var(--color2);
     /* Darker shade on hover */
-    color: snow;
+    color: var(--color3);
     /* Text color on hover */
 }
 
 /* Active button state (optional) */
 .nav-button:active {
-    background-color: red;
+    background-color:var(--color1);
     /* Even darker color when pressed */
 }
 
