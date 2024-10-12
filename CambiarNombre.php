@@ -24,7 +24,7 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
 <body>
     <script src="./js_files/nav_bar.js"></script>
     <div class="navbar">
-        <a href="#about">About Us</a>
+        <a href="./destinos.php">Destinos</a>
         <a href="#contact">Contáctanos</a>
         <a href="#missions">Missions</a>
         <a href="#category4">Category 4</a>
@@ -45,11 +45,11 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
     <div class="gallery">
         <div class="gallery-container">
             <img class="gallery-item active" src="./gallery_images/montana_7colores.jpg" data-index="1">
-            <img class="gallery-item" src="./gallery_images/peru_llamas.jpg" data-index="2">
-            <img class="gallery-item" src="./gallery_images/montana_7colores.jpg" data-index="3">
-            <img class="gallery-item" src="./gallery_images/peru_llamas.jpg" data-index="4">
+            <img class="gallery-item" src="./gallery_images/peru_lake.jpg" data-index="2">
+            <img class="gallery-item" src="./gallery_images/peruvian_food.jpg" data-index="3">
+            <img class="gallery-item" src="./gallery_images/peru_lake.jpg" data-index="4">
             <img class="gallery-item" src="./gallery_images/montana_7colores.jpg" data-index="5">
-            <img class="gallery-item" src="./gallery_images/peru_llamas.jpg" data-index="6">
+            <img class="gallery-item" src="./gallery_images/peru_lake.jpg" data-index="6">
         </div>
     </div>
 
@@ -104,8 +104,6 @@ Mostrar la guía de estilo
 Mostrar la estructura del sitio web
 Mostrar la estructura de navegación
 ->
-
-
 
     <!--Sección del formulario de la esquina-->
     <!--Formulario-->

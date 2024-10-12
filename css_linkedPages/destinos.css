@@ -1,0 +1,33 @@
+/*Estilos para la página de 'destinos.php'*/
+@font-face {
+    font-family: Cormorant;
+    src: url(../fonts/static/Cormorant-Bold.ttf);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+html,
+body {
+    font-family: Cormorant;
+    font-size: x-large;
+    color: black;
+}
+
+.image-container {
+    margin: 0;
+}
+
+.image-section {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.image-container p {
+    text-align: center;
+    margin-top: 10px;
+}
