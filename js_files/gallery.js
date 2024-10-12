@@ -30,7 +30,7 @@ document.getElementById('prevButton').addEventListener('click', prevImage); // E
 document.getElementById('nextButton').addEventListener('click', nextImage); // Evento para botón siguiente
 
 // Funcionalidad del carrusel automático
-let carouselInterval = setInterval(nextImage, 4000); // Cambiar imagen cada 4 segundos (ajustable)
+let carouselInterval = setInterval(nextImage, 5000); // Cambiar imagen cada 5 segundos (ajustable)
 
 // Función para reiniciar el intervalo del carrusel
 function resetCarousel() {
