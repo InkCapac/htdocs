@@ -115,7 +115,7 @@ body {
 .contact {
     cursor: pointer;
     position: absolute;
-    font-family: Cormorant;
+    font-family: Cormorant; 
     top: 76px; /* Ajustar la posición según sea necesario */
     left: -124px; /* Posicionar a la izquierda de la caja del formulario */
     transform: rotate(90deg); /* Rotar la etiqueta para que sea legible */
