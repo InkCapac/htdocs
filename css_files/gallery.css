@@ -1,156 +1,129 @@
+/* General Reset */
 :root {
-    /* Los colores principales de la página */
     --color1: rgb(219, 26, 31);
     --color2: rgba(120, 0, 0);
     --color3: snow;
     --borde: 1px solid rgb(219, 26, 31);
 }
 
-/*Incluir el relleno y los bordes en el ancho y alto total del elemento*/
+@font-face {
+    font-family: Cormorant;
+    src: url(../fonts/static/Cormorant-BoldItalic.ttf);
+}
+
+/* Incluir el relleno y los bordes en el ancho y alto total del elemento */
 * {
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 
 body {
-    /*Eliminar el margen predeterminado del cuerpo*/
-    margin: 0; 
-    /*Ocultar la barra de desplazamiento horizontal*/
-    overflow-x: hidden; 
+
+    /* Eliminar el margen predeterminado del cuerpo */
+    margin: 0;
+    /* Ocultar la barra de desplazamiento horizontal */
+    overflow-x: hidden;
 }
 
 .gallery {
     /* Posicionamiento relativo para la galería */
-    position: relative; 
+    position: relative;
     /* Ocultar el desbordamiento de imágenes posicionadas absolutamente */
-    overflow: hidden; 
-    /*La galería ocupa el ancho total de la vista de la ventana*/
-    width: 100vw; 
+    overflow: hidden;
+    /* La galería ocupa el ancho total de la vista de la ventana */
+    width: 100vw;
     /* Altura completa de la ventana gráfica menos la altura del botón */
-    height: calc(100vh - 50px); 
+    height: calc(100vh - 50px);
 }
 
 .gallery-container {
-    position: relative; 
+    position: relative;
     /* Contenedor para posicionar imágenes */
-    width: 100%; 
+    width: 100%;
     /* Hacer que el contenedor llene la galería */
-    height: 100%; 
-    /* Hacer que el contenedor llene la galería */
+    height: 100%;
 }
 
+/* Configuración de las imágenes individuales de la galería */
 .gallery-item {
-    object-fit: cover; 
+    object-fit: cover;
     /* Mantener la relación de aspecto y cubrir el espacio */
-    position: absolute; 
+    position: absolute;
     /* Posicionar imágenes absolutamente */
-    top: 0; 
-    left: 0; 
-    width: 100%; 
+    top: 0;
+    left: 0;
+    width: 100%;
     /* Hacer que las imágenes llenen la galería */
-    height: 100%; 
+    height: 100%;
     /* Hacer que las imágenes llenen la galería */
-    z-index: 1; 
+    z-index: 1;
     /* Asegurar que las imágenes estén detrás de los controles */
-    opacity: 0; 
+    opacity: 0;
     /* Comenzar sin opacidad */
-    transition: opacity 1s ease; 
-    /* Transición suave para la opacidad */
-    visibility: hidden; 
+    transform: scale(2.0);
+    /* Iniciar con un ligero zoom-in */
+    transition: opacity 3s ease, transform 2s ease;
+    /* Transiciones suaves para opacidad y zoom-out */
+    visibility: hidden;
     /* Ocultar imágenes inicialmente */
 }
 
+/* Cuando la imagen está activa, aplicar estos estilos */
 .gallery-item.active {
-    opacity: 1; 
+    opacity: 1;
     /* Totalmente visible */
-    visibility: visible; 
+    visibility: visible;
     /* Hacerla visible cuando está activa */
+    transform: scale(1);
+    /* Aplicar efecto de zoom-out */
 }
 
 /* Estilos de los botones 'anterior' y 'siguiente' debajo de la galería */
 .nav-buttons {
-    display: flex; 
+    
+    display: flex;
     /* Usar flexbox para alinear botones */
-    width: 100vw; 
+    width: 100vw;
     /* Ancho completo de la ventana gráfica */
-    height: 50px; 
+    height: 50px;
     /* Establecer una altura para los botones */
-    background-color: #f0f0f0; 
+    background-color: #f0f0f0;
     /* Opcional: color de fondo para el contenedor de los botones */
 }
 
 .nav-button {
+    font-family: Cormorant;
     /* El ancho de los botones ocupa el mismo espacio */
-    flex: 1; 
+    flex: 1;
     /* Tamaño de la fuente */
-    font-size: 20px; 
-    cursor: pointer; 
+    font-size: 20px;
+    cursor: pointer;
     /* Color de fondo de los botones 'anterior' y 'siguiente' */
-    background-color: var(--color1); 
-    color: var(--color3); 
-    font-size: xx-large; 
+    background-color: var(--color1);
+    color: var(--color3);
+    font-size: xx-large;
     /* Cambiar esto al color de texto deseado */
-    border: none; 
-    margin: 0; 
+    border: none;
+    margin: 0;
     /* Eliminar márgenes */
-    display: flex; 
+    display: flex;
     /* Establecer el botón como contenedor flex */
-    align-items: center; 
+    align-items: center;
     /* Centrar el texto verticalmente */
-    justify-content: center; 
+    justify-content: center;
     /* Centrar el texto horizontalmente */
-    transition: background-color 0.3s ease; 
+    transition: background-color 0.3s ease;
     /* Transición suave para efectos de hover */
 }
 
 /* Efecto hover */
 .nav-button:hover {
-    background-color: var(--color2); 
+    background-color: var(--color2);
     /* Sombra más oscura al pasar el cursor */
-    color: var(--color3); 
+    color: var(--color3);
     /* Color del texto al pasar el cursor */
 }
 
 /* Estado activo del botón (opcional) */
 .nav-button:active {
-    background-color: var(--color1); 
-    /* Color aún más oscuro cuando se presiona */
-}
-
-/* Estilos de la sección de contenido */
-.content {
-    padding: 20px; 
-    /* Relleno para el área de contenido */
-}
-
-/* Diseño de cuadrícula para imágenes */
-.grid {
-    display: flex; 
-    /* Usar flexbox para alineación */
-    justify-content: space-between; 
-    /* Espacio entre las imágenes */
-}
-
-.image-container {
-    flex: 1; 
-    /* Cada contenedor ocupa el mismo espacio */
-    margin: 0 10px; 
-    /* Margen horizontal para espaciado */
-}
-
-.macchu-picchu {
-    width: 100%; 
-    /* Hacer que las imágenes sean responsivas */
-    height: auto; 
-    /* Mantener la relación de aspecto */
-    border-radius: 10px; 
-    /* Opcional: esquinas redondeadas */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
-    /* Opcional: efecto de sombra */
-}
-
-.image-container p {
-    text-align: center; 
-    /* Centrar texto debajo de las imágenes */
-    margin-top: 10px; 
-    /* Espaciado encima del párrafo */
+    background-color: var(--color1);
 }

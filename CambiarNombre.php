@@ -122,7 +122,8 @@ Mostrar la estructura de navegación
             <textarea id="additional-info" name="additional_info" cols="30" rows="20"></textarea>
             <div class="grid checkbox-message">
                 <input type="checkbox" id="consent" name="consent" class="arriba">
-                <label for="consent">Por favor, haz click en este botón para asegurarnos que estás de acuerdo con nuestras condiciones de servicio.</label>
+                <label for="consent">Por favor, haz click en este botón para asegurarnos que estás de acuerdo con
+                    nuestras condiciones de servicio.</label>
             </div>
             <button type="submit">Enviar datos</button>
         </form>
@@ -139,7 +140,10 @@ Mostrar la estructura de navegación
     <script src="./js_files/main.js"></script>
 
     </div>
-    <footer></footer>
+    <footer>
+        <p>© 2024 Visit Peru</p>
+
+    </footer>
 </body>
 
 </html>
