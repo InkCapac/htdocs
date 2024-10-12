@@ -1,32 +1,39 @@
 :root {
-    --naranja: rgb(219, 26, 31);
-    --naranja2: rgb(219, 26, 31);
+    /*Los colores principales de la página*/
+    --color1: rgb(219, 26, 31);
+    --color2: rgba(120, 0, 0);
+    --color3: snow;
     --borde: 1px solid rgb(219, 26, 31);
 }
 
 body {
     margin: 0;
-    overflow-x: hidden; /* Evita que aparezaca un 'scrollbar' horizontal */
+    overflow-x: hidden;
+    /* Evita que aparezaca un 'scrollbar' horizontal */
 }
 
 /*Caja de mensaje*/
 .form-box {
     position: fixed;
     top: 125px;
-    right: 0; 
+    right: 0;
     padding: 5px;
     width: 350px;
     font-family: Verdana, Geneva, sans-serif;
     font-size: 11px;
-    transform: translateX(350px); /*La caja esta oculta en la ventana*/
-    transition: transform 1s ease; /*Transición 'suave' y revelación de la caja*/
+    transform: translateX(350px);
+    /*La caja esta oculta en la ventana*/
+    transition: transform 1s ease;
+    /*Transición 'suave' y revelación de la caja*/
     border: var(--borde);
-    background-color: snow;
-    z-index: 1000; /*El contenido de la caja se puede ver sobre el resto de la página*/
+    background-color: var(--color3);
+    /*El contenido de la caja se puede ver sobre el resto de la página*/
+    z-index: 1000;
 }
 
 .form-box.abierto {
-    transform: translateX(0px); /*Línea para que el formulario se revele en la ventana*/
+    transform: translateX(0px);
+    /*Línea para que el formulario se revele en la ventana*/
 }
 
 /*Grid layout para el contenido del formulario*/
@@ -66,33 +73,50 @@ body {
     color: snow;
     padding: 10px 25px;
     font-size: 20px;
-    background-image: linear-gradient(to bottom, var(--naranja), var(--naranja2));
+    /* Gradient using new colors */
+    background-color: var(--color1);
     border: none;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
     cursor: pointer;
 }
+.form-box button:hover {
+    background-color: var(--color2);
+    color: snow;
+}
+.form-box button:active {
+    background-color: var(--color1);
+}
 
-/* Styling for the "Quick callback" button */
-.callback {
+/*Estilos para el botón 'callback', el cual en la web se ve como 'Contáctanos'*/
+.contact {
     cursor: pointer;
-    position: absolute; /* Stay aligned with the form box */
-    top: 87px; /* Adjust positioning as necessary */
-    left: -120px; /* Position to the left of the form box */
-    transform: rotate(90deg); /* Rotate label to be readable */
-    background-color: #007BFF; /* Blue background for callback button */
+    /* Stay aligned with the form box */
+    position: absolute;
+    top: 76px;
+    /* Adjust positioning as necessary */
+    left: -124px;
+    /* Position to the left of the form box */
+    transform: rotate(90deg);
+    /* Rotate label to be readable */
+    background-color: var(--color1);
+    /* Blue background for callback button */
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: snow;
     padding: 10px;
     border-radius: 5px;
-    font-size: 14px;
-    z-index: 1001; /* Ensure button appears above other content */
-    transition: background-color 0.3s ease;
+    font-size: 16px;
+    z-index: 1001;
+    /* Ensure button appears above other content */
+    /*transition: background-color 0.3s ease;*/
+    margin-right: 10px;
 }
-.callback:hover {
-    background-color: rgba(120, 0, 0);
+
+.contact:hover {
+    background-color: var(--color2);
     color: snow;
 }
-.callback:active {
+
+.contact:active {
     background-color: red;
     /* Even darker color when pressed */
 }
@@ -100,5 +124,9 @@ body {
 /* Gallery styling to ensure it stays behind the form box */
 .gallery {
     position: relative;
-    z-index: 1; /* Lower than the form box */
+    /* Si le pongo ese valor '2000' el formulario no aparece hasta hacer scroll-down debajo de la galería de imágenes*/
+    z-index: 1;
+    /*Con este valor '1', el formulario aparece sobre la galería desde el incio
+    z-index: 1;
+    */
 }

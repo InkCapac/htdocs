@@ -1,4 +1,4 @@
-// carousel.js
+// JS de la galería de imágenes al incio de la página
 
 const galleryItems = document.querySelectorAll('.gallery-item');
 let currentIndex = 0;

@@ -111,7 +111,7 @@ Mostrar la estructura de navegación
             </div>
             <button type="submit">Enviar datos</button>
         </form>
-        <button class="callback">Contáctanos</button>
+        <button class="contact">Contáctanos</button>
     </div>
 
 
