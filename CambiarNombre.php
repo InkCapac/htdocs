@@ -25,8 +25,8 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
     <script src="./js_files/nav_bar.js"></script>
     <div class="navbar">
         <a href="./destinos.php">Destinos</a>
-        <a href="#contact">Contáctanos</a>
-        <a href="#missions">Missions</a>
+        <a href="./gastronomia.php">Gastronomía</a>
+        <a href="./festivales.php">Festivales</a>
         <a href="#category4">Category 4</a>
         <a href="#category5">Category 5</a>
     </div>
@@ -109,7 +109,7 @@ Mostrar la estructura de navegación
     <!--Formulario-->
     <div class="form-box">
         <form>
-            <p>Rellena con tus datos este formulario y te contactaremos pronto:</p>
+            <p>Forma parte de</p>
             <div class="grid inputs">
                 <label for="name">Nombre</label>
                 <input type="text" id="name" name="name">
@@ -127,7 +127,7 @@ Mostrar la estructura de navegación
             </div>
             <button type="submit">Enviar datos</button>
         </form>
-        <button class="contact">Contáctanos</button>
+        <button class="contact">Embajadores</button>
     </div>
 
 

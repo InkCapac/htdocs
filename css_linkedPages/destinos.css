@@ -1,33 +1,71 @@
-/*Estilos para la página de 'destinos.php'*/
+:root {
+    --color1: rgb(219, 26, 31);
+    --color2: rgba(120, 0, 0);
+    --color3: snow;
+    --borde: 1px solid rgb(219, 26, 31);
+}
+
 @font-face {
     font-family: Cormorant;
     src: url(../fonts/static/Cormorant-Bold.ttf);
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
-
-html,
-body {
+html, body {
     font-family: Cormorant;
-    font-size: x-large;
     color: black;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body p{
+    font-size: xx-large;
+    text-align: center;
+}
+.content {
+    padding: 20px;
 }
 
-.image-container {
+.grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.image-text-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; /* Prevent text from touching the viewport borders */
+}
+
+.image-text-row img {
+    width: 45%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    object-fit: cover;
+}
+
+.image-text-row p {
+    width: 45%;
+    font-size: x-large;
+    text-align: justify;
     margin: 0;
 }
 
-.image-section {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
+/* Image on the right */
+.image-right {
+    flex-direction: row-reverse;
 }
 
-.image-container p {
-    text-align: center;
-    margin-top: 10px;
+/* Image on the left */
+.image-left {
+    flex-direction: row;
+}
+
+.image-section:hover {
+    transform: scale(1.1); /* Zoom effect */
 }

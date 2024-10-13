@@ -8,13 +8,12 @@
 /*Sección de los estilos*/
 @font-face{
     font-family: Cormorant;
-    src: url(../fonts/static/Cormorant-BoldItalic.ttf);
+    src: url(../fonts/static/Cormorant-Italic.ttf);
 }
 .navbar {
     position: fixed;
     /*Fuente que usaremos en la barra de navegación*/
-    font-family: Cormorant; 
-    font-size: 2em;
+    font-family: Cormorant;
     top: 0;
     left: 0;
     width: 100%;
@@ -35,7 +34,7 @@
 .navbar a {
     color:var(--color3);
     text-decoration: none;
-    font-size: 1em;
+    font-size: 2em;;
     padding: 10px;
     /*Transition permite el cambio de color con un tiempo determinado*/
     transition: background-color 0.3s ease; 
