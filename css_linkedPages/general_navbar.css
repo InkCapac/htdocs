@@ -5,15 +5,20 @@
     --color3: snow;
     --borde: 1px solid rgb(219, 26, 31);
 }
+
 /*Sección de los estilos*/
-@font-face{
+@font-face {
     font-family: Cormorant;
     src: url(../fonts/static/Cormorant-Italic.ttf);
 }
+
 .navbar {
+
     position: fixed;
     /*Fuente que usaremos en la barra de navegación*/
+    overflow: hidden;
     font-family: Cormorant;
+    font-size: 1em;
     top: 0;
     left: 0;
     width: 100%;
@@ -23,24 +28,40 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    box-sizing: border-box;
     z-index: 1000;
     transition: background-color 0.3s ease;
 }
+
 .navbar.solid {
     background-color: var(--color1);
     color: var(--color3);
 }
 
 .navbar a {
-    color:var(--color3);
+    color: var(--color3);
     text-decoration: none;
-    font-size: 2em;;
+    font-size: 2em;
+    ;
     padding: 10px;
     /*Transition permite el cambio de color con un tiempo determinado*/
-    transition: background-color 0.3s ease; 
+    transition: background-color 0.3s ease;
     /*order-radius: 5px;*/
 }
-.navbar a:hover{
+
+.navbar a:hover {
     background-color: var(--color2);
     color: var(--color3);
+}
+.navbar img.navbar-imagen{
+    height: 50px;
+    width: auto; /* Maintains the aspect ratio of the image */
+    margin-right: 15px; /* Adds space between the image and the next link */
+    padding: 0; /* Removes any default padding */
+    max-height: 100%; /* Ensures the image height doesn't exceed the navbar height */
+    object-fit: contain; 
+}
+footer{
+    text-align: center;
+    padding: 20px;
 }

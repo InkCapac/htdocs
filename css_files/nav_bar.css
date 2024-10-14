@@ -13,6 +13,7 @@
 .navbar {
     position: fixed;
     /*Fuente que usaremos en la barra de navegación*/
+    overflow: hidden;
     font-family: Cormorant; 
     font-size: 2em;
     top: 0;
@@ -24,6 +25,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    box-sizing: border-box;
     z-index: 1000;
     transition: background-color 0.3s ease;
 }
@@ -36,7 +38,8 @@
     color:var(--color3);
     text-decoration: none;
     font-size: 1em;
-    padding: 10px;
+    margin: 0 15px;
+    padding: 15px;
     /*Transition permite el cambio de color con un tiempo determinado*/
     transition: background-color 0.3s ease; 
     /*order-radius: 5px;*/
@@ -44,4 +47,12 @@
 .navbar a:hover{
     background-color: var(--color2);
     color: var(--color3);
+}
+.navbar img.navbar-imagen{
+    height: 50px;
+    width: auto; /* Maintains the aspect ratio of the image */
+    margin-right: 15px; /* Adds space between the image and the next link */
+    padding: 0; /* Removes any default padding */
+    max-height: 100%; /* Ensures the image height doesn't exceed the navbar height */
+    object-fit: contain; 
 }

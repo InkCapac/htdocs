@@ -20,15 +20,15 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
     <!--Archivo css de la barra de navegación-->
     <link rel="stylesheet" href="./css_files/nav_bar.css">
 </head>
-
+<!--Barra de navegación-->
 <body>
     <script src="./js_files/nav_bar.js"></script>
     <div class="navbar">
+        <a href="#"><img src="https://www.pikpng.com/pngl/b/542-5426711_logo-marca-peru-logo-peru-clipart.png" alt="Marca Perú" class="navbar-imagen"></a>
+        <a href="Main page">Visit Peru  </a>
         <a href="./destinos.php">Destinos</a>
         <a href="./gastronomia.php">Gastronomía</a>
         <a href="./festivales.php">Festivales</a>
-        <a href="#category4">Category 4</a>
-        <a href="#category5">Category 5</a>
     </div>
     <!--Apartado del mensaje de notificación-->
     <script src="./js_files/box_message.js"></script>
@@ -140,10 +140,7 @@ Mostrar la estructura de navegación
     <script src="./js_files/main.js"></script>
 
     </div>
-    <footer>
-        <p>© 2024 Visit Peru</p>
 
-    </footer>
 </body>
 
 </html>
