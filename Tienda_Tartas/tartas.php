@@ -24,9 +24,12 @@ $paginas = ($contar_articulos / 12) + 1;
     <!--La siguiente línea de código será para identificar más rápido las web-->
     <meta name="keywords" content="Tartas de queso, tartas, tartas artesanales, tartaletas, queso con lotus, tarta de maracuya, tarta de pistacho, cheesecake madrid, tartas madrid, cumpleaños, celebraciones">
     <meta name="description" content="Las mejores tartas artesanales de queso de Madrid. Pistacho, maracuya o Lotus. Para cumpleaños, celebraciones...">
-    <!-- Fonts (fuentes) -->
+    <!-- Fonts (fuentes)
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+ -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
-
     <!--Favicon-->
     <link rel="apple-touch-icon" sizes="57x57" href="./tienda_tartas_images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="48x48" href="./tienda_tartas_images/favicon-48x48.png">
@@ -61,7 +64,7 @@ $paginas = ($contar_articulos / 12) + 1;
     <meta name="twitter:description" content="Las mejores tartas artesanales de queso de Madrid.">
     <meta name="twitter:image:src" content="https://www.zk.com/logo.jpg">
     <meta name="twitter:domain" content="https://www.zk.com">
-    
+
     <!-- Archivos css del proyecto -->
     <link rel="stylesheet" href="./tienda_tartas.css/tienda_main.css">
     <link rel="stylesheet" href="./tienda_tartas.css/tienda_catalogo.css">
@@ -73,10 +76,10 @@ $paginas = ($contar_articulos / 12) + 1;
             <img src="./tienda_tartas_images/cake_average.png" alt="This is L4M3">
         </div>
         <nav class="grid cinco">
-            <a href="">Inicio</a>
-            <a href="">Ofertas</a>
-            <a href="">Tartas</a>
-            <a href="">Nosotros</a>
+            <a href="./tartas.php">Inicio</a>
+            <a href="./productos.php">Productos</a>
+            <a href="./preguntas.php">Preguntas frecuentes</a>
+            <a href="">Contacto</a>
         </nav>
     </header>
     <main class="fondo">
@@ -91,25 +94,29 @@ $paginas = ($contar_articulos / 12) + 1;
                     $imagen = $productos[$i]["imagen"];
                     $descripcion = $productos[$i]["descripcion"];
                     $precio = $productos[$i]["precio"];
+                    $alergenos = $productos[$i]["alergenos"];
                     echo '
                 <article class="product-layout">
                     <h3>' . $nombre . '</h3>
                     <img src="' . $imagen . '" class="product-image" alt="' . $nombre . '">
                     <p>' . $descripcion . '</p>
                     <p>' . $precio . '</p>
-                    <a href= "productos.php?id='.$id.'"><button>Adquirir</button><a>
+                    <p>' . $alergenos .  '</p>
+                    <a href= "productos.php?id=' . $id . '"><button>Adquirir</button><a>
                 </article>';
                 }
             }
             ?>
             <!-- Páginas individuales de cada producto -->
             <?php
+            /*
             for ($i = 1; $i <= $paginas; $i++) {
                 echo '<a href="tartas.php?pagina=' . $i . '">' . $i . '</a>';
             }
             for ($i = 1; $i <= $paginas; $i++) {
                 echo '<a href="tartas.php?pagina=' . ($i + 1) . '">' . ($i + 1) . '</a>';
             }
+            */
             ?>
         </section>
     </main>
