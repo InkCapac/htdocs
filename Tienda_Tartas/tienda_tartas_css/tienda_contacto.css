@@ -17,13 +17,10 @@ body {
     font-family: Cormorant;
     font-size: 16px;
     color: black;
-    position: fixed;
     top: 125px;
-    right: 100;
     padding: 5px;
-    width: 350px;
+    width: 80%;
     /* Establecer un ancho máximo para la caja del formulario */
-    max-width: 600px;
     height: auto;
     transform: translateX(350px); /* Transición 'suave' y revelación de la caja */
     transition: transform 1s ease;
@@ -44,7 +41,7 @@ body {
 /* Campos de entrada */
 .form-box .inputs {
     grid-template-columns: 1fr; /* Cambiar a un diseño de columna única */
-    gap: 5px; /* Agregar espacio entre las filas de entrada */
+    gap: 10px; /* Agregar espacio entre las filas de entrada */
 }
 
 .form-box input[type="text"],
@@ -69,19 +66,11 @@ body {
 .form-box .checkbox-message {
     display: flex; /* Usar flexbox para alineación */
     align-items: center; /* Centrar elementos verticalmente */
-    gap: 1px;
+    gap: 5px;
 }
 
 .checkbox-wrapper input[type="checkbox"] {
     margin-right: 5px; /* Espacio entre checkbox y etiqueta */
-}
-
-/* Estilos del 'checkbox' */
-.form-box .arriba {
-    margin-top: 25px; /* Alineación de la casilla */
-    margin-right: 5px; /* Espacio entre checkbox y etiqueta */
-    width: 20%;
-    height: 20%;
 }
 
 /* Estilos del botón del formulario */

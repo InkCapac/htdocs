@@ -24,13 +24,13 @@ $paginas = ($contar_articulos / 12) + 1;
     <!--La siguiente línea de código será para identificar más rápido las web-->
     <meta name="keywords" content="Tartas de queso, tartas, tartas artesanales, tartaletas, queso con lotus, tarta de maracuya, tarta de pistacho, cheesecake madrid, tartas madrid, cumpleaños, celebraciones">
     <meta name="description" content="Las mejores tartas artesanales de queso de Madrid. Pistacho, maracuya o Lotus. Para cumpleaños, celebraciones...">
-    <!-- Fonts (fuentes)
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
- -->
+    <!-- Fonts (fuentes)-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
-    <!--Favicon-->
+    <!--Archivos css-->
+    <link rel="stylesheet" href="./tienda_tartas_css/tienda_galeria.css">
+    <link rel="stylesheet" href="./tienda_tartas_css/tienda_main.css">
+    <link rel="stylesheet" href="./tienda_tartas.css/tienda_catalogo.css">
+    <link rel="stylesheet" href="./tienda_tartas_css/tienda_nav_general.css">    <!--Favicon-->
     <link rel="apple-touch-icon" sizes="57x57" href="./tienda_tartas_images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="48x48" href="./tienda_tartas_images/favicon-48x48.png">
     <link rel="apple-touch-icon" sizes="192x192" href="./tienda_tartas_images/web-app-manifest-192x192.png">
@@ -65,26 +65,40 @@ $paginas = ($contar_articulos / 12) + 1;
     <meta name="twitter:image:src" content="https://www.zk.com/logo.jpg">
     <meta name="twitter:domain" content="https://www.zk.com">
 
-    <!-- Archivos css del proyecto -->
-    <link rel="stylesheet" href="./tienda_tartas.css/tienda_main.css">
-    <link rel="stylesheet" href="./tienda_tartas.css/tienda_catalogo.css">
+
 </head>
 
 <body>
+
     <header>
         <!--
         <div class="grid logo">
             <img src="./tienda_tartas_images/cake_average.png" alt="This is L4M3">
         </div>
 -->
-        <nav class="grid cinco">
-            <a class="logo" href="./tienda_tartas_images/cake_average.png"></a>
+        <nav class="navbar grid cinco">
+            <a class="logo" href="https://st4.depositphotos.com/1001439/22584/i/450/depositphotos_225842186-stock-photo-bakery-dessert-shop-bakehouse-logo.jpg"></a>
             <a href="./tartas.php">Inicio</a>
             <a href="./productos.php">Productos</a>
             <a href="./preguntas.php">Preguntas frecuentes</a>
             <a href="./contacto.php">Contacto</a>
         </nav>
     </header>
+    <!--Galería de imágenes-->
+    <div class="gallery">
+        <div class="gallery-container">
+            <img class="gallery-item active" src="https://www.dukeshill.co.uk/cdn/shop/products/140459_SELPAT-Dukeshill-Montmartre-Tea-Pastries-26May2.jpg?v=1690310936" data-index="1">
+            <img class="gallery-item" src="https://www.hdwallpapers.in/download/dessert_cake_raspberries_sweet_fruit_blueberry_black_currant_4k_hd-3840x2160.jpg" data-index="2">
+            <img class="gallery-item" src="https://i.ytimg.com/vi/ZWk3bXSDVK8/maxresdefault.jpg" data-index="3">
+        </div>
+    </div>
+
+    <!--Botones de navegación debajo de la galería-->
+    <div class="nav-buttons">
+        <button class="nav-button" id="prevButton">Anterior</button>
+        <button class="nav-button" id="nextButton">Siguiente</button>
+    </div>
+
     <main class="fondo">
         <section class="grid una tablet-dos ordenador-tres grid-33 margen">
             <?php
@@ -123,6 +137,10 @@ $paginas = ($contar_articulos / 12) + 1;
             ?>
         </section>
     </main>
+    <div>
+        <!--Archivos JavaScript-->
+        <script src="./js_tienda_tartas/galeria_tartas.js"></script>
+    </div>
     <footer>
         <p>© Zarif Kamiso 2024 All rights reserved</p>
     </footer>

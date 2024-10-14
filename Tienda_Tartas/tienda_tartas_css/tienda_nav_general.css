@@ -1,0 +1,81 @@
+:root {
+    /*Los colores principales de la página*/
+    --color1: #f7dfad;
+    --color2: #f7d49e;
+    --color3: #fcbbde;
+    --color4: #f582bf;
+    --color5: #380468;
+}
+
+/*Sección de los estilos*/
+.navbar {
+    position: fixed;
+    /*Fuente que usaremos en la barra de navegación*/
+    font-family: Cormorant;
+    font-size: larger;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /*La barra ocupará 1/10 de la altura de la ventana*/
+    height: 10vh;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.navbar.solid {
+    background-color: var(--color1);
+    color: var(--color3);
+}
+
+.navbar a {
+    font-family: "Sofia", sans-serif;
+    font-weight: lighter;
+    color: var(--color5);
+    text-decoration: none;
+    font-size: 1.5em;
+    padding: 10px;
+    text-align: center;
+    /*Transition permite el cambio de color con un tiempo determinado*/
+    transition: background-color 0.3s ease;
+    /*order-radius: 5px;*/
+}
+
+.navbar a:hover {
+    background-color: var(--color2);
+    color: var(--color5);
+}
+
+@media (min-width: 275px) {
+    .tablet-dos {
+        grid-template-columns: 50% 50%;
+    }
+
+    nav.grid {
+        display: grid;
+    }
+
+}
+
+@media (min-width: 575px) {
+    .ordenador-tres {
+        grid-template-columns: 33.33% 33.33% 33.33%;
+    }
+}
+
+.cinco {
+    grid-template-columns: 20% 20% 20% 20% 20%;
+}
+
+.treinta-setenta {
+    grid-template-columns: 30% 70%;
+}
+
+footer p {
+    text-align: center;
+    font-weight: lighter;
+    font-size: 1.5em;
+}

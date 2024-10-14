@@ -3,6 +3,7 @@
     --color2: #f7d49e;
     --color3: #fcbbde;
     --color4: #f582bf;
+    --color5: #380468;
 }
 
 .grid {
@@ -10,6 +11,10 @@
 }
 
 /* css del '<article>'  */
+.product-layout {
+    text-align: center;
+}
+
 .product-layout button {
     background-color: var(--color4);
     color: snow;
@@ -17,14 +22,6 @@
     font-weight: lighter;
 
 }
-
-/*Fuentes de Google:
-.alata-regular {
-    font-family: "Alata", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-}
-*/
 
 body {
     background-color: var(--color1);
@@ -71,7 +68,7 @@ nav.grid {
 nav {
     background-color: var(--color3);
     padding: 10px;
-    
+
 }
 
 .hamburguesa {
@@ -111,7 +108,8 @@ nav {
 .treinta-setenta {
     grid-template-columns: 30% 70%;
 }
-footer p{
+
+footer p {
     text-align: center;
     font-weight: lighter;
     font-size: 1.5em;

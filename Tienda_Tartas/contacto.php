@@ -5,11 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zarif Kamiso | Contacto</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
     <link rel="stylesheet" href="./tienda_tartas_css/tienda_contacto.css">
+    <link rel="stylesheet" href="./tienda_tartas_css/tienda_nav_general.css">
 
 </head>
 
 <body>
+    <header>
+        <nav class="grid cinco">
+            <a class="logo" href=""></a>
+            <a href="./tartas.php">Inicio</a>
+            <a href="./productos.php">Productos</a>
+            <a href="./preguntas.php">Preguntas frecuentes</a>
+            <a href="./contacto.php">Contacto</a>
+        </nav>
+    </header>
     <main>
         <div class="form-box">
             <form>
