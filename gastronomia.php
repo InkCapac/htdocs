@@ -53,7 +53,8 @@
     <!--Archivos JavaScript de la página-->
     <script src="./js_linkedPages/general_navbar.js"></script>
     <script src="./js_linkedPages/general_gallery.js"></script>
-
+    <!--Pie de página-->
+<footer>© 2024 Visit Peru - Gastronomía All rights reserved. </footer>
 </body>
 
 </html>

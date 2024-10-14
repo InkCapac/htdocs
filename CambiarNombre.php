@@ -140,7 +140,10 @@ Mostrar la estructura de navegación
     <script src="./js_files/main.js"></script>
 
     </div>
+    <footer>
+        <p>© 2024 Visit Peru All rights reserved.</p>
 
+    </footer>
 </body>
 
 </html>

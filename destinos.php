@@ -86,6 +86,7 @@
         <script src="./js_linkedPages/general_navbar.js"></script>
         <script src="./js_linkedPages/general_gallery.js"></script>
         <!--Pie de página-->
+<footer>© 2024 Visit Peru - Destinos All rights reserved. </footer>
     </body>
 
 </html>
