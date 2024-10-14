@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="./css_linkedPages/general_navbar.css">
     <link rel="stylesheet" href="./css_linkedPages/general_gallery.css">
     <link rel="stylesheet" href="./css_linkedPages/destinos.css">
+    <!--Link del 'font' que contiene los simbolos de redes sociales-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -36,7 +40,9 @@
             <img class="gallery-item"
                 src="https://media.cntraveler.com/photos/6374fcbd516f47c031cea868/16:9/w_2560%2Cc_limit/Mundo%2520Mater%2520.jpg"
                 data-index="3">
-            <img class="gallery-item" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/ab/cf/63/la-rosa-nautica-esta.jpg?w=1200&h=-1&s=1" data-index="4">
+            <img class="gallery-item"
+                src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/ab/cf/63/la-rosa-nautica-esta.jpg?w=1200&h=-1&s=1"
+                data-index="4">
         </div>
     </div>
 
@@ -46,15 +52,30 @@
         <button class="nav-button" id="nextButton">Siguiente</button>
     </div>
 
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi aliquam magni porro voluptates in qui
-        cupiditate assumenda laboriosam maxime sint. Atque earum iusto nulla nobis aliquam aspernatur commodi molestias
-        sunt!</p>
+    <p>La cocina peruana es una vibrante fusión de ingredientes autóctonos y diversas influencias culturales, lo que la
+        convierte en una de las tradiciones culinarias más apasionantes del mundo. Platos como el **ceviche**, el **lomo
+        saltado** y el **ají de gallina** muestran la riqueza de los sabores locales, mezclando marisco fresco,
+        alimentos andinos básicos y atrevidas especias. Influenciada por tradiciones culinarias indígenas, españolas,
+        africanas y asiáticas, la comida peruana es famosa por su creatividad, variedad y profundidad de sabor. Desde la
+        costa hasta la sierra, la cocina peruana refleja el rico patrimonio cultural del país y su singular diversidad
+        geográfica.</p>
 
     <!--Archivos JavaScript de la página-->
     <script src="./js_linkedPages/general_navbar.js"></script>
     <script src="./js_linkedPages/general_gallery.js"></script>
-    <!--Pie de página-->
-<footer>© 2024 Visit Peru - Gastronomía All rights reserved. </footer>
+    <footer>
+        <!--Símbolos de redes sociales-->
+        <div class="footerContainer">
+            <div class="socialIcons">
+                <a href=""><i class="fa-brands fa-facebook"></i></a>
+                <a href=""><i class="fa-brands fa-instagram"></i></a>
+                <a href=""><i class="fa-brands fa-twitter"></i></a>
+                <a href=""><i class="fa-brands fa-google-plus"></i></a>
+                <a href=""><i class="fa-brands fa-youtube"></i></a>
+            </div>
+            <p class="footer-p">© 2024 Visit Peru All rights reserved.</p>
+
+    </footer>
 </body>
 
 </html>

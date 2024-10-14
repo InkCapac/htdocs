@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="./css_linkedPages/general_navbar.css">
     <link rel="stylesheet" href="./css_linkedPages/general_gallery.css">
     <link rel="stylesheet" href="./css_linkedPages/festivales.css">
+    <!--Link del 'font' que contiene los simbolos de redes sociales-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <!--Barra de navegación de la página web-->
@@ -76,8 +80,19 @@
 <!--Archivos JavaScript de la página-->
 <script src="./js_linkedPages/general_navbar.js"></script>
 <script src="./js_linkedPages/general_gallery.js"></script>
-<!--Pie de página-->
-<footer>© 2024 Visit Peru - Festivales All rights reserved. </footer>
+<footer>
+    <!--Símbolos de redes sociales-->
+    <div class="footerContainer">
+        <div class="socialIcons">
+            <a href=""><i class="fa-brands fa-facebook"></i></a>
+            <a href=""><i class="fa-brands fa-instagram"></i></a>
+            <a href=""><i class="fa-brands fa-twitter"></i></a>
+            <a href=""><i class="fa-brands fa-google-plus"></i></a>
+            <a href=""><i class="fa-brands fa-youtube"></i></a>
+        </div>
+        <p class="footer-p">© 2024 Visit Peru All rights reserved.</p>
+
+</footer>
 </body>
 
 </html>

@@ -19,27 +19,22 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
     <link rel="stylesheet" href="./css_files/info_form.css">
     <!--Archivo css de la barra de navegación-->
     <link rel="stylesheet" href="./css_files/nav_bar.css">
+    <!--Link del 'font' que contiene los simbolos de redes sociales-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <!--Barra de navegación-->
+
 <body>
     <script src="./js_files/nav_bar.js"></script>
     <div class="navbar">
-        <a href="#"><img src="https://www.pikpng.com/pngl/b/542-5426711_logo-marca-peru-logo-peru-clipart.png" alt="Marca Perú" class="navbar-imagen"></a>
-        <a href="Main page">Visit Peru  </a>
+        <a href="#"><img src="https://www.pikpng.com/pngl/b/542-5426711_logo-marca-peru-logo-peru-clipart.png"
+                alt="Marca Perú" class="navbar-imagen"></a>
+        <a href="Main page">Visit Peru </a>
         <a href="./destinos.php">Destinos</a>
         <a href="./gastronomia.php">Gastronomía</a>
         <a href="./festivales.php">Festivales</a>
-    </div>
-    <!--Apartado del mensaje de notificación-->
-    <script src="./js_files/box_message.js"></script>
-    <link rel="stylesheet" href="./css_files/message_box.css">
-    <div class="modal ocultar">
-        <div class="fondo"></div>
-        <div class="contenido">
-            <p>This is a message box!</p>
-            <button class="x">X</button>
-            <button class="cerrar">Close</button>
-        </div>
     </div>
     <!--Galería de imágenes-->
     <div class="gallery">
@@ -95,16 +90,6 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
         </div>
     </div>
 
-    <!-- Consideraciones para el trabajo 'actividad 2' de MARLENE
-Llamar a la carpeta 'Mateo_Web'
-Aplicar conceptos de diseño de webs
-Explicar la teoría del color elegida
-Explicar la tipografía que usamos
-Mostrar la guía de estilo
-Mostrar la estructura del sitio web
-Mostrar la estructura de navegación
-->
-
     <!--Sección del formulario de la esquina-->
     <!--Formulario-->
     <div class="form-box">
@@ -141,7 +126,16 @@ Mostrar la estructura de navegación
 
     </div>
     <footer>
-        <p>© 2024 Visit Peru All rights reserved.</p>
+        <!--Símbolos de redes sociales-->
+        <div class="footerContainer">
+            <div class="socialIcons">
+                <a href=""><i class="fa-brands fa-facebook"></i></a>
+                <a href=""><i class="fa-brands fa-instagram"></i></a>
+                <a href=""><i class="fa-brands fa-twitter"></i></a>
+                <a href=""><i class="fa-brands fa-google-plus"></i></a>
+                <a href=""><i class="fa-brands fa-youtube"></i></a>
+            </div>
+            <p>© 2024 Visit Peru All rights reserved.</p>
 
     </footer>
 </body>

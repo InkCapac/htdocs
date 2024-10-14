@@ -2,6 +2,7 @@
     --color1: rgb(219, 26, 31);
     --color2: rgba(120, 0, 0);
     --color3: snow;
+    --color4: #f7dfad;
     --borde: 1px solid rgb(219, 26, 31);
 }
 
@@ -11,6 +12,7 @@
 }
 
 html, body {
+    background-color: #f7dfad;
     font-family: Cormorant;
     color: black;
     padding: 0;
@@ -20,6 +22,10 @@ html, body {
 body p{
     font-size: xx-large;
     text-align: center;
+}
+.paragraph1-destinos{
+    text-align: center;
+    font-size: larger;
 }
 .content {
     padding: 20px;
