@@ -25,37 +25,37 @@ $paginas = ($contar_articulos / 12) + 1;
     <!--Fuentes-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
     <!--Archivos .css-->
-    <link rel="stylesheet" href="./tienda_tartas.css/tienda_main.css">
-    <link rel="stylesheet" href="./tienda_tartas.css/tienda_catalogo.css">
+    <link rel="stylesheet" href="./tienda_tartas_css/tienda_nav_general.css">
+    <link rel="stylesheet" href="./tienda_tartas_css/tienda_catalogo.css">
 
 </head>
 
 <body>
     <header>
-        <div class="grid logo">
-            <img src="./tienda_tartas_images/cake_average.png" alt="This is L4M3">
-        </div>
-        <nav class="grid cinco">
-            <a href="./tartas.php">Inicio</a>
-            <a href="./productos.php">Productos</a>
-            <a href="./preguntas.php">Preguntas frecuentes</a>
-            <a href="">Contacto</a>
-        </nav>
-    </header>
-    <main class="fondo">
-        <section class="grid una tablet-dos ordenador-tres grid-33 margen">
-            <?php
-            if ($contar_articulos < 1) {
-                echo "<p>No se han encontrado artículos</p>";
-            } else {
-                for ($i = 0; $i < count($productos); $i++) {
-                    $id = $productos[$i]["id"];
-                    $nombre = $productos[$i]["nombre"];
-                    $imagen = $productos[$i]["imagen"];
-                    $descripcion = $productos[$i]["descripcion"];
-                    $precio = $productos[$i]["precio"];
-                    $alergenos = $productos[$i]["alergenos"];
-                    echo '
+        <header>
+            <nav class="navbar grid cinco">
+                <a class="logo" href="https://st4.depositphotos.com/1001439/22584/i/450/depositphotos_225842186-stock-photo-bakery-dessert-shop-bakehouse-logo.jpg"></a>
+                <a href="./tartas.php">Inicio</a>
+                <a href="./productos.php">Productos</a>
+                <a href="./preguntas.php">Preguntas frecuentes</a>
+                <a href="./contacto.php">Contacto</a>
+            </nav>
+        </header>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod perspiciatis laboriosam atque nobis, eaque provident minus at voluptates, molestias quia fugit beatae, velit quam excepturi ut vero deserunt aut corporis?</p>
+        <main class="fondo">
+            <section class="grid una tablet-dos ordenador-tres grid-33 margen">
+                <?php
+                if ($contar_articulos < 1) {
+                    echo "<p>No se han encontrado artículos</p>";
+                } else {
+                    for ($i = 0; $i < count($productos); $i++) {
+                        $id = $productos[$i]["id"];
+                        $nombre = $productos[$i]["nombre"];
+                        $imagen = $productos[$i]["imagen"];
+                        $descripcion = $productos[$i]["descripcion"];
+                        $precio = $productos[$i]["precio"];
+                        $alergenos = $productos[$i]["alergenos"];
+                        echo '
                 <article class="product-layout">
                     <h3>' . $nombre . '</h3>
                     <img src="' . $imagen . '" class="product-image" alt="' . $nombre . '">
@@ -64,14 +64,16 @@ $paginas = ($contar_articulos / 12) + 1;
                     <p>' . $alergenos .  '</p>
                     <a href= "productos.php?id=' . $id . '"><button>Adquirir</button><a>
                 </article>';
+                    }
                 }
-            }
-            ?>
-        </section>
-    </main>
-    <footer>
-        <p>© Zarif Kamiso 2024 All rights reserved</p>
-    </footer>
+                ?>
+            </section>
+        </main>
+        <!--Archivos .js-->
+        <script src="./js_tienda_tartas/navbar_general_tartas.js"></script>
+        <footer>
+            <p>© Zarif Kamiso 2024 All rights reserved</p>
+        </footer>
 </body>
 
 </html>

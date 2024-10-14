@@ -30,7 +30,7 @@ $paginas = ($contar_articulos / 12) + 1;
     <link rel="stylesheet" href="./tienda_tartas_css/tienda_galeria.css">
     <link rel="stylesheet" href="./tienda_tartas_css/tienda_main.css">
     <link rel="stylesheet" href="./tienda_tartas.css/tienda_catalogo.css">
-    <link rel="stylesheet" href="./tienda_tartas_css/tienda_nav_general.css">    <!--Favicon-->
+    <link rel="stylesheet" href="./tienda_tartas_css/tienda_nav_general.css"> <!--Favicon-->
     <link rel="apple-touch-icon" sizes="57x57" href="./tienda_tartas_images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="48x48" href="./tienda_tartas_images/favicon-48x48.png">
     <link rel="apple-touch-icon" sizes="192x192" href="./tienda_tartas_images/web-app-manifest-192x192.png">
@@ -124,22 +124,12 @@ $paginas = ($contar_articulos / 12) + 1;
                 }
             }
             ?>
-            <!-- Páginas individuales de cada producto -->
-            <?php
-            /*
-            for ($i = 1; $i <= $paginas; $i++) {
-                echo '<a href="tartas.php?pagina=' . $i . '">' . $i . '</a>';
-            }
-            for ($i = 1; $i <= $paginas; $i++) {
-                echo '<a href="tartas.php?pagina=' . ($i + 1) . '">' . ($i + 1) . '</a>';
-            }
-            */
-            ?>
         </section>
     </main>
     <div>
         <!--Archivos JavaScript-->
         <script src="./js_tienda_tartas/galeria_tartas.js"></script>
+        <script src="./js_tienda_tartas/"></script>
     </div>
     <footer>
         <p>© Zarif Kamiso 2024 All rights reserved</p>

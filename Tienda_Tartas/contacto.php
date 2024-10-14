@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zarif Kamiso | Contacto</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <!--Archivos de .css-->
     <link rel="stylesheet" href="./tienda_tartas_css/tienda_contacto.css">
     <link rel="stylesheet" href="./tienda_tartas_css/tienda_nav_general.css">
 
@@ -13,8 +14,8 @@
 
 <body>
     <header>
-        <nav class="grid cinco">
-            <a class="logo" href=""></a>
+        <nav class="navbar grid cinco">
+            <a class="logo" href="https://st4.depositphotos.com/1001439/22584/i/450/depositphotos_225842186-stock-photo-bakery-dessert-shop-bakehouse-logo.jpg"></a>
             <a href="./tartas.php">Inicio</a>
             <a href="./productos.php">Productos</a>
             <a href="./preguntas.php">Preguntas frecuentes</a>
@@ -44,6 +45,8 @@
             </form>
         </div>
     </main>
+    <!--Archivos .js-->
+    <script src="./js_tienda_tartas/navbar_general_tartas.js"></script>
     <footer>
         <p>© Zarif Kamiso 2024 All rights reserved</p>
     </footer>
