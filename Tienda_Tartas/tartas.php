@@ -72,14 +72,17 @@ $paginas = ($contar_articulos / 12) + 1;
 
 <body>
     <header>
+        <!--
         <div class="grid logo">
             <img src="./tienda_tartas_images/cake_average.png" alt="This is L4M3">
         </div>
+-->
         <nav class="grid cinco">
+            <a class="logo" href="./tienda_tartas_images/cake_average.png"></a>
             <a href="./tartas.php">Inicio</a>
             <a href="./productos.php">Productos</a>
             <a href="./preguntas.php">Preguntas frecuentes</a>
-            <a href="">Contacto</a>
+            <a href="./contacto.php">Contacto</a>
         </nav>
     </header>
     <main class="fondo">
@@ -120,6 +123,9 @@ $paginas = ($contar_articulos / 12) + 1;
             ?>
         </section>
     </main>
+    <footer>
+        <p>© Zarif Kamiso 2024 All rights reserved</p>
+    </footer>
 </body>
 
 </html>

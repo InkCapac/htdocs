@@ -1,0 +1,141 @@
+:root {
+    /*Los colores principales de la página*/
+    --color1: #f7dfad;
+    --color2: #f7d49e;
+    --color3: #fcbbde;
+    --color4: #f582bf;
+}
+body {
+    font-family: "Sofia", sans-serif;
+    margin: 0;
+    /*Evita que aparezca un 'scrollbar' horizontal*/
+    overflow-x: hidden; 
+}
+
+/* Caja de mensaje */
+.form-box {
+    font-family: Cormorant;
+    font-size: 16px;
+    color: black;
+    position: fixed;
+    top: 125px;
+    right: 100;
+    padding: 5px;
+    width: 350px;
+    /* Establecer un ancho máximo para la caja del formulario */
+    max-width: 600px;
+    height: auto;
+    transform: translateX(350px); /* Transición 'suave' y revelación de la caja */
+    transition: transform 1s ease;
+    border: var(--borde); /* Declaración de borde fija */
+    background-color: var(--color3);
+    z-index: 1000; /* El contenido de la caja se puede ver sobre el resto de la página */
+}
+
+.form-box.abierto {
+    transform: translateX(0px); /* Línea para que el formulario se revele en la ventana */
+}
+
+/* Diseño de cuadrícula para el contenido del formulario */
+.form-box .grid {
+    display: grid; /* Usa diseño de cuadrícula para el formulario */
+}
+
+/* Campos de entrada */
+.form-box .inputs {
+    grid-template-columns: 1fr; /* Cambiar a un diseño de columna única */
+    gap: 5px; /* Agregar espacio entre las filas de entrada */
+}
+
+.form-box input[type="text"],
+.form-box input[type="email"],
+.form-box input[type="tel"],
+.form-box textarea {
+    width: 100%; /* Ancho completo */
+    max-width: 100%; /* Prevenir desbordamiento */
+    box-sizing: border-box; /* Incluir relleno y borde en el ancho */
+    padding: 10px; /* Relleno para comodidad */
+    border: 1px solid grey; /* Borde para campos de entrada */
+    margin-bottom: 2px; /* Espacio entre entradas */
+    background-color: snow; /* Color de fondo para entradas */
+}
+
+/* Opcional: Estilo para el área de texto */
+.form-box textarea {
+    resize: vertical; /* Permitir solo redimensionamiento vertical */
+    height: 100px; /* Altura predeterminada */
+}
+
+.form-box .checkbox-message {
+    display: flex; /* Usar flexbox para alineación */
+    align-items: center; /* Centrar elementos verticalmente */
+    gap: 1px;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+    margin-right: 5px; /* Espacio entre checkbox y etiqueta */
+}
+
+/* Estilos del 'checkbox' */
+.form-box .arriba {
+    margin-top: 25px; /* Alineación de la casilla */
+    margin-right: 5px; /* Espacio entre checkbox y etiqueta */
+    width: 20%;
+    height: 20%;
+}
+
+/* Estilos del botón del formulario */
+.form-box button {
+    text-transform: uppercase;
+    color: snow;
+    padding: 10px 25px;
+    font-size: 20px;
+    background-color: var(--color1);
+    border: none;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-box button:hover {
+    background-color: var(--color2);
+    color: snow;
+}
+
+.form-box button:active {
+    background-color: var(--color1);
+}
+
+/* Estilos para el botón 'callback', el cual en la web se ve como 'Contáctanos' */
+.contact {
+    cursor: pointer;
+    position: absolute;
+    font-family: Cormorant; 
+    top: 76px; /* Ajustar la posición según sea necesario */
+    left: -124px; /* Posicionar a la izquierda de la caja del formulario */
+    transform: rotate(90deg); /* Rotar la etiqueta para que sea legible */
+    background-color: var(--color1);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: snow;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    z-index: 1001; /* Esto asegura que el formulario está posicionado sobre otro contenido */
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.contact:hover {
+    background-color: var(--color2);
+    color: snow;
+}
+
+.contact:active {
+    background-color: var(--color1); /* Color aún más oscuro cuando se presiona */
+}
+
+/* Estilos de la galería para asegurar que se mantenga detrás de la caja del formulario */
+.gallery {
+    position: relative;
+    z-index: 1; /* El formulario aparece sobre la galería */
+}

@@ -54,29 +54,24 @@ $paginas = ($contar_articulos / 12) + 1;
                     $imagen = $productos[$i]["imagen"];
                     $descripcion = $productos[$i]["descripcion"];
                     $precio = $productos[$i]["precio"];
+                    $alergenos = $productos[$i]["alergenos"];
                     echo '
                 <article class="product-layout">
                     <h3>' . $nombre . '</h3>
                     <img src="' . $imagen . '" class="product-image" alt="' . $nombre . '">
                     <p>' . $descripcion . '</p>
                     <p>' . $precio . '</p>
-                    <p>' . $alergenos . '
+                    <p>' . $alergenos .  '</p>
                     <a href= "productos.php?id=' . $id . '"><button>Adquirir</button><a>
                 </article>';
                 }
             }
             ?>
-            <!-- Páginas individuales de cada producto -->
-            <?php
-            for ($i = 1; $i <= $paginas; $i++) {
-                echo '<a href="tartas.php?pagina=' . $i . '">' . $i . '</a>';
-            }
-            for ($i = 1; $i <= $paginas; $i++) {
-                echo '<a href="tartas.php?pagina=' . ($i + 1) . '">' . ($i + 1) . '</a>';
-            }
-            ?>
         </section>
     </main>
+    <footer>
+        <p>© Zarif Kamiso 2024 All rights reserved</p>
+    </footer>
 </body>
 
 </html>
