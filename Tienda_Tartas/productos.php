@@ -14,7 +14,11 @@ $productos = $conexion->recibir_datos("SELECT * FROM tartas LIMIT 12 OFFSET $pag
 $contar_articulos = count($productos);
 $paginas = ($contar_articulos / 12) + 1;
 ?>
-
+<?php
+echo "<pre>";
+print_r($productos);
+echo "</pre>";
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -62,7 +66,7 @@ $paginas = ($contar_articulos / 12) + 1;
                     <p>' . $descripcion . '</p>
                     <p>' . $precio . '</p>
                     <p>' . $alergenos .  '</p>
-                    <a href= "productos.php?id=' . $id . '"><button>Adquirir</button><a>
+                    <a href="productos.php?id=' . $id . '"><button>Adquirir</button></a>
                 </article>';
                     }
                 }

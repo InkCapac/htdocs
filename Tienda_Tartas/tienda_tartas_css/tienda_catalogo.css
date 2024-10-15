@@ -7,15 +7,46 @@ body {
     display: grid;
 }
 
-
 .grid-33 {
+    display: grid;
     grid-template-columns: 33.33% 33.33% 33.33%;
+    grid-auto-rows: auto;
+    grid-auto-flow: dense; /* Ensures grid cells are filled in order */
+    gap: 20px; /* Adds space between grid items */
 }
 
-/*CLASE 07-10*/
-/*Clase mobile first - DANI
-- Improve it to make it work
-*/
+
+/* Mobile-first layout (one item per row) */
+.una {
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto auto;
+}
+
+/* Tablet layout (two items per row) */
+@media (min-width: 275px) {
+    .tablet-dos {
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto auto auto;
+    }
+
+    /* Function to show nav */
+    nav.grid {
+        display: grid;
+    }
+
+    .hamburguesa {
+        display: none;
+    }
+}
+
+/* Desktop layout (three items per row) */
+@media (min-width: 575px) {
+    .ordenador-tres {
+        grid-template-columns: 33.33% 33.33% 33.33%;
+        grid-template-rows: auto auto auto;
+    }
+}
+
 section {
     margin: auto;
     width: 75%;
@@ -41,32 +72,7 @@ nav-grid {
     display: none;
 }
 
-.una {
-    grid-template-columns: 100%;
-}
-
-@media (min-width: 275px) {
-    .tablet-dos {
-        grid-template-columns: 50% 50%;
-    }
-
-    /*Función para mostrar el nav*/
-    nav.grid {
-        display: grid;
-    }
-
-    .hamburguesa {
-        display: none;
-    }
-}
-
-@media (min-width: 575px) {
-    .ordenador-tres {
-        grid-template-columns: 33.33% 33.33% 33.33%;
-    }
-}
-
-/*Fin de la clase :)*/
+/* Margins and background */
 .margen {
     width: 80%;
     margin: auto;
@@ -91,7 +97,6 @@ article {
 
 article button {
     color: snow;
-    /*background-color: rgb(113, 113, 249);*/
     background-color: transparent;
     border: none;
     padding: 10px 20px;
