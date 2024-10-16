@@ -73,9 +73,41 @@
 .treinta-setenta {
     grid-template-columns: 30% 70%;
 }
-
-footer p {
+/*Estilos del footer y sus contenidos*/
+footer{
     text-align: center;
-    font-weight: lighter;
-    font-size: 1.5em;
+    padding: 20px;
+}
+.footer-p{
+    font-size: larger;
+}
+.footerContainer{
+    width: 100%;
+    padding: 70px 30px 20px ;
+}
+.socialIcons{
+    display: flex;
+    justify-content: center;
+    font-size: small;
+}
+.socialIcons a{
+    text-decoration: none;
+    padding:  10px;
+    background-color: var(--color1);
+    margin: 10px;
+    border-radius: 50%;
+}
+.socialIcons a i{
+    font-size: 2em;
+    color: black;
+    opacity: 0,9;
+}
+/* Hover affect on social media icon */
+.socialIcons a:hover{
+    background-color: var(--color4);
+    transition: 0.5s;
+}
+.socialIcons a:hover i{
+    color: black;
+    transition: 0.5s;
 }

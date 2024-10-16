@@ -30,7 +30,11 @@ $paginas = ($contar_articulos / 12) + 1;
     <link rel="stylesheet" href="./tienda_tartas_css/tienda_galeria.css">
     <link rel="stylesheet" href="./tienda_tartas_css/tienda_main.css">
     <link rel="stylesheet" href="./tienda_tartas.css/tienda_catalogo.css">
-    <link rel="stylesheet" href="./tienda_tartas_css/tienda_nav_general.css"> <!--Favicon-->
+    <link rel="stylesheet" href="./tienda_tartas_css/tienda_nav_general.css">
+    <!--Link del 'font' que contiene los simbolos de redes sociales-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" /><!--Favicon-->
     <link rel="apple-touch-icon" sizes="57x57" href="./tienda_tartas_images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="48x48" href="./tienda_tartas_images/favicon-48x48.png">
     <link rel="apple-touch-icon" sizes="192x192" href="./tienda_tartas_images/web-app-manifest-192x192.png">
@@ -113,13 +117,13 @@ $paginas = ($contar_articulos / 12) + 1;
                     $precio = $productos[$i]["precio"];
                     $alergenos = $productos[$i]["alergenos"];
                     echo '
-                <article class="product-layout">
+                    <article class="product-layout">
                     <h3>' . $nombre . '</h3>
                     <img src="' . $imagen . '" class="product-image" alt="' . $nombre . '">
                     <p>' . $descripcion . '</p>
                     <p>' . $precio . '</p>
                     <p>' . $alergenos .  '</p>
-                    <a href= "productos.php?id=' . $id . '"><button>Adquirir</button><a>
+                    <a href="productos.php?id=' . $id . '"><button>Adquirir</button></a>
                 </article>';
                 }
             }
@@ -132,7 +136,15 @@ $paginas = ($contar_articulos / 12) + 1;
         <script src="./js_tienda_tartas/"></script>
     </div>
     <footer>
-        <p>© Zarif Kamiso 2024 All rights reserved</p>
+        <div class="footerContainer">
+            <div class="socialIcons">
+                <a href=""><i class="fa-brands fa-facebook"></i></a>
+                <a href=""><i class="fa-brands fa-instagram"></i></a>
+                <a href=""><i class="fa-brands fa-twitter"></i></a>
+                <a href=""><i class="fa-brands fa-google-plus"></i></a>
+                <a href=""><i class="fa-brands fa-youtube"></i></a>
+            </div>
+            <p>© Zarif Kamiso 2024 All rights reserved</p>
     </footer>
 </body>
 
