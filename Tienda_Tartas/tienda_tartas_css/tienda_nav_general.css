@@ -18,7 +18,7 @@
     width: 100%;
     /*La barra ocupará 1/10 de la altura de la ventana*/
     height: 10vh;
-    background-color: transparent;
+    background-color: var(--color4);
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -27,7 +27,7 @@
 }
 
 .navbar.solid {
-    background-color: var(--color1);
+    background-color: var(--color4);
     color: var(--color3);
 }
 
@@ -49,7 +49,7 @@
     color: var(--color5);
 }
 .navbar img{
-    width: 150px;
+    width: 200px;
     height: auto;
 }
 

@@ -31,6 +31,7 @@ $paginas = ($contar_articulos / 12) + 1;
     <link rel="stylesheet" href="./tienda_tartas_css/tienda_main.css">
     <link rel="stylesheet" href="./tienda_tartas.css/tienda_catalogo.css">
     <link rel="stylesheet" href="./tienda_tartas_css/tienda_nav_general.css">
+    <link rel="stylesheet" href="./tienda_tartas_css/carrito_tartas.css">
     <!--Link del 'font' que contiene los simbolos de redes sociales-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
@@ -82,12 +83,36 @@ $paginas = ($contar_articulos / 12) + 1;
         </div>
 -->
         <nav class="navbar grid cinco">
-            <a class="logo" href="https://st4.depositphotos.com/1001439/22584/i/450/depositphotos_225842186-stock-photo-bakery-dessert-shop-bakehouse-logo.jpg"></a>
+            <a><img src="./tienda_tartas_images/zarif_kamiso.jpg" alt="Logo"></a>
             <a href="./tartas.php">Inicio</a>
             <a href="./productos.php">Productos</a>
             <a href="./preguntas.php">Preguntas frecuentes</a>
             <a href="./contacto.php">Contacto</a>
         </nav>
+        <!--Sección del formulario de la esquina-->
+        <!--Formulario-->
+        <div class="form-box">
+            <form>
+                <p>Forma parte de</p>
+                <div class="grid inputs">
+                    <label for="name">Nombre</label>
+                    <input type="text" id="name" name="name">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email">
+                    <label for="phone">Teléfono</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <p>Información adicional</p>
+                <textarea id="additional-info" name="additional_info" cols="30" rows="20"></textarea>
+                <div class="grid checkbox-message">
+                    <input type="checkbox" id="consent" name="consent" class="arriba">
+                    <label for="consent">Por favor, haz click en este botón para asegurarnos que estás de acuerdo con
+                        nuestras condiciones de servicio.</label>
+                </div>
+                <button type="submit">Enviar datos</button>
+            </form>
+            <button class="contact">Embajadores</button>
+        </div>
     </header>
     <!--Galería de imágenes-->
     <div class="gallery">
@@ -135,6 +160,7 @@ $paginas = ($contar_articulos / 12) + 1;
         <!--Archivos JavaScript-->
         <script src="./js_tienda_tartas/galeria_tartas.js"></script>
         <script src="./js_tienda_tartas/"></script>
+        <script src="./js_tienda_tartas/carrito_tartas.js"></script>
     </div>
     <footer>
         <div class="footerContainer">
