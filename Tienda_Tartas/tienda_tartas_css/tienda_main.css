@@ -127,7 +127,7 @@ footer{
 .socialIcons a{
     text-decoration: none;
     padding:  10px;
-    background-color: var(--color3);
+    background-color: var(--color1);
     margin: 10px;
     border-radius: 50%;
 }
@@ -138,10 +138,10 @@ footer{
 }
 /* Hover affect on social media icon */
 .socialIcons a:hover{
-    background-color: var(--color2);
+    background-color: var(--color4);
     transition: 0.5s;
 }
 .socialIcons a:hover i{
-    color: var(--color3);
+    color: black;
     transition: 0.5s;
 }

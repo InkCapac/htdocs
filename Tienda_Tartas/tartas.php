@@ -34,7 +34,8 @@ $paginas = ($contar_articulos / 12) + 1;
     <!--Link del 'font' que contiene los simbolos de redes sociales-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" /><!--Favicon-->
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--Favicon-->
     <link rel="apple-touch-icon" sizes="57x57" href="./tienda_tartas_images/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="48x48" href="./tienda_tartas_images/favicon-48x48.png">
     <link rel="apple-touch-icon" sizes="192x192" href="./tienda_tartas_images/web-app-manifest-192x192.png">
