@@ -21,9 +21,7 @@ $paginas = ($contar_articulos / 12) + 1;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zarif Kamiso | Tienda de tartas artesanales</title>
-    <!--La siguiente línea de código será para identificar más rápido las web-->
-    <meta name="keywords" content="Tartas de queso, tartas, tartas artesanales, tartaletas, queso con lotus, tarta de maracuya, tarta de pistacho, cheesecake madrid, tartas madrid, cumpleaños, celebraciones">
-    <meta name="description" content="Las mejores tartas artesanales de queso de Madrid. Pistacho, maracuya o Lotus. Para cumpleaños, celebraciones...">
+    <link rel="shortcut icon" href="https://static.wixstatic.com/media/aac7c7_2d43f156b81a4898b84dd5794e9e3041~mv2.png/v1/fill/w_104,h_99,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/zk1.png" type="image/x-icon">
     <!-- Fonts (fuentes)-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
     <!--Archivos css-->
@@ -36,59 +34,29 @@ $paginas = ($contar_articulos / 12) + 1;
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!--Favicon-->
-    <link rel="apple-touch-icon" sizes="57x57" href="./tienda_tartas_images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="48x48" href="./tienda_tartas_images/favicon-48x48.png">
-    <link rel="apple-touch-icon" sizes="192x192" href="./tienda_tartas_images/web-app-manifest-192x192.png">
-    <link rel="apple-touch-icon" sizes="512x512" href="./tienda_tartas_images/web-app-manifest-512x512.png">
-    <link rel="icon" type="image/png" sizes="114x114" href="./tienda_tartas_images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="120x120" href="./tienda_tartas_images/favicon-48x48.png">
-    <link rel="icon" type="image/png" sizes="144x144" href="./tienda_tartas_images/web-app-manifest-192x192.png">
-    <link rel="icon" type="image/png" sizes="152x152" href="./tienda_tartas_images/web-app-manifest-512x512.png">
-    <link rel="manifest" href="./tienda_tartas_images/site.webmanifest">
-    <meta name="msapplication-Tilecolor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="./tienda_tartas_images/favicon-48x48.png">
-    <meta name="theme-color" content="#ffffff">
-
-    <!--Líneas de código para promocionar tu página web
-    |
-    |
-    V
-    -->
-    <!-- Meta: Facenook, Instagram y Whatsapp -->
-    <meta property="og:title" content="Zarif Kamiso | Tartas artesanales" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.zk.com" />
-    <meta property="og:image" content="https://www.zk.com/logo.jpg" />
-    <meta property="og:description" content="" />
-    <meta property="og:width" content="400" />
-    <meta property="og:heigth" content="300" />
-    <!-- Twitter -> X -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:size" content="@zk">
-    <meta name="twitter:title" content="Zarif Kamiso - Tartas Artesanales">
-    <meta name="twitter:description" content="Las mejores tartas artesanales de queso de Madrid.">
-    <meta name="twitter:image:src" content="https://www.zk.com/logo.jpg">
-    <meta name="twitter:domain" content="https://www.zk.com">
 
 
 </head>
 
 <body>
-
-    <header>
         <!--
         <div class="grid logo">
             <img src="./tienda_tartas_images/cake_average.png" alt="This is L4M3">
         </div>
 -->
-        <nav class="navbar grid cinco">
-            <a><img src="./tienda_tartas_images/zarif_kamiso.jpg" alt="Logo"></a>
-            <a href="./tartas.php">Inicio</a>
-            <a href="./productos.php">Productos</a>
-            <a href="./preguntas.php">Preguntas frecuentes</a>
-            <a href="./contacto.php">Contacto</a>
-        </nav>
+<header>
+    <nav class="navbar grid cinco">
+        <a href="./tartas.php">Inicio</a>
+        <a href="./productos.php">Productos</a>
+        <a class="logo-nav" id="logoNav">
+            <img src="./tienda_tartas_images/zarifKamiso.png" alt="Logo">
+        </a>    
+        <a href="./preguntas.php">Preguntas frecuentes</a>
+        <a href="./contacto.php">Contacto</a>
+    </nav>
+</header>
+
+        
         <!--Sección del formulario de la esquina-->
         <!--Formulario-->
         <div class="form-box">
@@ -113,13 +81,13 @@ $paginas = ($contar_articulos / 12) + 1;
             </form>
             <button class="contact">Embajadores</button>
         </div>
-    </header>
     <!--Galería de imágenes-->
     <div class="gallery">
         <div class="gallery-container">
             <img class="gallery-item active" src="https://www.dukeshill.co.uk/cdn/shop/products/140459_SELPAT-Dukeshill-Montmartre-Tea-Pastries-26May2.jpg?v=1690310936" data-index="1">
-            <img class="gallery-item" src="https://www.hdwallpapers.in/download/dessert_cake_raspberries_sweet_fruit_blueberry_black_currant_4k_hd-3840x2160.jpg" data-index="2">
+            <img class="gallery-item" src="https://scontent-dfw5-1.cdninstagram.com/v/t51.29350-15/462739893_1064478251991679_8898495219470500494_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=18de74&_nc_ohc=Cm5p0oxIpKMQ7kNvgF2geAl&_nc_ht=scontent-dfw5-1.cdninstagram.com&edm=AL-3X8kEAAAA&_nc_gid=Az03C-sb8vWphtKqwRLQGpM&oh=00_AYCuU9i2HMGfQPgAOyP0lXk50PJqPblS9DEM-18diOZmwA&oe=6715E2F1" data-index="2">
             <img class="gallery-item" src="https://i.ytimg.com/vi/ZWk3bXSDVK8/maxresdefault.jpg" data-index="3">
+            <img class="gallery-item" src="https://www.hdwallpapers.in/download/dessert_cake_raspberries_sweet_fruit_blueberry_black_currant_4k_hd-3840x2160.jpg" data-index="4">
         </div>
     </div>
 
@@ -128,7 +96,7 @@ $paginas = ($contar_articulos / 12) + 1;
         <button class="nav-button" id="prevButton">Anterior</button>
         <button class="nav-button" id="nextButton">Siguiente</button>
     </div>
-
+    <div class="image-placeholder"></div>
     <main class="fondo">
         <section class="grid una tablet-dos ordenador-tres grid-33 margen">
             <?php
@@ -159,14 +127,14 @@ $paginas = ($contar_articulos / 12) + 1;
     <div>
         <!--Archivos JavaScript-->
         <script src="./js_tienda_tartas/galeria_tartas.js"></script>
-        <script src="./js_tienda_tartas/"></script>
+        <script src="./js_tienda_tartas/navbar_general_tartas.js"></script>
         <script src="./js_tienda_tartas/carrito_tartas.js"></script>
     </div>
     <footer>
         <div class="footerContainer">
             <div class="socialIcons">
                 <a href=""><i class="fa-brands fa-facebook"></i></a>
-                <a href=""><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.instagram.com/zarifkamiso/?hl=es"><i class="fa-brands fa-instagram"></i></a>
                 <a href=""><i class="fa-brands fa-twitter"></i></a>
                 <a href=""><i class="fa-brands fa-google-plus"></i></a>
                 <a href=""><i class="fa-brands fa-youtube"></i></a>

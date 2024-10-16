@@ -42,14 +42,25 @@ echo "</pre>";
 <body>
     <!--Sección de la barra navegadora-->
     <header>
-        <nav class="navbar grid cinco">
-            <a href="./tartas.php">Inicio</a>
-            <a href="./productos.php">Productos</a>
-            <a><img src="./tienda_tartas_images/zarif_kamiso.jpg" alt="Logo"></a>
-            <a href="./preguntas.php">Preguntas frecuentes</a>
-            <a href="./contacto.php">Contacto</a>
-        </nav>
-    </header>
+    <nav class="navbar grid cinco">
+        <a href="./tartas.php">Inicio</a>
+        <a href="./productos.php">Productos</a>
+        <a class="logo-nav" href="#">
+            <img src="./tienda_tartas_images/zarifKamiso.png" alt="Logo">
+        </a>
+        <a href="./preguntas.php">Preguntas frecuentes</a>
+        <a href="./contacto.php">Contacto</a>
+    </nav>
+</header>
+
+<!-- Placeholder for the image -->
+<div class="imagen-central">
+    <img src="./tienda_tartas_images/zarif_kamiso.jpg" alt="">
+</div>
+<div class="image-placeholder">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quaerat, similique eius enim maiores id veritatis qui sapiente earum autem, atque mollitia sint exercitationem veniam sit? Distinctio eum atque ad!</p>
+</div>
+
     <!--Sección del formulario de la esquina-->
     <!--Formulario-->
     <div class="form-box">
@@ -77,7 +88,9 @@ echo "</pre>";
     <!--Sección del primer contenido-->
     <div class="productos-gif">
         <img src="https://i.pinimg.com/originals/6f/a8/c4/6fa8c4e0bf5650788ce46c97c13566ab.gif" />
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod perspiciatis laboriosam atque nobis, eaque provident minus at voluptates, molestias quia fugit beatae, velit quam excepturi ut vero deserunt aut corporis?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod perspiciatis laboriosam atque nobis, eaque
+            provident minus at voluptates, molestias quia fugit beatae, velit quam excepturi ut vero deserunt aut
+            corporis?</p>
     </div>
     <main class="fondo">
         <section class="grid una tablet-dos ordenador-tres grid-33 margen">
@@ -98,7 +111,7 @@ echo "</pre>";
                     <img src="' . $imagen . '" class="product-image" alt="' . $nombre . '">
                     <p>' . $descripcion . '</p>
                     <p>' . $precio . '</p>
-                    <p>' . $alergenos .  '</p>
+                    <p>' . $alergenos . '</p>
                     <a href="productos.php?id=' . $id . '"><button>Adquirir</button></a>
                 </article>';
                 }

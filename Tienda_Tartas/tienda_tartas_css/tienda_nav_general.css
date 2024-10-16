@@ -1,5 +1,4 @@
 :root {
-    /*Los colores principales de la página*/
     --color1: #f7dfad;
     --color2: #f7d49e;
     --color3: #fcbbde;
@@ -7,28 +6,34 @@
     --color5: #380468;
 }
 
-/*Sección de los estilos*/
+/* Basic body styling */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color1);
+    font-family: "Sofia", sans-serif;
+}
+
+/* Navbar styling */
 .navbar {
-    position: fixed;
-    /*Fuente que usaremos en la barra de navegación*/
-    font-family: Cormorant;
-    font-size: larger;
-    top: 0;
-    left: 0;
-    width: 100%;
-    /*La barra ocupará 1/10 de la altura de la ventana*/
-    height: 10vh;
-    background-color: var(--color4);
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    /* Create five equal columns */
     align-items: center;
+    /* Center items vertically */
+    height: 15vh;
+    background-color: transparent;
+    /* Start transparent */
     z-index: 1000;
+    position: fixed;
+    width: 100%;
     transition: background-color 0.3s ease;
+    /* Smooth transition */
 }
 
 .navbar.solid {
     background-color: var(--color4);
-    color: var(--color3);
+    /* Color when solid */
 }
 
 .navbar a {
@@ -36,82 +41,97 @@
     font-weight: lighter;
     color: var(--color5);
     text-decoration: none;
-    font-size: 1.5em;
-    padding: 10px;
+    font-size: 2em;
     text-align: center;
-    /*Transition permite el cambio de color con un tiempo determinado*/
-    transition: background-color 0.3s ease;
-    /*order-radius: 5px;*/
+    padding: 10px;
+    /* Adjust padding for vertical centering */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Add transition for background and color */
+
 }
 
+/* Hover effect for navbar links */
 .navbar a:hover {
-    background-color: var(--color2);
+    background-color: var(--color3);
     color: var(--color5);
+
 }
-.navbar img{
-    width: 200px;
+
+/* Centered logo in navbar */
+.logo-nav {
+    display: flex;
+    /* Use flex to center the image */
+    justify-content: center;
+    /* Center the logo */
+    color: inherit;
+    background-color: transparent;
+    pointer-events: none;
+}
+
+.logo-nav img {
+    width: 80px;
     height: auto;
 }
 
-@media (min-width: 275px) {
-    .tablet-dos {
-        grid-template-columns: 50% 50%;
-    }
-
-    nav.grid {
-        display: grid;
-    }
-
+.logo-nav img:hover {
+    transform: none;
+    /* Remove any transform effects on hover */
+    transition: none;
+    /* Remove any transition effects */
 }
 
-@media (min-width: 575px) {
-    .ordenador-tres {
-        grid-template-columns: 33.33% 33.33% 33.33%;
-    }
+/* Placeholder for the image that triggers the navbar color change */
+.image-placeholder {
+    height: 300px;
+    /* Adjust this height as needed */
+    overflow: hidden;
+    /* Hide overflow */
 }
 
-.cinco {
-    grid-template-columns: 20% 20% 20% 20% 20%;
-}
+/* JS function to adjust navbar based on scroll position */
 
-.treinta-setenta {
-    grid-template-columns: 30% 70%;
-}
-/*Estilos del footer y sus contenidos*/
-footer{
+/* Estilos del footer y sus contenidos */
+footer {
     text-align: center;
     padding: 20px;
 }
-.footer-p{
+
+.footer-p {
     font-size: larger;
 }
-.footerContainer{
+
+.footerContainer {
     width: 100%;
-    padding: 70px 30px 20px ;
+    padding: 70px 30px 20px;
 }
-.socialIcons{
+
+.socialIcons {
     display: flex;
     justify-content: center;
     font-size: small;
 }
-.socialIcons a{
+
+.socialIcons a {
     text-decoration: none;
-    padding:  10px;
+    padding: 10px;
     background-color: var(--color1);
     margin: 10px;
     border-radius: 50%;
 }
-.socialIcons a i{
+
+.socialIcons a i {
     font-size: 2em;
     color: black;
-    opacity: 0,9;
+    opacity: 0.9;
 }
+
 /* Hover affect on social media icon */
-.socialIcons a:hover{
+.socialIcons a:hover {
     background-color: var(--color4);
     transition: 0.5s;
 }
-.socialIcons a:hover i{
+
+.socialIcons a:hover i {
     color: black;
     transition: 0.5s;
 }
