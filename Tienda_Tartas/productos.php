@@ -14,15 +14,13 @@ $productos = $conexion->recibir_datos("SELECT * FROM tartas LIMIT 12 OFFSET $pag
 $contar_articulos = count($productos);
 $paginas = ($contar_articulos / 12) + 1;
 ?>
-<!--Verificar los datos de la bbdd en la página-->
-<?php
+<!--Verificar los datos de la bbdd en la página
 echo "<pre>";
 print_r($productos);
 echo "</pre>";
-?>
 <!DOCTYPE html>
 <html lang="es">
-
+-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,14 +41,17 @@ echo "</pre>";
     <header>
         <header>
             <nav class="navbar grid cinco">
-                <a class="logo" href="https://st4.depositphotos.com/1001439/22584/i/450/depositphotos_225842186-stock-photo-bakery-dessert-shop-bakehouse-logo.jpg"></a>
+                <a><img src="./tienda_tartas_images/Zarif_Kamiso.png" alt="Logo"></a>
                 <a href="./tartas.php">Inicio</a>
                 <a href="./productos.php">Productos</a>
                 <a href="./preguntas.php">Preguntas frecuentes</a>
                 <a href="./contacto.php">Contacto</a>
             </nav>
         </header>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod perspiciatis laboriosam atque nobis, eaque provident minus at voluptates, molestias quia fugit beatae, velit quam excepturi ut vero deserunt aut corporis?</p>
+        <div class="productos-gif">
+            <img src="https://i.pinimg.com/originals/6f/a8/c4/6fa8c4e0bf5650788ce46c97c13566ab.gif"/>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod perspiciatis laboriosam atque nobis, eaque provident minus at voluptates, molestias quia fugit beatae, velit quam excepturi ut vero deserunt aut corporis?</p>
+        </div>
         <main class="fondo">
             <section class="grid una tablet-dos ordenador-tres grid-33 margen">
                 <?php

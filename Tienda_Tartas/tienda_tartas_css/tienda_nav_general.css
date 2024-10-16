@@ -48,6 +48,10 @@
     background-color: var(--color2);
     color: var(--color5);
 }
+.navbar img{
+    width: 150px;
+    height: auto;
+}
 
 @media (min-width: 275px) {
     .tablet-dos {

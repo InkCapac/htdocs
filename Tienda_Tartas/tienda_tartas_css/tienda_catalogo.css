@@ -22,8 +22,10 @@ body {
     grid-auto-flow: dense; /* Ensures grid cells are filled in order */
     gap: 20px; /* Adds space between grid items */
 }
-
-
+.productos-gif{
+    text-align: center;
+    padding: 5%;
+}
 /* Mobile-first layout (one item per row) */
 .una {
     grid-template-columns: 100%;
