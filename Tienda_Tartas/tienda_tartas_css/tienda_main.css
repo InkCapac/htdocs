@@ -5,9 +5,51 @@
     --color4: #f582bf;
     --color5: #380468;
 }
+
+body {
+    background-color: var(--color1);
+    font-family: "Sofia", sans-serif;
+    font-weight: lighter;
+}
+
 .grid {
     display: grid;
 }
+
+
+
+@media (min-width: 275px) {
+    .tablet-dos {
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto auto auto;
+    }
+
+    nav.grid {
+        display: grid;
+    }
+
+    .hamburguesa {
+        display: none;
+    }
+}
+
+@media (min-width: 575px) {
+    .ordenador-tres {
+        grid-template-columns: 33.33% 33.33% 33.33%;
+        grid-template-rows: auto auto auto;
+    }
+}
+
+.cinco {
+    grid-template-columns: 20% 20% 20% 20% 20%;
+}
+
+.treinta-setenta {
+    grid-template-columns: 30% 70%;
+}
+
+
+
 
 /* css del '<article>'  */
 .product-layout {
@@ -22,11 +64,6 @@
 
 }
 
-body {
-    background-color: var(--color1);
-    font-family: "Sofia", sans-serif;
-    font-weight: lighter;
-}
 
 .product-image {
     max-width: 100%;
@@ -80,68 +117,48 @@ nav {
     text-align: center;
 }
 
-@media (min-width: 275px) {
-    .tablet-dos {
-        grid-template-columns: 50% 50%;
-    }
-
-    nav.grid {
-        display: grid;
-    }
-
-    .hamburguesa {
-        display: none;
-    }
-}
-
-@media (min-width: 575px) {
-    .ordenador-tres {
-        grid-template-columns: 33.33% 33.33% 33.33%;
-    }
-}
-
-.cinco {
-    grid-template-columns: 20% 20% 20% 20% 20%;
-}
-
-.treinta-setenta {
-    grid-template-columns: 30% 70%;
-}
 /*Estilos del footer y sus contenidos*/
-footer{
+footer {
     text-align: center;
     padding: 20px;
 }
-.footer-p{
+
+.footer-p {
     font-size: larger;
 }
-.footerContainer{
+
+.footerContainer {
     width: 100%;
-    padding: 70px 30px 20px ;
+    padding: 70px 30px 20px;
 }
-.socialIcons{
+
+.socialIcons {
     display: flex;
     justify-content: center;
     font-size: small;
 }
-.socialIcons a{
+
+.socialIcons a {
     text-decoration: none;
-    padding:  10px;
+    padding: 10px;
     background-color: var(--color1);
     margin: 10px;
     border-radius: 50%;
 }
-.socialIcons a i{
+
+.socialIcons a i {
     font-size: 2em;
     color: black;
-    opacity: 0,9;
+    opacity: 0, 9;
 }
+
 /* Hover affect on social media icon */
-.socialIcons a:hover{
+.socialIcons a:hover {
     background-color: var(--color4);
     transition: 0.5s;
 }
-.socialIcons a:hover i{
+
+.socialIcons a:hover i {
     color: black;
     transition: 0.5s;
 }
