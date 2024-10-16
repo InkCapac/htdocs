@@ -14,6 +14,7 @@ $productos = $conexion->recibir_datos("SELECT * FROM tartas LIMIT 12 OFFSET $pag
 $contar_articulos = count($productos);
 $paginas = ($contar_articulos / 12) + 1;
 ?>
+<!--Verificar los datos de la bbdd en la página-->
 <?php
 echo "<pre>";
 print_r($productos);

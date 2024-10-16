@@ -16,6 +16,21 @@ body {
     display: grid;
 }
 
+.grid-33 {
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    grid-auto-rows: auto;
+    grid-auto-flow: dense;
+    /* Ensures grid cells are filled in order */
+    gap: 20px;
+    /* Adds space between grid items */
+}
+
+/* Mobile-first layout (one item per row) */
+.una {
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto auto;
+}
 
 
 @media (min-width: 275px) {
@@ -48,63 +63,9 @@ body {
     grid-template-columns: 30% 70%;
 }
 
-
-
-
-/* css del '<article>'  */
-.product-layout {
-    text-align: center;
-}
-
-.product-layout button {
-    background-color: var(--color4);
-    color: snow;
-    font-size: smaller;
-    font-weight: lighter;
-
-}
-
-
-.product-image {
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-}
-
-/* css del logo */
-.logo {
-    height: auto;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    background-color: transparent;
-}
-
-.logo img {
-    text-align: center;
-    width: 50%;
-    height: auto;
-    display: block;
-}
-
 section {
     margin: auto;
     width: 75%;
-}
-
-.una {
-    grid-template-columns: 100%;
-}
-
-/* css de la barra de navegación */
-nav.grid {
-    display: none;
-}
-
-nav {
-    background-color: var(--color3);
-    padding: 10px;
-
 }
 
 .hamburguesa {
@@ -115,6 +76,52 @@ nav {
     width: 50px;
     border-radius: 50%;
     text-align: center;
+}
+
+img {
+    max-width: 100%;
+    width: 800px;
+    height: 420px;
+}
+
+nav-grid {
+    display: none;
+}
+
+/* Margins and background */
+.margen {
+    width: 80%;
+    margin: auto;
+}
+
+.fondo {
+    /*background-image: url(../background_1.jpg);*/
+    background-color: #f7dfad;
+    background-size: cover;
+}
+
+main {
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+article {
+    position: relative;
+}
+
+article button {
+    color: snow;
+    background-color: transparent;
+    border: none;
+    padding: 10px 20px;
+    font-size: large;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    cursor: pointer;
 }
 
 /*Estilos del footer y sus contenidos*/
