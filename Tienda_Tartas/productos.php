@@ -20,13 +20,26 @@ class Carrito {
     // Method to add item to the cart
     public function agregar_item($product_id, $nombre, $cantidad, $precio) {
         $query = "INSERT INTO carrito (id_producto, nombre, cantidad, precio) VALUES (?, ?, ?, ?)";
-        $this->conexion->hacer_consulta($query, 'isid', [$product_id, $nombre, $cantidad, $precio]);
+        $result = $this->conexion->hacer_consulta($query, 'isid', [$product_id, $nombre, $cantidad, $precio]);
+        
+        if (!$result) {
+            // Log or handle the error as needed
+            $_SESSION['message'] = "Error adding item to cart.";
+            header("Location: productos.php"); // Redirect back to productos.php
+            exit();
+        }
     }
 
     // Method to fetch a product
     public function obtener_producto($id) {
         $query = "SELECT * FROM tartas WHERE id = ?"; // Assuming products have unique IDs
-        return $this->conexion->hacer_consulta($query, 'i', [$id]);
+        $result = $this->conexion->hacer_consulta($query, 'i', [$id]);
+        
+        if ($result) {
+            return $result;
+        } else {
+            return []; // Return an empty array if the query fails
+        }
     }
 }
 

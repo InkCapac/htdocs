@@ -32,34 +32,29 @@ class Conectar {
             die("Execute failed: " . $stmt->error);
         }
 
-        // Fetch results as an associative array
-        $result = $stmt->get_result();
-        $data = $result->fetch_all(MYSQLI_ASSOC);
-        
+        // Check if it's a SELECT statement
+        if (stripos($query, 'SELECT') === 0) {
+            // Fetch results as an associative array
+            $result = $stmt->get_result();
+            $data = $result->fetch_all(MYSQLI_ASSOC);
+            $stmt->close();
+            return $data; // Return the fetched data
+        }
+
+        // For INSERT, UPDATE, DELETE, just return true
         $stmt->close();
-        
-        return $data; // Return the fetched data, or an empty array if no results
+        return true;
+    }
+
+    // Method to receive data based on a SQL query
+    public function recibir_datos($query) {
+        return $this->hacer_consulta($query); // Call hacer_consulta to fetch data
     }
 
     // Method to insert a product into the carrito table
     public function agregar_a_carrito($id_producto, $nombre, $cantidad, $precio) {
         $query = "INSERT INTO carrito (id_producto, nombre, cantidad, precio) VALUES (?, ?, ?, ?)";
-        $stmt = $this->connection->prepare($query);
-        
-        // Check if prepare failed
-        if ($stmt === false) {
-            die("Prepare failed: " . $this->connection->error);
-        }
-
-        // Bind parameters and execute
-        $stmt->bind_param('isid', $id_producto, $nombre, $cantidad, $precio);
-
-        // Execute the query
-        if (!$stmt->execute()) {
-            die("Execute failed: " . $stmt->error);
-        }
-
-        $stmt->close();
+        return $this->hacer_consulta($query, 'isid', [$id_producto, $nombre, $cantidad, $precio]);
     }
 
     // Method to get all items in the carrito
