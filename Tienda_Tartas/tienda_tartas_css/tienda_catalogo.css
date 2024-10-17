@@ -75,10 +75,23 @@ section {
     text-align: center;
 }
 
+/* Estilo para cada producto */
+.product-layout {
+    border: 2px solid white; /* Borde blanco alrededor del producto */
+    border-radius: 10px; /* Esquinas redondeadas */
+    overflow: hidden; /* Asegura que la imagen no sobresalga */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    transition: transform 0.3s; /* Transición suave para zoom */
+    background-color: white; /* Fondo blanco para el contenedor del producto */
+}
+
+.product-layout:hover {
+    transform: scale(1.05); /* Zoom en el contenedor del producto al pasar el cursor */
+}
+
 .product-layout img {
     max-width: 100%;
-    width: 800px;
-    height: 420px;
+    height: auto; /* Mantener la proporción de la imagen */
 }
 
 nav-grid {
@@ -106,6 +119,7 @@ main {
 
 article {
     position: relative;
+    padding: 20px; /* Espaciado interno */
 }
 
 article button {

@@ -1,14 +1,14 @@
 <?php 
-session_start(); // Start the session to access session variables
+session_start(); // Inicia la sesión para acceder a las variables de sesión
 
-// Include the database connection class
+// Incluye la clase de conexión a la base de datos
 include_once("./conectar.php"); 
 
-// Replace these with your actual database credentials
-$servidor = "localhost"; // usually "localhost"
-$usuario = "root"; // default username for XAMPP is "root"
-$contrasena = ""; // default password is usually empty for root on XAMPP
-$bbdd = "tienda"; // your database name
+// Reemplaza esto con tus credenciales de base de datos reales
+$servidor = "localhost"; // generalmente "localhost"
+$usuario = "root"; // el nombre de usuario predeterminado para XAMPP es "root"
+$contrasena = ""; // la contraseña predeterminada suele estar vacía para root en XAMPP
+$bbdd = "tienda"; // el nombre de tu base de datos
 
 class Carrito {
     private $conexion;
@@ -17,67 +17,67 @@ class Carrito {
         $this->conexion = $conexion;
     }
 
-    // Method to add item to the cart
+    // Método para agregar un artículo al carrito
     public function agregar_item($product_id, $nombre, $cantidad, $precio) {
         $query = "INSERT INTO carrito (id_producto, nombre, cantidad, precio) VALUES (?, ?, ?, ?)";
         $result = $this->conexion->hacer_consulta($query, 'isid', [$product_id, $nombre, $cantidad, $precio]);
         
         if (!$result) {
-            // Log or handle the error as needed
-            $_SESSION['message'] = "Error adding item to cart.";
-            header("Location: productos.php"); // Redirect back to productos.php
+            // Registra o maneja el error según sea necesario
+            $_SESSION['message'] = "Error al agregar el artículo al carrito.";
+            header("Location: productos.php"); // Redirige de vuelta a productos.php
             exit();
         }
     }
 
-    // Method to fetch a product
+    // Método para obtener un producto
     public function obtener_producto($id) {
-        $query = "SELECT * FROM tartas WHERE id = ?"; // Assuming products have unique IDs
+        $query = "SELECT * FROM tartas WHERE id = ?"; // Suponiendo que los productos tienen ID únicos
         $result = $this->conexion->hacer_consulta($query, 'i', [$id]);
         
         if ($result) {
             return $result;
         } else {
-            return []; // Return an empty array if the query fails
+            return []; // Devuelve un array vacío si la consulta falla
         }
     }
 }
 
-// Instantiate the Conectar class with the database details
+// Instancia la clase Conectar con los detalles de la base de datos
 $conexion = new Conectar($servidor, $usuario, $contrasena, $bbdd);
 $carrito = new Carrito($conexion);
 
-// Check if an ID is passed through GET
+// Verifica si se pasa un ID a través de GET
 $id = $_GET['id'] ?? null;
 if ($id) {
-    // Retrieve product details
+    // Recupera los detalles del producto
     $productData = $carrito->obtener_producto($id);
     if (!empty($productData)) {
         $product = $productData[0];
-        $quantity = 1; // Set desired quantity
-        // Add the product to the cart
+        $quantity = 1; // Establece la cantidad deseada
+        // Agrega el producto al carrito
         $carrito->agregar_item($product['id'], $product['nombre'], $quantity, $product['precio']);
         
-        // Set a session message
-        $_SESSION['message'] = "Product added to cart successfully!";
-        header("Location: productos.php"); // Redirect back to productos.php
-        exit(); // Ensure no further code is executed
+        // Establece un mensaje de sesión
+        $_SESSION['message'] = "¡Producto agregado al carrito con éxito!";
+        header("Location: productos.php"); // Redirige de vuelta a productos.php
+        exit(); // Asegúrate de que no se ejecute más código
     } else {
-        $_SESSION['message'] = "Product not found.";
+        $_SESSION['message'] = "Producto no encontrado.";
         header("Location: productos.php"); 
         exit();
     }
 }
 
-// Fetch all products from the database
-$query = "SELECT * FROM tartas"; // Update this to your actual SQL query
-$productos = $conexion->hacer_consulta($query); // Should return an array
+// Recupera todos los productos de la base de datos
+$query = "SELECT * FROM tartas"; // Actualiza esto a tu consulta SQL real
+$productos = $conexion->hacer_consulta($query); // Debería devolver un array
 
-// Ensure that $productos is an array
+// Asegúrate de que $productos sea un array
 if (is_array($productos)) {
-    $contar_articulos = count($productos); // Count the number of products
+    $contar_articulos = count($productos); // Cuenta el número de productos
 } else {
-    $contar_articulos = 0; // Set count to 0 if $productos is not an array
+    $contar_articulos = 0; // Establece el conteo a 0 si $productos no es un array
 }
 ?>
 
@@ -99,10 +99,10 @@ if (is_array($productos)) {
 
 <body>
 <?php
-// Check for message and display it if exists
+// Verifica si hay un mensaje y lo muestra si existe
 if (isset($_SESSION['message'])) {
     echo '<div class="notification">' . $_SESSION['message'] . '</div>';
-    unset($_SESSION['message']); // Clear the message after displaying
+    unset($_SESSION['message']); // Borra el mensaje después de mostrarlo
 }
 ?>
     <header>
@@ -126,29 +126,6 @@ if (isset($_SESSION['message'])) {
         </p>
     </div>
 
-    <div class="form-box">
-        <form>
-            <p>Forma parte de</p>
-            <div class="grid inputs">
-                <label for="name">Nombre</label>
-                <input type="text" id="name" name="name">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email">
-                <label for="phone">Teléfono</label>
-                <input type="tel" id="phone" name="phone">
-            </div>
-            <p>Información adicional</p>
-            <textarea id="additional-info" name="additional_info" cols="30" rows="20"></textarea>
-            <div class="grid checkbox-message">
-                <input type="checkbox" id="consent" name="consent" class="arriba">
-                <label for="consent">Por favor, haz click en este botón para asegurarnos que estás de acuerdo con
-                    nuestras condiciones de servicio.</label>
-            </div>
-            <button type="submit">Enviar datos</button>
-        </form>
-        <button class="contact">Embajadores</button>
-    </div>
-
     <div class="productos-gif">
         <img src="https://i.pinimg.com/originals/6f/a8/c4/6fa8c4e0bf5650788ce46c97c13566ab.gif" />
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod perspiciatis laboriosam atque nobis, eaque
@@ -166,7 +143,7 @@ if (isset($_SESSION['message'])) {
                     $nombre = $producto["nombre"];
                     $imagen = $producto["imagen"];
                     $descripcion = $producto["descripcion"];
-                    $precio = number_format($producto["precio"], 2); // Format the price
+                    $precio = number_format($producto["precio"], 2); // Formatea el precio
                     $alergenos = $producto["alergenos"];
 
                     echo "
@@ -186,5 +163,17 @@ if (isset($_SESSION['message'])) {
     </main>
     <script src="./js_tienda_tartas/navbar_general_tartas.js"></script>
     <script src="./js_tienda_tartas/carrito_tartas.js"></script>
+    <footer>
+        <div class="footerContainer">
+            <div class="socialIcons">
+                <a href=""><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/zarifkamiso/?hl=es"><i class="fa-brands fa-instagram"></i></a>
+                <a href=""><i class="fa-brands fa-twitter"></i></a>
+                <a href=""><i class="fa-brands fa-google-plus"></i></a>
+                <a href=""><i class="fa-brands fa-youtube"></i></a>
+            </div>
+            <p>© Zarif Kamiso 2024 Todos los derechos reservados</p>
+        </div>
+    </footer>
 </body>
 </html>

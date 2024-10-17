@@ -37,7 +37,7 @@ $carrito = new Carrito($conexion->get_connection());
             transition: background-color 0.3s;
         }
         button:hover {
-            background-color: #ff5555; /* A slightly lighter shade for hover effect */
+            background-color: #ff5555;
         }
     </style>
 </head>
@@ -48,7 +48,6 @@ $carrito = new Carrito($conexion->get_connection());
 <?php if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0): ?>
     <?php foreach ($_SESSION['cart'] as $product_id => $details): ?>
         <?php
-        // Fetch product details from the database using prepared statements
         $stmt = $conexion->get_connection()->prepare("SELECT * FROM tartas WHERE id = ?");
         $stmt->bind_param("i", $product_id);
         $stmt->execute();

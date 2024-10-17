@@ -17,7 +17,7 @@ body {
     overflow-x: hidden; 
 }
 
-/* Caja de mensaje */
+/* Caja de mensaje (Formulario) */
 .form-box {
     font-family: Cormorant;
     font-size: 16px;
@@ -37,6 +37,7 @@ body {
     z-index: 1000; /* El contenido de la caja se puede ver sobre el resto de la página */
 }
 
+/* Estado cuando el formulario está visible */
 .form-box.abierto {
     transform: translateX(0px); /* Línea para que el formulario se revele en la ventana */
 }
@@ -71,14 +72,14 @@ body {
     height: 100px; /* Altura predeterminada */
 }
 
-.form-box .checkbox-message {
-    display: flex; /* Usar flexbox para alineación */
-    align-items: center; /* Centrar elementos verticalmente */
-    gap: 1px;
+/* Estilo de la lista de productos en el carrito */
+.cart-items-container ul {
+    list-style-type: none;
+    padding: 0;
 }
 
-.checkbox-wrapper input[type="checkbox"] {
-    margin-right: 5px; /* Espacio entre checkbox y etiqueta */
+.cart-items-container li {
+    margin-bottom: 10px;
 }
 
 /* Estilos del 'checkbox' */

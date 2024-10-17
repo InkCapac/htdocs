@@ -1,32 +1,35 @@
 :root {
-    /*Los colores principales de la página*/
+    /* Los colores principales de la página */
     --color1: #f7dfad;
     --color2: #f7d49e;
     --color3: #fcbbde;
     --color4: #f582bf;
+    --borde: 1px solid var(--color1); /* Definición del borde usando la variable de color */
 }
+
 body {
     font-family: "Sofia", sans-serif;
     margin: 0;
-    /*Evita que aparezca un 'scrollbar' horizontal*/
+    /* Evita que aparezca un 'scrollbar' horizontal */
     overflow-x: hidden; 
 }
 
 /* Caja de mensaje */
 .form-box {
-    font-family: Cormorant;
+    font-family: Cormorant, serif; /* Se cambió a serif para consistencia con el estilo */
     font-size: 16px;
     color: black;
-    top: 125px;
-    padding: 5px;
+    padding: 20px; /* Relleno para mayor comodidad */
     width: 80%;
-    /* Establecer un ancho máximo para la caja del formulario */
+    max-width: 600px; /* Ancho máximo para la caja del formulario */
     height: auto;
-    transform: translateX(350px); /* Transición 'suave' y revelación de la caja */
+    transform: translateX(350px); /* Transición suave y revelación de la caja */
     transition: transform 1s ease;
     border: var(--borde); /* Declaración de borde fija */
     background-color: var(--color3);
     z-index: 1000; /* El contenido de la caja se puede ver sobre el resto de la página */
+    position: relative; /* Para posicionar el formulario correctamente */
+    margin-top: 20px; /* Agregar margen superior para evitar superposición con la navbar */
 }
 
 .form-box.abierto {
@@ -53,7 +56,7 @@ body {
     box-sizing: border-box; /* Incluir relleno y borde en el ancho */
     padding: 10px; /* Relleno para comodidad */
     border: 1px solid grey; /* Borde para campos de entrada */
-    margin-bottom: 2px; /* Espacio entre entradas */
+    margin-bottom: 10px; /* Espacio entre entradas */
     background-color: snow; /* Color de fondo para entradas */
 }
 
@@ -63,14 +66,11 @@ body {
     height: 100px; /* Altura predeterminada */
 }
 
+/* Estilos para el mensaje de consentimiento */
 .form-box .checkbox-message {
     display: flex; /* Usar flexbox para alineación */
     align-items: center; /* Centrar elementos verticalmente */
     gap: 5px;
-}
-
-.checkbox-wrapper input[type="checkbox"] {
-    margin-right: 5px; /* Espacio entre checkbox y etiqueta */
 }
 
 /* Estilos del botón del formulario */
@@ -88,23 +88,20 @@ body {
 
 .form-box button:hover {
     background-color: var(--color2);
-    color: snow;
 }
 
 .form-box button:active {
     background-color: var(--color1);
 }
 
-/* Estilos para el botón 'callback', el cual en la web se ve como 'Contáctanos' */
+/* Estilos para el botón 'Contáctanos' */
 .contact {
     cursor: pointer;
     position: absolute;
-    font-family: Cormorant; 
     top: 76px; /* Ajustar la posición según sea necesario */
     left: -124px; /* Posicionar a la izquierda de la caja del formulario */
     transform: rotate(90deg); /* Rotar la etiqueta para que sea legible */
     background-color: var(--color1);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: snow;
     padding: 10px;
     border-radius: 5px;
@@ -116,7 +113,6 @@ body {
 
 .contact:hover {
     background-color: var(--color2);
-    color: snow;
 }
 
 .contact:active {
@@ -128,3 +124,4 @@ body {
     position: relative;
     z-index: 1; /* El formulario aparece sobre la galería */
 }
+    

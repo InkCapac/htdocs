@@ -1,70 +1,47 @@
 <?php
 class Conectar {
-    private $connection;
+    private $conexion;
 
     public function __construct($servidor, $usuario, $contrasena, $bbdd) {
-        // Establish your database connection here
-        $this->connection = new mysqli($servidor, $usuario, $contrasena, $bbdd);
+        // Establecer la conexión a la base de datos
+        $this->conexion = new mysqli($servidor, $usuario, $contrasena, $bbdd);
 
-        // Check for connection errors
-        if ($this->connection->connect_error) {
-            die("Connection failed: " . $this->connection->connect_error);
+        // Verificar si hay errores de conexión
+        if ($this->conexion->connect_error) {
+            die("Error de conexión: " . $this->conexion->connect_error);
         }
     }
 
-    // Method to execute a query
-    public function hacer_consulta($query, $types = '', $params = []) {
-        // Prepare the statement
-        $stmt = $this->connection->prepare($query);
+    public function hacer_consulta($query, $types = null, $params = []) {
+        // Preparar la declaración SQL
+        $stmt = $this->conexion->prepare($query);
 
-        // Check if prepare failed
-        if ($stmt === false) {
-            die("Prepare failed: " . $this->connection->error);
-        }
-
-        // Bind parameters if provided
-        if (!empty($types)) {
+        if ($types && $params) {
+            // Vincular parámetros si se proporcionan tipos y parámetros
             $stmt->bind_param($types, ...$params);
-        }
+        }   
 
-        // Execute the query
+        // Ejecutar la declaración
         if (!$stmt->execute()) {
-            die("Execute failed: " . $stmt->error);
+            // Registrar el error y devolver falso
+            error_log("Error SQL: " . $stmt->error);
+            return false;
         }
 
-        // Check if it's a SELECT statement
-        if (stripos($query, 'SELECT') === 0) {
-            // Fetch results as an associative array
+        // Devolver el resultado según el tipo de consulta
+        if (strpos($query, "SELECT") === 0) {
+            // Para consultas SELECT, devolver el conjunto de resultados
             $result = $stmt->get_result();
-            $data = $result->fetch_all(MYSQLI_ASSOC);
-            $stmt->close();
-            return $data; // Return the fetched data
+            return $result->fetch_all(MYSQLI_ASSOC); // Devolver todas las filas como un arreglo asociativo
+        } else {
+            // Para consultas INSERT, UPDATE, DELETE, devolver el número de filas afectadas
+            return $stmt->affected_rows > 0;
         }
-
-        // For INSERT, UPDATE, DELETE, just return true
-        $stmt->close();
-        return true;
-    }
-
-    // Method to receive data based on a SQL query
-    public function recibir_datos($query) {
-        return $this->hacer_consulta($query); // Call hacer_consulta to fetch data
-    }
-
-    // Method to insert a product into the carrito table
-    public function agregar_a_carrito($id_producto, $nombre, $cantidad, $precio) {
-        $query = "INSERT INTO carrito (id_producto, nombre, cantidad, precio) VALUES (?, ?, ?, ?)";
-        return $this->hacer_consulta($query, 'isid', [$id_producto, $nombre, $cantidad, $precio]);
-    }
-
-    // Method to get all items in the carrito
-    public function obtener_carrito() {
-        $query = "SELECT * FROM carrito";
-        return $this->hacer_consulta($query);
     }
 
     public function __destruct() {
-        $this->connection->close(); // Close the connection when the object is destroyed
+        // Cerrar la conexión a la base de datos cuando el objeto es destruido
+        $this->conexion->close();
     }
 }
 ?>
