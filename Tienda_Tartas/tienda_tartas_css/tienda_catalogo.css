@@ -27,6 +27,7 @@ body {
 .productos-gif {
     text-align: center;
     padding: 5%;
+    border-radius: 10px;
 }
 
 /* Diseño móvil (un elemento por fila) */
@@ -116,7 +117,9 @@ main {
     width: 100%;
     box-sizing: border-box;
 }
-
+.begin-text{
+    color: transparent;
+}
 article {
     position: relative;
     padding: 20px; /* Espaciado interno */

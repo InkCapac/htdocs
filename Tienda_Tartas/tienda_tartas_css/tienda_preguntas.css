@@ -62,9 +62,17 @@ body {
 }
 
 /* Marcador de imagen */
-.image-placeholder {
-    height: 100px;
-    background-color: var(--color1);
+.image-placeholder.preguntas {
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    text-align: center; 
+    height: auto;
+    font-size: x-large;
+    background-color: var(--color3);
+    border-radius: 10px;
+    margin: 0 auto;
+    width: 80%; 
 }
 
 /* Contenedor de carrete de Instagram y contenedor FAQ */

@@ -88,6 +88,9 @@ if (is_array($productos)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zarif Kamiso | Productos</title>
+    <link rel="shortcut icon"
+        href="https://static.wixstatic.com/media/aac7c7_2d43f156b81a4898b84dd5794e9e3041~mv2.png/v1/fill/w_104,h_99,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/zk1.png"
+        type="image/x-icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
@@ -116,17 +119,13 @@ if (isset($_SESSION['message'])) {
             <a href="./contacto.php">Contacto</a>
         </nav>
     </header>
-
-    <div class="imagen-central">
-        <img src="./tienda_tartas_images/zarif_kamiso.jpg" alt="Imagen Central">
-    </div>
-    <div class="image-placeholder">
+    <div class="begin-text">
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quaerat, similique eius enim maiores id
             veritatis qui sapiente earum autem, atque mollitia sint exercitationem veniam sit? Distinctio eum atque ad!
         </p>
     </div>
 
-    <div class="productos-gif">
+    <div class="image-placeholder productos-gif">
         <img src="https://i.pinimg.com/originals/6f/a8/c4/6fa8c4e0bf5650788ce46c97c13566ab.gif" />
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod perspiciatis laboriosam atque nobis, eaque
             provident minus at voluptates, molestias quia fugit beatae, velit quam excepturi ut vero deserunt aut
