@@ -14,6 +14,18 @@ $productos = $conexion->recibir_datos("SELECT * FROM tartas LIMIT 12 OFFSET $pag
 $contar_articulos = count($productos);
 $paginas = ($contar_articulos / 12) + 1;
 ?>
+<?php
+session_start(); // Start the session to access session variables
+
+// Check for message and display it if exists
+if (isset($_SESSION['message'])) {
+    echo '<div class="notification">' . $_SESSION['message'] . '</div>';
+    unset($_SESSION['message']); // Clear the message after displaying
+}
+
+// Your existing code to display products goes here...
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -99,29 +111,33 @@ $paginas = ($contar_articulos / 12) + 1;
     <div class="image-placeholder"></div>
     <main class="fondo">
         <section class="grid una tablet-dos ordenador-tres grid-33 margen">
-            <?php
-            if ($contar_articulos < 1) {
-                echo "<p>No se han encontrado artículos</p>";
-            } else {
-                for ($i = 0; $i < count($productos); $i++) {
-                    $id = $productos[$i]["id"];
-                    $nombre = $productos[$i]["nombre"];
-                    $imagen = $productos[$i]["imagen"];
-                    $descripcion = $productos[$i]["descripcion"];
-                    $precio = $productos[$i]["precio"];
-                    $alergenos = $productos[$i]["alergenos"];
-                    echo '
-                    <article class="product-layout">
-                    <h3>' . $nombre . '</h3>
-                    <img src="' . $imagen . '" class="product-image" alt="' . $nombre . '">
-                    <p>' . $descripcion . '</p>
-                    <p>' . $precio . '</p>
-                    <p>' . $alergenos .  '</p>
-                    <a href="productos.php?id=' . $id . '"><button>Adquirir</button></a>
-                </article>';
-                }
-            }
-            ?>
+        <?php
+if ($contar_articulos < 1) {
+    echo "<p>No se han encontrado artículos</p>";
+} else {
+    for ($i = 0; $i < count($productos); $i++) {
+        $id = $productos[$i]["id"];
+        $nombre = $productos[$i]["nombre"];
+        $imagen = $productos[$i]["imagen"];
+        $descripcion = $productos[$i]["descripcion"];
+        $precio = $productos[$i]["precio"];
+        $alergenos = $productos[$i]["alergenos"];
+
+        // Use double quotes for the outer string and embed PHP directly
+        echo "
+        <article class='product-layout'>
+            <h3>" . htmlspecialchars($nombre) . "</h3>
+            <img src='" . htmlspecialchars($imagen) . "' class='product-image' alt='" . htmlspecialchars($nombre) . "'>
+            <p>" . htmlspecialchars($descripcion) . "</p>
+            <p>" . htmlspecialchars($precio) . "</p>
+            <p>" . htmlspecialchars($alergenos) . "</p>
+            <a href='carrito.php?id=" . $id . "' class='adquirir-button'>ADQUIRIR</a>
+        </article>
+        ";
+    }
+}
+?>
+
         </section>
     </main>
     <div>

@@ -5,6 +5,7 @@
     --color4: #f582bf;
     --color5: #380468;
 }
+
 body {
     background-color: var(--color1);
     font-family: "Sofia", sans-serif;
@@ -19,27 +20,29 @@ body {
     display: grid;
     grid-template-columns: 33.33% 33.33% 33.33%;
     grid-auto-rows: auto;
-    grid-auto-flow: dense; /* Ensures grid cells are filled in order */
-    gap: 20px; /* Adds space between grid items */
+    grid-auto-flow: dense; /* Asegura que las celdas de la cuadrícula se llenen en orden */
+    gap: 20px; /* Agrega espacio entre los elementos de la cuadrícula */
 }
-.productos-gif{
+
+.productos-gif {
     text-align: center;
     padding: 5%;
 }
-/* Mobile-first layout (one item per row) */
+
+/* Diseño móvil (un elemento por fila) */
 .una {
     grid-template-columns: 100%;
     grid-template-rows: auto auto auto;
 }
 
-/* Tablet layout (two items per row) */
+/* Diseño de tableta (dos elementos por fila) */
 @media (min-width: 275px) {
     .tablet-dos {
         grid-template-columns: 50% 50%;
         grid-template-rows: auto auto auto;
     }
 
-    /* Function to show nav */
+    /* Función para mostrar nav */
     nav.grid {
         display: grid;
     }
@@ -49,7 +52,7 @@ body {
     }
 }
 
-/* Desktop layout (three items per row) */
+/* Diseño de escritorio (tres elementos por fila) */
 @media (min-width: 575px) {
     .ordenador-tres {
         grid-template-columns: 33.33% 33.33% 33.33%;
@@ -82,7 +85,7 @@ nav-grid {
     display: none;
 }
 
-/* Margins and background */
+/* Márgenes y fondo */
 .margen {
     width: 80%;
     margin: auto;
@@ -116,4 +119,17 @@ article button {
     transform: translateX(-50%);
     width: 100px;
     cursor: pointer;
+}
+
+.notification {
+    position: fixed; /* Usa posición fija para mantenerlo en la parte superior */
+    top: 20px; /* Colócalo en la parte superior */
+    right: 20px; /* Colócalo a la derecha */
+    background-color: #28a745; /* Fondo verde */
+    color: white; /* Color de texto blanco */
+    padding: 10px 20px; /* Algo de relleno */
+    border-radius: 5px; /* Esquinas redondeadas */
+    z-index: 1000; /* Asegúrate de que aparezca en la parte superior */
+    cursor: pointer; /* Cambia el cursor a puntero */
+    transition: opacity 0.5s ease; /* Transición para desvanecerse */
 }

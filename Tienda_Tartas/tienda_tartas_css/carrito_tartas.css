@@ -5,6 +5,7 @@
     --color4: #f582bf;
     --color5: #380468;
 }
+
 @font-face {
     font-family: Cormorant;
     src: url(../fonts/static/Cormorant-SemiBoldItalic.ttf);
@@ -12,7 +13,7 @@
 
 body {
     margin: 0;
-    /*Evita que aparezca un 'scrollbar' horizontal*/
+    /* Evita que aparezca un 'scrollbar' horizontal */
     overflow-x: hidden; 
 }
 

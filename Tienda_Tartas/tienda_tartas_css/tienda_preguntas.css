@@ -6,7 +6,7 @@
     --color5: #380468;
 }
 
-/* General page styling */
+/* Estilo general de la página */
 body {
     font-family: "Sofia", sans-serif;
     margin: 0;
@@ -28,7 +28,7 @@ body {
     align-items: center;
 }
 
-/* Image central section */
+/* Sección de imagen central */
 .imagen-central {
     display: flex;
     justify-content: center;
@@ -61,13 +61,13 @@ body {
     transform: scale(1.05);
 }
 
-/* Image placeholder */
+/* Marcador de imagen */
 .image-placeholder {
     height: 100px;
     background-color: var(--color1);
 }
 
-/* Instagram reel and FAQ container wrapper */
+/* Contenedor de carrete de Instagram y contenedor FAQ */
 .faq-reel-container {
     display: flex;
     justify-content: space-between;
@@ -78,10 +78,10 @@ body {
     gap: 20px;
 }
 
-/* Instagram reel container */
+/* Contenedor de carrete de Instagram */
 .instagram-media {
-    flex: 1 1 40%; /* Increased width */
-    max-width: 40vw; /* Ensure it doesn't exceed 40% of the viewport width */
+    flex: 1 1 40%; /* Ancho aumentado */
+    max-width: 40vw; /* Asegúrese de que no exceda el 40% del ancho de la ventana */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -90,17 +90,17 @@ body {
 .instagram-media iframe, 
 .instagram-media video {
     width: 100%;
-    height: auto; /* Maintain aspect ratio */
-    max-height: 400px; /* Limit height for better visibility */
+    height: auto; /* Mantener proporción */
+    max-height: 400px; /* Limitar altura para mejor visibilidad */
     border: 5px solid var(--color3);
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* FAQ container */
+/* Contenedor FAQ */
 .faq-container {
-    flex: 1 1 60%; /* Adjusted to occupy remaining space */
-    max-width: 60vw; /* Max width for the FAQ */
+    flex: 1 1 60%; /* Ajustado para ocupar el espacio restante */
+    max-width: 60vw; /* Ancho máximo para el FAQ */
     padding: 20px;
     background-image: url('https://as2.ftcdn.net/v2/jpg/02/76/11/67/1000_F_276116708_9AUeW28pmiSL3zvXx7uL0whlS38WiZTh.jpg');
     border-radius: 5px;
@@ -133,7 +133,7 @@ body {
     background-color: #fcbbde;
 }
 
-/* Responsive adjustments */
+/* Ajustes responsivos */
 @media (max-width: 768px) {
     .navbar {
         font-size: 14px;
@@ -152,4 +152,9 @@ body {
         max-width: 100%;
         width: 100%;
     }
+}
+
+/* Transición suave en hover para enlaces de navbar */
+.navbar a {
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
