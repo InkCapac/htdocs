@@ -4,11 +4,13 @@
     --color2: rgba(120, 0, 0);
     --color3: snow;
     --color4: #f7dfad;
+    --color5: rgb(63,0,44);
     --borde: 1px solid rgb(219, 26, 31);
 }
 
 /*Sección de los estilos*/
 .navbar.nav-font{
+    padding-top: 20px;
     font-family: "Silkscreen", sans-serif;
     font-weight: bold;
     position: fixed;
@@ -30,7 +32,7 @@
 }
 
 .navbar.solid {
-    background-color: var(--color1);
+    background-color: var(--color5);
     color: var(--color3);
 }
 
@@ -48,7 +50,7 @@
     background-color: var(--color2);
     color: var(--color3);
 }
-.navbar a img{
+.navbar a.logo img {
     width: 200px; 
     height: auto;
     margin-right: 15px; 
@@ -56,6 +58,10 @@
     max-height: 100%; 
     object-fit: contain; 
     cursor: default;
+}
+.navbar a.shop-cart img {
+    width: 90px;
+    height: auto;
 }
 /*Estilos del footer y sus contenidos*/
 footer{
