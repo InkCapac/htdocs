@@ -1,0 +1,97 @@
+:root {
+    /*Los colores principales de la página*/
+    --color1: rgb(219, 26, 31);
+    --color2: rgba(120, 0, 0);
+    --color3: snow;
+    --color4: #f7dfad;
+    --borde: 1px solid rgb(219, 26, 31);
+}
+
+/*Sección de los estilos*/
+.navbar.nav-font{
+    font-family: "Silkscreen", sans-serif;
+    font-weight: bold;
+    position: fixed;
+    /*Fuente que usaremos en la barra de navegación*/
+    overflow: hidden;
+    font-size: 1.5em;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /*La barra ocupará 1/10 de la altura de la ventana*/
+    height: 10vh;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-sizing: border-box;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.navbar.solid {
+    background-color: var(--color1);
+    color: var(--color3);
+}
+
+.navbar a {
+    text-align: center;
+    color: var(--color3);
+    text-decoration: none;
+    font-size: 1em;
+    padding: 10px;
+    /*Transition permite el cambio de color con un tiempo determinado*/
+    transition: background-color 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: var(--color2);
+    color: var(--color3);
+}
+.navbar a img{
+    width: 200px; 
+    height: auto;
+    margin-right: 15px; 
+    padding: 0; 
+    max-height: 100%; 
+    object-fit: contain; 
+    cursor: default;
+}
+/*Estilos del footer y sus contenidos*/
+footer{
+    text-align: center;
+    padding: 20px;
+}
+.footer-p{
+    font-size: larger;
+}
+.footerContainer{
+    width: 100%;
+    padding: 70px 30px 20px ;
+}
+.socialIcons{
+    display: flex;
+    justify-content: center;
+    font-size: small;
+}
+.socialIcons a{
+    text-decoration: none;
+    padding:  10px;
+    background-color: var(--color3);
+    margin: 10px;
+    border-radius: 50%;
+}
+.socialIcons a i{
+    font-size: 2em;
+    color: black;
+    opacity: 0,9;
+}
+/* Hover affect on social media icon */
+.socialIcons a:hover{
+    background-color: var(--color2);
+    transition: 0.5s;
+}
+.socialIcons a:hover i{
+    color: var(--color3);
+    transition: 0.5s;
+}
