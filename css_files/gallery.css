@@ -12,7 +12,7 @@
 }
 
 /* Incluir el relleno y los bordes en el ancho y alto total del elemento */
-* {
+*.gallery {
     box-sizing: border-box;
 }
 

@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visit Peru</title>
     <link rel="shortcut icon" href="./content_images/peru_logo.jpg" type="image/x-icon">
+    <!--Fonts para la página (Montserrat Alternates) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <!--CSS Files-->
     <link rel="stylesheet" href="./css_files/gallery.css">
     <link rel="stylesheet" href="./css_files/main.css">
@@ -60,66 +66,63 @@
         </div>
     </div>
     <!-- Capa -->
-<div id="capa" class="capa" style="display:none;"></div>
+    <div id="capa" class="capa" style="display:none;"></div>
 
-<!-- Embajadores Button -->
-<button class="contact">Embajadores</button>
+    <!-- Embajadores Button -->
+    <button class="contact">Embajadores</button>
 
-<!-- Form Box -->
-<div class="form-box">
-    <h2>Miembro de PromPeru</h2>
+    <!-- Form Box -->
+    <div class="form-box">
+        <h2>Miembros de PromPeru</h2>
 
-    <!-- Navigation for Login and Register -->
-    <div class="form-toggle">
-        <button id="login-toggle" class="active">Login</button> |
-        <button id="register-toggle">Registrarse</button>
+        <!-- Navigation for Login and Register -->
+        <div class="form-toggle">
+            <button id="login-toggle" class="active">Login</button> |
+            <button id="register-toggle">Registrarse</button>
+        </div>
+
+        <!-- Login Form -->
+        <form id="login-form" class="grid">
+            <label for="email-login">Correo Electrónico</label>
+            <input type="email" id="email-login" name="email-login" required>
+
+            <label for="password-login">Contraseña</label>
+            <input type="password" id="password-login" name="password-login" required>
+
+            <div class="grid checkbox-message">
+                <input type="checkbox" id="remember" name="remember">
+                <label for="remember">Recordar contraseña</label>
+            </div>
+
+            <p class="forgot-password"><a href="#">Olvidaste tu contraseña?</a></p>
+
+            <button type="submit">INGRESAR</button>
+        </form>
+
+        <!-- Register Form (Initially hidden) -->
+        <form id="register-form" class="grid inputs" style="display:none;">
+            <p>Hazte mienbro de PromPERÚ</p>
+
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="email">Correo Electrónico</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="confirm-password">Confirmar contraseña</label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
+
+            <div class="grid checkbox-message">
+                <input type="checkbox" id="consent" name="consent" required>
+                <label for="consent">Aceptar términos...</label>
+            </div>
+
+            <button type="submit">Enviar datos</button>
+        </form>
     </div>
-
-    <!-- Login Form -->
-    <form id="login-form" class="grid">
-        <label for="email-login">Correo Electrónico</label>
-        <input type="email" id="email-login" name="email-login" required>
-
-        <label for="password-login">Contraseña</label>
-        <input type="password" id="password-login" name="password-login" required>
-
-        <div class="grid checkbox-message">
-            <input type="checkbox" id="remember" name="remember">
-            <label for="remember">Recordar contraseña</label>
-        </div>
-
-        <p class="forgot-password"><a href="#">Olvidaste tu contraseña?</a></p>
-
-        <button type="submit">INGRESAR</button>
-    </form>
-
-    <!-- Register Form (Initially hidden) -->
-    <form id="register-form" class="grid inputs" style="display:none;">
-        <p>Forma parte de PromPERÚ...</p>
-
-        <label for="nombre">Nombre</label>
-        <input type="text" id="nombre" name="nombre" required>
-
-        <label for="email">Correo Electrónico</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="password">Contraseña</label>
-        <input type="password" id="password" name="password" required>
-
-        <label for="confirm-password">Confirmar contraseña</label>
-        <input type="password" id="confirm-password" name="confirm-password" required>
-
-        <p>Información adicional</p>
-        <textarea id="additional-info" name="additional_info" cols="30" rows="5"></textarea>
-
-        <div class="grid checkbox-message">
-            <input type="checkbox" id="consent" name="consent" required>
-            <label for="consent">Aceptar términos...</label>
-        </div>
-
-        <button type="submit">Enviar datos</button>
-    </form>
-</div>
 
 
     <!-- JS Files -->

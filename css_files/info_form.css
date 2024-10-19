@@ -4,15 +4,9 @@
     --color3: snow;
     --borde: 1px solid rgb(219, 26, 31);
 }
-
-@font-face {
-    font-family: Cormorant;
-    src: url(../fonts/static/Cormorant-SemiBoldItalic.ttf);
-}
-
 body {
-    margin: 0;
-    overflow-x: hidden;
+    font-family: "Montserrat Alternates", sans-serif;
+    font-style: normal;
 }
 
 /* Form Box */
@@ -36,6 +30,8 @@ body {
 .form-box.abierto {
     right: 0; /* Slide in */
     transform: translateX(0); /* Form slides into view */
+    width: 400px;
+    height: auto;
 }
 
 /* Grid Layout */
@@ -44,20 +40,20 @@ body {
     grid-template-columns: 1fr;
     gap: 10px;
 }
-
+/*Estilos para los inputs*/
 .form-box input[type="text"],
 .form-box input[type="email"],
 .form-box input[type="password"],
 .form-box textarea {
     width: 100%;
-    padding: 8px;
+    padding: 4px;
     border: 1px solid #ccc;
     background-color: snow;
     margin-bottom: 10px;
     box-sizing: border-box;
 }
 
-/* Checkbox */
+/* Checkbox (cuadro de términos) */
 .form-box .checkbox-message {
     display: flex;
     align-items: center;
@@ -77,9 +73,14 @@ body {
 .form-box button:hover {
     background-color: var(--color2);
 }
-
+/*Estilos para los botones 'login' and 'registrarse'*/
+.form-toggle{
+    padding-bottom: 20px;
+}
 /* Embajadores Button */
 .contact {
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: 500;
     cursor: pointer;
     position: fixed;
     top: 123px;
