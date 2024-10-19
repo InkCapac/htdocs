@@ -1,0 +1,14 @@
+body {
+        font-family: "Silkscreen", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        background-color: blueviolet;
+   }
+/*.navbar.nav-font{
+    font-family: "Silkscreen", sans-serif;
+
+}*/
+.homepage-paragraph{
+    text-align: center;
+    padding-top: 100px;
+}
