@@ -17,6 +17,8 @@
 </head>
 
 <body>
+    <!-- Página de carga -->
+    <div id="loader"></div>
     <!--Barra de navegación de la página web-->
     <script src="./js_files/nav_bar.js"></script>
     <div class="navbar">
@@ -24,7 +26,7 @@
                 alt="Marca Perú" class="navbar-imagen"></a>
         <a href="Main page">Visit Peru </a>
         <a href="./destinos.php">Destinos</a>
-        <a href="./gastronomia.php">Gastronomía</a>
+        <a href="#inicio-gastronomia">Gastronomía</a>
         <a href="./festivales.php">Festivales</a>
     </div>
 
@@ -52,7 +54,7 @@
         <button class="nav-button" id="nextButton">Siguiente</button>
     </div>
 
-    <p>La cocina peruana es una vibrante fusión de ingredientes autóctonos y diversas influencias culturales, lo que la
+    <p id="inicio-gastronomia">La cocina peruana es una vibrante fusión de ingredientes autóctonos y diversas influencias culturales, lo que la
         convierte en una de las tradiciones culinarias más apasionantes del mundo. Platos como el **ceviche**, el **lomo
         saltado** y el **ají de gallina** muestran la riqueza de los sabores locales, mezclando marisco fresco,
         alimentos andinos básicos y atrevidas especias. Influenciada por tradiciones culinarias indígenas, españolas,
@@ -63,6 +65,7 @@
     <!--Archivos JavaScript de la página-->
     <script src="./js_linkedPages/general_navbar.js"></script>
     <script src="./js_linkedPages/general_gallery.js"></script>
+    <script src="./js_linkedPages/general_loadingPage.js"></script>
     <footer>
         <!--Símbolos de redes sociales-->
         <div class="footerContainer">

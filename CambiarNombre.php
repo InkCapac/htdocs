@@ -1,8 +1,3 @@
-<?php
-header("Cache-Control: no-cache, must-revalidate");
-header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
-?>
-<!--Cambiar nombre de archivo a 'index.php'-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,132 +6,137 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visit Peru</title>
     <link rel="shortcut icon" href="./content_images/peru_logo.jpg" type="image/x-icon">
-    <!--Archivo css de la galería principal-->
+    <!--CSS Files-->
     <link rel="stylesheet" href="./css_files/gallery.css">
-    <!--Archivo css del main del sitio web-->
     <link rel="stylesheet" href="./css_files/main.css">
-    <!--Archivo css del formulario-->
     <link rel="stylesheet" href="./css_files/info_form.css">
-    <!--Archivo css de la barra de navegación-->
     <link rel="stylesheet" href="./css_files/nav_bar.css">
-    <!--Link del 'font' que contiene los simbolos de redes sociales-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--Social media icons font-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 </head>
-<!--Barra de navegación-->
 
 <body>
-    <script src="./js_files/nav_bar.js"></script>
+    <!-- Loader -->
+    <div id="loader"></div>
+
+    <!-- Navbar -->
     <div class="navbar">
         <a href="#"><img src="https://www.pikpng.com/pngl/b/542-5426711_logo-marca-peru-logo-peru-clipart.png"
                 alt="Marca Perú" class="navbar-imagen"></a>
-        <a href="Main page">Visit Peru </a>
+        <a href="#">Visit Peru</a>
         <a href="./destinos.php">Destinos</a>
         <a href="./gastronomia.php">Gastronomía</a>
         <a href="./festivales.php">Festivales</a>
     </div>
-    <!--Galería de imágenes-->
+
+    <!-- Image Gallery -->
     <div class="gallery">
         <div class="gallery-container">
             <img class="gallery-item active" src="./gallery_images/montana_7colores.jpg" data-index="1">
             <img class="gallery-item" src="./gallery_images/peru_lake.jpg" data-index="2">
             <img class="gallery-item" src="./gallery_images/peruvian_food.jpg" data-index="3">
-            <img class="gallery-item" src="./gallery_images/peru_lake.jpg" data-index="4">
-            <img class="gallery-item" src="./gallery_images/montana_7colores.jpg" data-index="5">
-            <img class="gallery-item" src="./gallery_images/peru_lake.jpg" data-index="6">
         </div>
     </div>
 
-    <!--Botones de navegación debajo de la galería-->
+    <!-- Navigation buttons -->
     <div class="nav-buttons">
         <button class="nav-button" id="prevButton">Anterior</button>
         <button class="nav-button" id="nextButton">Siguiente</button>
     </div>
 
-    <!--Texto Persuasivo-->
+    <!-- Persuasive Text -->
     <div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi quia distinctio quibusdam autem enim placeat
-            ratione nihil maiores sapiente. Sit blanditiis laborum ex quia? Quibusdam accusamus sapiente exercitationem
-            sequi incidunt?</p>
+        <p>Lorem ipsum dolor sit amet...</p>
     </div>
-    <!--Sección de contenidos-->
+
+    <!-- Content Section -->
     <div class="content">
         <div class="grid">
             <div class="image-container">
                 <img class="image-section" src="./content_images/macchu_picchu.jpg" alt="Machu Picchu">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto optio repudiandae.</p>
+                <p>Lorem ipsum dolor sit amet...</p>
             </div>
-            <div class="image-container">
-                <img class="image-section" src="./content_images/peru_lake.jpg" alt="Peru Lake">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto optio repudiandae.</p>
-            </div>
-            <div class="image-container">
-                <img class="image-section" src="./content_images/macchu_picchu.jpg" alt="Machu Picchu">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto optio repudiandae.</p>
-            </div>
-            <div class="image-container">
-                <img class="image-section" src="./content_images/peru_lake.jpg" alt="Peru Lake">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto optio repudiandae.</p>
-            </div>
-            <div class="image-container">
-                <img class="image-section" src="./content_images/macchu_picchu.jpg" alt="Machu Picchu">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto optio repudiandae.</p>
-            </div>
-            <div class="image-container">
-                <img class="image-section" src="./content_images/peru_lake.jpg" alt="Peru Lake">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto optio repudiandae.</p>
-            </div>
+            <!-- ... more image containers ... -->
         </div>
     </div>
+    <!-- Capa -->
+<div id="capa" class="capa" style="display:none;"></div>
 
-    <!--Sección del formulario de la esquina-->
-    <!--Formulario-->
-    <div class="form-box">
-        <form>
-            <p>Forma parte de</p>
-            <div class="grid inputs">
-                <label for="name">Nombre</label>
-                <input type="text" id="name" name="name">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email">
-                <label for="phone">Teléfono</label>
-                <input type="tel" id="phone" name="phone">
-            </div>
-            <p>Información adicional</p>
-            <textarea id="additional-info" name="additional_info" cols="30" rows="20"></textarea>
-            <div class="grid checkbox-message">
-                <input type="checkbox" id="consent" name="consent" class="arriba">
-                <label for="consent">Por favor, haz click en este botón para asegurarnos que estás de acuerdo con
-                    nuestras condiciones de servicio.</label>
-            </div>
-            <button type="submit">Enviar datos</button>
-        </form>
-        <button class="contact">Embajadores</button>
+<!-- Embajadores Button -->
+<button class="contact">Embajadores</button>
+
+<!-- Form Box -->
+<div class="form-box">
+    <h2>Miembro de PromPeru</h2>
+
+    <!-- Navigation for Login and Register -->
+    <div class="form-toggle">
+        <button id="login-toggle" class="active">Login</button> |
+        <button id="register-toggle">Registrarse</button>
     </div>
 
+    <!-- Login Form -->
+    <form id="login-form" class="grid">
+        <label for="email-login">Correo Electrónico</label>
+        <input type="email" id="email-login" name="email-login" required>
 
-    <!--Archivos de JavaScript-->
-    <!--JS del archivo de la galería principal-->
+        <label for="password-login">Contraseña</label>
+        <input type="password" id="password-login" name="password-login" required>
+
+        <div class="grid checkbox-message">
+            <input type="checkbox" id="remember" name="remember">
+            <label for="remember">Recordar contraseña</label>
+        </div>
+
+        <p class="forgot-password"><a href="#">Olvidaste tu contraseña?</a></p>
+
+        <button type="submit">INGRESAR</button>
+    </form>
+
+    <!-- Register Form (Initially hidden) -->
+    <form id="register-form" class="grid inputs" style="display:none;">
+        <p>Forma parte de PromPERÚ...</p>
+
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="email">Correo Electrónico</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="confirm-password">Confirmar contraseña</label>
+        <input type="password" id="confirm-password" name="confirm-password" required>
+
+        <p>Información adicional</p>
+        <textarea id="additional-info" name="additional_info" cols="30" rows="5"></textarea>
+
+        <div class="grid checkbox-message">
+            <input type="checkbox" id="consent" name="consent" required>
+            <label for="consent">Aceptar términos...</label>
+        </div>
+
+        <button type="submit">Enviar datos</button>
+    </form>
+</div>
+
+
+    <!-- JS Files -->
     <script src="./js_files/gallery.js"></script>
-    <!--JS del formularío de la esquina-->
     <script src="./js_files/info_form.js"></script>
-    <!--JS del main del sitio web-->
     <script src="./js_files/main.js"></script>
+    <script src="./js_linkedPages/general_loadingPage.js"></script>
 
-    </div>
+    <!-- Footer -->
     <footer>
-        <!--Símbolos de redes sociales-->
         <div class="footerContainer">
             <div class="socialIcons">
-                <a href=""><i class="fa-brands fa-facebook"></i></a>
-                <a href=""><i class="fa-brands fa-instagram"></i></a>
-                <a href=""><i class="fa-brands fa-twitter"></i></a>
-                <a href=""><i class="fa-brands fa-google-plus"></i></a>
-                <a href=""><i class="fa-brands fa-youtube"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <!-- ... more icons ... -->
             </div>
             <p>© 2024 Visit Peru All rights reserved.</p>
-
+        </div>
     </footer>
 </body>
 

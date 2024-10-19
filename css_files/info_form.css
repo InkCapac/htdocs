@@ -1,5 +1,4 @@
 :root {
-    /*Los colores principales de la página*/
     --color1: rgb(219, 26, 31);
     --color2: rgba(120, 0, 0);
     --color3: snow;
@@ -13,134 +12,118 @@
 
 body {
     margin: 0;
-    /*Evita que aparezca un 'scrollbar' horizontal*/
-    overflow-x: hidden; 
+    overflow-x: hidden;
 }
 
-/* Caja de mensaje */
+/* Form Box */
 .form-box {
     font-family: Cormorant;
     font-size: 16px;
     color: black;
     position: fixed;
-    top: 125px;
-    right: 0;
-    padding: 5px;
+    top: 70px;
+    right: -400px; /* Start off-screen */
+    padding: 20px;
     width: 350px;
-    /* Establecer un ancho máximo para la caja del formulario */
-    max-width: 600px;
-    height: auto;
-    transform: translateX(350px); /* Transición 'suave' y revelación de la caja */
-    transition: transform 1s ease;
-    border: var(--borde); /* Declaración de borde fija */
+    max-width: 100%; /* Adjust for smaller screens */
     background-color: var(--color3);
-    z-index: 1000; /* El contenido de la caja se puede ver sobre el resto de la página */
+    border: var(--borde);
+    z-index: 1000;
+    transition: transform 0.5s ease; /* Ensure smooth transition */
+    transform: translateX(100%); /* Initially hidden off-screen */
 }
 
 .form-box.abierto {
-    transform: translateX(0px); /* Línea para que el formulario se revele en la ventana */
+    right: 0; /* Slide in */
+    transform: translateX(0); /* Form slides into view */
 }
 
-/* Diseño de cuadrícula para el contenido del formulario */
+/* Grid Layout */
 .form-box .grid {
-    display: grid; /* Usa diseño de cuadrícula para el formulario */
-}
-
-/* Campos de entrada */
-.form-box .inputs {
-    grid-template-columns: 1fr; /* Cambiar a un diseño de columna única */
-    gap: 5px; /* Agregar espacio entre las filas de entrada */
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
 }
 
 .form-box input[type="text"],
 .form-box input[type="email"],
-.form-box input[type="tel"],
+.form-box input[type="password"],
 .form-box textarea {
-    width: 100%; /* Ancho completo */
-    max-width: 100%; /* Prevenir desbordamiento */
-    box-sizing: border-box; /* Incluir relleno y borde en el ancho */
-    padding: 10px; /* Relleno para comodidad */
-    border: 1px solid grey; /* Borde para campos de entrada */
-    margin-bottom: 2px; /* Espacio entre entradas */
-    background-color: snow; /* Color de fondo para entradas */
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    background-color: snow;
+    margin-bottom: 10px;
+    box-sizing: border-box;
 }
 
-/* Opcional: Estilo para el área de texto */
-.form-box textarea {
-    resize: vertical; /* Permitir solo redimensionamiento vertical */
-    height: 100px; /* Altura predeterminada */
-}
-
+/* Checkbox */
 .form-box .checkbox-message {
-    display: flex; /* Usar flexbox para alineación */
-    align-items: center; /* Centrar elementos verticalmente */
-    gap: 1px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.checkbox-wrapper input[type="checkbox"] {
-    margin-right: 5px; /* Espacio entre checkbox y etiqueta */
-}
-
-/* Estilos del 'checkbox' */
-.form-box .arriba {
-    margin-top: 25px; /* Alineación de la casilla */
-    margin-right: 5px; /* Espacio entre checkbox y etiqueta */
-    width: 20%;
-    height: 20%;
-}
-
-/* Estilos del botón del formulario */
+/* Submit Button */
 .form-box button {
-    text-transform: uppercase;
-    color: snow;
-    padding: 10px 25px;
-    font-size: 20px;
     background-color: var(--color1);
+    color: snow;
+    padding: 10px 15px;
     border: none;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .form-box button:hover {
     background-color: var(--color2);
-    color: snow;
 }
 
-.form-box button:active {
-    background-color: var(--color1);
-}
-
-/* Estilos para el botón 'callback', el cual en la web se ve como 'Contáctanos' */
+/* Embajadores Button */
 .contact {
     cursor: pointer;
-    position: absolute;
-    font-family: Cormorant; 
-    top: 76px; /* Ajustar la posición según sea necesario */
-    left: -124px; /* Posicionar a la izquierda de la caja del formulario */
-    transform: rotate(90deg); /* Rotar la etiqueta para que sea legible */
+    position: fixed;
+    top: 123px;
+    right: -54px;
+    transform: rotate(-90deg);
     background-color: var(--color1);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: snow;
-    padding: 10px;
+    padding: 10px 20px;
     border-radius: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 16px;
-    z-index: 1001; /* Esto asegura que el formulario está posicionado sobre otro contenido */
-    margin-right: 10px;
+    z-index: 1001;
     transition: background-color 0.3s ease;
 }
 
 .contact:hover {
     background-color: var(--color2);
-    color: snow;
 }
 
-.contact:active {
-    background-color: var(--color1); /* Color aún más oscuro cuando se presiona */
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .form-box {
+        width: 100%;
+        right: -100%;
+    }
+
+    .form-box.abierto {
+        right: 0;
+    }
+
+    .contact {
+        top: 60px;
+        right: -80px;
+    }
 }
 
-/* Estilos de la galería para asegurar que se mantenga detrás de la caja del formulario */
-.gallery {
-    position: relative;
-    z-index: 1; /* El formulario aparece sobre la galería */
+/* Capa that covers the page when clicking on the form */
+.capa {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background */
+    z-index: 1000; /* Position above other content */
 }

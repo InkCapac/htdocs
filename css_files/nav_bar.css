@@ -48,7 +48,7 @@
     background-color: var(--color2);
     color: var(--color3);
 }
-.navbar img.navbar-imagen{
+.navbar a img{
     height: 50px;
     width: auto; /* Maintains the aspect ratio of the image */
     margin-right: 15px; /* Adds space between the image and the next link */

@@ -20,12 +20,14 @@
     <!--Barra de navegación de la página web-->
 
     <body>
-        <script src="./js_files/nav_bar.js"></script>
+        <!-- Página de carga -->
+        <div id="loader"></div>
+        
         <div class="navbar">
             <a href="#"><img src="https://www.pikpng.com/pngl/b/542-5426711_logo-marca-peru-logo-peru-clipart.png"
                     alt="Marca Perú" class="navbar-imagen"></a>
             <a href="Main page">Visit Peru </a>
-            <a href="./destinos.php">Destinos</a>
+            <a href="#inicio-destino"">Destinos</a>
             <a href="./gastronomia.php">Gastronomía</a>
             <a href="./festivales.php">Festivales</a>
         </div>
@@ -53,7 +55,7 @@
             <button class="nav-button" id="nextButton">Siguiente</button>
         </div>
 
-        <p class="paragraph1-destinos">Los lugares emblemáticos de Perú, como Machu Picchu, la vibrante Montaña del Arco
+        <p id="inicio-destino" class="paragraph1-destinos">Los lugares emblemáticos de Perú, como Machu Picchu, la vibrante Montaña del Arco
             Iris y las misteriosas
             Líneas de Nazca,
             ofrecen una impresionante mezcla de belleza natural e historia antigua. Desde las cumbres andinas hasta la
@@ -113,6 +115,7 @@
         <!--Archivos JavaScript de la página-->
         <script src="./js_linkedPages/general_navbar.js"></script>
         <script src="./js_linkedPages/general_gallery.js"></script>
+        <script src="./js_linkedPages/general_loadingPage.js"></script>
         <!--Pie de página-->
         <footer>
             <!--Símbolos de redes sociales-->
