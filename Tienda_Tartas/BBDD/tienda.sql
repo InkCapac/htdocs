@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-10-2024 a las 04:01:57
+-- Tiempo de generación: 17-10-2024 a las 19:05:34
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -49,7 +49,10 @@ INSERT INTO `carrito` (`id`, `id_producto`, `nombre`, `cantidad`, `precio`) VALU
 (7, 1, 'Tarta de Queso Original', 1, 39.99),
 (8, 1, 'Tarta de Queso Original', 1, 39.99),
 (9, 1, 'Tarta de Queso Original', 1, 39.99),
-(10, 1, 'Tarta de Queso Original', 1, 39.99);
+(10, 1, 'Tarta de Queso Original', 1, 39.99),
+(11, 1, 'Tarta de Queso Original', 1, 39.99),
+(12, 2, 'Tarta de Nutella', 1, 29.99),
+(13, 2, 'Tarta de Nutella', 1, 29.99);
 
 -- --------------------------------------------------------
 
@@ -133,7 +136,7 @@ ALTER TABLE `tartas`
 -- AUTO_INCREMENT de la tabla `carrito`
 --
 ALTER TABLE `carrito`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `items`
