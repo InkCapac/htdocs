@@ -1,10 +1,18 @@
+:root {
+    /* Los colores principales de la página */
+    --color1: rgb(219, 26, 31);
+    --color2: rgba(120, 0, 0);
+    --color3: snow;
+    --color4: #f7dfad;
+    --borde: 1px solid rgb(219, 26, 31);
+}
 html,
 body {
     font-family: Cormorant, Arial, sans-serif;
     margin: 0;
     padding: 0;
     height: 100%;
-    background-color: snow;
+    background-color: var(--color4);
 }
 
 /* Configuración de la cuadrícula para dos columnas */

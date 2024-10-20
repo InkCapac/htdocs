@@ -26,7 +26,7 @@ body p {
     font-size: larger;
     text-align: center;
     background-image: url(https://thumbs.dreamstime.com/b/amazing-world-famous-peruvian-ancient-indigenous-nazca-lines-seamless-pattern-over-dark-brown-worn-out-amazing-world-famous-291165349.jpg);
-    margin-top: 40px;
+    margin: 40px;
     color: var(--color3);
     line-height: 1.6;
 }

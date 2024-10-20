@@ -1,8 +1,9 @@
-/* General Reset */
 :root {
+    /* Los colores principales de la página */
     --color1: rgb(219, 26, 31);
     --color2: rgba(120, 0, 0);
     --color3: snow;
+    --color4: #f7dfad;
     --borde: 1px solid rgb(219, 26, 31);
 }
 /* Incluir el relleno y los bordes en el ancho y alto total del elemento */
