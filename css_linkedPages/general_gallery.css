@@ -5,12 +5,6 @@
     --color3: snow;
     --borde: 1px solid rgb(219, 26, 31);
 }
-
-@font-face {
-    font-family: Cormorant;
-    src: url(../fonts/static/Cormorant-BoldItalic.ttf);
-}
-
 /* Incluir el relleno y los bordes en el ancho y alto total del elemento */
 * {
     box-sizing: border-box;

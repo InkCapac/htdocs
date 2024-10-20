@@ -2,7 +2,7 @@ window.onscroll = function() {
     const navbar = document.querySelector('.navbar');
     const galleryHeight = document.querySelector('.gallery').offsetHeight;
 
-    // Add or remove the 'solid' class based on scroll position
+    // Añadir o descartar la clase 'solid' según la posición del scroll
     if (window.scrollY > galleryHeight) {
         navbar.classList.add('solid');
     } else {

@@ -1,45 +1,43 @@
 :root {
-    /*Los colores principales de la página*/
+    /* Los colores principales de la página */
     --color1: rgb(219, 26, 31);
     --color2: rgba(120, 0, 0);
     --color3: snow;
     --color4: #f7dfad;
     --borde: 1px solid rgb(219, 26, 31);
 }
-@font-face {
-    font-family: Cormorant;
-    src: url(../fonts/static/Cormorant-Bold.ttf);
-}
-body{
+body {
     background-color: var(--color4);
-    font-family: Cormorant;
+    font-family: "Montserrat Alternates", sans-serif;
 }
-.image-paragraph-container {
+
+.contenedor-imagen-parrafo {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px; /* Optional: Adds space between the image and the paragraph */
-    margin: 20px 0; /* Adds some spacing above and below the container */
+    gap: 20px; /* Opcional: Añade espacio entre la imagen y el párrafo */
+    margin: 20px 0; /* Añade espacio por encima y debajo del contenedor */
 }
 
-.image-paragraph-container img {
-    max-width: 40%; /* Controls the width of the image, you can adjust it as needed */
-    height: auto; /* Keeps the image aspect ratio */
-    border-radius: 10px; /* Optional: Adds rounded corners to the image */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Optional: Adds a subtle shadow to the image */
+.contenedor-imagen-parrafo img {
+    max-width: 40%; /* Controla el ancho de la imagen, se puede ajustar según sea necesario */
+    height: auto; /* Mantiene la relación de aspecto de la imagen */
+    border-radius: 10px; /* Opcional: Añade esquinas redondeadas a la imagen */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Opcional: Añade una sombra sutil a la imagen */
 }
 
-.image-paragraph-container p {
-    flex: 1; /* Ensures the paragraph takes up the remaining space */
-    font-size: 18px; /* Increases the paragraph text size */
-    line-height: 1.6; /* Improves readability with better line spacing */
-    margin: 0; /* Removes default margins */
-    text-align: justify; /* Makes the text justify for a clean appearance */
+.contenedor-imagen-parrafo p {
+    flex: 1; /* Asegura que el párrafo ocupe el espacio restante */
+    font-size: 18px; /* Aumenta el tamaño del texto del párrafo */
+    line-height: 1.6; /* Mejora la legibilidad con un mejor espaciado entre líneas */
+    margin: 0; /* Elimina los márgenes predeterminados */
+    text-align: justify; /* Justifica el texto para una apariencia limpia */
 }
-.festivales-paragraph{
+
+.parrafo-festivales {
     color: var(--color3);
     padding: auto;
-    border-radius: 30px ;
+    border-radius: 30px;
     text-align: center;
     font-size: x-large;
     background-image: url(https://www.shutterstock.com/image-vector/amazing-world-famous-peruvian-ancient-600nw-2365648851.jpg);

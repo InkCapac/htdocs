@@ -6,72 +6,73 @@
     --borde: 1px solid rgb(219, 26, 31);
 }
 
-@font-face {
-    font-family: Cormorant;
-    src: url(../fonts/static/Cormorant-Bold.ttf);
-}
-
 html, body {
     background-color: #f7dfad;
-    font-family: Cormorant;
+    font-family: "Montserrat Alternates", sans-serif;
     color: black;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-body p{
+
+body p {
     font-size: xx-large;
     text-align: center;
 }
-.paragraph1-destinos{
-    text-align: center;
+
+.parrafo1-destinos {
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: 600;
     font-size: larger;
+    text-align: center;
+    background-image: url(https://thumbs.dreamstime.com/b/amazing-world-famous-peruvian-ancient-indigenous-nazca-lines-seamless-pattern-over-dark-brown-worn-out-amazing-world-famous-291165349.jpg);
+    margin-top: 40px;
+    color: var(--color3);
+    line-height: 1.6;
 }
-.content {
+
+.contenido {
     padding: 20px;
 }
 
 .grid {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 10px;
 }
 
-.image-text-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px; /* Prevent text from touching the viewport borders */
+.imagen-texto-container {
+    margin: 20px; /* Espacio alrededor del artículo */
+    padding: 20px; /* Relleno interno */
+    background-color: var(--color3); /* Color de fondo opcional */
+    border: var(--borde); /* Borde opcional */
 }
 
-.image-text-row img {
-    width: 45%;
-    height: auto;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-    object-fit: cover;
+.imagen-texto {
+    font-family: "Montserrat Alternates", sans-serif;
+    font-style: italic;
+    display: flex; /* Habilitar diseño de flexbox */
+    align-items: center; /* Alinear elementos verticalmente centrados */
+    justify-content: space-between; /* Separar elementos */
+    flex-wrap: wrap;
 }
 
-.image-text-row p {
-    width: 45%;
-    font-size: x-large;
-    text-align: justify;
-    margin: 0;
+.imagen-texto p {
+    text-align: center;
+    margin: 40px; /* Añadir espacio entre el párrafo y la imagen */
+    flex: 1; /* Permitir que el párrafo ocupe el espacio disponible */
+    font-size: 1.5em; /* Tamaño de fuente opcional */
 }
 
-/* Image on the right */
-.image-right {
-    flex-direction: row-reverse;
+/* Estilo de la imagen con efecto de zoom */
+.imagen-texto img {
+    max-width: 100%;
+    width: 550px; /* Ancho fijo para la imagen */
+    height: auto; /* Mantener la relación de aspecto */
+    border-radius: 10px; /* Esquinas redondeadas opcionales */
+    transition: transform 0.3s ease; /* Transición suave para el efecto de zoom */
 }
 
-/* Image on the left */
-.image-left {
-    flex-direction: row;
-}
-
-.image-section:hover {
-    transform: scale(1.1); /* Zoom effect */
+.imagen-texto img:hover {
+    transform: scale(1.1); /* Escalar la imagen al 110% al pasar el ratón */
 }

@@ -6,7 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visit Peru - Gastronomía</title>
     <link rel="shortcut icon" href="./content_images/peru_logo.jpg" type="image/x-icon">
-    <!-- Include CSS in the head -->
+    <!--Fonts para la página (Montserrat Alternates) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <!--Archivos .css -->
     <link rel="stylesheet" href="./css_linkedPages/general_navbar.css">
     <link rel="stylesheet" href="./css_linkedPages/general_gallery.css">
     <link rel="stylesheet" href="./css_linkedPages/destinos.css">
@@ -54,7 +60,8 @@
         <button class="nav-button" id="nextButton">Siguiente</button>
     </div>
 
-    <p id="inicio-gastronomia">La cocina peruana es una vibrante fusión de ingredientes autóctonos y diversas influencias culturales, lo que la
+    <p id="inicio-gastronomia">La cocina peruana es una vibrante fusión de ingredientes autóctonos y diversas
+        influencias culturales, lo que la
         convierte en una de las tradiciones culinarias más apasionantes del mundo. Platos como el **ceviche**, el **lomo
         saltado** y el **ají de gallina** muestran la riqueza de los sabores locales, mezclando marisco fresco,
         alimentos andinos básicos y atrevidas especias. Influenciada por tradiciones culinarias indígenas, españolas,

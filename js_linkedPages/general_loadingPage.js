@@ -1,9 +1,9 @@
 window.onload = function () {
     var preloader = document.getElementById('loader');
-    preloader.style.opacity = '0'; // Start fading out
+    preloader.style.opacity = '0'; // Comienza a desvanecerse
 
-    // After the fade-out, remove the loader from the page
+    // Después del desvanecimiento, elimina el cargador de la página
     setTimeout(function () {
         preloader.style.display = 'none';
-    }, 1000); // Wait for the transition (1 second) to complete before removing the loader
+    }, 1000); // Espera a que la transición (1 segundo) se complete antes de eliminar el cargador
 };
