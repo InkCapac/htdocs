@@ -22,8 +22,9 @@
 </head>
 
 <body>
-    <!-- Cargador -->
+    <!-- Cargador 
     <div id="loader"></div>
+-->
 
     <!-- Barra de navegación -->
     <div class="navbar">
@@ -57,8 +58,8 @@
     </div>
     <!--Postal antigua-->
     <div>
-    <img src="https://storage.googleapis.com/hippostcard/p/b6eca78a36ceccbe01fbb7e69106155b-800.jpg" alt="Vintage Peru">
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, fugiat ea nesciunt magnam voluptas aliquid neque ab blanditiis, consectetur tenetur explicabo qui, commodi exercitationem. Expedita dignissimos voluptate praesentium mayores ipsum!</p>
+        <img src="https://storage.googleapis.com/hippostcard/p/b6eca78a36ceccbe01fbb7e69106155b-800.jpg" alt="Vintage Peru">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, fugiat ea nesciunt magnam voluptas aliquid neque ab blanditiis, consectetur tenetur explicabo qui, commodi exercitationem. Expedita dignissimos voluptate praesentium mayores ipsum!</p>
     </div>
     <!-- Sección de contenido -->
     <div class="content">
@@ -131,7 +132,7 @@
 
 
     <!-- Archivos JS -->
-     <script src="./js_linkedPages/general_navbar.js"></script>
+    <script src="./js_linkedPages/general_navbar.js"></script>
     <script src="./js_files/gallery.js"></script>
     <script src="./js_files/info_form.js"></script>
     <script src="./js_files/main.js"></script>
