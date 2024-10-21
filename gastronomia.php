@@ -13,6 +13,7 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
     <!--Archivos .css -->
+    <link rel="stylesheet" href="./css_linkedPages/gastronomia.css">
     <link rel="stylesheet" href="./css_linkedPages/destinos.css">
     <link rel="stylesheet" href="./css_linkedPages/general_navbar.css">
     <link rel="stylesheet" href="./css_linkedPages/general_gallery.css">
@@ -57,22 +58,74 @@
 
     <!--Botones de navegación debajo de la galería-->
     <div class="nav-buttons">
-        <button class="nav-button" id="prevButton">Anterior</button>
-        <button class="nav-button" id="nextButton">Siguiente</button>
+        <button style="font-family: Montserrat Alternates" class="nav-button" id="prevButton">Anterior</button>
+        <button style="font-family: Montserrat Alternates" class="nav-button" id="nextButton">Siguiente</button>
+    </div>
+    <!--Mensaje de introducción-->
+    <div class="intro-food">
+        <img src="https://media.istockphoto.com/id/964163636/photo/lomo-saltado-traditional-peruvian-plate-beef-and-potatoes.jpg?s=612x612&w=0&k=20&c=p3CsutJ9MRjixEgJZtS6adpbycw_iWCaaUXAmNmlKpY="
+            alt="Peruvian food">
+        <p><strong>La cocina peruana</strong> es una vibrante fusión de ingredientes autóctonos y diversas
+            influencias culturales, lo que la
+            convierte en una de las tradiciones culinarias más apasionantes del mundo. Platos como el **ceviche**, el
+            **lomo
+            saltado** y el **ají de gallina** muestran la riqueza de los sabores locales, mezclando marisco fresco,
+            alimentos andinos básicos y atrevidas especias. Influenciada por tradiciones culinarias indígenas,
+            españolas,
+            africanas y asiáticas, la comida peruana es famosa por su creatividad, variedad y profundidad de sabor.
+            Desde la
+            costa hasta la sierra, la cocina peruana refleja el rico patrimonio cultural del país y su singular
+            diversidad
+            geográfica.
+        </p>
+    </div>
+    <!--Contenido-->
+    <div class="titulo-central">
+        <p>CENTRAL: El mayor éxito gastronómico del Perú</p>
+    </div>
+    <!--Historia de Central, Lima-->
+    <div class="central-lima">
+        <p>El éxito del <strong>restaurante peruano "Central"</strong>, situado en Lima, ha sido fundamental para dar a conocer la cocina
+            peruana en todo el mundo. Dirigido por el célebre chef Virgilio Martínez, Central ha figurado
+            sistemáticamente entre los mejores restaurantes del mundo y ha recibido elogios por su enfoque innovador a
+            la hora de mostrar los diversos ecosistemas y el patrimonio culinario de Perú. Utilizando ingredientes
+            procedentes de las distintas altitudes del país -desde la selva amazónica hasta el altiplano andino-,
+            Central ofrece una experiencia gastronómica única que celebra la biodiversidad de Perú.
+        </p>
+        <img src="https://larepublica.cronosmedia.glr.pe/original/2023/06/21/64934acf782322039c586fb7.jpg"
+            alt="Peruvian food">
+    </div>
+    <div class="central-team">
+        <img src="https://cloudfront-eu-central-1.images.arcpublishing.com/prisa/XVID7HH5K5CRZAG7XJXY226JE4.jpg"
+            alt="Equipo Central Lima">
+        <img src="https://elsllepaplats.com/wp-content/uploads/2019/08/Central-lima-restaurante.jpg" alt="Central Lima">
+    </div>
+    <!--Contenido-->
+    <div class="titulo-central">
+        <p>PLATOS TRADICIONALES DEL PERÚ</p>
+    </div>
+    <div class="platos-tradicionales">
+        <p><strong>La causa</strong> es un plato tradicional peruano muy apreciado que muestra la rica herencia culinaria del país y los
+            vibrantes sabores de sus diversos ingredientes. Este plato frío consiste principalmente en capas de puré de
+            patatas amarillas, sazonadas con zumo de lima, ají amarillo y sal, que crean una base suave y sabrosa. La
+            causa suele rellenarse con diversos ingredientes, como pollo desmenuzado, atún o aguacate, y suele adornarse
+            con huevos duros, aceitunas o hierbas frescas, lo que realza su atractivo visual y su sabor.</p>
+        <img src="https://i.ytimg.com/vi/gtCIqYUCekU/maxresdefault.jpg"
+            alt="Peruvian food">
+    </div>
+    <div class="platos-tradicionales">
+        <img src="https://www.huleymantel.com/uploads/s1/49/39/29/fotos-variadas-luis-miguel-anon-13.webp"
+        alt="Peruvian food">
+        <p><strong>El cebiche</strong> es un plato peruano por excelencia que personifica la destreza culinaria y la abundancia costera del país. Elaborado con pescado o marisco fresco de alta calidad, normalmente marinado en zumo de lima, el cebiche es famoso por sus sabores vivos y picantes. El pescado suele combinarse con ingredientes como cebollas en rodajas, cilantro y ají, creando un plato refrescante y vibrante que deleita el paladar. </p>
+    </div>
+    <div class="platos-tradicionales">
+        <p><strong>El Pollo a la Brasa</strong> es un plato icónico peruano que ha conquistado los corazones de lugareños y visitantes por igual. Este delicioso pollo asado se marina en una sabrosa mezcla de especias, como ajo, comino y pimentón, y luego se cocina al carbón, lo que le da un distintivo sabor ahumado y una piel crujiente. Servido con una guarnición de patatas fritas y una variedad de salsas para mojar, como ají verde y ketchup, el Pollo a la Brasa es un plato básico en los hogares y restaurantes peruanos.</p>
+        <img src="https://portal.andina.pe/EDPfotografia3/Thumbnail/2024/07/19/001084232W.jpg"
+        alt="Peruvian food">
     </div>
 
-    <p id="inicio-gastronomia">La cocina peruana es una vibrante fusión de ingredientes autóctonos y diversas
-        influencias culturales, lo que la
-        convierte en una de las tradiciones culinarias más apasionantes del mundo. Platos como el **ceviche**, el **lomo
-        saltado** y el **ají de gallina** muestran la riqueza de los sabores locales, mezclando marisco fresco,
-        alimentos andinos básicos y atrevidas especias. Influenciada por tradiciones culinarias indígenas, españolas,
-        africanas y asiáticas, la comida peruana es famosa por su creatividad, variedad y profundidad de sabor. Desde la
-        costa hasta la sierra, la cocina peruana refleja el rico patrimonio cultural del país y su singular diversidad
-        geográfica.</p>
-
     <!--Contenido del formulario en la esquina-->
-    <!-- Capa que cubre el contenido principal cuando se activa el formulario -->
-    <!-- Capa -->
+    <!-- Capa:cubre el contenido principal cuando se activa el formulario -->
     <div id="capa" class="capa" style="display:none;"></div>
 
     <!-- Botón de contacto -->

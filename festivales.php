@@ -53,11 +53,12 @@
 
         <!--Botones de navegación debajo de la galería-->
         <div class="nav-buttons">
-            <button class="nav-button" id="prevButton">Anterior</button>
-            <button class="nav-button" id="nextButton">Siguiente</button>
+            <button style="font-family: Montserrat Alternates" class="nav-button" id="prevButton">Anterior</button>
+            <button style="font-family: Montserrat Alternates" class="nav-button" id="nextButton">Siguiente</button>
         </div>
         <!--Párrafo debajo de la galería-->
-        <div id="inicio-festivales" class="festivales-paragraph">
+        <div id="inicio-festivales" class="festivales-parrafo">
+            <img src="https://cdn.abcotvs.com/dip/images/5737967_localish-PMP1443-PERUINCAFOLK-WABC-vid.jpg">
             <p>
                 Los bailes y carnavales de Perú son una vibrante celebración de la diversa herencia cultural del país,
                 en la que
@@ -71,18 +72,19 @@
                 refleja
                 la rica historia e identidad del pueblo peruano, conectándolo con sus antepasados, la naturaleza y la
                 comunidad.
-                Estas celebraciones no sólo muestran la expresión artística, sino que también preservan rituales
-                ancestrales, lo
-                que
-                las convierte en una parte esencial del legado cultural de Perú.
             </p>
         </div>
-        <!--Contenido debajo de la galería-->
-        <div class="image-paragraph-container">
+        <!--Título de contenido-->
+        <div class="titulo-danzas">
+            <p>DANZAS ANCESTRALES DEL PERÚ</p>
+        </div>
+        <!--Danza de tijeras-->
+        <!--Contenido de danzas-->
+        <div class="danza-tijeras">
             <img src="https://danzasdelaselva.com/wp-content/uploads/2021/02/historia-danza-de-las-tijeras.jpg"
                 alt="Danza de las Tijeras">
             <p>
-                La Danza de Tijeras es una vibrante expresión de las tradiciones prehispánicas, que combina la
+                <strong>La Danza de Tijeras</strong> es una vibrante expresión de las tradiciones prehispánicas, que combina la
                 espiritualidad
                 andina con representaciones rituales relacionadas con la agricultura y la religión. Los bailarines,
                 ataviados
@@ -97,6 +99,34 @@
                 UNESCO la
                 ha reconocido como Patrimonio Cultural Inmaterial.
             </p>
+        </div>
+        <!--Marinera Norteña-->
+        <div class="marinera-norte">
+            <p>
+                <strong>La Marinera Norteña</strong> es una cautivadora danza tradicional que encarna el rico patrimonio cultural del
+                norte de Perú. Conocida por su elegancia y vitalidad, esta danza cuenta la historia del cortejo a través
+                de un intrincado juego de pies, movimientos gráciles y música alegre, y suele interpretarse durante
+                festivales y celebraciones. Los bailarines, normalmente ataviados con coloridos trajes tradicionales,
+                muestran una mezcla única de influencias africanas, españolas e indígenas, reflejo de la diversa
+                historia de la región. Acompañada por instrumentos tradicionales como la guitarra, el cajón y el violín,
+                la Marinera Norteña cautiva al público con sus rítmicas melodías y su expresiva coreografía, invitando a
+                los espectadores a experimentar el espíritu de la cultura costera de Perú.
+            </p>
+            <img src="https://www.peru.travel/Contenido/General/Imagen/es/617/1.1/marinera.jpg" alt="Marinera Norteña">
+        </div>
+<!--Contenido de festivales-->
+<div class="titulo-danzas">
+            <p>FESTIVALES ÚNICOS DEL PERÚ</p>
+        </div>
+ <!--Marinera Norteña-->
+        <div class="inti-raymi">
+            <p><strong>El Inti Raymi, o Festival del Sol</strong>, es una de las celebraciones culturales más significativas y vibrantes de Perú, enraizada en las antiguas tradiciones incas que se remontan al siglo XV. Se celebra anualmente el 24 de junio en Cuzco, la capital histórica del Imperio Inca, en honor a Inti, el dios del Sol, considerado la deidad más importante por los incas. El evento comienza con una procesión ceremonial desde el Qorikancha (el Templo del Sol) hasta el yacimiento arqueológico de Sacsayhuamán, donde tienen lugar las celebraciones principales.</p>
+            <img src="https://trexperienceperu.com/sites/default/files/2024-01/inti-raymi-cusco.webp">
+        </div>
+        <!--Marinera Norteña-->
+        <div class="señor-milagros">
+        <img src="https://f.rpp-noticias.io/2017/10/06/190219_496180.jpg">
+            <p><strong>El Festival del Señor de los Milagros</strong> es uno de los acontecimientos religiosos y culturales más importantes de Perú, especialmente de Lima. Se celebra durante todo el mes de octubre y rinde homenaje a un cuadro de Cristo crucificado del siglo XVII, al que se atribuyen poderes milagrosos. La fiesta tiene sus raíces en la comunidad afroperuana y refleja la profunda devoción religiosa de sus seguidores.</p>
         </div>
 
         <!--Contenido del formulario en la esquina-->

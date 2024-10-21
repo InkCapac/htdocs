@@ -49,12 +49,14 @@
         <button style="font-family: Montserrat Alternates" class="nav-button" id="prevButton">Anterior</button>
         <button style="font-family: Montserrat Alternates" class="nav-button" id="nextButton">Siguiente</button>
     </div>
-
+    <br>
     <!-- Foto de postal -->
-    <div>
-        <img src="https://ih1.redbubble.net/image.4847536312.1207/flat,750x,075,f-pad,750x1000,f8f8f8.jpg" alt="Peruvian Postal">
-        <p>Lorem ipsum dolor sit amet...</p>
-    </div>
+    <div class="postal-section">
+    <img src="https://ih1.redbubble.net/image.4847536312.1207/flat,750x,075,f-pad,750x1000,f8f8f8.jpg" alt="Peruvian Postal">
+    <p>Perú es un país de rica herencia cultural, hogar de antiguas civilizaciones que dejaron huellas indelebles en la historia de la humanidad. Desde los misteriosos geoglifos de las Líneas de Nazca hasta la grandeza monumental de Machu Picchu, el país alberga tesoros arqueológicos únicos que revelan el ingenio y la espiritualidad de las culturas precolombinas. Sus paisajes majestuosos abarcan desde la costa del Pacífico, con desiertos y playas paradisíacas, hasta las imponentes montañas de los Andes, hogar de pueblos ancestrales que aún mantienen vivas sus tradiciones. La vasta Amazonía peruana, que cubre más del 60% del territorio nacional, ofrece una biodiversidad incomparable, siendo un refugio para especies exóticas y ecosistemas inexplorados.
+</p>
+</div>
+
     <!--Postal antigua-->
     <div>
         <img src="https://storage.googleapis.com/hippostcard/p/b6eca78a36ceccbe01fbb7e69106155b-800.jpg" alt="Vintage Peru">

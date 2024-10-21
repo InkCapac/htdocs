@@ -8,12 +8,70 @@
     --borde: 1px solid rgb(219, 26, 31);
 }
 
+html,
 body {
-    background-color: var(--color4);
     font-family: "Montserrat Alternates", sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: var(--color4);
 }
 
-.titulo-danzas {
+/* Configuración de la cuadrícula para dos columnas */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.intro-food {
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.intro-food p {
+    flex: 1;
+    width: 150px;
+    height: auto;
+    text-align: justify;
+    font-size: 1.2em;
+    border-style: dotted;
+    background-color: snow;
+    padding: 20px;
+    color: black;
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+}
+
+.intro-food p:hover {
+    background-color: var(--color5);
+    color: var(--color3);
+    font-weight: bold;
+    border-style: groove;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.intro-food img {
+    width: 500px;
+    height: auto;
+    border-style: dashed;
+    transform: rotate(-3deg);
+    transition: transform 0.5s ease;
+    object-fit: cover;
+}
+
+.intro-food img:hover {
+    transform: rotate(-3deg) scale(1.1);
+}
+
+.titulo-central {
     font-family: "Montserrat Alternates", sans-serif;
     font-weight: 600;
     font-size: x-large;
@@ -29,11 +87,12 @@ body {
     line-height: 1.6;
 }
 
-.titulo-danzas:hover {
+.titulo-central:hover {
     color: var(--color3);
     background-color: var(--color2);
 }
-.festivales-parrafo {
+
+.central-lima {
     padding: 40px;
     display: flex;
     align-items: center;
@@ -43,7 +102,7 @@ body {
     margin: 0 auto;
 }
 
-.festivales-parrafo p {
+.central-lima p {
     flex: 1;
     width: 150px;
     height: auto;
@@ -58,7 +117,7 @@ body {
 
 }
 
-.festivales-parrafo p:hover {
+.central-lima p:hover {
     background-color: var(--color5);
     color: var(--color3);
     font-weight: bold;
@@ -67,20 +126,45 @@ body {
     border-radius: 5px;
 }
 
-.festivales-parrafo img {
+.central-lima img {
     width: 500px;
     height: auto;
     border-style: dashed;
+    transform: rotate(6deg);
     transition: transform 0.5s ease;
     object-fit: cover;
 }
 
-.festivales-parrafo img:hover {
+.central-lima img:hover {
     transform: rotate(-3deg) scale(1.1);
 }
 
+.central-team {
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    max-width: 70%;
+    margin: 0 auto;
+}
 
-.danza-tijeras {
+.central-team img {
+    width: 500px;
+    height: auto;
+    border-style: dashed;
+    transition: transform 0.5s ease;
+    object-fit: cover;
+    margin: 0;
+
+}
+
+.central-team img:hover {
+    transform: scale(1.1);
+}
+
+
+.platos-tradicionales {
     padding: 40px;
     display: flex;
     align-items: center;
@@ -90,7 +174,7 @@ body {
     margin: 0 auto;
 }
 
-.danza-tijeras p {
+.platos-tradicionales p {
     flex: 1;
     width: 150px;
     height: auto;
@@ -105,7 +189,7 @@ body {
 
 }
 
-.danza-tijeras p:hover {
+.platos-tradicionales p:hover {
     background-color: var(--color5);
     color: var(--color3);
     font-weight: bold;
@@ -114,7 +198,7 @@ body {
     border-radius: 5px;
 }
 
-.danza-tijeras img {
+.platos-tradicionales img {
     width: 500px;
     height: auto;
     border-style: dashed;
@@ -122,144 +206,6 @@ body {
     object-fit: cover;
 }
 
-.danza-tijeras img:hover {
-    transform: rotate(3deg) scale(1.1);
-}
-
-.marinera-norte {
-    padding: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 30px;
-    max-width: 80%;
-    margin: 0 auto;
-}
-
-.marinera-norte p {
-    flex: 1;
-    width: 150px;
-    height: auto;
-    text-align: justify;
-    font-size: 1.2em;
-    border-style: dotted;
-    background-color: snow;
-    padding: 20px;
-    color: black;
-    line-height: 1.6;
-    transition: background-color 0.3s ease, color 0.3s ease;
-
-}
-
-.marinera-norte p:hover {
-    background-color: var(--color5);
-    color: var(--color3);
-    font-weight: bold;
-    border-style: groove;
-    padding: 20px;
-    border-radius: 5px;
-}
-
-.marinera-norte img {
-    width: 500px;
-    height: auto;
-    border-style: dashed;
-    transition: transform 0.5s ease;
-    object-fit: cover;
-}
-
-.marinera-norte img:hover {
-    transform: rotate(-3deg) scale(1.1);
-}
-
-.inti-raymi {
-    padding: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 30px;
-    max-width: 80%;
-    margin: 0 auto;
-}
-
-.inti-raymi p {
-    flex: 1;
-    width: 150px;
-    height: auto;
-    text-align: justify;
-    font-size: 1.2em;
-    border-style: dotted;
-    background-color: snow;
-    padding: 20px;
-    color: black;
-    line-height: 1.6;
-    transition: background-color 0.3s ease, color 0.3s ease;
-
-}
-
-.inti-raymi p:hover {
-    background-color: var(--color5);
-    color: var(--color3);
-    font-weight: bold;
-    border-style: groove;
-    padding: 20px;
-    border-radius: 5px;
-}
-
-.inti-raymi img {
-    width: 500px;
-    height: auto;
-    border-style: dashed;
-    transition: transform 0.5s ease;
-    object-fit: cover;
-}
-
-.inti-raymi img:hover {
-    transform: rotate(3deg) scale(1.1);
-}
-
-.señor-milagros {
-    padding: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 30px;
-    max-width: 80%;
-    margin: 0 auto;
-}
-
-.señor-milagros p {
-    flex: 1;
-    width: 150px;
-    height: auto;
-    text-align: justify;
-    font-size: 1.2em;
-    border-style: dotted;
-    background-color: snow;
-    padding: 20px;
-    color: black;
-    line-height: 1.6;
-    transition: background-color 0.3s ease, color 0.3s ease;
-
-}
-
-.señor-milagros p:hover {
-    background-color: var(--color5);
-    color: var(--color3);
-    font-weight: bold;
-    border-style: groove;
-    padding: 20px;
-    border-radius: 5px;
-}
-
-.señor-milagros img {
-    width: 500px;
-    height: auto;
-    border-style: dashed;
-    transition: transform 0.5s ease;
-    object-fit: cover;
-}
-
-.señor-milagros img:hover {
-    transform: rotate(-3deg) scale(1.1);
+.platos-tradicionales img:hover {
+    transform:scale(1.1);
 }

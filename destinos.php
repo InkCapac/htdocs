@@ -59,8 +59,8 @@
 
     <!--Botones de navegación debajo de la galería-->
     <div class="nav-buttons">
-        <button class="nav-button" id="prevButton">Anterior</button>
-        <button class="nav-button" id="nextButton">Siguiente</button>
+        <button style="font-family: Montserrat Alternates" class="nav-button" id="prevButton">Anterior</button>
+        <button style="font-family: Montserrat Alternates" class="nav-button" id="nextButton">Siguiente</button>
     </div>
     
 
@@ -81,7 +81,7 @@
             <!-- Fila 1: Imagen en la derecha -->
             <article class="imagen-texto-container">
                 <div class="imagen-texto">
-                    <p><strong>Machu Picchu</strong>, la antigua ciudadela inca situada en lo alto de los Andes, es
+                    <p><strong>Machu Picchu</strong>-- la antigua ciudadela inca situada en lo alto de los Andes, es
                         uno de los
                         yacimientos arqueológicos más emblemáticos del mundo. Sus notables estructuras de piedra,
                         terrazas y templos reflejan el ingenio y la maestría arquitectónica de la civilización inca.
@@ -97,7 +97,7 @@
                 <div class="imagen-texto">
                     <img src="https://media.istockphoto.com/id/1442409650/photo/colorful-scenery-in-peru.jpg?s=612x612&w=0&k=20&c=XPIQVZcA1AnctO5WNqcdooZQ1hBxP3ACvKQNsnnddSg="
                         alt="Montaña de siete colores">
-                    <p><strong>La Montaña del Arco Iris (Vinicunca)</strong> es una maravilla natural de los Andes
+                    <p><strong>La Montaña del Arco Iris (Vinicunca)</strong>-- es una maravilla natural de los Andes
                         peruanos, famosa
                         por sus laderas multicolores que crean un espectáculo visual impresionante. Formada por
                         depósitos minerales únicos, la montaña muestra sorprendentes capas de tonos rojos,
@@ -110,7 +110,7 @@
             <!-- Fila 3: Imagen en la derecha -->
             <article class="imagen-texto-container">
                 <div class="imagen-texto">
-                    <p><strong>Huacachina</strong>, un oasis en el corazón del desierto peruano, es una joya
+                    <p><strong>La Huacachina</strong>-- un oasis en el corazón del desierto peruano, es una joya
                         escondida rodeada de
                         imponentes dunas de arena. Este pintoresco destino es conocido por su tranquila laguna, sus
                         palmeras y sus espectaculares paisajes. Huacachina ofrece a los visitantes una mezcla única
@@ -129,7 +129,7 @@
                 <div class="imagen-texto">
                     <img src="https://c4.wallpaperflare.com/wallpaper/995/441/303/peru-mountains-lake-cordillera-huayhuash-nature-409980-wallpaper-preview.jpg"
                         alt="Cordillera Huayhuash">
-                    <p><strong>La Cordillera Huayhuash</strong> situada en los Andes peruanos, es un destino
+                    <p><strong>La Cordillera Huayhuash</strong>-- situada en los Andes peruanos, es un destino
                         impresionante
                         para los amantes de la aventura. Con sus majestuosos picos, lagos glaciares de aguas cristalinas
                         y
