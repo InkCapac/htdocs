@@ -162,8 +162,6 @@ body {
 .central-team img:hover {
     transform: scale(1.1);
 }
-
-
 .platos-tradicionales {
     padding: 40px;
     display: flex;
