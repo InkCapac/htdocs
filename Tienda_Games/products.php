@@ -1,7 +1,6 @@
 <?php
-session_start(); // Inicia la sesión para almacenar el carrito
+session_start(); // Iniciar sesión
 
-// Incluye la clase de conexión a la base de datos
 include_once("./conectar.php");
 
 // Detalles de la base de datos
@@ -22,22 +21,22 @@ if (isset($_GET['id'])) {
     $producto = $conexion->hacer_consulta($query, "i", [$id_producto]);
 
     if ($producto) {
-        // Si no existe un carrito en la sesión, crearlo como un array
+        // Si no existe un carrito en la sesión, crearlo
         if (!isset($_SESSION['carrito'])) {
             $_SESSION['carrito'] = [];
         }
 
-        // Agregar el producto al carrito (usamos el ID del producto como clave)
+        // Agregar el producto al carrito en la sesión
         $item_carrito = [
             'id' => $producto[0]['id'],
             'nombre' => $producto[0]['nombre'],
             'imagen' => $producto[0]['imagen'],
             'descripcion' => $producto[0]['descripcion'],
             'precio' => $producto[0]['precio'],
-            'cantidad' => 1 // Agregamos una cantidad inicial de 1
+            'cantidad' => 1
         ];
 
-        // Verificar si el producto ya está en el carrito
+        // Comprobar si el producto ya está en el carrito de la sesión
         $encontrado = false;
         foreach ($_SESSION['carrito'] as &$item) {
             if ($item['id'] == $id_producto) {
@@ -51,15 +50,28 @@ if (isset($_GET['id'])) {
         if (!$encontrado) {
             $_SESSION['carrito'][] = $item_carrito;
         }
+
+        // Ahora, insertar el producto en la tabla 'carrito' de la base de datos
+        $query_insert = "INSERT INTO carrito (id_producto, nombre, imagen, descripcion, precio, cantidad)
+                         VALUES (?, ?, ?, ?, ?, ?)";
+
+        // Preparar los datos para la inserción
+        $id_producto = $producto[0]['id'];
+        $nombre = $producto[0]['nombre'];
+        $imagen = $producto[0]['imagen'];
+        $descripcion = $producto[0]['descripcion'];
+        $precio = $producto[0]['precio'];
+        $cantidad = 1;
+
+        // Insertar en la base de datos
+        $conexion->hacer_consulta($query_insert, "isssdi", [$id_producto, $nombre, $imagen, $descripcion, $precio, $cantidad]);
     }
 }
 
 // Obtener todos los productos
 $query = "SELECT * FROM productos";
 $productos = $conexion->hacer_consulta($query);
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -118,7 +130,7 @@ $productos = $conexion->hacer_consulta($query);
             <img src='" . htmlspecialchars($imagen) . "' class='product-image' alt='" . htmlspecialchars($nombre) . "'>
             <p>" . htmlspecialchars($descripcion) . "</p>
             <p>Precio: €" . $precio . "</p>
-            <a href='ver_carrito.php?id=" . $id . "' class='adquirir-button'>ADQUIRIR</a>
+            <a href='products.php?id=" . $id . "' class='adquirir-button'>ADQUIRIR</a>
         </article>
         ";
                 }
