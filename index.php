@@ -102,12 +102,11 @@
 
             <p class="forgot-password"><a href="#">Olvidaste tu contraseña?</a></p>
 
-            <button type="submit">INGRESAR</button>
+            <button style="font-family: Montserrat Alternates;" type="submit">INGRESAR</button>
         </form>
 
         <!-- Formulario de registro (Inicialmente oculto) -->
-        <form id="register-form" class="grid inputs">
-<!--style="display:none;"-->
+        <form id="register-form" class="grid inputs" style="display:none;">
             <p style="font-size:large; font-weight:bold">Hazte miembro de <a href="https://www.gob.pe/promperu">PROMPERÚ</a></p>
 
             <label for="nombre">Nombre</label>
@@ -127,7 +126,7 @@
                 <label for="consent"><a href="#"> Aceptar términos y condiciones.</a></label>
             </div>
             <br>
-            <button type="submit">REGISTRARME</button>
+            <button style="font-family: Montserrat Alternates" type="submit">REGISTRARME</button>
         </form>
     </div>
 

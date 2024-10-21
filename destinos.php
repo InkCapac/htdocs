@@ -150,63 +150,66 @@
 
     <!--Contenido del formulario en la esquina-->
     <!-- Capa que cubre el contenido principal cuando se activa el formulario -->
-    <div id="capa" class="capa" style="display:none;"></div>
+        <!-- Capa -->
+        <div id="capa" class="capa" style="display:none;"></div>
 
-    <!-- Botón de contacto -->
-    <button style="font-family: Montserrat Alternates; font-size:x-large" class="contact">CONTÁCTANOS</button>
+<!-- Botón de contacto -->
+<button style="font-family: Montserrat Alternates; font-size:x-large" class="contact">CONTÁCTANOS</button>
 
-    <!-- Caja de formulario -->
-    <div style="font-family: Montserrat Alternates" class="form-box">
-        <h2>Miembros de PromPeru</h2>
+<!-- Caja de formulario -->
+<div class="form-box">
+    <h2>Socios de 
+        PROMPERÚ</h2>
 
-        <!-- Navegación para Login y Registro -->
-        <div class="form-toggle">
-            <button style="font-family: Montserrat Alternates" id="login-toggle" class="active">Login</button> |
-            <button style="font-family: Montserrat Alternates" id="register-toggle">Registrarse</button>
+    <!-- Navegación para Login y Registro -->
+    <div class="form-toggle">
+        <button style="font-family: Montserrat Alternates" id="login-toggle" class="active">Login</button> |
+        <button style="font-family: Montserrat Alternates" id="register-toggle">Registrarse</button>
+    </div>
+
+    <!-- Formulario de inicio de sesión -->
+    <form id="login-form" class="grid">
+        <label for="email-login">Correo Electrónico</label>
+        <input type="email" id="email-login" name="email-login" required>
+
+        <label for="password-login">Contraseña</label>
+        <input type="password" id="password-login" name="password-login" required>
+
+        <div class="grid checkbox-message">
+            <input type="checkbox" id="remember" name="remember">
+            <label for="remember">Recordar contraseña</label>
         </div>
 
-        <!-- Formulario de inicio de sesión -->
-        <form id="login-form" class="grid">
-            <label for="email-login">Correo Electrónico</label>
-            <input type="email" id="email-login" name="email-login" required>
+        <p style="text-align: left; font-size:medium" class="forgot-password"><a href="#">Olvidaste tu contraseña?</a></p>
 
-            <label for="password-login">Contraseña</label>
-            <input type="password" id="password-login" name="password-login" required>
+        <button style="font-family: Montserrat Alternates;" type="submit">INGRESAR</button>
+    </form>
 
-            <div style="text-align:left" class="grid checkbox-message">
-                <input type="checkbox" id="remember" name="remember">
-                <label for="remember">Recordar contraseña</label>
-            </div>
+    <!-- Formulario de registro (Inicialmente oculto) -->
+    <form id="register-form" class="grid inputs" style="display:none;">
+        <p style="text-align:left; font-size:large; font-weight:bold">Hazte miembro de <a href="https://www.gob.pe/promperu">PROMPERÚ</a></p>
 
-            <p style="text-align:left; font-size:medium" class="forgot-password"><a href="#">Olvidaste tu contraseña?</a></p>
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" required>
 
-            <button style="font-family: Montserrat Alternates" type="submit">INGRESAR</button>
-        </form>
+        <label for="email">Correo Electrónico</label>
+        <input type="email" id="email" name="email" required>
 
-        <!-- Formulario de registro (Inicialmente oculto) -->
-        <form id="register-form" class="grid inputs" style="display:none;">
-            <p style="text-align:left; font-weight:bold">Hazte miembro de PromPERÚ</p>
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" name="password" required>
 
-            <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" name="nombre" required>
+        <label for="confirm-password">Confirmar contraseña</label>
+        <input type="password" id="confirm-password" name="confirm-password" required>
 
-            <label for="email">Correo Electrónico</label>
-            <input type="email" id="email" name="email" required>
+        <div class="grid checkbox-message">
+            <input type="checkbox" id="consent" name="consent" required>
+            <label for="consent"><a href="#"> Aceptar términos y condiciones.</a></label>
+        </div>
+        <br>
+        <button style="font-family: Montserrat Alternates;" type="submit">REGISTRARME</button>
+    </form>
+</div>
 
-            <label for="password">Contraseña</label>
-            <input type="password" id="password" name="password" required>
-
-            <label for="confirm-password">Confirmar contraseña</label>
-            <input type="password" id="confirm-password" name="confirm-password" required>
-
-            <div class="grid checkbox-message">
-                <input type="checkbox" id="consent" name="consent" required>
-                <label for="consent">Aceptar términos...</label>
-            </div>
-
-            <button style="font-family: Montserrat Alternates" type="submit">Enviar datos</button>
-        </form>
-    </div>
 
 
     <!--Archivos JavaScript de la página-->
