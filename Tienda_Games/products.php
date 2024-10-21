@@ -162,6 +162,7 @@ $productos = $conexion->hacer_consulta($query);
         </section>
         <a href="./ver_carrito.php">
     </main>
+    <!--Funciones de cookies-->
     <button id="producto1">Añadir al carrito</button>
     <button id="producto2">Añadir al carrito</button>
     <button id="producto3">Añadir al carrito</button>
