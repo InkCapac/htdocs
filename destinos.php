@@ -213,12 +213,11 @@
     <footer>
         <!--Símbolos de redes sociales-->
         <div class="footerContainer">
-            <div class="socialIcons">
-                <a href=""><i class="fa-brands fa-facebook"></i></a>
-                <a href=""><i class="fa-brands fa-instagram"></i></a>
-                <a href=""><i class="fa-brands fa-twitter"></i></a>
-                <a href=""><i class="fa-brands fa-google-plus"></i></a>
-                <a href=""><i class="fa-brands fa-youtube"></i></a>
+        <div class="socialIcons">
+                <a href="https://www.facebook.com/marcaPERU.lat"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/peru/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://x.com/marcaPERU?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fa-brands fa-twitter"></i></a>
+                <a href="https://www.youtube.com/@marcaperu"><i class="fa-brands fa-youtube"></i></a>
             </div>
             <p class="footer-p">© 2024 Visit Peru All rights reserved.</p>
 
