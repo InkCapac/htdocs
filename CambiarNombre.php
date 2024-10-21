@@ -75,7 +75,7 @@
     <div id="capa" class="capa" style="display:none;"></div>
 
     <!-- Botón Embajadores -->
-    <button class="contact">Embajadores</button>
+    <button style="font-family: Montserrat Alternates; font-size:x-large" class="contact">CONTÁCTANOS</button>
 
     <!-- Caja de formulario -->
     <div class="form-box">
