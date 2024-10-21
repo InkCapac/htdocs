@@ -12,15 +12,21 @@ body {
 
 .grid {
     display: grid;
+    grid-template-columns: 33.33%, 33.33%, 33.33%; 
+    gap: 10px;
+    width: 550px;
+    height: auto;
 }
 /* Estilo para cada producto */
 .product-layout {
+    text-align: center;
     border: 2px solid white; /* Borde blanco alrededor del producto */
     border-radius: 10px; /* Esquinas redondeadas */
     overflow: hidden; /* Asegura que la imagen no sobresalga */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
     transition: transform 0.3s; /* Transición suave para zoom */
-    background-color: white; /* Fondo blanco para el contenedor del producto */
+    background-color: snow; /* Fondo blanco para el contenedor del producto */
+    margin: 5%;
 }
 
 .product-layout:hover {
@@ -29,6 +35,7 @@ body {
 
 .product-layout img {
     max-width: 100%;
+    width: 500px;
     height: auto; /* Mantener la proporción de la imagen */
 }
 
