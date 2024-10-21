@@ -13,10 +13,13 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
     <!-- Include CSS in the head -->
+    <!--
+        <link rel="stylesheet" href="./css_linkedPages/general_infoForm.css">
+    -->
+    <link rel="stylesheet" href="./css_files/info_form.css">
     <link rel="stylesheet" href="./css_linkedPages/general_navbar.css">
     <link rel="stylesheet" href="./css_linkedPages/general_gallery.css">
     <link rel="stylesheet" href="./css_linkedPages/destinos.css">
-    <link rel="stylesheet" href="./css_linkedPages/general_infoForm.css">
     <!--Link del 'font' que contiene los simbolos de redes sociales-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
@@ -59,66 +62,7 @@
         <button class="nav-button" id="prevButton">Anterior</button>
         <button class="nav-button" id="nextButton">Siguiente</button>
     </div>
-    <!--Contenido del formulario en la esquina-->
-    <!-- Capa que cubre el contenido principal cuando se activa el formulario -->
-    <div id="capa" class="capa" style="display:none;"></div>
-
-    <!-- Botón de contacto -->
-    <button class="contact">Contáctanos</button>
-
-    <!-- Form Box -->
-    <div class="form-box">
-        <h2>Miembros de PromPeru</h2>
-
-        <!-- Bótones para 'login' y 'registrarse'-->
-        <div class="form-toggle">
-            <button id="login-toggle" class="active">Login</button> |
-            <button id="register-toggle">Registrarse</button>
-        </div>
-
-        <!-- Sección del Login -->
-        <form id="login-form" class="grid">
-            <label for="email-login">Correo Electrónico</label>
-            <input type="email" id="email-login" name="email-login" required>
-
-            <label for="password-login">Contraseña</label>
-            <input type="password" id="password-login" name="password-login" required>
-
-            <div class="grid checkbox-message">
-                <input type="checkbox" id="remember" name="remember">
-                <label for="remember">Recordar contraseña</label>
-            </div>
-
-            <p class="forgot-password"><a href="#">Olvidaste tu contraseña?</a></p>
-
-            <button type="submit">INGRESAR</button>
-        </form>
-
-        <!-- Sección de registrarse (oculto al inicio) -->
-        <form id="register-form" class="grid inputs" style="display:none;">
-            <p>Hazte mienbro de PromPERÚ</p>
-
-            <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" name="nombre" required>
-
-            <label for="email">Correo Electrónico</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="password">Contraseña</label>
-            <input type="password" id="password" name="password" required>
-
-            <label for="confirm-password">Confirmar contraseña</label>
-            <input type="password" id="confirm-password" name="confirm-password" required>
-
-            <div class="grid checkbox-message">
-                <input type="checkbox" id="consent" name="consent" required>
-                <label for="consent">Aceptar términos...</label>
-            </div>
-
-            <button type="submit">Enviar datos</button>
-        </form>
-    </div>
-
+    
 
     <!--Sección de destinos-->
     <p id="inicio-destino" class="parrafo1-destinos">Los lugares emblemáticos de Perú, como Machu Picchu, la
@@ -204,6 +148,67 @@
         </div>
     </div>
 
+    <!--Contenido del formulario en la esquina-->
+    <!-- Capa que cubre el contenido principal cuando se activa el formulario -->
+    <div id="capa" class="capa" style="display:none;"></div>
+
+    <!-- Botón de contacto -->
+    <button style="font-family: Montserrat Alternates; font-size:x-large" class="contact">CONTÁCTANOS</button>
+
+    <!-- Caja de formulario -->
+    <div style="font-family: Montserrat Alternates" class="form-box">
+        <h2>Miembros de PromPeru</h2>
+
+        <!-- Navegación para Login y Registro -->
+        <div class="form-toggle">
+            <button style="font-family: Montserrat Alternates" id="login-toggle" class="active">Login</button> |
+            <button style="font-family: Montserrat Alternates" id="register-toggle">Registrarse</button>
+        </div>
+
+        <!-- Formulario de inicio de sesión -->
+        <form id="login-form" class="grid">
+            <label for="email-login">Correo Electrónico</label>
+            <input type="email" id="email-login" name="email-login" required>
+
+            <label for="password-login">Contraseña</label>
+            <input type="password" id="password-login" name="password-login" required>
+
+            <div style="text-align:left" class="grid checkbox-message">
+                <input type="checkbox" id="remember" name="remember">
+                <label for="remember">Recordar contraseña</label>
+            </div>
+
+            <p style="text-align:left; font-size:medium" class="forgot-password"><a href="#">Olvidaste tu contraseña?</a></p>
+
+            <button style="font-family: Montserrat Alternates" type="submit">INGRESAR</button>
+        </form>
+
+        <!-- Formulario de registro (Inicialmente oculto) -->
+        <form id="register-form" class="grid inputs" style="display:none;">
+            <p style="text-align:left; font-weight:bold">Hazte miembro de PromPERÚ</p>
+
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="email">Correo Electrónico</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="confirm-password">Confirmar contraseña</label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
+
+            <div class="grid checkbox-message">
+                <input type="checkbox" id="consent" name="consent" required>
+                <label for="consent">Aceptar términos...</label>
+            </div>
+
+            <button style="font-family: Montserrat Alternates" type="submit">Enviar datos</button>
+        </form>
+    </div>
+
+
     <!--Archivos JavaScript de la página-->
     <script src="./js_linkedPages/general_navbar.js"></script>
     <script src="./js_linkedPages/general_gallery.js"></script>
@@ -213,7 +218,7 @@
     <footer>
         <!--Símbolos de redes sociales-->
         <div class="footerContainer">
-        <div class="socialIcons">
+            <div class="socialIcons">
                 <a href="https://www.facebook.com/marcaPERU.lat"><i class="fa-brands fa-facebook"></i></a>
                 <a href="https://www.instagram.com/peru/"><i class="fa-brands fa-instagram"></i></a>
                 <a href="https://x.com/marcaPERU?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fa-brands fa-twitter"></i></a>
