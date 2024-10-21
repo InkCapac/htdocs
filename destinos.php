@@ -34,7 +34,7 @@
     <div class="navbar">
         <a href="#"><img src="https://www.pikpng.com/pngl/b/542-5426711_logo-marca-peru-logo-peru-clipart.png"
                 alt="Marca Perú" class="navbar-imagen"></a>
-        <a href="Main page">Visit Peru </a>
+        <a href="./index.php">Visit Peru </a>
         <a href="#inicio-destino"">Destinos</a>
             <a href=" ./gastronomia.php">Gastronomía</a>
         <a href="./festivales.php">Festivales</a>

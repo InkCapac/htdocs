@@ -22,9 +22,8 @@
 </head>
 
 <body>
-    <!-- Cargador 
+    <!-- Cargador de página-->
     <div id="loader"></div>
--->
 
     <!-- Barra de navegación -->
     <div class="navbar">
@@ -47,8 +46,8 @@
 
     <!-- Botones de navegación -->
     <div class="nav-buttons">
-        <button class="nav-button" id="prevButton">Anterior</button>
-        <button class="nav-button" id="nextButton">Siguiente</button>
+        <button style="font-family: Montserrat Alternates" class="nav-button" id="prevButton">Anterior</button>
+        <button style="font-family: Montserrat Alternates" class="nav-button" id="nextButton">Siguiente</button>
     </div>
 
     <!-- Foto de postal -->
@@ -79,12 +78,13 @@
 
     <!-- Caja de formulario -->
     <div class="form-box">
-        <h2>Miembros de PromPeru</h2>
+        <h2>Socios de 
+            PROMPERÚ</h2>
 
         <!-- Navegación para Login y Registro -->
         <div class="form-toggle">
-            <button id="login-toggle" class="active">Login</button> |
-            <button id="register-toggle">Registrarse</button>
+            <button style="font-family: Montserrat Alternates" id="login-toggle" class="active">Login</button> |
+            <button style="font-family: Montserrat Alternates" id="register-toggle">Registrarse</button>
         </div>
 
         <!-- Formulario de inicio de sesión -->
@@ -106,8 +106,9 @@
         </form>
 
         <!-- Formulario de registro (Inicialmente oculto) -->
-        <form id="register-form" class="grid inputs" style="display:none;">
-            <p>Hazte miembro de PromPERÚ</p>
+        <form id="register-form" class="grid inputs">
+<!--style="display:none;"-->
+            <p style="font-size:large; font-weight:bold">Hazte miembro de <a href="https://www.gob.pe/promperu">PROMPERÚ</a></p>
 
             <label for="nombre">Nombre</label>
             <input type="text" id="nombre" name="nombre" required>
@@ -123,10 +124,10 @@
 
             <div class="grid checkbox-message">
                 <input type="checkbox" id="consent" name="consent" required>
-                <label for="consent">Aceptar términos...</label>
+                <label for="consent"><a href="#"> Aceptar términos y condiciones.</a></label>
             </div>
-
-            <button type="submit">Enviar datos</button>
+            <br>
+            <button type="submit">REGISTRARME</button>
         </form>
     </div>
 
