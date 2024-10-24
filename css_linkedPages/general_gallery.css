@@ -1,21 +1,16 @@
-/* Estilos de la galería de imágenes */
 :root {
+    /* Los colores principales de la página */
     --color1: rgb(219, 26, 31);
     --color2: rgba(120, 0, 0);
     --color3: snow;
+    --color4: #f7dfad;
     --borde: 1px solid rgb(219, 26, 31);
 }
-
-@font-face {
-    font-family: Cormorant;
-    src: url(../fonts/static/Cormorant-BoldItalic.ttf);
-}
-
-/* Incluir el relleno y los bordes en el ancho y alto total del elemento */
-*.gallery {
+/* Incluir el relleno y los bordes en el ancho y alto total del elemento 
+* {
     box-sizing: border-box;
 }
-
+*/
 body {
 
     /* Eliminar el margen predeterminado del cuerpo */

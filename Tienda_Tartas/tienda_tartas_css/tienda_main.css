@@ -1,0 +1,59 @@
+:root {
+    --color1: #f7dfad;
+    --color2: #f7d49e;
+    --color3: #fcbbde;
+    --color4: #f582bf;
+    --color5: #380468;
+}
+.image-placeholder {
+    text-align: center; 
+    font-size: 2em; /* Ajusta el tamaño de fuente para mayor legibilidad */
+    font-weight: bolder;
+    color: #380468; 
+    background-image: url(https://as2.ftcdn.net/v2/jpg/02/76/11/67/1000_F_276116708_9AUeW28pmiSL3zvXx7uL0whlS38WiZTh.jpg);
+    background-size: cover; /* Asegura que la imagen de fondo cubra todo el área */
+    background-position: center; /* Centra la imagen de fondo */
+    padding: 40px; /* Aumenta el espacio interno para el texto */
+    margin-bottom: 20px; /* Espacio debajo de la cita */
+    font-style: italic; /* Estilo en cursiva para la cita */
+    border-radius: 10px; /* Esquinas redondeadas para un efecto más suave */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para dar profundidad */
+    width: 80%; /* Ancho ajustable según el tamaño del contenedor */
+    max-width: 1000px; /* Ancho máximo para mantener la legibilidad */
+    margin-left: auto; /* Centra el elemento horizontalmente */
+    margin-right: auto; /* Centra el elemento horizontalmente */
+}
+.bienvenida-container {
+    display: flex; /* Utiliza flexbox para el diseño */
+    justify-content: space-between; /* Espacio entre elementos */
+    align-items: center; /* Centra los elementos verticalmente */
+    margin-top: 20px; /* Espacio superior */
+    margin-left: 20px; /* Espacio izquierdo */
+    margin-right: 20px; /* Espacio derecho */
+    gap: 10px; /* Espacio entre los elementos (ajustado para reducir el gap) */
+}
+
+.bienvenida-text {
+    width: 60%; /* Ancho del 60% para el texto */
+    font-size: 1.2em; /* Tamaño de fuente ajustado */
+    margin: 0; /* Elimina margen por defecto */
+    transition: transform 0.3s ease; /* Añade transición para el efecto de zoom */
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semitransparente */
+    padding: 15px; /* Espaciado interno para el texto */
+    border-radius: 5px; /* Bordes redondeados para el fondo */
+}
+
+.bienvenida-image {
+    max-width: 400px; /* Ancho máximo de la imagen */
+    width: 40%; /* Ancho del 40% para la imagen */
+    transition: transform 0.3s ease; /* Añade transición para el efecto de zoom */
+}
+
+/* Efecto de zoom al pasar el ratón */
+.bienvenida-text:hover {
+    transform: scale(1.05); /* Aumenta el tamaño al 105% */
+}
+
+.bienvenida-image:hover {
+    transform: scale(1.05); /* Aumenta el tamaño al 105% */
+}

@@ -1,0 +1,135 @@
+:root {
+    --color1: #f7dfad;
+    --color2: #f7d49e;
+    --color3: #fcbbde;
+    --color4: #f582bf;
+    --color5: #380468;
+}
+
+/* Estilo básico del cuerpo */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color1);
+    font-family: "Sofia", sans-serif;
+}
+
+/* Estilo de la barra de navegación */
+.navbar {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    /* Crear cinco columnas iguales */
+    align-items: center;
+    /* Centrar elementos verticalmente */
+    height: 15vh;
+    background-color: transparent;
+    /* Comenzar transparente */
+    z-index: 1000;
+    position: fixed;
+    width: 100%;
+    transition: background-color 0.3s ease;
+    /* Transición suave */
+}
+
+.navbar.solid {
+    background-color: var(--color4);
+    /* Color cuando es sólido */
+}
+
+.navbar a {
+    font-family: "Sofia", sans-serif;
+    font-weight: lighter;
+    color: var(--color5);
+    text-decoration: none;
+    font-size: 2em;
+    text-align: center;
+    padding: 10px;
+    /* Ajustar el padding para el centrado vertical */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Agregar transición para el fondo y el color */
+}
+
+/* Efecto hover para los enlaces de la barra de navegación */
+.navbar a:hover {
+    background-color: var(--color3);
+    color: var(--color5);
+}
+
+/* Logo centrado en la barra de navegación */
+.logo-nav {
+    display: flex;
+    /* Usar flex para centrar la imagen */
+    justify-content: center;
+    /* Centrar el logo */
+    color: inherit;
+    background-color: transparent;
+    pointer-events: none;
+}
+
+.logo-nav img {
+    width: 80px;
+    height: auto;
+}
+
+.logo-nav img:hover {
+    transform: none;
+    /* Quitar cualquier efecto de transformación al pasar el cursor */
+    transition: none;
+    /* Quitar cualquier efecto de transición */
+}
+
+/* Marcador de posición para la imagen que activa el cambio de color de la barra de navegación */
+.image-placeholder {
+    height: 300px;
+    /* Ajustar esta altura según sea necesario */
+    overflow: hidden;
+    /* Ocultar el desbordamiento */
+}
+
+/* Función JS para ajustar la barra de navegación según la posición del desplazamiento */
+
+/* Estilos del footer y sus contenidos */
+footer {
+    text-align: center;
+    padding: 20px;
+}
+
+.footer-p {
+    font-size: larger;
+}
+
+.footerContainer {
+    width: 100%;
+    padding: 70px 30px 20px;
+}
+
+.socialIcons {
+    display: flex;
+    justify-content: center;
+    font-size: small;
+}
+
+.socialIcons a {
+    text-decoration: none;
+    padding: 10px;
+    background-color: var(--color1);
+    margin: 10px;
+    border-radius: 50%;
+}
+
+.socialIcons a i {
+    font-size: 2em;
+    color: black;
+    opacity: 0.9;
+}
+
+/* Efecto hover en el icono de redes sociales */
+.socialIcons a:hover {
+    background-color: var(--color4);
+    transition: 0.5s;
+}
+
+.socialIcons a:hover i {
+    color: black;
+    transition: 0.5s;
+}

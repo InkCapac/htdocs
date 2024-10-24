@@ -21,27 +21,26 @@ body {
 .grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 30px;
 }
 
-/*Estilos de postal*/
-.postal-section {
+.intro-food {
     padding: 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    gap: 30px;
     max-width: 80%;
     margin: 0 auto;
 }
 
-.postal-section p {
+.intro-food p {
     flex: 1;
     width: 150px;
     height: auto;
     text-align: justify;
     font-size: 1.2em;
-    border-style:dotted;
+    border-style: dotted;
     background-color: snow;
     padding: 20px;
     color: black;
@@ -50,17 +49,17 @@ body {
 
 }
 
-.postal-section p:hover {
+.intro-food p:hover {
     background-color: var(--color5);
     color: var(--color3);
     font-weight: bold;
-    border-style:groove;
+    border-style: groove;
     padding: 20px;
     border-radius: 5px;
 }
 
-.postal-section img {
-    width: 300px;
+.intro-food img {
+    width: 500px;
     height: auto;
     border-style: dashed;
     transform: rotate(-3deg);
@@ -68,41 +67,11 @@ body {
     object-fit: cover;
 }
 
-.postal-section img:hover {
+.intro-food img:hover {
     transform: rotate(-3deg) scale(1.1);
 }
-/*Estilos de las imágenes*/
-.inicio-image {
-    padding: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    max-width: 75%;
-    margin: 0 auto;
-}
 
-.inicio-image img {
-    width: 500px;
-    height: auto;
-    transform: rotate(5deg);
-    border: 10px solid white;
-    transition: transform 0.5s ease;
-    object-fit: cover;
-    margin: 0;
-
-}
-
-.inicio-image img:hover {
-    transform: scale(1.1);
-}
-
-
-/* Añadir relleno alrededor del contenido */
-.content {
-    padding: 20px;
-}
-.trivia {
+.titulo-central {
     font-family: "Montserrat Alternates", sans-serif;
     font-weight: 600;
     font-size: x-large;
@@ -118,11 +87,12 @@ body {
     line-height: 1.6;
 }
 
-.trivia:hover {
+.titulo-central:hover {
     color: var(--color3);
     background-color: var(--color2);
 }
-.trivia-preguntas {
+
+.central-lima {
     padding: 40px;
     display: flex;
     align-items: center;
@@ -132,7 +102,7 @@ body {
     margin: 0 auto;
 }
 
-.trivia-preguntas p {
+.central-lima p {
     flex: 1;
     width: 150px;
     height: auto;
@@ -147,7 +117,7 @@ body {
 
 }
 
-.trivia-preguntas p:hover {
+.central-lima p:hover {
     background-color: var(--color5);
     color: var(--color3);
     font-weight: bold;
@@ -156,7 +126,77 @@ body {
     border-radius: 5px;
 }
 
-.trivia-preguntas img {
+.central-lima img {
+    width: 500px;
+    height: auto;
+    border-style: dashed;
+    transform: rotate(6deg);
+    transition: transform 0.5s ease;
+    object-fit: cover;
+}
+
+.central-lima img:hover {
+    transform: rotate(-3deg) scale(1.1);
+}
+
+.central-team {
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    max-width: 70%;
+    margin: 0 auto;
+}
+
+.central-team img {
+    width: 500px;
+    height: auto;
+    border-style: dashed;
+    transition: transform 0.5s ease;
+    object-fit: cover;
+    margin: 0;
+
+}
+
+.central-team img:hover {
+    transform: scale(1.1);
+}
+.platos-tradicionales {
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.platos-tradicionales p {
+    flex: 1;
+    width: 150px;
+    height: auto;
+    text-align: justify;
+    font-size: 1.2em;
+    border-style: dotted;
+    background-color: snow;
+    padding: 20px;
+    color: black;
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+}
+
+.platos-tradicionales p:hover {
+    background-color: var(--color5);
+    color: var(--color3);
+    font-weight: bold;
+    border-style: groove;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.platos-tradicionales img {
     width: 500px;
     height: auto;
     border-style: dashed;
@@ -164,20 +204,6 @@ body {
     object-fit: cover;
 }
 
-.trivia-preguntas img:hover {
+.platos-tradicionales img:hover {
     transform:scale(1.1);
-}
-
-
-
-/* Estilos de la página de carga */
-#loader {
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    background: rgba(33, 36, 45, 0.8) url('https://cdn.pixabay.com/animation/2023/11/29/03/37/03-37-06-789_512.gif') no-repeat center;
-    background-size: 512px 512px;
-    z-index: 999;
-    transition: opacity 1s ease;
-    opacity: 1;
 }

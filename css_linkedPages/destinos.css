@@ -1,0 +1,98 @@
+:root {
+    --color1: rgb(219, 26, 31);
+    --color2: rgba(120, 0, 0);
+    --color3: snow;
+    --color4: #f7dfad;
+    --color5: rgb(153, 102, 204);
+    --borde: 1px solid rgb(219, 26, 31);
+}
+
+html,
+body {
+    background-color: #f7dfad;
+    font-family: "Montserrat Alternates", sans-serif;
+    color: black;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body p {
+    font-size: xx-large;
+    text-align: center;
+}
+.parrafo1-destinos {
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: 600;
+    padding: 40px;
+    font-size: larger;
+    text-align: center;
+    border-radius: 20px;
+    border-style:dashed;
+    background-image: url(https://thumbs.dreamstime.com/b/amazing-world-famous-peruvian-ancient-indigenous-nazca-lines-seamless-pattern-over-dark-brown-worn-out-amazing-world-famous-291165349.jpg);
+    background-size: cover;
+    background-position: center;
+    transition: background-size 0.5s ease, font-style 0.3s ease;
+    margin: 20px;
+    color: var(--color3);
+    line-height: 1.6;
+}
+
+.parrafo1-destinos:hover {
+    font-style: italic;
+    font-size: x-large;
+    background-size: 110%; 
+}
+.contenido {
+    padding: 20px;
+}
+
+.grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.imagen-texto-container {
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+    background-color: var(--color3);
+    border: var(--borde);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.imagen-texto-container:hover{
+    background-color: var(--color5);
+    color: var(--color3);
+    font-weight: bold;
+}
+
+.imagen-texto {
+    font-family: "Montserrat Alternates", sans-serif;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.imagen-texto p {
+    text-align: center;
+    margin: 40px;
+    flex: 1;
+    font-size: 1.5em;
+}
+
+/* Estilo de la imagen con efecto de zoom */
+.imagen-texto img {
+    max-width: 100%;
+    width: 550px;
+    height: auto;
+    border-radius: 10px;
+    border-style: dashed;
+    transition: transform 0.3s ease;
+}
+
+.imagen-texto img:hover {
+    transform: scale(1.1);
+}

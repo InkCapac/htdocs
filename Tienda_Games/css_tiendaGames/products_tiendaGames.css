@@ -1,0 +1,124 @@
+body {
+    font-family: "Silkscreen", sans-serif;
+    font-size: 1.5em;
+}
+
+.products-paragraph {
+    
+    margin-top:auto;
+    background-color: aqua;
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 33.33%, 33.33%, 33.33%; 
+    gap: 10px;
+    width: 550px;
+    height: auto;
+}
+/* Estilo para cada producto */
+.product-layout {
+    text-align: center;
+    border: 2px solid white; /* Borde blanco alrededor del producto */
+    border-radius: 10px; /* Esquinas redondeadas */
+    overflow: hidden; /* Asegura que la imagen no sobresalga */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    transition: transform 0.3s; /* Transición suave para zoom */
+    background-color: snow; /* Fondo blanco para el contenedor del producto */
+    margin: 5%;
+}
+
+.product-layout:hover {
+    transform: scale(1.05); /* Zoom en el contenedor del producto al pasar el cursor */
+}
+
+.product-layout img {
+    max-width: 100%;
+    width: 500px;
+    height: auto; /* Mantener la proporción de la imagen */
+}
+
+/*
+section{
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-style:groove;
+}
+article{
+    color: black;
+}
+@media (min-width: 575px) {
+    .ordenador-tres {
+        grid-template-columns: 33.33% 33.33% 33.33%;
+    }
+    img{
+        width: 200px;
+        height: auto;
+    }
+}
+*/
+/*
+@media (min-width: 275px) {
+    .tablet-dos {
+        grid-template-columns: 50% 50%;
+    }
+}
+
+@media (min-width: 137px) {
+    .una {
+        grid-template-columns: 100%;
+    }
+}
+*/
+/**/
+.grid article-img {
+    width: 50px;
+}
+
+/*Estilos del footer y sus contenidos*/
+footer {
+    text-align: center;
+    padding: 20px;
+}
+
+.footer-p {
+    font-size: larger;
+}
+
+.footerContainer {
+    width: 100%;
+    padding: 70px 30px 20px;
+}
+
+.socialIcons {
+    display: flex;
+    justify-content: center;
+    font-size: small;
+}
+
+.socialIcons a {
+    text-decoration: none;
+    padding: 10px;
+    background-color: var(--color3);
+    margin: 10px;
+    border-radius: 50%;
+}
+
+.socialIcons a i {
+    font-size: 2em;
+    color: black;
+    opacity: 0, 9;
+}
+
+/* Efecto 'hover' en el ícono */
+.socialIcons a:hover {
+    background-color: var(--color2);
+    transition: 0.5s;
+}
+
+.socialIcons a:hover i {
+    color: var(--color3);
+    transition: 0.5s;
+}

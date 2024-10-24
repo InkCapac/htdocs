@@ -2,21 +2,21 @@ window.onload = () => {
     const modal = document.querySelector(".modal");
     const fondo = document.querySelector(".fondo");
 
-    // Function to toggle modal and background visibility
+    // Función para alternar la visibilidad del modal y del fondo
     const toggleModal = () => {
         modal.classList.toggle("ocultar");
         fondo.style.display = fondo.style.display === 'none' || fondo.style.display === '' ? 'block' : 'none';
     }
 
-    // Show the modal and dark background immediately when the page loads
-    toggleModal();  // Opens the modal and background overlay automatically
+    // Mostrar el modal y el fondo oscuro inmediatamente cuando la página carga
+    toggleModal();  // Abre el modal y la superposición de fondo automáticamente
 
-    // Close modal and background when 'X' is clicked
+    // Cerrar el modal y el fondo cuando se hace clic en la 'X'
     document.querySelector(".x").onclick = () => {
         toggleModal();
     }
 
-    // Close modal and background when 'Cerrar' button is clicked
+    // Cerrar el modal y el fondo cuando se hace clic en el botón 'Cerrar'
     document.querySelector(".cerrar").onclick = () => {
         toggleModal();
     }

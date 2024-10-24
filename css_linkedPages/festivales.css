@@ -1,0 +1,265 @@
+:root {
+    /* Los colores principales de la página */
+    --color1: rgb(219, 26, 31);
+    --color2: rgba(120, 0, 0);
+    --color3: snow;
+    --color4: #f7dfad;
+    --color5: rgb(153, 102, 204);
+    --borde: 1px solid rgb(219, 26, 31);
+}
+
+body {
+    background-color: var(--color4);
+    font-family: "Montserrat Alternates", sans-serif;
+}
+
+.titulo-danzas {
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: 600;
+    font-size: x-large;
+    text-align: center;
+    border-radius: 10px;
+    border-style: dashed;
+    background-color: var(--color3);
+    background-size: cover;
+    background-position: center;
+    transition: background-size 0.5s ease, font-style 0.3s ease;
+    margin: 20px;
+    color: black;
+    line-height: 1.6;
+}
+
+.titulo-danzas:hover {
+    color: var(--color3);
+    background-color: var(--color2);
+}
+.festivales-parrafo {
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.festivales-parrafo p {
+    flex: 1;
+    width: 150px;
+    height: auto;
+    text-align: justify;
+    font-size: 1.2em;
+    border-style: dotted;
+    background-color: snow;
+    padding: 20px;
+    color: black;
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+}
+
+.festivales-parrafo p:hover {
+    background-color: var(--color5);
+    color: var(--color3);
+    font-weight: bold;
+    border-style: groove;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.festivales-parrafo img {
+    width: 500px;
+    height: auto;
+    border-style: dashed;
+    transition: transform 0.5s ease;
+    object-fit: cover;
+}
+
+.festivales-parrafo img:hover {
+    transform: rotate(-3deg) scale(1.1);
+}
+
+
+.danza-tijeras {
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.danza-tijeras p {
+    flex: 1;
+    width: 150px;
+    height: auto;
+    text-align: justify;
+    font-size: 1.2em;
+    border-style: dotted;
+    background-color: snow;
+    padding: 20px;
+    color: black;
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+}
+
+.danza-tijeras p:hover {
+    background-color: var(--color5);
+    color: var(--color3);
+    font-weight: bold;
+    border-style: groove;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.danza-tijeras img {
+    width: 500px;
+    height: auto;
+    border-style: dashed;
+    transition: transform 0.5s ease;
+    object-fit: cover;
+}
+
+.danza-tijeras img:hover {
+    transform: rotate(3deg) scale(1.1);
+}
+
+.marinera-norte {
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.marinera-norte p {
+    flex: 1;
+    width: 150px;
+    height: auto;
+    text-align: justify;
+    font-size: 1.2em;
+    border-style: dotted;
+    background-color: snow;
+    padding: 20px;
+    color: black;
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+}
+
+.marinera-norte p:hover {
+    background-color: var(--color5);
+    color: var(--color3);
+    font-weight: bold;
+    border-style: groove;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.marinera-norte img {
+    width: 500px;
+    height: auto;
+    border-style: dashed;
+    transition: transform 0.5s ease;
+    object-fit: cover;
+}
+
+.marinera-norte img:hover {
+    transform: rotate(-3deg) scale(1.1);
+}
+
+.inti-raymi {
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.inti-raymi p {
+    flex: 1;
+    width: 150px;
+    height: auto;
+    text-align: justify;
+    font-size: 1.2em;
+    border-style: dotted;
+    background-color: snow;
+    padding: 20px;
+    color: black;
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+}
+
+.inti-raymi p:hover {
+    background-color: var(--color5);
+    color: var(--color3);
+    font-weight: bold;
+    border-style: groove;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.inti-raymi img {
+    width: 500px;
+    height: auto;
+    border-style: dashed;
+    transition: transform 0.5s ease;
+    object-fit: cover;
+}
+
+.inti-raymi img:hover {
+    transform: rotate(3deg) scale(1.1);
+}
+
+.señor-milagros {
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.señor-milagros p {
+    flex: 1;
+    width: 150px;
+    height: auto;
+    text-align: justify;
+    font-size: 1.2em;
+    border-style: dotted;
+    background-color: snow;
+    padding: 20px;
+    color: black;
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+}
+
+.señor-milagros p:hover {
+    background-color: var(--color5);
+    color: var(--color3);
+    font-weight: bold;
+    border-style: groove;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.señor-milagros img {
+    width: 500px;
+    height: auto;
+    border-style: dashed;
+    transition: transform 0.5s ease;
+    object-fit: cover;
+}
+
+.señor-milagros img:hover {
+    transform: rotate(-3deg) scale(1.1);
+}

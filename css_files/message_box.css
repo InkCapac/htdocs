@@ -1,4 +1,12 @@
-/* Overlay background */
+:root {
+    /* Los colores principales de la página */
+    --color1: rgb(219, 26, 31);
+    --color2: rgba(120, 0, 0);
+    --color3: snow;
+    --color4: #f7dfad;
+    --borde: 1px solid rgb(219, 26, 31);
+}
+/* Fondo superpuesto */
 .fondo {
     position: fixed;
     top: 0;
@@ -6,14 +14,14 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.707);
-    /* Semi-transparent black background */
+    /* Fondo negro semi-transparente */
     z-index: 1;
-    /* Ensure it is on top */
+    /* Asegurar que esté encima */
     display: none;
-    /* Hidden by default */
+    /* Oculto por defecto */
 }
 
-/* Modal content */
+/* Contenido del modal */
 .contenido {
     width: 70%;
     max-width: 500px;
@@ -28,12 +36,12 @@
     top: 20%;
     padding: 20px;
     z-index: 2;
-    /* Make sure it's on top of the background */
+    /* Asegurarse de que esté por encima del fondo */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     animation: entrada 0.5s ease;
 }
 
-/* Close (X) button */
+/* Botón de cierre (X) */
 .x {
     position: absolute;
     top: 10px;
@@ -46,7 +54,7 @@
     padding: 5px 10px;
 }
 
-/* Close button at the bottom */
+/* Botón de cierre en la parte inferior */
 .cerrar {
     display: block;
     margin: 20px auto 0 auto;
@@ -58,12 +66,12 @@
     cursor: pointer;
 }
 
-/* Hidden modal by default */
+/* Modal oculto por defecto */
 .ocultar {
     display: none;
 }
 
-/* Entrance animation */
+/* Animación de entrada */
 @keyframes entrada {
     from {
         transform: translateY(-100px);
