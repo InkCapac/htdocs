@@ -1,0 +1,18 @@
+body{
+    background-image: url(../background_1.jpg);
+    background-size: cover;
+}
+@font-face{
+    font-family: arcade;
+    src: url("../store_font/ka1.ttf");
+}
+@font-face{
+    font-family: icono;
+    src: url("../store_font/ARCADE__.TTF");
+}
+.parrafo-1{
+    font-size:xx-large;
+    text-align: center;
+    background-image: url(../background_h1.jpg);
+    background-size: cover;
+}

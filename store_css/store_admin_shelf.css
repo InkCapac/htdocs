@@ -1,0 +1,62 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: auto;
+}
+
+.grid {
+    display: grid;
+}
+
+.grid-25-75 {
+    grid-template-columns: 25% 75%;
+}
+
+.cabecera {
+    color: black;
+    background-color: lightgray;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    text-align: center;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.boton {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    background-color: red;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+.star {
+    color: red;
+}
+/*
+BORRAR
+ <form method="post" action="index.php">
+        Tipo
+        <select name="tipo">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+        </select>
+        Prioridad
+        <select name="prioridad">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+        </select>
+        Titulo
+        <input type="text" name="titulo">
+        Imagen
+        <input type="text" name="imagen">
+        Comentario
+        <textarea name="texto"></textarea> 
+        <button>Enviar</button>
+    </form>
+*/
