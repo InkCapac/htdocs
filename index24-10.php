@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrito de compras</title>
+    <link rel="shortcut icon" href="https://e7.pngegg.com/pngimages/662/584/png-clipart-logo-target-corporation-retail-brand-business-target-miscellaneous-company.png" type="image/x-icon">
     <style>
         body {
             background-color: skyblue;
@@ -31,45 +32,35 @@
         }
     </style>
     <script>
-        window.onload = () => { //\\PC18567\htdocs
-            const anadirProducto = id => {
-                //console.log(1) sirve para averiguar hasta donde (línea de código) funciona el código.
-                console.log(1)
-                if (localStorage.producto) {
-                    console.log(2)
-                    const datos = JSON.parse(localStorage.getItem("producto"));
-                    datos.push({
-                        id: id,
-                        nombre: document.querySelector("#prod" + id + " .nombre").innerText,
-                        cantidad: 1,
-                        precio: document.querySelector("#prod" + id + " .precio").innerText,
-                    });
-                    localStorage.producto = JSON.stringify(datos);
-                } else {
-                    console.log(3)
-                    localStorage.producto = JSON.stringify([{
-                        id: id,
-                        nombre: document.querySelector("#prod" + id + " .nombre").innerText,
-                        cantidad: 1,
-                        precio: document.querySelector("#prod" + id + " .precio").innerText,
-                    }]);
-                }
-            }
-            //localStorage.producto = JSON.stringify(["Se ha añadido el producto " + id]);
+        window.onload = () => {
+    const anadirProducto = (id) => {
+        // Verificamos si ya existe una lista de productos
+        let productos = JSON.parse(localStorage.getItem("producto")) || [];
 
-            const span = document.querySelector("span");
-            const botones = document.querySelectorAll("button");
-            botones.forEach(boton => {
-                boton.onclick = (event) => {
-                    //const idProducto = event.target.getAttribute("id").substr(8);
-                    //const idProducto = event.target.getAttribute("id").split("producto")[1];
-                    console.log(0)
-                    const idProducto = event.target.getAttribute("data-numero-producto");
-                    span.innerText = parseInt(span.innerText) + 1;
-                    anadirProducto(idProducto);
-                }
-            })
+        // Añadimos el nuevo producto
+        productos.push({
+            id: id,
+            nombre: document.querySelector("#prod" + id + " .nombre").innerText,
+            cantidad: 1,
+            precio: document.querySelector("#prod" + id + " .precio").innerText,
+        });
+
+        // Actualizamos el `localStorage`
+        localStorage.setItem("producto", JSON.stringify(productos));
+    };
+
+    const span = document.querySelector("span");
+    const botones = document.querySelectorAll("button");
+
+    botones.forEach(boton => {
+        boton.onclick = (event) => {
+            const idProducto = event.target.getAttribute("data-numero-producto");
+            span.innerText = parseInt(span.innerText) + 1;
+            anadirProducto(idProducto);
         }
+    });
+};
+
     </script>
 </head>
 
@@ -79,25 +70,25 @@
         <span>0</span>
     </div>
     <div id="prod1">
-        <img>
+        <img src="https://cdn.phonehouse.es/res/products-image/1/0/0/3/5/4/1003549-3037260.jpg?&w=800&h=800&trim=auto&auto=format&q=40">
         <p class="nombre">Play 5</p>
         <span class="precio">500</span>
         <button id="producto1" data-numero-producto="1">Añadir al carrito</button>
     </div>
     <div id="prod2">
-        <img>
+        <img src="https://i.ebayimg.com/images/g/UEkAAOSwhDVjPY4M/s-l640.jpg">
         <p class="nombre">Play 2</p>
         <span class="precio">1000</span>
         <button id="producto2" data-numero-producto="2">Añadir al carrito</button>
     </div>
     <div id="prod3">
-        <img>
+        <img src="https://resizer.glanacion.com/resizer/v2/sony-lanzo-una-actualizacion-de-software-para-su-SDHDDVIRPJAM7ELMOI4AVHGVQ4.jpg?auth=a4a75de41d03bfcdaa8b9d5723ebaf2c0cbbea8943095d339a767f7145cb0c20&width=768&quality=70&smart=false">
         <p class="nombre">Play 4</p>
         <span class="precio">600</span>
         <button id="producto3" data-numero-producto="3">Añadir al carrito</button>
     </div>
     <div id="prod4">
-        <img>
+        <img src="https://i.blogs.es/f62889/playstation-classic-15/650_1200.jpg">
         <p class="nombre">Play 1</p>
         <span class="precio">100</span>
         <button id="producto4" data-numero-producto="4">Añadir al carrito</button>
