@@ -1,3 +1,12 @@
+:root{
+    /* Los colores principales de la página */
+    --color1: rgb(219, 26, 31);
+    --color2: rgba(120, 0, 0);
+    --color3: snow;
+    --color4: #f7dfad;
+    --color5: rgb(153, 102, 204);
+    --borde: 1px solid rgb(219, 26, 31);
+}
 .grid {
     display: grid;
 }
@@ -65,7 +74,8 @@ nav-grid{
 
 .fondo {
     /*background-image: url(../background_1.jpg);*/
-    background-color: beige;
+    background-color: var(--color4);
+    border-style: dashed;
     background-size: cover;
 }
 
