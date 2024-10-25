@@ -1,7 +1,7 @@
 <!--Traducir todo al español después, incluida la base de datos-->
 <!--
     BASE DE DATOS: tienda
-    TABLA: productos
+    TABLA: catalogo
     id int AUTO_INCREMENT
     name varchar(20);
     image varchar(100);
@@ -21,7 +21,7 @@ if (isset($_GET["pagina"])) {
     $pagina = 0;
 }
 $conexion = new Conectar($servidor, $usuario, $contrasena, $bbdd);
-$productos = $conexion->recibir_datos("SELECT * FROM productos LIMIT 12 OFFSET $pagina");
+$productos = $conexion->recibir_datos("SELECT * FROM catalogo LIMIT 12 OFFSET $pagina");
 $contar_articulos = count($productos);
 $paginas = ($contar_articulos / 12) + 1;
 ?>
@@ -33,16 +33,27 @@ $paginas = ($contar_articulos / 12) + 1;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Konami Code</title>
     <!-- Archivos css -->
-    <link rel="stylesheet" href="./store_css/store_gallery.css">
-    <link rel="stylesheet" href="./store_css/store_catalogue.css">
-    <link rel="stylesheet" href="./store_css/store_main.css">
+    <link rel="stylesheet" href="./css_store/catalogue_store.css">
+    <link rel="stylesheet" href="./css_store/gallery_store.css">
+    <link rel="stylesheet" href="./css_store/index_store.css">
 </head>
 
 <body>
+    <!-- Barra de navegación de la página web-->
+    <script src="./js_files/nav_bar.js"></script>
+    <div class="navbar">
+        <a href="#"><img src=""
+                alt="Marca Perú" class="navbar-imagen"></a>
+        <a href="./index.html">Visit Peru </a>
+        <a href="./destinos.html">Destinos</a>
+        <a href="#inicio-gastronomia">Gastronomía</a>
+        <a href="./festivales.html">Festivales</a>
+    </div>
+
     <!-- Galería de imágenes -->
     <div class="gallery">
         <div class="gallery-container">
-            <img class="gallery-item active" src="./store_gallery/black_friday_deals.jpg" data-index="1">
+            <img class="gallery-item active" src="https://cdn.mos.cms.futurecdn.net/HaWBK8GAFuWRUhRXXJYeKF.jpg" data-index="1">
             <img class="gallery-item" src="./store_gallery/xbox_controller.jpg" data-index="2">
             <img class="gallery-item" src="./store_gallery/store_shelves.jpg" data-index="3">
             <img class="gallery-item" src="./store_gallery/stream4k_android-pod_new.jpg" data-index="4">
@@ -98,7 +109,7 @@ $paginas = ($contar_articulos / 12) + 1;
     </main>
 
     <!-- Archivos JavaScript -->
-    <script src="./store_js/store_gallery.js"></script>
+    <script src="./js_store/gallery_store.js"></script>
     <footer></footer>
     <div class="hamburguesa">
         -<br>-<br>-
