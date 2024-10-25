@@ -12,7 +12,11 @@ body{
 }
 .parrafo-1{
     font-size:xx-large;
+    padding: 20px;
     text-align: center;
     background-image: url(../background_h1.jpg);
     background-size: cover;
+}
+.parrafo-1:hover{
+    color: snow;
 }

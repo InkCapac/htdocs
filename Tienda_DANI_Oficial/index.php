@@ -32,32 +32,34 @@ $paginas = ($contar_articulos / 12) + 1;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Konami Code</title>
+    <link rel="shortcut icon" href="https://www.shareicon.net/download/2015/08/20/87888_dragon-ball.ico" type="image/x-icon">
     <!-- Archivos css -->
+    <link rel="stylesheet" href="./css_store/index_store.css">
     <link rel="stylesheet" href="./css_store/catalogue_store.css">
     <link rel="stylesheet" href="./css_store/gallery_store.css">
     <link rel="stylesheet" href="./css_store/index_store.css">
+    <link rel="stylesheet" href="./css_store/navbar_store.css">
 </head>
 
 <body>
     <!-- Barra de navegación de la página web-->
-    <script src="./js_files/nav_bar.js"></script>
     <div class="navbar">
-        <a href="#"><img src=""
-                alt="Marca Perú" class="navbar-imagen"></a>
-        <a href="./index.html">Visit Peru </a>
-        <a href="./destinos.html">Destinos</a>
-        <a href="#inicio-gastronomia">Gastronomía</a>
-        <a href="./festivales.html">Festivales</a>
+        <a href="./index.html">RedRibbon</a>
+        <a href="./destinos.html">Productos</a>
+        <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Red_Ribbon_Army_Logo.png"
+                alt="RedRoom" class="navbar-imagen"></a>
+        <a href="#inicio-gastronomia">Partners</a>
+        <a href="./festivales.html">Events</a>
     </div>
 
     <!-- Galería de imágenes -->
     <div class="gallery">
         <div class="gallery-container">
-            <img class="gallery-item active" src="https://cdn.mos.cms.futurecdn.net/HaWBK8GAFuWRUhRXXJYeKF.jpg" data-index="1">
-            <img class="gallery-item" src="./store_gallery/xbox_controller.jpg" data-index="2">
-            <img class="gallery-item" src="./store_gallery/store_shelves.jpg" data-index="3">
-            <img class="gallery-item" src="./store_gallery/stream4k_android-pod_new.jpg" data-index="4">
-            <img class="gallery-item" src="./store_gallery/videogames_catalogue.jpg" data-index="5">
+            <img class="gallery-item active" src="https://easycdn.es/1/imagenes/articulos_337745.png" data-index="1">
+            <img class="gallery-item" src="https://blog.es.playstation.com/tachyon/sites/14/2023/09/6087d4b0644c916a7562b5c35569d8a70d3ca330.jpg" data-index="2">
+            <img class="gallery-item" src="https://i.ytimg.com/vi/p6-MsytRGTE/maxresdefault.jpg" data-index="3">
+            <img class="gallery-item" src="https://static0.gamerantimages.com/wordpress/wp-content/uploads/2023/11/playstation-studios-fan-requested-remake.jpg" data-index="4">
+            <img class="gallery-item" src="https://i.rtings.com/assets/pages/EEgK6vzi/best-ps5-monitors-20230824-medium.jpg?format=auto" data-index="5">
         </div>
     </div>
     <!-- Botones de la galería de imágenes -->
@@ -66,7 +68,7 @@ $paginas = ($contar_articulos / 12) + 1;
         <button style="font-family: arcade" class="nav-button" id="nextButton">Adelante</button>
     </div>
     <h1 class="parrafo-1" style="font-family: arcade; color: orange;">
-        <p>Pick the videogame you most like!</p>
+        <p>Pick up the videogame you most like!</p>
     </h1>
 
     <!-- Catálogo productos -->
@@ -110,6 +112,7 @@ $paginas = ($contar_articulos / 12) + 1;
 
     <!-- Archivos JavaScript -->
     <script src="./js_store/gallery_store.js"></script>
+    <script src="./js_store/navbar_store.js"></script>
     <footer></footer>
     <div class="hamburguesa">
         -<br>-<br>-
