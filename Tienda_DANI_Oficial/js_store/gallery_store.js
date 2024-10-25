@@ -19,7 +19,7 @@ function nextImage() {
     updateGallery(); // Actualizar la galería
 }
 
-// Función para pasar a la imagen anterior
+// Función para pasar a la imagen anterior  
 function prevImage() {
     currentIndex = (currentIndex === 0) ? galleryItems.length - 1 : currentIndex - 1; // Actualizar el índice
     updateGallery(); // Actualizar la galería
