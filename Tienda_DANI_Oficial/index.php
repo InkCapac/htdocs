@@ -67,7 +67,7 @@ $paginas = ($contar_articulos / 12) + 1;
         <button style="font-family: arcade;" class="nav-button" id="prevButton">Anterior</button>
         <button style="font-family: arcade" class="nav-button" id="nextButton">Adelante</button>
     </div>
-    <h1 class="parrafo-1" style="font-family: arcade; color: orange;">
+    <h1 class="parrafo-1">
         <p>Pick up the videogame you most like!</p>
     </h1>
 
