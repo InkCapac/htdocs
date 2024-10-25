@@ -1,3 +1,5 @@
+
+<!---->
 <?php
 class Conectar{
     private $conexion;
@@ -6,7 +8,6 @@ class Conectar{
 
         $this->conexion = new mysqli($servidor, $usuario, $contrasena, $bbdd);
     }
-
     function hacer_consulta($consulta, $tipos, $variables){
         $sentencia = $this->conexion->prepare($consulta);
         $array_completo = array_merge([$tipos], $variables);
@@ -37,3 +38,26 @@ class Conectar{
 
 }
 ?>
+    /*
+    REPASO 25-10
+    class Conectar{
+        $conexion = new mysql_connect("servidor","usuario","pass","base_datos");
+
+
+    function recibir_datos("SELECT * FROM tabla")
+    [
+        {
+            nombre: "Pepe",
+            id: 1
+        },
+        {
+            nombre: "Maria"
+            id: 2
+        }
+        ]
+        hacer coDnsulta("INSERT INTO usuarios VALUES (?,?,?,?)","isis",[$id, $nombre, $edad, $dni])
+        hacer coDnsulta("DELETE FROM usuarios WHERE ID=?","i",[$dni])
+    }
+    */
+
+    
