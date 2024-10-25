@@ -23,14 +23,15 @@ body{
     font-family: arcade;
     font-size:xx-large;
     padding: 20px;
+    border-style:dotted;
     text-align: center;
-    color: orange;
+    color: black;
     /*background-image: url(../background_h1.jpg);*/
-    background-color: var(--color5);
+    background-color: var(--color4);
     background-size: cover;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 .parrafo-1:hover{
-    color: snow;
-    background-color: coral;
+    color: var(--color3);
+    background-color: var(--color5);
 }
