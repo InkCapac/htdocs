@@ -80,7 +80,8 @@
                     };
                     carrito.push(productoNuevo);
                 }
-                localStorage.producto = JSON.stringify(carrito); // Guardar el carrito en localStorage
+                // Guardar el carrito en localStorage
+                localStorage.producto = JSON.stringify(carrito); 
             };
         };
     </script>

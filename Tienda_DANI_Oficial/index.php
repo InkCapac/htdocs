@@ -63,45 +63,35 @@ $paginas = ($contar_articulos / 12) + 1;
     <!-- Catálogo productos -->
     <main class="fondo">
         <section class="grid una tablet-dos ordenador-tres grid-33 margen">
-            <!--
-                <article>
-                    <img style="cursor: pointer;" src="./store_images/wukong.avif" alt="Wukong">
-                    <button style="font-family: arcade;">Comprar</button>
-                </article>
-                <article>
-                    <img style="cursor: pointer;" src="./store_images/gow.avif" alt="God of War">
-                    <button style="font-family: arcade;">Comprar</button>
-                </article>
-                <article>
-                    <img style="cursor: pointer;" src="./store_images/warhammer.avif" alt="Warhammer">
-                    <button style="font-family: arcade;">Comprar</button>
-                </article>
-            -->
             <?php
             if ($contar_articulos < 1) {
                 echo "<p>No se han encontrado artículos</p>";
             } else {
                 for ($i = 0; $i < count($productos); $i++) {
+                    $producto_id = $productos[$i]["id"]; // Obtén el id del producto desde la base de datos
                     $nombre = $productos[$i]["nombre"];
                     $imagen = $productos[$i]["imagen"];
                     $descripcion = $productos[$i]["descripcion"];
                     $precio = $productos[$i]["precio"];
                     echo '
-                <article>
-                    <h3>' . $nombre . '</h3>
-                    <img src="' . $imagen . '" class="product-image" alt="' . $nombre . '">
-                    <p>' . $descripcion . '</p>
-                    <p>' . $precio . '</p>
-                </article>';
+        <article id="producto' . $producto_id . '"> <!-- Usa el id del producto en el id del article -->
+            <h3>' . $nombre . '</h3>
+            <img src="' . $imagen . '" class="product-image" alt="' . $nombre . '">
+            <p>' . $descripcion . '</p>
+            <p>' . $precio . '</p>
+            <button class="adquirir-btn" data-id="' . $producto_id . '">Adquirir</button>
+        </article>';
                 }
             }
             ?>
         </section>
     </main>
+    <button id="vaciarCarrito">Vaciar Carrito</button>
 
     <!-- Archivos JavaScript -->
     <script src="./js_store/gallery_store.js"></script>
     <script src="./js_store/navbar_store.js"></script>
+    <script src="./js_store/carrito_store.js"></script>
     <footer></footer>
     <div class="hamburguesa">
         -<br>-<br>-
