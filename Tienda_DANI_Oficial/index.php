@@ -86,7 +86,7 @@ $paginas = ($contar_articulos / 12) + 1;
             ?>
         </section>
     </main>
-    <button id="vaciarCarrito">Vaciar Carrito</button>
+    <button id="vaciarCarrito" class="vaciar-button">Vaciar Carrito</button>
 
     <!-- Archivos JavaScript -->
     <script src="./js_store/gallery_store.js"></script>

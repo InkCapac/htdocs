@@ -35,3 +35,19 @@ body{
     color: var(--color3);
     background-color: var(--color5);
 }
+.vaciar-button{
+    text-align: center;
+    background-color: var(--color3);
+    color: black;
+    margin: 20px;
+    padding: 20px;
+    position: relative;
+    font-size: larger;
+    border-style: dashed;
+    left: 900px;
+    transition: background-color 0.5 ease, color 0.5 ease;
+}
+.vaciar-button:hover{
+    background-color: var(--color5);
+    color: var(--color3);
+}

@@ -89,18 +89,46 @@ main {
 article {
     position: relative;
 }
+article h3{
+    text-align: center;
+    font-size: xx-large;
+    background-color: var(--color4);
+    color: black;
+    transition: border-style 0.4s ease, background-color 0.4s ease, color 0.4s ease;
+}
+article h3:hover{
+    color: var(--color3);
+    background-color: var(--color5);
+    border-style: dashed;
+}
+article img{
+    width: 400px;
+    height: 450px;
+    border-style: dotted;
+}
+article p{
+    margin: 5px;
 
+}
 article button {
-    color: snow;
-    /*background-color: rgb(113, 113, 249);*/
-    background-color: transparent;
+    color: black;
     border: none;
-    padding: 10px 20px;
+    /*padding: 5px 10px;*/
+    padding: 1px;
     font-size: large;
     position: absolute;
-    bottom: 20px;
+    bottom: -15px;
     left: 50%;
+    border-radius: 10px;
+    border-style: dashed;
     transform: translateX(-50%);
     width: 100px;
     cursor: pointer;
+    /*background-color: rgb(113, 113, 249);*/
+    background-color: var(--color3);
+    transition: background-color 0.6s ease, color 0.6s ease;
+}
+article button:hover{
+    background-color: var(--color5);
+    color: var(--color3);
 }
