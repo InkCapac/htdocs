@@ -4,7 +4,11 @@ window.onload = () =>{
     const producto3 = document.querySelector("#producto3");
     let carrito;
     if(localStorage.producto !== null){
-        carrito = localStorage.producto;
+        //Con JSON convertimos un string o texto en arrays o objetos de JSON
+        carrito = JSON.parse(localStorage.producto);
+    }else{
+        //Los '[]' son para los arrays
+        carrito=[];
     }
     producto1.addEventListener("click", () => {
         añadirProducto(1);
@@ -16,10 +20,13 @@ window.onload = () =>{
         añadirProducto(3);
     }
     const añadirProducto = (id) => {
-        if(buscarProducto + id){
+        //.find() para buscar dentro del carrito
+        const productoBuscado = carrito.find(producto => producto.id == id);
+        if(productoBuscado != null){
             ("producto"+id)++;
         }else{
             productoNuevo = {
+                id: id,
                 nombre: "producto"+id,
                 cantidad: 1
             }

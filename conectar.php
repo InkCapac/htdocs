@@ -37,7 +37,6 @@ class Conectar{
     }
 
 }
-?>
     /*
     REPASO 25-10
     class Conectar{
@@ -59,5 +58,7 @@ class Conectar{
         hacer coDnsulta("DELETE FROM usuarios WHERE ID=?","i",[$dni])
     }
     */
+?>
+
 
     
