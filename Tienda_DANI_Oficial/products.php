@@ -32,11 +32,12 @@ $paginas = ($contar_articulos / 12) + 1;
     <link rel="stylesheet" href="./css_store/gallery_store.css">
     <link rel="stylesheet" href="./css_store/index_store.css">
     <link rel="stylesheet" href="./css_store/navbar_store.css">
+    <link rel="stylesheet" href="./css_store/carrito_store.css">
 </head>
 
 <body>
     <!-- Barra de navegación de la página web-->
-    <div class="navbar">
+    <div class="grid navbar">
         <a href="#inicio-index">RedRibbon</a>
         <a href="">Productos</a>
         <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Red_Ribbon_Army_Logo.png"
@@ -82,12 +83,72 @@ $paginas = ($contar_articulos / 12) + 1;
             <h3>' . $nombre . '</h3>
             <img src="' . $imagen . '" class="product-image" alt="' . $nombre . '">
             <p class="description-style">' . $descripcion . '</p>
-            <p>' . $precio . '</p>
+            <p>' . $precio . '€</p>
             <button class="adquirir-btn" data-id="' . $producto_id . '">Adquirir</button>
         </article>';
                 }
             }
             ?>
+            <!--Sección del formulario-->
+                <!-- Capa -->
+    <div id="capa" class="capa" style="display:none;"></div>
+
+<!-- Botón de contacto -->
+<button style="font-family: Montserrat Alternates; font-size:x-large" class="contact">CARRITO</button>
+
+<!-- Caja de formulario -->
+<div class="form-box">
+    <h2>Thanks for buying in our store</h2>
+
+    <!-- Navegación para Login y Registro -->
+    <div class="form-toggle">
+        <button style="font-family: Montserrat Alternates" id="login-toggle" class="active">Login</button> |
+        <button style="font-family: Montserrat Alternates" id="register-toggle">Registrarse</button>
+    </div>
+
+    <!-- Formulario de inicio de sesión -->
+    <form id="login-form" class="grid">
+        <label for="email-login">Correo Electrónico</label>
+        <input type="email" id="email-login" name="email-login" required>
+
+        <label for="password-login">Contraseña</label>
+        <input type="password" id="password-login" name="password-login" required>
+
+        <div class="grid checkbox-message">
+            <input type="checkbox" id="remember" name="remember">
+            <label for="remember">Recordar contraseña</label>
+        </div>
+
+        <p class="forgot-password"><a href="#">Olvidaste tu contraseña?</a></p>
+
+        <button style="font-family: Montserrat Alternates;" type="submit">INGRESAR</button>
+    </form>
+
+    <!-- Formulario de registro (Inicialmente oculto) -->
+    <form id="register-form" class="grid inputs" style="display:none;">
+        <p style="font-size:large; font-weight:bold">Hazte miembro de <a href="https://www.gob.pe/promperu">PROMPERÚ</a></p>
+
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="email">Correo Electrónico</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="confirm-password">Confirmar contraseña</label>
+        <input type="password" id="confirm-password" name="confirm-password" required>
+
+        <div class="grid checkbox-message">
+            <input type="checkbox" id="consent" name="consent" required>
+            <label for="consent"><a href="#"> Aceptar términos y condiciones.</a></label>
+        </div>
+        <br>
+        <button style="font-family: Montserrat Alternates" type="submit">REGISTRARME</button>
+    </form>
+</div>
+
         </section>
     </main>
     <button id="vaciarCarrito" class="vaciar-button">Vaciar Carrito</button>
@@ -96,6 +157,7 @@ $paginas = ($contar_articulos / 12) + 1;
     <script src="./js_store/gallery_store.js"></script>
     <script src="./js_store/navbar_store.js"></script>
     <script src="./js_store/carrito_store.js"></script>
+    <script src="./js_store/carritoStyle_store.js"></script>
     <footer></footer>
     <div class="hamburguesa">
         -<br>-<br>-

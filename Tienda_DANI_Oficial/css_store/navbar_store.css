@@ -18,8 +18,6 @@
 html {
     scroll-behavior: smooth;
 }
-
-/*Sección para las fuentes*/
 .navbar {
     position: fixed;
     /*La fuente que usaremos para la barra de navegación*/
@@ -46,6 +44,8 @@ html {
 
 .navbar a {
     font-family: arcade;
+    /*Modificar la línea de abajo después*/
+    letter-spacing: normal;
     color: var(--color3);
     text-decoration: none;
     font-size: 2em;

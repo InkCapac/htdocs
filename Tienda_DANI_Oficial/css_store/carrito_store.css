@@ -1,0 +1,142 @@
+:root {
+    /* Los colores principales de la página */
+    --color1: rgb(219, 26, 31);
+    --color2: rgba(120, 0, 0);
+    --color3: snow;
+    --color4: #f7dfad;
+    --color5: rgb(153, 102, 204);
+    --borde: 1px solid rgb(219, 26, 31);
+}
+body {
+    font-family: "Montserrat Alternates", sans-serif;
+    font-style: normal;
+}
+
+/* Caja de formulario */
+.form-box {
+    font-size: 16px;
+    color: black;
+    position: fixed;
+    top: 110px;
+    /* Iniciar fuera de pantalla */
+    right: -400px; 
+    padding: 20px;
+    width: 350px;
+    /* Ajuste para pantallas más pequeñas */
+    max-width: 100%; 
+    background-color: var(--color3);
+    border: var(--borde);
+    z-index: 1000;
+    /* Asegurar transición suave */
+    transition: transform 0.5s ease; 
+    /* Inicialmente oculto fuera de pantalla */
+    transform: translateX(100%); 
+}
+
+.form-box.abierto {
+    /* Deslizar hacia dentro */
+    right: 0; 
+    /* El formulario se desliza a la vista */
+    transform: translateX(0); 
+    width: 400px;
+    height: auto;
+}
+
+/* Diseño de cuadrícula */
+.form-box .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+/* Estilos para los inputs */
+.form-box input[type="text"],
+.form-box input[type="email"],
+.form-box input[type="password"],
+.form-box textarea {
+    width: 100%;
+    padding: 4px;
+    border: 1px solid #ccc;
+    background-color: snow;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+/* Checkbox (cuadro de términos) */
+.form-box .checkbox-message {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Botón de envío */
+.form-box button {
+    background-color: var(--color1);
+    color: snow;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-box button:hover {
+    background-color: var(--color2);
+}
+/* Estilos para los botones 'login' y 'registrarse' */
+.form-toggle {
+    padding-bottom: 20px;
+}
+/* Botón de Contacto */
+.contact {
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    width: 250px;
+    height: 100px;
+    position: fixed;
+    top: 180px;
+    right: -80px;
+    transform: rotate(-90deg);
+    background-color: var(--color1);
+    color: snow;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    z-index: 1001;
+    transition: background-color 0.3s ease;
+}
+
+.contact:hover {
+    background-color: var(--color2);
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .form-box {
+        width: 100%;
+        right: -100%;
+    }
+
+    .form-box.abierto {
+        right: 0;
+    }
+
+    .contact {
+        top: 60px;
+        right: -80px;
+    }
+}
+
+/* Capa que cubre la página al hacer clic en el formulario */
+.capa {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Fondo oscuro semi-transparente */
+    background-color: rgba(0, 0, 0, 0.7); 
+    /* Posicionarse por encima del resto del contenido */
+    z-index: 1000; 
+}
