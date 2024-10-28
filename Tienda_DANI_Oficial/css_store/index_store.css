@@ -10,6 +10,7 @@
 body{
     background-image: url(../background_1.jpg);
     background-size: cover;
+    font-family: "Montserrat Alternates", sans-serif;
 }
 @font-face{
     font-family: arcade;

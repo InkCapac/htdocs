@@ -1,5 +1,5 @@
-:root{
-    /* Los colores principales de la página */
+:root {
+    /* Colores principales de la página */
     --color1: rgb(219, 26, 31);
     --color2: rgba(120, 0, 0);
     --color3: snow;
@@ -7,128 +7,76 @@
     --color5: rgb(153, 102, 204);
     --borde: 1px solid rgb(219, 26, 31);
 }
+
+/* Contenedor de productos */
 .grid {
     display: grid;
-}
-
-/*
-.grid-33 {
-    grid-template-columns: 33.33% 33.33% 33.33%;
-}
-*/
-/*CLASE 07-10*/
-/*Clase mobile first - DANI
-- Improve it to make it work
-*/
-section {
-    margin: auto;
-    width: 75%;
-}
-.hamburguesa {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    background-color: aqua;
-    width: 50px;
-    border-radius: 50%;
-    text-align: center;
-}
-
-img {
-    max-width: 100%;
-}
-nav-grid{
-    display: none;
-}
-
-.una {
-    grid-template-columns: 100%;
-}
-
-@media (min-width: 275px) {
-    .tablet-dos {
-        grid-template-columns: 50% 50%;
-    }
-
-    /*Función para mostrar el nav*/
-    nav.grid {
-        display: grid;
-    }
-
-    .hamburguesa {
-        display: none;
-    }
-}
-
-@media (min-width: 575px) {
-    .ordenador-tres {
-        grid-template-columns: 33.33% 33.33% 33.33%;
-    }
-}
-
-/*Fin de la clase :)*/
-.margen {
-    width: 80%;
-    margin: auto;
-}
-
-.fondo {
-    /*background-image: url(../background_1.jpg);*/
-    background-color: var(--color4);
-    border-style: dashed;
-    background-size: cover;
-}
-
-main {
-    text-align: center;
+    grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    gap: 20px; /* Espacio entre los artículos */
     padding: 20px;
-    width: 100%;
-    box-sizing: border-box;
+}
+
+@media (min-width: 576px) {
+    .grid {
+        grid-template-columns: 1fr 1fr; /* Dos columnas en pantallas medianas */
+    }
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr 1fr 1fr; /* Tres columnas en pantallas más grandes */
+    }
 }
 
 article {
     position: relative;
-}
-article h3{
-    text-align: center;
-    font-size: xx-large;
     background-color: var(--color4);
-    color: black;
-    transition: border-style 0.4s ease, background-color 0.4s ease, color 0.4s ease;
+    border: var(--borde);
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
 }
-article h3:hover{
+
+article h3 {
+    font-size: 1.5em;
+    color: black;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+article h3:hover {
     color: var(--color3);
     background-color: var(--color5);
     border-style: dashed;
 }
-article img{
-    width: 400px;
-    height: 450px;
-    border-style: dotted;
-}
-article p{
-    margin: 5px;
 
+.product-image {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    border: 2px dashed var(--color2);
+    margin: auto;
 }
+
+article p {
+    margin: 10px 0;
+}
+p.description-style{
+    font-size: large;
+}
+
 article button {
     color: black;
     border: none;
-    /*padding: 5px 10px;*/
-    padding: 1px;
-    font-size: large;
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    border-radius: 10px;
-    border-style: dashed;
-    transform: translateX(-50%);
-    width: 100px;
-    cursor: pointer;
-    /*background-color: rgb(113, 113, 249);*/
+    padding: 5px 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 2px dashed var(--color2);
     background-color: var(--color3);
+    cursor: pointer;
     transition: background-color 0.6s ease, color 0.6s ease;
 }
-article button:hover{
+
+article button:hover {
     background-color: var(--color5);
     color: var(--color3);
 }
