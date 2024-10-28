@@ -30,7 +30,7 @@
         /* Cinco columnas en pantallas más grandes 
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr; */
         /* Cuatro columnas en pantallas más grandes */ 
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     }
 }
 
