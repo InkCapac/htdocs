@@ -1,14 +1,3 @@
-<!--Traducir todo al español después, incluida la base de datos-->
-<!--
-    BASE DE DATOS: tienda
-    TABLA: catalogo
-    id int AUTO_INCREMENT
-    name varchar(20);
-    image varchar(100);
-    price DOUBLE(4,2);
-    description varchar(250);
-    
--->
 <?php
 include_once("./conectar.php");
 $servidor = "localhost";
