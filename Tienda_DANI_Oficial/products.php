@@ -79,13 +79,15 @@ $paginas = ($contar_articulos / 12) + 1;
                     $descripcion = $productos[$i]["descripcion"];
                     $precio = $productos[$i]["precio"];
                     echo '
+                    <div class="products-display">
         <article id="producto' . $producto_id . '"> <!-- Usa el id del producto en el id del article -->
-            <h3>' . $nombre . '</h3>
-            <img src="' . $imagen . '" class="product-image" alt="' . $nombre . '">
+        <h3>' . $nombre . '</h3>
+        <img src="' . $imagen . '" class="product-image" alt="' . $nombre . '">
+        <p class="price">' . $precio . '€</p>
             <p class="description-style">' . $descripcion . '</p>
-            <p>' . $precio . '€</p>
             <button class="adquirir-btn" data-id="' . $producto_id . '">Adquirir</button>
-        </article>';
+        </article>
+        </div>';
                 }
             }
             ?>
