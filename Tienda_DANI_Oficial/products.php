@@ -76,6 +76,7 @@ $paginas = ($contar_articulos / 12) + 1;
             } else {
                 for ($i = 0; $i < count($productos); $i++) {
                     // Obtén el id del producto desde la base de datos
+                    //(Ponerlo en la línea 87) <article id="producto' . $producto_id . '"> <!-- Usa el id del producto en el id del article -->
                     $producto_id = $productos[$i]["id"]; 
                     $nombre = $productos[$i]["nombre"];
                     $imagen = $productos[$i]["imagen"];
@@ -83,7 +84,7 @@ $paginas = ($contar_articulos / 12) + 1;
                     $precio = $productos[$i]["precio"];
                     echo '
                     <div class="product-display">
-        <article id="producto' . $producto_id . '"> <!-- Usa el id del producto en el id del article -->
+        <article id="producto"> <!-- Usa el id del producto en el id del article -->
         <h3>' . $nombre . '</h3>
         <img src="' . $imagen . '" class="product-image" alt="' . $nombre . '">
         <p class="price">' . $precio . '€</p>

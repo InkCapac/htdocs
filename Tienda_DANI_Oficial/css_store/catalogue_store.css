@@ -64,9 +64,10 @@ article h3:hover {
     background-color: var(--color5);
     border-style: dashed;
 }
+
 .product-display{
-    background-color: red;
-    justify-content: center;
+    justify-self: center;
+    padding: 3px;
 }
 .product-image {
     width: 80%;
