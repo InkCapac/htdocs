@@ -37,14 +37,15 @@ $paginas = ($contar_articulos / 12) + 1;
 
 <body>
     <!-- Barra de navegación de la página web-->
-    <div class="grid navbar">
+    <!--Aporte de chismaso (cero div)-->
+    <nav class="grid navbar">
         <a href="#inicio-index">RedRibbon</a>
         <a href="">Productos</a>
         <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Red_Ribbon_Army_Logo.png"
                 alt="RedRoom" class="navbar-imagen"></a>
         <a href="">Partners</a>
         <a href="">Events</a>
-    </div>
+    </nav>
 
     <!-- Galería de imágenes -->
     <div class="gallery">
@@ -67,19 +68,21 @@ $paginas = ($contar_articulos / 12) + 1;
 
     <!-- Catálogo productos -->
     <main class="fondo">
-        <section class="grid una tablet-dos ordenador-tres grid-33 margen">
+        <!--<section class="grid una tablet-dos ordenador-tres grid-33 margen">-->
+        <section class="grid margen">
             <?php
             if ($contar_articulos < 1) {
                 echo "<p>No se han encontrado artículos</p>";
             } else {
                 for ($i = 0; $i < count($productos); $i++) {
-                    $producto_id = $productos[$i]["id"]; // Obtén el id del producto desde la base de datos
+                    // Obtén el id del producto desde la base de datos
+                    $producto_id = $productos[$i]["id"]; 
                     $nombre = $productos[$i]["nombre"];
                     $imagen = $productos[$i]["imagen"];
                     $descripcion = $productos[$i]["descripcion"];
                     $precio = $productos[$i]["precio"];
                     echo '
-                    <div class="products-display">
+                    <div class="product-display">
         <article id="producto' . $producto_id . '"> <!-- Usa el id del producto en el id del article -->
         <h3>' . $nombre . '</h3>
         <img src="' . $imagen . '" class="product-image" alt="' . $nombre . '">

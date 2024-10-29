@@ -7,7 +7,9 @@
     --color5: rgb(153, 102, 204);
     --borde: 1px solid rgb(219, 26, 31);
 }
-
+body{
+    margin: 0;
+}
 /* Contenedor de productos */
 .grid {
     display: grid;
@@ -17,7 +19,6 @@
     gap: 10px; 
     padding: 20px;
 }
-
 @media (min-width: 576px) {
     .grid {
         /* Dos columnas en pantallas medianas */
@@ -64,9 +65,9 @@ article h3:hover {
     border-style: dashed;
 }
 .product-display{
-    align-items: center;
+    background-color: red;
+    justify-content: center;
 }
-
 .product-image {
     width: 80%;
     height: auto;
