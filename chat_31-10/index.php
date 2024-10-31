@@ -4,18 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat para página web</title>
+    <title>CHAT</title>
+    <!--Archivos css-->
     <link rel="stylesheet" href="./chat_style.css">
-    <script>
-        window.onload = () => {
-        const botonAbrir = document.querySelector(".derecha button");
-        botonAbrir.onclick = () => {
-            const conversacion = document.querySelector(".chat div");
-            conversacion.classList.toggle("abierta");
-            
-        }
-    }
-    </script>
 </head>
 <body>
     <div class="chat">
@@ -24,12 +15,14 @@
         <p>¿Hola, qué quieres preguntarme?</p>
     </div>
         <input placeholder="Escribe tu mensaje">
-        <button>Enviar</button>
+        <button class="enviar-btton">Enviar</button>
     </div>
         <div class="derecha">
             <button class="abrir-chat">Abrir chat</button>
         </div>
     </div>
+    <!--Archivos js-->
+    <script src="./chat.js"></script>
 </body>
 
 </html>

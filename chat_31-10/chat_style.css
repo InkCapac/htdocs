@@ -1,12 +1,26 @@
  
-body{
-    background-color: beige;
+:root {
+    /* Los colores principales de la página */
+    --color1: rgb(219, 26, 31);
+    --color2: rgba(120, 0, 0);
+    --color3: snow;
+    --color4: #f7dfad;
+    --color5: rgb(153, 102, 204);
+    --borde: 1px solid rgb(219, 26, 31);
 }
-body button{
-    background-color: purple;
+body{
+    background-color: var(--color4);
+}
+.enviar-btton{
+    background-color: var(--color5);
     color: snow;
     border-radius: 15px;
     margin: 20px;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+}
+.enviar-btton:hover{
+    background-color: purple;
 }
 .abrir-chat{
     background-color: red;
@@ -16,6 +30,11 @@ body button{
     border: none;
     height: 90px;
     cursor: pointer;
+    font-size: large;
+    transition: background-color 0.3s ease;
+}
+.abrir-chat:hover{
+    background-color: darkred;
 }
 .chat{
     position: fixed;
