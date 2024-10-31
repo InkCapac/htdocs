@@ -59,6 +59,9 @@ body{
 .conversacion{
     height: 200px;
     overflow: auto;
+    font-size: large;
+    font-style: italic;
+    color: var(--color2);
 }
 .conversacion-abierta{
     display: block;
@@ -74,4 +77,6 @@ body{
     background-color: brown;
     color: snow;
 }
+/*Apartado del servidor*/
+
 
