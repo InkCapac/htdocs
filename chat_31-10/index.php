@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat para página web</title>
-    <link rel="stylesheet" href="./index30-10.css">
+    <link rel="stylesheet" href="./chat_style.css">
     <script>
         window.onload = () => {
         const botonAbrir = document.querySelector(".derecha button");
