@@ -33,6 +33,8 @@ $paginas = ($contar_articulos / 12) + 1;
     <link rel="stylesheet" href="./css_store/index_store.css">
     <link rel="stylesheet" href="./css_store/navbar_store.css">
     <link rel="stylesheet" href="./css_store/carrito_store.css">
+    <!--Archivo css del chat-->
+    <link rel="stylesheet" href="./css_store/chat_style.css">
 </head>
 
 <body>
@@ -157,6 +159,20 @@ $paginas = ($contar_articulos / 12) + 1;
 
         </section>
     </main>
+    <!--Contennido del chat-->
+    <div class="chat">
+        <div>
+            <div class="conversacion">
+        <p>¿Hola, qué quieres preguntarme?</p>
+    </div>
+        <input placeholder="Escribe tu mensaje">
+        <button id="enviar" class="enviar-btton">Enviar</button>
+    </div>
+        <div class="derecha">
+            <button class="abrir-chat">Abrir chat</button>
+        </div>
+    </div>
+
     <button id="vaciarCarrito" class="vaciar-button">Vaciar Carrito</button>
 
     <!-- Archivos JavaScript -->
@@ -164,6 +180,9 @@ $paginas = ($contar_articulos / 12) + 1;
     <script src="./js_store/navbar_store.js"></script>
     <script src="./js_store/carrito_store.js"></script>
     <script src="./js_store/carritoStyle_store.js"></script>
+    <!--Archivo js chat-->
+    <script src="./js_store/chat.js"></script>
+
     <footer></footer>
     <div class="hamburguesa">
         -<br>-<br>-

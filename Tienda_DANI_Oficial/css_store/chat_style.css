@@ -1,0 +1,83 @@
+ 
+:root {
+    /* Los colores principales de la página */
+    --color1: rgb(219, 26, 31);
+    --color2: rgba(120, 0, 0);
+    --color3: snow;
+    --color4: #f7dfad;
+    --color5: rgb(153, 102, 204);
+    --borde: 1px solid rgb(219, 26, 31);
+}
+body{
+    background-color: var(--color4);
+}
+.enviar-btton{
+    background-color: var(--color5);
+    color: snow;
+    border-radius: 15px;
+    margin: 20px;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+}
+.enviar-btton:hover{
+    background-color: purple;
+}
+.abrir-chat{
+    background-color: red;
+    color: snow;
+    border-radius: 50%;
+    padding: 20px;
+    border: none;
+    height: 90px;
+    cursor: pointer;
+    font-size: large;
+    transition: background-color 0.3s ease;
+}
+.abrir-chat:hover{
+    background-color: darkred;
+}
+.chat{
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+}
+.chat p{
+    font-size: larger;
+}
+.chat > div:nth-child(1){
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 8px;
+    transition: .5s;
+    opacity: 0;
+    z-index: -1;
+    background-color: var(--color4);
+}
+.chat div.abierta{
+    z-index: 1;
+    opacity: 1;
+}
+.conversacion{
+    height: 200px;
+    overflow: auto;
+    font-size: large;
+    font-style: italic;
+    color: var(--color2);
+}
+.conversacion-abierta{
+    display: block;
+}
+.derecha{
+    margin-top: 20px;
+    text-align: right;
+}
+.chat input::placeholder{
+    color: green;
+}
+::selection{
+    background-color: brown;
+    color: snow;
+}
+/*Apartado del servidor*/
+
+
