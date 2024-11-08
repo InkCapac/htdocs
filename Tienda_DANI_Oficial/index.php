@@ -32,18 +32,22 @@ $paginas = ($contar_articulos / 12) + 1;
     <link rel="stylesheet" href="./css_store/gallery_store.css">
     <link rel="stylesheet" href="./css_store/index_store.css">
     <link rel="stylesheet" href="./css_store/navbar_store.css">
+    <link rel="stylesheet" href="./css_store/carrito_store.css">
+    <!--Archivo css del chat-->
+    <link rel="stylesheet" href="./css_store/chat_style.css">
 </head>
 
 <body>
     <!-- Barra de navegación de la página web-->
-    <div class="navbar">
+    <!--Aporte de chismaso (cero div)-->
+    <nav class="grid navbar">
         <a href="#inicio-index">RedRibbon</a>
         <a href="./products.php">Productos</a>
-        <a href="#" class="logo-nav"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Red_Ribbon_Army_Logo.png"
+        <a class="logo-nav" href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Red_Ribbon_Army_Logo.png"
                 alt="RedRoom" class="navbar-imagen"></a>
         <a href="">Partners</a>
         <a href="">Events</a>
-    </div>
+    </nav>
 
     <!-- Galería de imágenes -->
     <div class="gallery">
@@ -66,36 +70,120 @@ $paginas = ($contar_articulos / 12) + 1;
 
     <!-- Catálogo productos -->
     <main class="fondo">
-        <section class="grid una tablet-dos ordenador-tres grid-33 margen">
+        <!--<section class="grid una tablet-dos ordenador-tres grid-33 margen">-->
+        <section class="grid margen">
             <?php
             if ($contar_articulos < 1) {
                 echo "<p>No se han encontrado artículos</p>";
             } else {
                 for ($i = 0; $i < count($productos); $i++) {
-                    $producto_id = $productos[$i]["id"]; // Obtén el id del producto desde la base de datos
+                    // Obtén el id del producto desde la base de datos
+                    //(Ponerlo en la línea 87) <article id="producto' . $producto_id . '"> <!-- Usa el id del producto en el id del article -->
+                    $producto_id = $productos[$i]["id"]; 
                     $nombre = $productos[$i]["nombre"];
                     $imagen = $productos[$i]["imagen"];
                     $descripcion = $productos[$i]["descripcion"];
                     $precio = $productos[$i]["precio"];
                     echo '
-        <article id="producto' . $producto_id . '"> <!-- Usa el id del producto en el id del article -->
-            <h3>' . $nombre . '</h3>
-            <img src="' . $imagen . '" class="product-image" alt="' . $nombre . '">
+                    <div class="product-display">
+        <article id="producto"> <!-- Usa el id del producto en el id del article -->
+        <h3>' . $nombre . '</h3>
+        <img src="' . $imagen . '" class="product-image" alt="' . $nombre . '">
+        <p class="price">' . $precio . '€</p>
             <p class="description-style">' . $descripcion . '</p>
-            <p>' . $precio . '</p>
             <button class="adquirir-btn" data-id="' . $producto_id . '">Adquirir</button>
-        </article>';
+        </article>
+        </div>';
                 }
             }
             ?>
+            
         </section>
     </main>
+            <!--Sección del formulario-->
+                <!-- Capa -->
+    <div id="capa" class="capa" style="display:none;"></div>
+
+<!-- Botón de contacto -->
+<button style="font-family: Montserrat Alternates; font-size:x-large" class="contact">CARRITO</button>
+
+<!-- Caja de formulario -->
+<div class="form-box">
+    <h2>Thanks for buying in our store</h2>
+
+    <!-- Navegación para Login y Registro -->
+    <div class="form-toggle">
+        <button style="font-family: Montserrat Alternates" id="login-toggle" class="active">Login</button> |
+        <button style="font-family: Montserrat Alternates" id="register-toggle">Registrarse</button>
+    </div>
+
+    <!-- Formulario de inicio de sesión -->
+    <form id="login-form" class="grid">
+        <label for="email-login">Correo Electrónico</label>
+        <input type="email" id="email-login" name="email-login" required>
+
+        <label for="password-login">Contraseña</label>
+        <input type="password" id="password-login" name="password-login" required>
+
+        <div class="grid checkbox-message">
+            <input type="checkbox" id="remember" name="remember">
+            <label for="remember">Recordar contraseña</label>
+        </div>
+
+        <p class="forgot-password"><a href="#">Olvidaste tu contraseña?</a></p>
+
+        <button style="font-family: Montserrat Alternates;" type="submit">INGRESAR</button>
+    </form>
+
+    <!-- Formulario de registro (Inicialmente oculto) -->
+    <form id="register-form" class="grid inputs" style="display:none;">
+        <p style="font-size:large; font-weight:bold">Hazte miembro de <a href="https://www.gob.pe/promperu">PROMPERÚ</a></p>
+
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="email">Correo Electrónico</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="confirm-password">Confirmar contraseña</label>
+        <input type="password" id="confirm-password" name="confirm-password" required>
+
+        <div class="grid checkbox-message">
+            <input type="checkbox" id="consent" name="consent" required>
+            <label for="consent"><a href="#"> Aceptar términos y condiciones.</a></label>
+        </div>
+        <br>
+        <button style="font-family: Montserrat Alternates" type="submit">REGISTRARME</button>
+    </form>
+</div>
+
+    <!--Contennido del chat-->
+    <div class="chat">
+        <div>
+            <div class="conversacion">
+        <p>¿Hola, qué quieres preguntarme?</p>
+    </div>
+        <input placeholder="Escribe tu mensaje">
+        <button id="enviar" class="enviar-btton">Enviar</button>
+    </div>
+        <div class="derecha">
+            <button class="abrir-chat">Abrir chat</button>
+        </div>
+    </div>
+
     <button id="vaciarCarrito" class="vaciar-button">Vaciar Carrito</button>
 
     <!-- Archivos JavaScript -->
     <script src="./js_store/gallery_store.js"></script>
     <script src="./js_store/navbar_store.js"></script>
     <script src="./js_store/carrito_store.js"></script>
+    <script src="./js_store/carritoStyle_store.js"></script>
+    <!--Archivo js chat-->
+    <script src="./js_store/chat.js"></script>
+
     <footer></footer>
     <div class="hamburguesa">
         -<br>-<br>-

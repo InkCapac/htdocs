@@ -33,21 +33,20 @@ $paginas = ($contar_articulos / 12) + 1;
     <link rel="stylesheet" href="./css_store/index_store.css">
     <link rel="stylesheet" href="./css_store/navbar_store.css">
     <link rel="stylesheet" href="./css_store/carrito_store.css">
-    <!--Archivo css del chat-->
+    <!-- Archivo css del chat-->
     <link rel="stylesheet" href="./css_store/chat_style.css">
 </head>
 
 <body>
     <!-- Barra de navegación de la página web-->
-    <!--Aporte de chismaso (cero div)-->
-    <nav class="grid navbar">
-        <a href="#inicio-index">RedRibbon</a>
-        <a href="">Productos</a>
-        <a class="logo-nav" href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Red_Ribbon_Army_Logo.png"
+    <div class="navbar">
+        <a href="./index.php">RedRibbon</a>
+        <a href="#inicio-products">Productos</a>
+        <a href="#" class="logo-nav"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Red_Ribbon_Army_Logo.png"
                 alt="RedRoom" class="navbar-imagen"></a>
         <a href="">Partners</a>
         <a href="">Events</a>
-    </nav>
+    </div>
 
     <!-- Galería de imágenes -->
     <div class="gallery">
@@ -64,42 +63,40 @@ $paginas = ($contar_articulos / 12) + 1;
         <button style="font-family: arcade;" class="nav-button" id="prevButton">Anterior</button>
         <button style="font-family: arcade" class="nav-button" id="nextButton">Adelante</button>
     </div>
-    <h1 id="inicio-index" class="parrafo-1">
+    <h1 id="inicio-products" class="parrafo-1">
         <p>Pick up the videogame you most like!</p>
     </h1>
 
     <!-- Catálogo productos -->
     <main class="fondo">
-        <!--<section class="grid una tablet-dos ordenador-tres grid-33 margen">-->
-        <section class="grid margen">
+        <section class="grid una tablet-dos ordenador-tres grid-33 margen">
             <?php
             if ($contar_articulos < 1) {
                 echo "<p>No se han encontrado artículos</p>";
             } else {
                 for ($i = 0; $i < count($productos); $i++) {
-                    // Obtén el id del producto desde la base de datos
-                    //(Ponerlo en la línea 87) <article id="producto' . $producto_id . '"> <!-- Usa el id del producto en el id del article -->
-                    $producto_id = $productos[$i]["id"]; 
+                    $producto_id = $productos[$i]["id"]; // Obtén el id del producto desde la base de datos
                     $nombre = $productos[$i]["nombre"];
                     $imagen = $productos[$i]["imagen"];
                     $descripcion = $productos[$i]["descripcion"];
                     $precio = $productos[$i]["precio"];
                     echo '
-                    <div class="product-display">
-        <article id="producto"> <!-- Usa el id del producto en el id del article -->
-        <h3>' . $nombre . '</h3>
-        <img src="' . $imagen . '" class="product-image" alt="' . $nombre . '">
-        <p class="price">' . $precio . '€</p>
+        <article id="producto' . $producto_id . '"> <!-- Usa el id del producto en el id del article -->
+            <h3>' . $nombre . '</h3>
+            <img src="' . $imagen . '" class="product-image" alt="' . $nombre . '">
             <p class="description-style">' . $descripcion . '</p>
+            <p>' . $precio . '</p>
             <button class="adquirir-btn" data-id="' . $producto_id . '">Adquirir</button>
-        </article>
-        </div>';
+        </article>';
                 }
             }
             ?>
-            <!--Sección del formulario-->
+
+        </section>
+    </main>
+<!--Sección del formulario-->
                 <!-- Capa -->
-    <div id="capa" class="capa" style="display:none;"></div>
+                <div id="capa" class="capa" style="display:none;"></div>
 
 <!-- Botón de contacto -->
 <button style="font-family: Montserrat Alternates; font-size:x-large" class="contact">CARRITO</button>
@@ -157,8 +154,6 @@ $paginas = ($contar_articulos / 12) + 1;
     </form>
 </div>
 
-        </section>
-    </main>
     <!--Contennido del chat-->
     <div class="chat">
         <div>
@@ -180,9 +175,8 @@ $paginas = ($contar_articulos / 12) + 1;
     <script src="./js_store/navbar_store.js"></script>
     <script src="./js_store/carrito_store.js"></script>
     <script src="./js_store/carritoStyle_store.js"></script>
-    <!--Archivo js chat-->
+    <!-- Archivo js chat-->
     <script src="./js_store/chat.js"></script>
-
     <footer></footer>
     <div class="hamburguesa">
         -<br>-<br>-
