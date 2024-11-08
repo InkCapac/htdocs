@@ -43,7 +43,7 @@ $paginas = ($contar_articulos / 12) + 1;
     <nav class="grid navbar">
         <a href="#inicio-index">RedRibbon</a>
         <a href="">Productos</a>
-        <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Red_Ribbon_Army_Logo.png"
+        <a class="logo-nav" href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Red_Ribbon_Army_Logo.png"
                 alt="RedRoom" class="navbar-imagen"></a>
         <a href="">Partners</a>
         <a href="">Events</a>

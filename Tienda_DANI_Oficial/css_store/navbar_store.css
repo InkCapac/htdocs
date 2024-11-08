@@ -54,6 +54,12 @@ html {
     transition: background-color 0.3s ease;
     /*border-radius: 5px;*/
 }
+.logo-nav{
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    pointer-events: none;
+}
 
 .navbar a:hover {
     background-color: var(--color2);
@@ -62,10 +68,14 @@ html {
 
 .navbar a img {
     height: 50px;
-    width: auto; /* Mantiene la proporción de la imagen */
-    margin-right: 15px; /* Agrega espacio entre la imagen y el siguiente enlace */
-    padding: 0; /* Elimina cualquier padding por defecto */
-    max-height: 100%; /* Asegura que la altura de la imagen no exceda la barra de navegación */
+    /* Mantiene la proporción de la imagen */
+    width: auto; 
+    /* Agrega espacio entre la imagen y el siguiente enlace */
+    margin-right: 15px; 
+    /* Elimina cualquier padding por defecto */
+    padding: 0; 
+    /* Asegura que la altura de la imagen no exceda la barra de navegación */
+    max-height: 100%; 
     object-fit: contain; 
     cursor: default;
     pointer-events: none;
@@ -123,8 +133,11 @@ footer {
     width: 100%;
     height: 100vh;
     background: rgba(33, 36, 45, 0.8) url('https://cdn.pixabay.com/animation/2023/11/29/03/37/03-37-06-789_512.gif') no-repeat center;
-    background-size: 512px 512px; /* Asegura que el GIF tenga un tamaño de 512x512 */
+    /* Asegura que el GIF tenga un tamaño de 512x512 */
+    background-size: 512px 512px; 
     z-index: 999;
-    transition: opacity 1s ease; /* Transición suave para desvanecer */
-    opacity: 1; /* Comienza completamente visible */
+    /* Transición suave para desvanecer */
+    transition: opacity 1s ease; 
+    /* Comienza completamente visible */
+    opacity: 1; 
 }

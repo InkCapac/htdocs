@@ -39,7 +39,7 @@ $paginas = ($contar_articulos / 12) + 1;
     <div class="navbar">
         <a href="#inicio-index">RedRibbon</a>
         <a href="./products.php">Productos</a>
-        <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Red_Ribbon_Army_Logo.png"
+        <a href="#" class="logo-nav"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Red_Ribbon_Army_Logo.png"
                 alt="RedRoom" class="navbar-imagen"></a>
         <a href="">Partners</a>
         <a href="">Events</a>
