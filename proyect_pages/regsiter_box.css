@@ -1,0 +1,40 @@
+/* Toast estilos */
+.toast {
+    color: #fff;
+    border: none;
+    background-color: var(--toast-bg-color); /* color se aplicará dinámicamente */
+}
+
+/* Formulario de registro */
+.container {
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-control {
+    height: auto;
+    width: 380px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.form-control h5 {
+    padding: 1rem;
+    font-weight: 700;
+}
+
+.form-control .fa-user-circle-o {
+    color: green;
+}
+
+.btn-success {
+    font-weight: 600;
+    background-color: #28a745;
+}
+
+.text-center a {
+    text-decoration: none;
+    font-weight: 600;
+    color: navy;
+}
