@@ -3,23 +3,21 @@ session_start(); // Inicia la sesión
 
 // Verificar si la sesión ya está iniciada
 if (isset($_SESSION['user_id'])) {
-    header("Location: editar.php"); // Redirige al panel de edición
+    header("Location: editar.php"); // Redirige al panel de edición (o donde desees)
     exit();
 }
 
 // Incluir archivo de conexión
-require 'conectar.php';
+require 'conectar.php'; // Asegúrate de que la conexión esté correctamente incluida
 
 // Crear una instancia de la clase Conectar
-$servidor = "localhost";
-$usuario = "root";
-$contrasena = "";
-$bbdd = "proyect";
+$servidor = "localhost"; // El servidor de tu base de datos
+$usuario = "root";       // El usuario de la base de datos
+$contrasena = "";        // La contraseña (si la tienes configurada)
+$bbdd = "proyect";     // El nombre de la base de datos
 
 // Instanciar la conexión
 $conn = new Conectar($servidor, $usuario, $contrasena, $bbdd);
-
-$error_message = ''; // Variable para el mensaje de error
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Obtener datos del formulario
@@ -28,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Consulta para obtener el usuario por el email (Usamos consultas preparadas)
     $consulta = "SELECT * FROM usuarios WHERE email = ?";
-    $usuarios = $conn->recibir_datos($consulta, 's', [$email]);
+    $usuarios = $conn->recibir_datos($consulta, 's', [$email]); // Usar el método recibir_datos
 
     // Verifica si el usuario existe
     if ($usuarios) {
@@ -38,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (password_verify($password, $user['password'])) {
             // Si la contraseña es correcta, guarda el ID del usuario en la sesión
             $_SESSION['user_id'] = $user['id'];
-            header("Location: editar.php"); // Redirige al panel de edición
+            header("Location: editar.php"); // Redirige al panel de edición o a donde desees
             exit();
         } else {
             $error_message = "Contraseña incorrecta.";
@@ -60,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <h1>Iniciar sesión</h1>
 
     <!-- Mostrar el mensaje de error si existe -->
-    <?php if (!empty($error_message)): ?>
+    <?php if (isset($error_message)): ?>
         <div style="color: red;"><?= htmlspecialchars($error_message) ?></div>
     <?php endif; ?>
 
