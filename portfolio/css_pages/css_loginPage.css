@@ -1,0 +1,46 @@
+:root {
+    /* Los colores principales de la página */
+    --black: rgb(20, 20, 20);
+    --verdeAzulado: rgb(0, 255, 200);
+    --cian: rgb(0, 200, 255);
+    --azul: rgb(0, 100, 255);
+    --morado: rgb(150, 0, 255);
+    --rojoBrillante: rgb(255, 50, 0);
+    --naranja: rgb(255, 150, 0);
+    --snow: snow;
+}
+body{
+    color: --snow;
+}
+.grid{
+    display: grid;
+}
+@media (min-widht: 275px){
+    .tablet-dos{
+        grid-template-columns: 50% 50%;
+    }
+    nav.grid{
+        display: grid;
+    }
+}
+@media (min-width: 575px){
+    .ordenador-tres{
+        grid-template-columns: 33.33% 33.33% 33.33%;
+    }
+}
+h1{
+    color: var(--snow);
+}
+.login-form-box{
+    border-style: dashed;
+}
+.form-login{
+    align-items: center;
+    color: var(--snow);
+}
+.mail-style{
+    text-align: center;
+}
+.login-p{
+    color: var(--snow);
+}
