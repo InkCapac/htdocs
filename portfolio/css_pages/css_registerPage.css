@@ -20,9 +20,12 @@ body {
 }
 .form-container {
     background-color: var(--naranja);
+    color: var(--snow);
     padding: 20px;
+    font-size: larger;
     border-radius: 8px;
     border-style: dashed;
+    border-color: var(--azul);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 400px;
 }
