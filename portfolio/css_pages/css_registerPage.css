@@ -1,0 +1,68 @@
+:root {
+    /* Los colores principales de la página */
+    --black: rgb(20, 20, 20);
+    --verdeAzulado: rgb(0, 255, 200);
+    --cian: rgb(0, 200, 255);
+    --azul: rgb(0, 100, 255);
+    --morado: rgb(150, 0, 255);
+    --rojoBrillante: rgb(255, 50, 0);
+    --naranja: rgb(255, 150, 0);
+    --snow: snow;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.form-container {
+    background-color: var(--naranja);
+    padding: 20px;
+    border-radius: 8px;
+    border-style: dashed;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+}
+h1 {
+    font-style: italic;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+input {
+    width: 380px;
+    max-width: 380px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #0b7dda;
+}
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+}
+.success-message {
+    color: green;
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
