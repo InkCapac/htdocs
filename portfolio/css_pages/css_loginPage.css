@@ -30,17 +30,32 @@ body{
 }
 h1{
     color: var(--snow);
+    padding-left: 30px;
 }
 .login-form-box{
     border-style: dashed;
-}
-.form-login{
-    align-items: center;
+    
+    background-color: var(--morado);
     color: var(--snow);
 }
-.mail-style{
-    text-align: center;
+.form-login{
+    padding: 30px;
+    color: var(--snow);
+    font-size:large;
+}
+.login-button{
+    color: snow;
+    background-color: var(--morado);
+    border-style:solid;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.login-button:hover{
+    background-color: var(--naranja);
+    color: snow;
 }
 .login-p{
     color: var(--snow);
+    font-style: italic;
+    font-size:x-large;
 }

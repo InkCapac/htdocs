@@ -7,6 +7,7 @@
      --Morado: rgb(150, 0, 255);
      --rojoBrillante: rgb(255, 50, 0);
      --Naranja: rgb(255, 150, 0);
+     --snow: snow;
  }
 
  body {
@@ -14,7 +15,7 @@
  }
 
  .enviar-btton {
-     background-color: var(--color5);
+     background-color: var(--Naranja);
      color: snow;
      border-radius: 15px;
      margin: 20px;
@@ -23,11 +24,11 @@
  }
 
  .enviar-btton:hover {
-     background-color: purple;
+     background-color: var(--rojoBrillante);
  }
 
  .abrir-chat {
-     background-color: red;
+     background-color: var(--Azul);
      color: snow;
      border-radius: 50%;
      padding: 20px;
@@ -39,13 +40,14 @@
  }
 
  .abrir-chat:hover {
-     background-color: darkred;
+     background-color: var(--rojoBrillante);
  }
 
  .chat {
      position: fixed;
-     bottom: 10px;
+     bottom: 60px;
      right: 20px;
+     z-index: 1;
  }
 
  .chat p {
@@ -64,6 +66,7 @@
  .chat div.abierta {
      z-index: 1;
      opacity: 1;
+     background-color: var(--Black);
  }
 
  .conversacion {
@@ -71,7 +74,7 @@
      overflow: auto;
      font-size: large;
      font-style: italic;
-     color: var(--color2);
+     color: var(--snow);
  }
 
  .conversacion-abierta {

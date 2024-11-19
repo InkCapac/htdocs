@@ -22,7 +22,7 @@ html {
     width: 100%;
     /*La barra de navegación ocupará 1/10 de la altura de la ventana*/
     height: 10vh;
-    background-color: transparent;
+    background-color: var(--black);
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -40,7 +40,7 @@ html {
     font-family: arcade;
     /*Modificar la línea de abajo después*/
     letter-spacing: normal;
-    color: var(--color3);
+    color: var(--snow);
     text-decoration: none;
     font-size: 2em;
     padding: 10px;
@@ -56,8 +56,8 @@ html {
 }
 
 .navbar a:hover {
-    background-color: var(--color2);
-    color: var(--color3);
+    background-color: var(--morado);
+    color: var(--snow);
 }
 
 .navbar a img {
