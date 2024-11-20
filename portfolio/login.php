@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <a href=""></a>
         <a href=""></a>
     </nav>
-<h1>Iniciar sesión</h1>
+<label class="login-title">Iniciar sesión</label>
     <!-- Mostrar el mensaje de error si existe ----->
     <?php if (!empty($error_message)): ?>
         <div style="color: red;"><?= htmlspecialchars($error_message) ?></div>
@@ -81,7 +81,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </form>
     <p class="login-p">¿No tienes una cuenta? <a href="registro.php">Regístrate aquí</a></p>
 </div>
-    <p>¿No tienes una cuenta? <a href="registro.php">Regístrate aquí</a></p>
     <script src="./js_linkedPages/js_navbarGeneral.js"></script>
 </body>
 </html>

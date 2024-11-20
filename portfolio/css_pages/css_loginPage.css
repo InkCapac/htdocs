@@ -9,15 +9,6 @@
     --naranja: rgb(255, 150, 0);
     --snow: snow;
 }
-body{
-    background-color: var(--black);
-    color: var(--black);
-    /*Añadidos del chino*/
-    height: 100vh;
-    display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center;
-}
 .grid{
     display: grid;
 }
@@ -34,17 +25,31 @@ body{
         grid-template-columns: 33.33% 33.33% 33.33%;
     }
 }
-h1{
+body{
+    background-color: var(--black);
+    color: var(--black);
+    /*Agregado del chino*/
+    margin: 0;
+    display: flex;
+    height: 100vh;
+    justify-content: center; /* Center horizontally */
+    align-items: center;
+
+}
+label.login-title{
+    display: block; /* Ensures labels appear above inputs */
+    margin-top: 8px;
+    font-weight: bold;
     color: var(--snow);
-    padding-left: 30px;
+
 }
 .login-form-box{
-    display: grid;
+    padding: 20px;
     border-style: dashed;
     width: 650px;
     max-width: 650px;
-    height: 220px;
-    justify-content: center;
+    /*height: 220px;*/
+    
     background-color: var(--morado);
     color: var(--snow);
 }
