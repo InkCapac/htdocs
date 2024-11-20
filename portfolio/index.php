@@ -56,12 +56,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar sesión - Portfolio</title>
     <!--Archivos css-->
-    <link rel="stylesheet" href="./css_pages/css_loginPage.css">
+    <link rel="stylesheet" href="./css_pages/css_indexPage.css">
     <link rel="stylesheet" href="./css_linkedPages/css_navbarGeneral.css">
     <link rel="stylesheet" href="./css_linkedPages/css_chatGeneral.css">
     <link rel="stylesheet" href="./css_linkedPages/css_galleryGeneral.css">
 </head>
 <body>
+    <!--Barra de navegación-->
     <nav class="grid navbar">
         <a href="#inicio-index">Inicio</a>
         <a href="">Registrarse</a>

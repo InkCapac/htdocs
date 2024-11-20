@@ -12,11 +12,6 @@
 body{
     background-color: var(--black);
     color: var(--black);
-    /*Añadidos del chino*/
-    height: 100vh;
-    display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center;
 }
 .grid{
     display: grid;
@@ -39,12 +34,8 @@ h1{
     padding-left: 30px;
 }
 .login-form-box{
-    display: grid;
     border-style: dashed;
-    width: 650px;
-    max-width: 650px;
-    height: 220px;
-    justify-content: center;
+    
     background-color: var(--morado);
     color: var(--snow);
 }

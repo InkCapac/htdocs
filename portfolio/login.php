@@ -46,32 +46,42 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar sesión - Portfolio</title>
+    <title>Core Com - login</title>
+    <link rel="stylesheet" href="./css_pages/css_loginPage.css">
+    <link rel="stylesheet" href="./css_linkedPages/css_navbarGeneral.css">
 </head>
 <body>
-    <h1>Iniciar sesión</h1>
-
-    <!-- Mostrar el mensaje de error si existe -->
-    <?php if (isset($error_message)): ?>
+    <!--Barra de navegación-->
+    <nav class="grid navbar">
+        <a href="#inicio-index">Inicio</a>
+        <a href="">Registrarse</a>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+    </nav>
+<h1>Iniciar sesión</h1>
+    <!-- Mostrar el mensaje de error si existe ----->
+    <?php if (!empty($error_message)): ?>
         <div style="color: red;"><?= htmlspecialchars($error_message) ?></div>
     <?php endif; ?>
-
-    <form action="login.php" method="POST">
-        <label for="email">Correo Electrónico:</label>
+    <div class="login-form-box">
+    <form class="form-login" action="login.php" method="POST">
+        <label class="mail-style" for="email">Correo Electrónico:</label>
         <input type="email" id="email" name="email" required>
         <br>
         <label for="password">Contraseña:</label>
         <input type="password" id="password" name="password" required>
         <br>
-        <button type="submit">Iniciar sesión</button>
+        <button class="login-button" type="submit">Iniciar sesión</button>
     </form>
-    
+    <p class="login-p">¿No tienes una cuenta? <a href="registro.php">Regístrate aquí</a></p>
+</div>
     <p>¿No tienes una cuenta? <a href="registro.php">Regístrate aquí</a></p>
+    <script src="./js_linkedPages/js_navbarGeneral.js"></script>
 </body>
 </html>
