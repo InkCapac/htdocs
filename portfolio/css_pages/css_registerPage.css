@@ -9,6 +9,7 @@
     --naranja: rgb(255, 150, 0);
     --snow: snow;
 }
+/* Usar cuando el archivo registrarse.php ya no esté
 body {
     font-family: Arial, sans-serif;
     background-color: var(--black);
@@ -18,6 +19,7 @@ body {
     height: 100vh;
     margin: 0;
 }
+    */
 .form-container {
     background-color: var(--naranja);
     color: var(--snow);

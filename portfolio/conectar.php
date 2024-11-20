@@ -25,6 +25,9 @@ class Conectar {
             if ($this->conn->connect_error) {
                 throw new Exception("Conexión fallida: " . $this->conn->connect_error);
             }
+
+            // Establecer el conjunto de caracteres
+            $this->conn->set_charset('utf8mb4'); // Configuramos el charset aquí
         }
         return $this->conn;
     }
