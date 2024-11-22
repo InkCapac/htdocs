@@ -9,21 +9,14 @@ $conexion = new Conectar('localhost', 'root', '', 'proyect');
 // Si el formulario fue enviado
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Obtener los datos del formulario
-    $email = $_POST['email'];
+    //Agregar estos apartados a la tabla de ususarios
+    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $password = $_POST['password'];
-    $nombre = $_POST['nombre'];
-    $biografia = $_POST['biografia'];
-    $habilidades = $_POST['habilidades'];
-    $experiencia = $_POST['experiencia'];
-    $estudios = $_POST['estudios'];
-    $trabajo1 = $_POST['trabajo1'];
-    $trabajo2 = $_POST['trabajo2'];
-    $trabajo3 = $_POST['trabajo3'];
-    $categoria = $_POST['categoria'];
-    $testimonio = $_POST['testimonio'];
-    $telefono = $_POST['telefono'];
-    $enlaces = $_POST['enlaces'];
-    $blog = $_POST['blog'];
+    $nombre = htmlspecialchars($_POST['nombre'], ENT_QUOTES, 'UTF-8');
+    $apellido1 = htmlspecialchars($_POST['apellido1'], ENT_QUOTES, 'UTF-8'); $apellido2 = htmlspecialchars($_POST['apellido2'], ENT_QUOTES, 'UTF-8'); $biografia = htmlspecialchars($_POST['biografia'], ENT_QUOTES, 'UTF-8'); $habilidades = htmlspecialchars($_POST['habilidades'], ENT_QUOTES, 'UTF-8'); 
+    $experiencia = htmlspecialchars($_POST['experiencia'], ENT_QUOTES, 'UTF-8'); 
+    $estudios = htmlspecialchars($_POST['estudios'], ENT_QUOTES, 'UTF-8'); $trabajo1 = htmlspecialchars($_POST['trabajo1'], ENT_QUOTES, 'UTF-8'); $trabajo2 = htmlspecialchars($_POST['trabajo2'], ENT_QUOTES, 'UTF-8'); $trabajo3 = htmlspecialchars($_POST['trabajo3'], ENT_QUOTES, 'UTF-8'); $categoria = htmlspecialchars($_POST['categoria'], ENT_QUOTES, 'UTF-8'); $testimonio = htmlspecialchars($_POST['testimonio'], ENT_QUOTES, 'UTF-8'); $telefono = htmlspecialchars($_POST['telefono'], ENT_QUOTES, 'UTF-8'); $enlaces = htmlspecialchars($_POST['enlaces'], ENT_QUOTES, 'UTF-8'); 
+    $blog = htmlspecialchars($_POST['blog'], ENT_QUOTES, 'UTF-8');
 
     // Generar el hash de la contraseña
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
@@ -42,16 +35,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $error_message = "El correo ya está registrado.";
     } else {
         // Si no existe, insertar el nuevo usuario
-        $stmt = $conn->prepare("INSERT INTO usuarios (email, password, nombre, biografia, habilidades, experiencia, estudios, trabajo1, trabajo2, trabajo3, categoria, testimonio, telefono, enlaces, blog) 
-                                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("sssssssssssssss", $email, $hashed_password, $nombre, $biografia, $habilidades, $experiencia, $estudios, $trabajo1, $trabajo2, $trabajo3, $categoria, $testimonio, $telefono, $enlaces, $blog);
+        $stmt = $conn->prepare("INSERT INTO usuarios (email, password, nombre, apellido1, apellido2, biografia, habilidades, experiencia, estudios, trabajo1, trabajo2, trabajo3, categoria, testimonio, telefono, enlaces, blog) 
+                                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("sssssssssssssssss", $email, $hashed_password, $nombre, $apellido1, $apellido2, $biografia, $habilidades, $experiencia, $estudios, $trabajo1, $trabajo2, $trabajo3, $categoria, $testimonio, $telefono, $enlaces, $blog);
         
         if ($stmt->execute()) {
             // Redirigir al usuario al login si el registro es exitoso
             header("Location: login.php");
             exit();
         } else {
-            $error_message = "Error al registrar el usuario. Intente nuevamente.";
+            $error_message = "Error al registrar el usuario. Intente nuevamente." .$stmt->error;
         }
     }
 }
@@ -79,18 +72,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <nav class="grid navbar">
         <a href="#inicio-index">Inicio</a>
-        <a href=""></a>
-        <a href=""></a>
         <a href="">Galería</a>
+        <a href=""></a>
+        <a href=""></a>
         <a href="">Favoritos</a>
     </nav>
     <div class="container">
         <form action="#" method="POST">
             <!-- Sección de Presentación personal -->
             <div class="form-section">
-                <h2>Presentación Personal</h2>
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required>
+            <h2>Presentación Personal</h2>
+                <div class="personal-info">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                    <label for="apellido1">Primer apellido:</label>
+                    <input type="text" id="apellido1" name="apellido1" required>
+                    <label for="apellido2">Segundo apellido:</label>
+                    <input type="text" id="apellido2" name="apellido2" required>
+                </div>
 
                 <label for="biografia">Biografía:</label>
                 <textarea id="biografia" name="biografia" rows="4" required></textarea>
@@ -109,22 +108,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <!-- Sección de Galería de trabajos -->
             <div class="form-section">
                 <h2>Galería de Trabajos</h2>
-                <label for="trabajo1">Trabajo 1 (Descripción y enlace):</label>
-                <textarea id="trabajo1" name="trabajo1" rows="4"
-                    placeholder="Descripción, enlaces o imágenes"></textarea>
-
-                <label for="trabajo2">Trabajo 2 (Descripción y enlace):</label>
-                <textarea id="trabajo2" name="trabajo2" rows="4"></textarea>
-
-                <label for="trabajo3">Trabajo 3 (Descripción y enlace):</label>
-                <textarea id="trabajo3" name="trabajo3" rows="4"></textarea>
-
-                <label for="categoria">Categoría de Trabajos:</label>
-                <select id="categoria" name="categoria">
-                    <option value="diseno">Diseño Gráfico</option>
-                    <option value="desarrollo">Desarrollo Web</option>
-                    <option value="fotografia">Fotografía</option>
-                </select>
+                <div class="jobs-info">
+                    <div class="field-group">    
+                        <label for="trabajo1">Trabajo 1 (Descripción y enlace):</label>
+                        <textarea id="trabajo1" name="trabajo1" rows="4"
+                        placeholder="Descripción, enlaces o imágenes"></textarea>
+                        <label for="fecha_inicio">Fecha de inicio:</label> <input class="time-date" type="date" id="fecha_inicio" name="fecha_inicio" required> 
+                        <label for="fecha_fin">Fecha de fin:</label> <input class="time-date" type="date" id="fecha_fin" name="fecha_fin" required>
+                    </div>
+                    <div class="field-group">
+                        <label for="trabajo2">Trabajo 2 (Descripción y enlace):</label>
+                        <textarea id="trabajo2" name="trabajo2" rows="4"></textarea>
+                        <label for="fecha_inicio">Fecha de inicio:</label> <input class="time-date" type="date" id="fecha_inicio" name="fecha_inicio" required> 
+                        <label for="fecha_fin">Fecha de fin:</label> <input class="time-date" type="date" id="fecha_fin" name="fecha_fin" required>
+                    </div>
+                    <div class="field-group">
+                    <label for="trabajo3">Trabajo 3 (Descripción y enlace):</label>
+                    <textarea id="trabajo3" name="trabajo3" rows="4"></textarea>
+                    <label for="fecha_inicio">Fecha de inicio:</label> <input class="time-date" type="date" id="fecha_inicio" name="fecha_inicio" required> 
+                        <label for="fecha_fin">Fecha de fin:</label> <input class="time-date" type="date" id="fecha_fin" name="fecha_fin" required>
+                    </div>
+                    <div class="field-group">
+                    <label for="categoria">Categoría de Trabajos:</label>
+                    <select id="categoria" name="categoria">
+                        <option value="diseno">Diseño Gráfico</option>
+                        <option value="desarrollo">Desarrollo Web</option>
+                        <option value="fotografia">Fotografía</option>
+                    </select>
+                    </div>
+                </div>
             </div>
 
             <!-- Sección de Testimonios -->

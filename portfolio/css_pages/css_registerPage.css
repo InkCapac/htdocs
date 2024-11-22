@@ -19,7 +19,7 @@ body {
     height: 100vh;
     margin: 0;
 }
-    */
+    
 .form-container {
     background-color: var(--naranja);
     color: var(--snow);
@@ -71,3 +71,4 @@ button:hover {
     font-size: 1.1em;
     margin-bottom: 15px;
 }
+*/

@@ -67,10 +67,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <!-- Barra de navegación -->
     <nav class="grid navbar">
         <a href="#inicio-index">Inicio</a>
-        <a href="registro.php">Registrarse</a>
+        <a href="registro.php">Galería</a>
         <a href="#">Sobre nosotros</a>
-        <a href="#">Ayuda</a>
-        <a href="#">Contacto</a>
+        <a href="#"></a>
+        <a href="#">Favoritos</a>
     </nav>
 
     <label class="login-title">Iniciar sesión</label>

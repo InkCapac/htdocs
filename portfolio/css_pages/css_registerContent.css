@@ -27,6 +27,37 @@ body {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+/*Apartado de información personal*/
+.personal-info  {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.personal-info label{
+    width: 150px;
+}
+.personal-info input{
+    flex: 1;
+    max-width: 300px;
+}
+/*Apartado de experiencia laboral*/
+.jobs-info{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.time-date{
+    flex: 1;
+    max-width: 150px;
+}
+.field-group { 
+    /*display: flex;*/ 
+    /*flex-direction: column;*/ 
+    margin-right: 10px; /* Ajustar para el espacio entre grupos */ 
+} 
+.field-group label, .field-group input, .field-group textarea, .field-group select { 
+    margin-bottom: 5px; /* Espacio entre los elementos dentro de un grupo */ 
+}
 h2 {
     color: #333;
 }
