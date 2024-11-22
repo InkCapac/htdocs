@@ -37,7 +37,6 @@ html {
 }
 
 .navbar a {
-    font-family: arcade;
     /*Modificar la línea de abajo después*/
     letter-spacing: normal;
     color: var(--snow);
