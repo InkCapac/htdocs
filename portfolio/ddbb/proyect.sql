@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-11-2024 a las 23:55:54
+-- Tiempo de generación: 23-11-2024 a las 20:55:11
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -42,8 +42,22 @@ CREATE TABLE `favoritos` (
 CREATE TABLE `portfolios` (
   `id` int(11) NOT NULL,
   `id_usuario` int(11) DEFAULT NULL,
-  `titulo` varchar(255) DEFAULT NULL,
-  `contenido` text DEFAULT NULL
+  `nombre` varchar(255) DEFAULT NULL,
+  `apellido1` varchar(255) DEFAULT NULL,
+  `apellido2` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `biografia` text DEFAULT NULL,
+  `habilidades` text DEFAULT NULL,
+  `experiencia` text DEFAULT NULL,
+  `estudios` text DEFAULT NULL,
+  `trabajo1` text DEFAULT NULL,
+  `trabajo2` text DEFAULT NULL,
+  `trabajo3` text DEFAULT NULL,
+  `categoria` varchar(255) DEFAULT NULL,
+  `testimonio` text DEFAULT NULL,
+  `telefono` varchar(20) DEFAULT NULL,
+  `enlaces` text DEFAULT NULL,
+  `blog` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -64,7 +78,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `email`, `password`) VALUES
-(2, 'Paco', 'prueba@example.com', '$2y$10$u7gs5y1qx7Vwz9cqZEKbpeBwwp7kD59l8lkmAt2OFzJ9C09bZoBUu\r\n');
+(2, 'Paco', 'prueba@example.com', '123456\r\n'),
+(3, NULL, 'johnny@gmail.com', '$2y$10$i0CcTyfLb2hgBFeLgwAxpeMnwlBiJt9QYyqQlj2wQgEY9zLdK8sve');
 
 --
 -- Índices para tablas volcadas
@@ -112,7 +127,7 @@ ALTER TABLE `portfolios`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas

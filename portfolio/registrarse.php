@@ -9,7 +9,6 @@ $conexion = new Conectar('localhost', 'root', '', 'proyect');
 // Si el formulario fue enviado
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Obtener los datos del formulario
-    //Agregar estos apartados a la tabla de ususarios
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $password = $_POST['password'];
     $nombre = htmlspecialchars($_POST['nombre'], ENT_QUOTES, 'UTF-8');
@@ -27,35 +26,57 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $telefono = htmlspecialchars($_POST['telefono'], ENT_QUOTES, 'UTF-8');
     $enlaces = htmlspecialchars($_POST['enlaces'], ENT_QUOTES, 'UTF-8');
     $blog = htmlspecialchars($_POST['blog'], ENT_QUOTES, 'UTF-8');
+    $fecha_inicio1 = $_POST['fecha_inicio1'];
+    $fecha_fin1 = $_POST['fecha_fin1'];
+    $fecha_inicio2 = $_POST['fecha_inicio2'];
+    $fecha_fin2 = $_POST['fecha_fin2'];
+    $fecha_inicio3 = $_POST['fecha_inicio3'];
+    $fecha_fin3 = $_POST['fecha_fin3'];
 
-    // Generar el hash de la contraseña
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    $error_message = ''; // Variable para manejar mensajes de error
 
-    // Obtener la conexión con la base de datos
-    $conn = $conexion->obtener_conexion();
-
-    // Verificar si el correo ya está registrado
-    $stmt = $conn->prepare("SELECT * FROM usuarios WHERE email = ?");
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    // Si el correo ya está registrado, mostrar un mensaje de error
-    if ($result->num_rows > 0) {
-        $error_message = "El correo ya está registrado.";
+    // Validación de campos específicos
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $error_message = "Correo electrónico no válido.";
+    } elseif (strlen($password) < 6) {
+        $error_message = "La contraseña debe tener al menos 6 caracteres.";
+    } elseif (!is_numeric($telefono) || strlen($telefono) < 10) {
+        $error_message = "El teléfono debe ser numérico y contener al menos 10 dígitos.";
     } else {
-        // Si no existe, insertar el nuevo usuario
-        $stmt = $conn->prepare("INSERT INTO usuarios (email, password, nombre, apellido1, apellido2, biografia, habilidades, experiencia, estudios, trabajo1, trabajo2, trabajo3, categoria, testimonio, telefono, enlaces, blog) 
-                                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("sssssssssssssssss", $email, $hashed_password, $nombre, $apellido1, $apellido2, $biografia, $habilidades, $experiencia, $estudios, $trabajo1, $trabajo2, $trabajo3, $categoria, $testimonio, $telefono, $enlaces, $blog);
-        
-        if ($stmt->execute()) {
-            // Redirigir al usuario al login si el registro es exitoso
-            header("Location: login.php");
-            exit();
+        // Generar el hash de la contraseña
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+        // Obtener la conexión con la base de datos
+        $conn = $conexion->obtener_conexion();
+
+        // Verificar si el correo ya está registrado
+        $stmt = $conn->prepare("SELECT * FROM usuarios WHERE email = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        // Si el correo ya está registrado, mostrar un mensaje de error
+        if ($result->num_rows > 0) {
+            $error_message = "El correo ya está registrado.";
         } else {
-            $error_message = "Error al registrar el usuario. Intente nuevamente." .$stmt->error;
+            // Si no existe, insertar el nuevo usuario
+            $stmt = $conn->prepare("INSERT INTO usuarios (email, password, nombre, apellido1, apellido2, biografia, habilidades, experiencia, estudios, trabajo1, trabajo2, trabajo3, categoria, testimonio, telefono, enlaces, blog) 
+                                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("sssssssssssssssss", $email, $hashed_password, $nombre, $apellido1, $apellido2, $biografia, $habilidades, $experiencia, $estudios, $trabajo1, $trabajo2, $trabajo3, $categoria, $testimonio, $telefono, $enlaces, $blog);
+
+            if ($stmt->execute()) {
+                // Redirigir al usuario al login si el registro es exitoso
+                header("Location: login.php");
+                exit();
+            } else {
+                $error_message = "Error al registrar el usuario. Intente nuevamente." . $stmt->error;
+            }
         }
+    }
+
+    // Mostrar el mensaje de error si existe
+    if (!empty($error_message)) {
+        echo "<p style='color: red;'>$error_message</p>";
     }
 }
 ?>
@@ -91,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <form action="#" method="POST">
             <!-- Sección de Presentación personal -->
             <div class="form-section">
-            <h2>Presentación Personal</h2>
+                <h2>Presentación Personal</h2>
                 <div class="personal-info">
                     <label for="nombre">Nombre:</label>
                     <input type="text" id="nombre" name="nombre" required>
@@ -119,32 +140,38 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="form-section">
                 <h2>Galería de Trabajos</h2>
                 <div class="jobs-info">
-                    <div class="field-group">    
+                    <div class="field-group">
                         <label for="trabajo1">Trabajo 1 (Descripción y enlace):</label>
-                        <textarea id="trabajo1" name="trabajo1" rows="4"
-                        placeholder="Descripción, enlaces o imágenes"></textarea>
-                        <label for="fecha_inicio">Fecha de inicio:</label> <input class="time-date" type="date" id="fecha_inicio" name="fecha_inicio" required> 
-                        <label for="fecha_fin">Fecha de fin:</label> <input class="time-date" type="date" id="fecha_fin" name="fecha_fin" required>
+                        <textarea id="trabajo1" name="trabajo1"></textarea>
+                        <label for="fecha_inicio1">Fecha de inicio:</label>
+                        <input class="time-date" type="date" id="fecha_inicio1" name="fecha_inicio1" required>
+                        <label for="fecha_fin1">Fecha de fin:</label>
+                        <input class="time-date" type="date" id="fecha_fin1" name="fecha_fin1" required>
                     </div>
+                    <!-- Repite para trabajo2 y trabajo3 -->
                     <div class="field-group">
                         <label for="trabajo2">Trabajo 2 (Descripción y enlace):</label>
-                        <textarea id="trabajo2" name="trabajo2" rows="4"></textarea>
-                        <label for="fecha_inicio">Fecha de inicio:</label> <input class="time-date" type="date" id="fecha_inicio" name="fecha_inicio" required> 
-                        <label for="fecha_fin">Fecha de fin:</label> <input class="time-date" type="date" id="fecha_fin" name="fecha_fin" required>
+                        <textarea id="trabajo2" name="trabajo2"></textarea>
+                        <label for="fecha_inicio2">Fecha de inicio:</label>
+                        <input class="time-date" type="date" id="fecha_inicio2" name="fecha_inicio2" required>
+                        <label for="fecha_fin2">Fecha de fin:</label>
+                        <input class="time-date" type="date" id="fecha_fin2" name="fecha_fin2" required>
                     </div>
                     <div class="field-group">
-                    <label for="trabajo3">Trabajo 3 (Descripción y enlace):</label>
-                    <textarea id="trabajo3" name="trabajo3" rows="4"></textarea>
-                    <label for="fecha_inicio">Fecha de inicio:</label> <input class="time-date" type="date" id="fecha_inicio" name="fecha_inicio" required> 
-                        <label for="fecha_fin">Fecha de fin:</label> <input class="time-date" type="date" id="fecha_fin" name="fecha_fin" required>
+                        <label for="trabajo2">Trabajo 3 (Descripción y enlace):</label>
+                        <textarea id="trabajo3" name="trabajo3"></textarea>
+                        <label for="fecha_inicio3">Fecha de inicio:</label>
+                        <input class="time-date" type="date" id="fecha_inicio3" name="fecha_inicio3" required>
+                        <label for="fecha_fin3">Fecha de fin:</label>
+                        <input class="time-date" type="date" id="fecha_fin3" name="fecha_fin3" required>
                     </div>
                     <div class="field-group">
-                    <label for="categoria">Categoría de Trabajos:</label>
-                    <select id="categoria" name="categoria">
-                        <option value="diseno">Diseño Gráfico</option>
-                        <option value="desarrollo">Desarrollo Web</option>
-                        <option value="fotografia">Fotografía</option>
-                    </select>
+                        <label for="categoria">Categoría de Trabajos:</label>
+                        <select id="categoria" name="categoria">
+                            <option value="diseno">Diseño Gráfico</option>
+                            <option value="desarrollo">Desarrollo Web</option>
+                            <option value="fotografia">Fotografía</option>
+                        </select>
                     </div>
                 </div>
             </div>
@@ -152,7 +179,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <!-- Sección de Testimonios -->
             <div class="form-section">
                 <h2>Testimonios</h2>
-                <textarea id="testimonio" name="testimonio" rows="4" placeholder="Comentarios de clientes o colegas"></textarea>
+                <textarea id="testimonio" name="testimonio" rows="4"
+                    placeholder="Comentarios de clientes o colegas"></textarea>
             </div>
 
             <!-- Información de contacto -->
@@ -175,4 +203,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </form>
     </div>
 </body>
+
 </html>
