@@ -13,9 +13,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $password = $_POST['password'];
     $nombre = htmlspecialchars($_POST['nombre'], ENT_QUOTES, 'UTF-8');
-    $apellido1 = htmlspecialchars($_POST['apellido1'], ENT_QUOTES, 'UTF-8'); $apellido2 = htmlspecialchars($_POST['apellido2'], ENT_QUOTES, 'UTF-8'); $biografia = htmlspecialchars($_POST['biografia'], ENT_QUOTES, 'UTF-8'); $habilidades = htmlspecialchars($_POST['habilidades'], ENT_QUOTES, 'UTF-8'); 
-    $experiencia = htmlspecialchars($_POST['experiencia'], ENT_QUOTES, 'UTF-8'); 
-    $estudios = htmlspecialchars($_POST['estudios'], ENT_QUOTES, 'UTF-8'); $trabajo1 = htmlspecialchars($_POST['trabajo1'], ENT_QUOTES, 'UTF-8'); $trabajo2 = htmlspecialchars($_POST['trabajo2'], ENT_QUOTES, 'UTF-8'); $trabajo3 = htmlspecialchars($_POST['trabajo3'], ENT_QUOTES, 'UTF-8'); $categoria = htmlspecialchars($_POST['categoria'], ENT_QUOTES, 'UTF-8'); $testimonio = htmlspecialchars($_POST['testimonio'], ENT_QUOTES, 'UTF-8'); $telefono = htmlspecialchars($_POST['telefono'], ENT_QUOTES, 'UTF-8'); $enlaces = htmlspecialchars($_POST['enlaces'], ENT_QUOTES, 'UTF-8'); 
+    $apellido1 = htmlspecialchars($_POST['apellido1'], ENT_QUOTES, 'UTF-8');
+    $apellido2 = htmlspecialchars($_POST['apellido2'], ENT_QUOTES, 'UTF-8');
+    $biografia = htmlspecialchars($_POST['biografia'], ENT_QUOTES, 'UTF-8');
+    $habilidades = htmlspecialchars($_POST['habilidades'], ENT_QUOTES, 'UTF-8');
+    $experiencia = htmlspecialchars($_POST['experiencia'], ENT_QUOTES, 'UTF-8');
+    $estudios = htmlspecialchars($_POST['estudios'], ENT_QUOTES, 'UTF-8');
+    $trabajo1 = htmlspecialchars($_POST['trabajo1'], ENT_QUOTES, 'UTF-8');
+    $trabajo2 = htmlspecialchars($_POST['trabajo2'], ENT_QUOTES, 'UTF-8');
+    $trabajo3 = htmlspecialchars($_POST['trabajo3'], ENT_QUOTES, 'UTF-8');
+    $categoria = htmlspecialchars($_POST['categoria'], ENT_QUOTES, 'UTF-8');
+    $testimonio = htmlspecialchars($_POST['testimonio'], ENT_QUOTES, 'UTF-8');
+    $telefono = htmlspecialchars($_POST['telefono'], ENT_QUOTES, 'UTF-8');
+    $enlaces = htmlspecialchars($_POST['enlaces'], ENT_QUOTES, 'UTF-8');
     $blog = htmlspecialchars($_POST['blog'], ENT_QUOTES, 'UTF-8');
 
     // Generar el hash de la contraseña
@@ -49,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
-
+<!--INICIO DEL CONTENIDO DE HTML-->
 <!DOCTYPE html>
 <html lang="es">
 

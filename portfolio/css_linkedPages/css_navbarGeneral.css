@@ -37,6 +37,7 @@ html {
 }
 
 .navbar a {
+    font-family: "Source Code Pro", monospace;
     /*Modificar la línea de abajo después*/
     letter-spacing: normal;
     color: var(--snow);

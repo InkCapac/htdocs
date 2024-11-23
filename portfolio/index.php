@@ -82,8 +82,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
     <!-- Botones de la galería de imágenes -->
     <div class="nav-buttons">
-        <button style="font-family: arcade;" class="nav-button" id="prevButton">Anterior</button>
-        <button style="font-family: arcade" class="nav-button" id="nextButton">Adelante</button>
+        <button class="nav-button" id="prevButton">Anterior</button>
+        <button class="nav-button" id="nextButton">Adelante</button>
     </div>
     <h1>Iniciar sesión</h1>
     <!-- Mostrar el mensaje de error si existe ----->
@@ -108,7 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="conversacion">
                 <p>¿Hola, qué quieres preguntarme?</p>
     </div>
-        <input placeholder="Escribe tu mensaje">
+        <input style="font-family: Source Code Pro;" placeholder="Escribe tu mensaje">
         <button id="enviar" class="enviar-btton">Enviar</button>
     </div>
         <div class="derecha">

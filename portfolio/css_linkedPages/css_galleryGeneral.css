@@ -10,18 +10,19 @@
     --naranja: rgb(255, 150, 0);
     --snow: snow;
 }
+/*
 @font-face {
     font-family: Cormorant;
     src: url(../fonts/static/Cormorant-BoldItalic.ttf);
 }
-
+*/
 /* Incluir el relleno y los bordes en el ancho y alto total del elemento */
 *.gallery {
     box-sizing: border-box;
 }
 
 body {
-
+    font-family: "Source Code Pro", monospace;
     /* Eliminar el margen predeterminado del cuerpo */
     margin: 0;
     /* Ocultar la barra de desplazamiento horizontal */
@@ -83,7 +84,7 @@ body {
 
 /* Estilos de los botones 'anterior' y 'siguiente' debajo de la galería */
 .nav-buttons {
-    
+    font-family: "Source Code Pro", monospace;
     display: flex;
     /* Usar flexbox para alinear botones */
     width: 100vw;
@@ -95,7 +96,6 @@ body {
 }
 
 .nav-button {
-    font-family: Cormorant;
     /* El ancho de los botones ocupa el mismo espacio */
     flex: 1;
     /* Tamaño de la fuente */

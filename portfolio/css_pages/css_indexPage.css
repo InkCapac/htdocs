@@ -10,6 +10,7 @@
     --snow: snow;
 }
 body{
+    font-family: "Source Code Pro", monospace;;
     background-color: var(--black);
     color: var(--black);
 }

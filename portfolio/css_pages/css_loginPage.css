@@ -28,6 +28,7 @@
 body{
     background-color: var(--black);
     color: var(--black);
+    font-family: "Source Code Pro", monospace;;
     /*Agregado del chino*/
     margin: 0;
     display: flex;

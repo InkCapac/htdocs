@@ -15,6 +15,7 @@
  }
 
  .enviar-btton {
+    font-family: "Source Code Pro", monospace;
      background-color: var(--Naranja);
      color: snow;
      border-radius: 15px;
@@ -28,6 +29,7 @@
  }
 
  .abrir-chat {
+    font-family: "Source Code Pro", monospace;
      background-color: var(--Azul);
      color: snow;
      border-radius: 50%;
