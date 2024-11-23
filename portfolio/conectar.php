@@ -33,18 +33,19 @@ class Conectar {
     }
 
     // Método para ejecutar consultas preparadas y devolver los resultados
-    public function recibir_datos($consulta, $tipos, $parametros) {
+    public function recibir_datos($consulta, $tipos = '', $parametros = []) {
         $conn = $this->obtener_conexion();
-
         // Preparar la consulta
         $stmt = $conn->prepare($consulta);
         if ($stmt === false) {
             throw new Exception('Error en la preparación de la consulta: ' . $conn->error);
         }
-
-        // Vincular los parámetros a la consulta
+        if(!empty($parametros)) {
+            // Vincular los parámetros a la consulta
         $stmt->bind_param($tipos, ...$parametros);
+        }
         $stmt->execute();
+        $stmt->close();
 
         // Obtener los resultados
         $result = $stmt->get_result();
@@ -88,6 +89,9 @@ class Conectar {
 
     // Destructor: automáticamente cierra la conexión al destruir el objeto
     public function __destruct() {
+        if($this->conn)
+        $this->conn->close();
+        $this->conn= null;
         $this->cerrar_conexion();
     }
 }
