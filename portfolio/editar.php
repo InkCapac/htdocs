@@ -144,10 +144,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             ['inicio' => $fecha_inicio2, 'fin' => $fecha_fin2],
             ['inicio' => $fecha_inicio3, 'fin' => $fecha_fin3],
         ];
-        foreach ($periodos as $i => $periodo) {
+
+        $stmt_periodo = $conn->prepare("INSERT INTO periodos (id_usuario, fecha_inicio1, fecha_fin1, fecha_inicio2, fecha_fin2, fecha_inicio3, fecha_fin3) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        foreach ($periodos as $periodo) {
             if ($periodo['inicio'] && $periodo['fin']) {
-                $stmt_periodo = $conn->prepare("INSERT INTO periodos (id_usuario, fecha_inicio, fecha_fin) VALUES (?, ?, ?)");
-                $stmt_periodo->bind_param("iss", $user_id, $periodo['inicio'], $periodo['fin']);
+                $stmt_periodo->bind_param("issssss", $user_id, $periodo['inicio'], $periodo['fin'], $periodo['inicio'], $periodo['fin'], $periodo['inicio'], $periodo['fin']);
                 $stmt_periodo->execute();
             }
         }
