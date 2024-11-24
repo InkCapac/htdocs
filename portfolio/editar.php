@@ -282,6 +282,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <?php endif; ?>
         </form>
     </div>
+    <a style="font-size: xx-large; cursor:pointer" href="logout.php">Cerrar sesión</a>
 </body>
 
 </html>
