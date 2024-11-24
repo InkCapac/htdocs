@@ -37,9 +37,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             // Verificar contraseña
             if (password_verify($password, $user['password'])) {
-                // Guardar sesión y redirigir
+                // Guardar sesión y redirigir a registro.php
                 $_SESSION['user_id'] = $user['id'];
-                header("Location: editar.php");
+                header("Location: editar.php"); // Cambiar redirección aquí
                 exit();
             } else {
                 $error_message = "Contraseña incorrecta.";
@@ -51,6 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $error_message = "Por favor, completa todos los campos.";
     }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="es">

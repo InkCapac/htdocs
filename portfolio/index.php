@@ -1,11 +1,10 @@
 <?php
 session_start(); // Inicia la sesión
 
-// Verificar si la sesión ya está iniciada
-if (isset($_SESSION['user_id'])) {
-    header("Location: editar.php"); // Redirige al panel de edición
-    exit();
-}
+// Evitar que el navegador almacene en caché la página
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Pragma: no-cache");
+header("Expires: Thu, 19 Nov 1981 08:52:00 GMT");
 
 // Incluir archivo de conexión
 require 'conectar.php';
@@ -21,17 +20,49 @@ $conn = new Conectar($servidor, $usuario, $contrasena, $bbdd);
 
 $error_message = ''; // Variable para el mensaje de error
 
+// Verificar si la sesión ya está iniciada (el usuario ya está logueado)
+if (isset($_SESSION['user_id'])) {
+    // Verificar si el usuario todavía existe en la base de datos
+    $user_id = $_SESSION['user_id'];
+    $consulta = "SELECT * FROM usuarios WHERE id = ?";
+    $usuarios = $conn->recibir_datos($consulta, 'i', [$user_id]);
+
+    if ($usuarios === false || empty($usuarios)) {
+        // Si no se encuentra el usuario, destruir la sesión
+        session_unset(); // Elimina todas las variables de sesión
+        session_destroy(); // Destruye la sesión
+        $error_message = "Tu sesión ha caducado o el usuario no existe.";
+    } else {
+        // Si el usuario existe, redirigir al panel de edición
+        header("Location: editar.php"); // Redirige al panel de edición
+        exit();
+    }
+}
+
+// Si no hay sesión activa, muestra el mensaje de que no estás logueado
+if (empty($error_message)) {
+    echo "No estás logueado."; // Muestra el mensaje de que no está logueado
+} else {
+    echo $error_message; // Muestra el mensaje de error
+}
+
+// Si el formulario ha sido enviado, procesarlo
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Obtener datos del formulario
     $email = $_POST['email'];
     $password = $_POST['password'];
 
+    // Depuración: Verifica los datos recibidos del formulario
+    var_dump($email, $password); // Esto imprimirá los valores de email y password recibidos
+
     // Consulta para obtener el usuario por el email (Usamos consultas preparadas)
     $consulta = "SELECT * FROM usuarios WHERE email = ?";
     $usuarios = $conn->recibir_datos($consulta, 's', [$email]);
 
-    // Verifica si el usuario existe
-    if ($usuarios) {
+    // Verifica si la consulta se ejecutó correctamente
+    if ($usuarios === false) {
+        $error_message = "Error en la consulta a la base de datos.";
+    } elseif ($usuarios) {
         $user = $usuarios[0]; // Si existe el usuario
 
         // Verifica si la contraseña es correcta
@@ -48,7 +79,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
