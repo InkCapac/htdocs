@@ -1,11 +1,6 @@
 <?php
 session_start(); // Inicia la sesión
 
-// Evitar que el navegador almacene en caché la página
-header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-header("Pragma: no-cache");
-header("Expires: Thu, 19 Nov 1981 08:52:00 GMT");
-
 // Incluir archivo de conexión
 require 'conectar.php';
 
@@ -39,13 +34,6 @@ if (isset($_SESSION['user_id'])) {
     }
 }
 
-// Si no hay sesión activa, muestra el mensaje de que no estás logueado
-if (empty($error_message)) {
-    echo "No estás logueado."; // Muestra el mensaje de que no está logueado
-} else {
-    echo $error_message; // Muestra el mensaje de error
-}
-
 // Si el formulario ha sido enviado, procesarlo
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Obtener datos del formulario
@@ -53,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST['password'];
 
     // Depuración: Verifica los datos recibidos del formulario
-    var_dump($email, $password); // Esto imprimirá los valores de email y password recibidos
+    // var_dump($email, $password); // Esto imprime los valores de email y password recibidos
 
     // Consulta para obtener el usuario por el email (Usamos consultas preparadas)
     $consulta = "SELECT * FROM usuarios WHERE email = ?";
@@ -67,9 +55,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // Verifica si la contraseña es correcta
         if (password_verify($password, $user['password'])) {
-            // Si la contraseña es correcta, guarda el ID del usuario en la sesión
+            // Guardar ID y email del usuario en la sesión
             $_SESSION['user_id'] = $user['id'];
-            header("Location: editar.php"); // Redirige al panel de edición
+            $_SESSION['user_email'] = $user['email']; // Agregar el email a la sesión
+
+            // Evitar que el navegador almacene en caché la página
+            header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+            header("Pragma: no-cache");
+            header("Expires: Thu, 19 Nov 1981 08:52:00 GMT");
+
+            // Redirigir al panel de edición
+            header("Location: editar.php");
             exit();
         } else {
             $error_message = "Contraseña incorrecta.";
@@ -77,6 +73,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         $error_message = "Usuario no encontrado.";
     }
+}
+
+// Mostrar mensaje de error si existe
+if (!empty($error_message)) {
+    echo $error_message;
 }
 ?>
 <!DOCTYPE html>
@@ -121,7 +122,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div style="color: red;"><?= htmlspecialchars($error_message) ?></div>
     <?php endif; ?>
     <div class="login-form-box">
-    <form class="form-login" action="login.php" method="POST">
+    <!--LUGAR A DONDE SE ENVIA LOS DATOS-->
+    <!--<form class="form-login" action="login.php" method="POST">-->
+    <form class="form-login" action="index.php" method="POST">
         <label class="mail-style" for="email">Correo Electrónico:</label>
         <input type="email" id="email" name="email" required>
         <br>

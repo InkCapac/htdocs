@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->bind_param("ss", $email, $hashed_password);
         if ($stmt->execute()) {
             // Redirigir al usuario al login si el registro es exitoso
-            header("Location: login.php");
+            header("Location: index.php");
             exit();
         } else {
             $error_message = "Error al registrar el usuario. Intente nuevamente.";
@@ -77,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <button type="submit">Registrar</button>
         </form>
 
-        <p>¿Ya tienes cuenta? <a href="login.php">Inicia sesión aquí</a></p>
+        <p>¿Ya tienes cuenta? <a href="index.php">Inicia sesión aquí</a></p>
     </div>
     <script src="./js_linkedPages/js_navbarGeneral.js"></script>
 </body>

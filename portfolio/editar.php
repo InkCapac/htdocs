@@ -1,18 +1,53 @@
 <?php
 // Iniciar sesión si es necesario
 session_start();
+
+// Depurar las variables de sesión (eliminar o comentar antes de producción)
+var_dump($_SESSION);
+
+// Incluir el archivo de conexión a la base de datos
+require './conectar.php';
+
+// Verificar si el usuario está autenticado
+if (!isset($_SESSION['user_id'])) {
+    // Redirigir a 'index.php' si no está logueado
+    header("Location: index.php", true, 302);
+    exit();
+}
+
+// ID de usuario autenticado
+$user_id = $_SESSION['user_id'];
+// Email almacenado en sesión (ya lo recuperas más abajo)
+$user_email = $_SESSION['user_email'] ?? '';  // Usamos una cadena vacía como valor por defecto
+
+// Evitar el caché
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Pragma: no-cache");
 header("Expires: Thu, 19 Nov 1981 08:52:00 GMT");
-// Verificar si el usuario está logueado
-if (isset($_SESSION['user_id'])) {
-    // El usuario está logueado
-    echo "Bienvenido al panel de edición, Usuario con ID: " . $_SESSION['user_id'];
-} else {
-    // El usuario no está logueado, redirigir al login (index.php)
+
+// Conectar con la base de datos
+$conexion = new Conectar('localhost', 'root', '', 'proyect');
+$conn = $conexion->obtener_conexion();
+
+// Obtener los datos del usuario desde la base de datos
+$stmt = $conn->prepare("SELECT * FROM usuarios WHERE id = ?");
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$user = $stmt->get_result()->fetch_assoc();
+if (!$user) {
+    echo "Usuario no encontrado.";
+    session_destroy(); // Opcional, para forzar un cierre de sesión
     header("Location: index.php");
     exit();
 }
+
+// Mostrar los datos en el cuadro
+echo "<div style='border: 1px solid #ccc; padding: 20px; margin-top: 20px;'>";
+echo "<h3>Detalles del usuario</h3>";
+echo "<p><strong>ID de usuario:</strong> " . htmlspecialchars($user['id']) . "</p>";
+echo "<p><strong>Email:</strong> " . htmlspecialchars($user['email']) . "</p>";
+echo "<p><strong>Password:</strong> \"" . htmlspecialchars($user['password']) . "\"</p>"; // En comillas
+echo "</div>";
 
 // Función para validar fechas
 function validarFecha($fecha)
@@ -21,15 +56,9 @@ function validarFecha($fecha)
     return $d && $d->format('Y-m-d') === $fecha;
 }
 
-// Conectar con la base de datos
-require './conectar.php';
-$conexion = new Conectar('localhost', 'root', '', 'proyect');
-
 // Si el formulario fue enviado
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Obtener los datos del formulario (filtrando y sanitizando adecuadamente)
-    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-    $password = $_POST['password'];
     $nombre = htmlspecialchars($_POST['nombre'], ENT_QUOTES, 'UTF-8');
     $apellido1 = htmlspecialchars($_POST['apellido1'], ENT_QUOTES, 'UTF-8');
     $apellido2 = htmlspecialchars($_POST['apellido2'], ENT_QUOTES, 'UTF-8');
@@ -45,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $telefono = htmlspecialchars($_POST['telefono'], ENT_QUOTES, 'UTF-8');
     $enlaces = htmlspecialchars($_POST['enlaces'], ENT_QUOTES, 'UTF-8');
     $blog = htmlspecialchars($_POST['blog'], ENT_QUOTES, 'UTF-8');
-    
+
     // Fechas (deben ser opcionales, por lo que solo los asignamos si están presentes)
     $fecha_inicio1 = $_POST['fecha_inicio1'] ?? null;
     $fecha_fin1 = $_POST['fecha_fin1'] ?? null;
@@ -54,20 +83,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $fecha_inicio3 = $_POST['fecha_inicio3'] ?? null;
     $fecha_fin3 = $_POST['fecha_fin3'] ?? null;
 
-    $error_message = []; // Array para almacenar los mensajes de error
+    // Array para almacenar los mensajes de error
+    $error_message = [];
 
-    // Validaciones para campos
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $error_message[] = "Correo electrónico no válido."; // Añadir el mensaje al array
-    }
-    if (strlen($password) < 6) {
-        $error_message[] = "La contraseña debe tener al menos 6 caracteres.";
-    }
-    if (!is_numeric($telefono) || strlen($telefono) < 10) {
-        $error_message[] = "El teléfono debe ser numérico y contener al menos 10 dígitos.";
-    }
+    // Verifica si el formulario fue enviado
+    $email = $_POST['email'] ?? '';  // Obtiene el correo, si existe
+    $password = $_POST['password'] ?? '';  // Obtiene la contraseña, si existe
 
-    // Validaciones de fechas (se agrupan para no repetir el código)
+    // Asegúrate de que el correo no esté vacío
+    /*
+    if (empty($email)) {
+        $error_message[] = "El correo electrónico es obligatorio.";
+    }
+*/
+    // Validaciones de fechas
     $fechas = [
         ['inicio' => $fecha_inicio1, 'fin' => $fecha_fin1],
         ['inicio' => $fecha_inicio2, 'fin' => $fecha_fin2],
@@ -75,13 +104,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     ];
     foreach ($fechas as $i => $fecha) {
         if ($fecha['inicio'] && !validarFecha($fecha['inicio'])) {
-            $error_message[] = "La fecha de inicio " . ($i+1) . " no es válida.";
+            $error_message[] = "La fecha de inicio " . ($i + 1) . " no es válida.";
         }
         if ($fecha['fin'] && !validarFecha($fecha['fin'])) {
-            $error_message[] = "La fecha de fin " . ($i+1) . " no es válida.";
+            $error_message[] = "La fecha de fin " . ($i + 1) . " no es válida.";
         }
         if ($fecha['inicio'] && $fecha['fin'] && $fecha['inicio'] > $fecha['fin']) {
-            $error_message[] = "La fecha de inicio " . ($i+1) . " no puede ser posterior a la fecha de fin.";
+            $error_message[] = "La fecha de inicio " . ($i + 1) . " no puede ser posterior a la fecha de fin.";
         }
     }
 
@@ -89,51 +118,41 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!empty($error_message)) {
         echo "<p style='color: red;'>" . implode("<br>", $error_message) . "</p>";
     } else {
-        // Si no hay errores, procesar la inserción en la base de datos
-        // Generar el hash de la contraseña
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-        $conn = $conexion->obtener_conexion();
+        // Generar el hash de la contraseña si no está vacío
+        $hashed_password = !empty($password) ? password_hash($password, PASSWORD_DEFAULT) : null;
 
-        // Verificar si el correo ya está registrado
-        $stmt = $conn->prepare("SELECT * FROM usuarios WHERE email = ?");
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        if ($result->num_rows > 0) {
-            // Si ya está registrado, mostrar un mensaje de error
-            echo "El correo ya está registrado.";
-        } else {
-            // Si no está registrado, insertar al usuario
-            $stmt = $conn->prepare("INSERT INTO usuarios (email, password, nombre, apellido1, apellido2, biografia, habilidades, experiencia, estudios, trabajo1, trabajo2, trabajo3, categoria, testimonio, telefono, enlaces, blog) 
-                                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("sssssssssssssssss", $email, $hashed_password, $nombre, $apellido1, $apellido2, $biografia, $habilidades, $experiencia, $estudios, $trabajo1, $trabajo2, $trabajo3, $categoria, $testimonio, $telefono, $enlaces, $blog);
+        // Insertar los datos del usuario (en caso de no estar registrado)
+        if (empty($user_email)) {
+            // Si no es el correo del usuario, insertamos los datos
+            $stmt = $conn->prepare("INSERT INTO usuarios (email, password, nombre) VALUES (?, ?, ?)");
+            $stmt->bind_param("sss", $email, $hashed_password, $nombre);
 
             if ($stmt->execute()) {
                 $user_id = $conn->insert_id; // Obtener el ID del usuario recién creado
-
-                // Insertar los periodos
-                $periodos = [
-                    ['inicio' => $fecha_inicio1, 'fin' => $fecha_fin1],
-                    ['inicio' => $fecha_inicio2, 'fin' => $fecha_fin2],
-                    ['inicio' => $fecha_inicio3, 'fin' => $fecha_fin3],
-                ];
-
-                $stmt_periodo = $conn->prepare("INSERT INTO periodos (id_usuario, fecha_inicio1, fecha_fin1, fecha_inicio2, fecha_fin2, fecha_inicio3, fecha_fin3) VALUES (?, ?, ?, ?, ?, ?, ?)");
-                foreach ($periodos as $periodo) {
-                    if ($periodo['inicio'] && $periodo['fin']) {
-                        $stmt_periodo->bind_param("issssss", $user_id, $periodo['inicio'], $periodo['fin'], $periodo['inicio'], $periodo['fin'], $periodo['inicio'], $periodo['fin']);
-                        $stmt_periodo->execute();
-                    }
-                }
-
-                // Redirigir al login si el registro es exitoso
-                header("Location: login.php");
-                exit();
-            } else {
-                echo "Error al registrar el usuario. Intente nuevamente." . $stmt->error;
             }
         }
+
+        // Insertar los datos adicionales en la tabla portfolios
+        $stmt_portfolio = $conn->prepare("INSERT INTO portfolios (id_usuario, nombre, apellido1, apellido2, biografia, habilidades, experiencia, estudios, trabajo1, trabajo2, trabajo3, categoria, testimonio, telefono, enlaces, blog) 
+                                         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt_portfolio->bind_param("isssssssssssssss", $user_id, $nombre, $apellido1, $apellido2, $biografia, $habilidades, $experiencia, $estudios, $trabajo1, $trabajo2, $trabajo3, $categoria, $testimonio, $telefono, $enlaces, $blog);
+        $stmt_portfolio->execute();
+
+        // Insertar los períodos de trabajo
+        $periodos = [
+            ['inicio' => $fecha_inicio1, 'fin' => $fecha_fin1],
+            ['inicio' => $fecha_inicio2, 'fin' => $fecha_fin2],
+            ['inicio' => $fecha_inicio3, 'fin' => $fecha_fin3],
+        ];
+        foreach ($periodos as $i => $periodo) {
+            if ($periodo['inicio'] && $periodo['fin']) {
+                $stmt_periodo = $conn->prepare("INSERT INTO periodos (id_usuario, fecha_inicio, fecha_fin) VALUES (?, ?, ?)");
+                $stmt_periodo->bind_param("iss", $user_id, $periodo['inicio'], $periodo['fin']);
+                $stmt_periodo->execute();
+            }
+        }
+
+        echo "<p>¡Registro completado correctamente!</p>";
     }
 }
 ?>
@@ -159,7 +178,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 
 <body>
-<!--
+    <!--
     <nav class="grid navbar">
         <a href="#inicio-index">Inicio</a>
         <a href="">Galería</a>
