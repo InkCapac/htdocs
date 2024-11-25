@@ -22,6 +22,7 @@ class Conectar
     {
         // Si la conexión no está establecida, la creamos
         if ($this->conn === null) {
+            // Usamos 'root' como usuario y dejamos la contraseña vacía (por defecto en XAMPP)
             $this->conn = new mysqli($this->host, $this->user, $this->password, $this->db);
 
             // Verificar si hubo error en la conexión
@@ -34,8 +35,7 @@ class Conectar
         }
         return $this->conn;
     }
-
-    // Método para ejecutar consultas preparadas y devolver los resultados
+    // Método para ejecutar consultas y devolver los resultados
     public function recibir_datos($consulta, $tipos = '', $parametros = [])
     {
         $conn = $this->obtener_conexion();
@@ -49,25 +49,10 @@ class Conectar
             $stmt->bind_param($tipos, ...$parametros);
         }
         $stmt->execute();
-        //Si añadimos '$stmt->close()' entonces habrá errores
 
         // Obtener los resultados
         $result = $stmt->get_result();
 
-        /* Si hay resultados, devolverlos como un array asociativo
-        if ($result->num_rows > 0) {
-            $datos = [];
-            while ($row = $result->fetch_assoc()) {
-                $datos[] = $row;
-            }
-            $stmt->close();
-            return $datos;
-        } else {
-            $stmt->close();
-            return null;
-        }
-    }
-        */
         // Procesar los resultados, si existen
         $datos = [];
         if ($result && $result->num_rows > 0) {
@@ -99,22 +84,12 @@ class Conectar
         $stmt->close();
     }
 
-    // Método para cerrar la conexión (si es necesario)
-    public function cerrar_conexion()
-    {
-        if ($this->conn) {
-            $this->conn->close();
-            $this->conn = null; // Aseguramos que la conexión sea nula después de cerrarla
-        }
-    }
-
     // Destructor: automáticamente cierra la conexión al destruir el objeto
     public function __destruct()
     {
-        if ($this->conn)
+        if ($this->conn) {
             $this->conn->close();
-        $this->conn = null;
-        $this->cerrar_conexion();
+        }
     }
 }
 ?>
