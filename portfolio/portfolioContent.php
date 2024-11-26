@@ -56,14 +56,16 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio de <?php echo htmlspecialchars($portfolio['nombre']); ?></title>
+    <title>Portfolio Completado</title>
     <link rel="stylesheet" href="./css_pages/css_portfolioContent.css">
 </head>
 <body>
     <div class="container">
-        <h1 class="portfolio-owner">Portfolio de <?php echo htmlspecialchars($portfolio['nombre'] . " " . $portfolio['apellido1'] . " " . $portfolio['apellido2']); ?></h1>
+        <h1>¡Gracias por registrarte, <?php echo htmlspecialchars($portfolio['nombre']); ?>!</h1>
+        <p>Detalles del portfolio:</p>
+        
         <div class="form-section">
-            <h2>INFORMACIÓN PERSONAL</h2>
+            <h2>Información Personal</h2>
             <p><strong>ID Usuario:</strong> <?php echo htmlspecialchars($portfolio['id_usuario']); ?></p>
             <p><strong>Biografía:</strong> <?php echo htmlspecialchars($portfolio['biografia']); ?></p>
             <p><strong>Habilidades:</strong> <?php echo htmlspecialchars($portfolio['habilidades']); ?></p>
@@ -75,7 +77,7 @@ try {
         </div>
 
         <div class="form-section">
-            <h2>TRABAJOS</h2>
+            <h2>Trabajos Registrados</h2>
             <?php 
             if (count($portfolio_data) > 0) {
                 foreach ($portfolio_data as $trabajo) {
@@ -83,18 +85,23 @@ try {
                         echo "<p><strong>Trabajo:</strong> " . htmlspecialchars($trabajo['trabajo']) . "</p>";
                         echo "<p><strong>Fecha de Inicio:</strong> " . htmlspecialchars($trabajo['fecha_inicio']) . "</p>";
                         echo "<p><strong>Fecha de Fin:</strong> " . htmlspecialchars($trabajo['fecha_fin']) . "</p>";
+                        echo "<hr>";
                     }
                 }
             } else {
-                echo "<p>No se encontraron trabajos asociados.</p>";
+                echo "<p>No se encontraron trabajos registrados.</p>";
             }
             ?>
         </div>
 
         <div class="form-section">
-            <h2>TESTIMONIOS</h2>
+            <h2>Testimonio</h2>
             <p><?php echo htmlspecialchars($portfolio['testimonio']); ?></p>
         </div>
+
+        <!-- Botón de Cerrar sesión -->
+        <a style="font-size: xx-large; cursor:pointer" href="logout.php">Cerrar sesión</a>
+        </form>
     </div>
 </body>
 </html>

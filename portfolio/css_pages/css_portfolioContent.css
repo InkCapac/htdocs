@@ -1,0 +1,38 @@
+:root {
+            --black: rgb(20, 20, 20);
+            --verdeAzulado: rgb(0, 255, 200);
+            --cian: rgb(0, 200, 255);
+            --azul: rgb(0, 100, 255);
+            --morado: rgb(150, 0, 255);
+            --rojoBrillante: rgb(255, 50, 0);
+            --naranja: rgb(255, 150, 0);
+            --snow: snow;
+        }
+        body {
+            font-family: "Source Code Pro", monospace;
+            margin: 0;
+            padding: 0;
+            background-color: var(--black);
+        }
+        .portfolio-owner{
+            color: var(--snow);
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding-top: 20px;
+        }
+        .form-section {
+            background-color: var(--snow);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: var(--black);
+            text-align: center;
+        }
+        p, label {
+            margin: 10px 0;
+        }

@@ -1,30 +1,22 @@
 <?php
-// Iniciar sesión si es necesario
 session_start();
-
-// Eliminar o comentar esta línea antes de la producción
-// var_dump($_SESSION); // Eliminar o comentar antes de producción
-
-// Incluir el archivo de conexión a la base de datos
 require './conectar.php';
 
 // Verificar si el usuario está autenticado
 if (!isset($_SESSION['user_id'])) {
-    // Redirigir a 'index.php' si no está logueado
+    // Redirigir al inicio de sesión si no hay una sesión activa
     header("Location: index.php", true, 302);
-    exit();  // Asegúrate de que no continúe ejecutándose después de la redirección
+    exit();
 }
 
-// ID de usuario autenticado
-$user_id = $_SESSION['user_id'];
-$user_email = $_SESSION['user_email'] ?? '';  // Usamos una cadena vacía como valor por defecto
-
-// Evitar el caché
+// Evitar almacenamiento en caché de la página
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Pragma: no-cache");
-header("Expires: Thu, 19 Nov 1981 08:52:00 GMT");
 
-// Conectar con la base de datos
+// Obtener el ID del usuario desde la sesión
+$user_id = $_SESSION['user_id'];
+
+// Crear la conexión a la base de datos
 $conexion = new Conectar('localhost', 'root', '', 'proyect');
 $conn = $conexion->obtener_conexion();
 
@@ -33,29 +25,29 @@ if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
 
-// Obtener los datos del usuario desde la base de datos
+// Preparar la consulta para obtener los datos del usuario
 $stmt = $conn->prepare("SELECT * FROM usuarios WHERE id = ?");
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
-$user = $stmt->get_result()->fetch_assoc();
-if (!$user) {
-    echo "Usuario no encontrado.";
-    session_destroy(); // Opcional, para forzar un cierre de sesión
-    header("Location: index.php");
+$result = $stmt->get_result();
+
+// Verificar si el usuario existe
+if ($result->num_rows === 0) {
+    // Si el usuario no existe, destruir la sesión y redirigir al inicio de sesión
+    session_unset();
+    session_destroy();
+    header("Location: index.php", true, 302);
     exit();
 }
 
-// Mostrar los datos en el cuadro (con seguridad)
-echo "<div style='border: 1px solid #ccc; padding: 20px; margin-top: 20px;'>";
-echo "<h3>Detalles del usuario</h3>";
-echo "<p><strong>ID de usuario:</strong> " . htmlspecialchars($user['id']) . "</p>";
-echo "<p><strong>Email:</strong> " . htmlspecialchars($user['email']) . "</p>";
-// No mostrar la contraseña en texto claro. Mejor eliminar esta línea o sustituir por un campo oculto
-echo "</div>";
+// Si el usuario existe, obtener los datos
+$user = $result->fetch_assoc();
 
-// Si el formulario fue enviado
+// Variable para verificar el éxito del registro
+$registro_exitoso = false;
+
+// Procesar el formulario solo si se envía
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Obtener los datos del formulario (filtrando y sanitizando adecuadamente)
     $nombre = htmlspecialchars($_POST['nombre'] ?? '', ENT_QUOTES, 'UTF-8');
     $apellido1 = htmlspecialchars($_POST['apellido1'] ?? '', ENT_QUOTES, 'UTF-8');
     $apellido2 = htmlspecialchars($_POST['apellido2'] ?? '', ENT_QUOTES, 'UTF-8');
@@ -69,47 +61,48 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $enlaces = htmlspecialchars($_POST['enlaces'] ?? '', ENT_QUOTES, 'UTF-8');
     $blog = htmlspecialchars($_POST['blog'] ?? '', ENT_QUOTES, 'UTF-8');
 
-    // Insertar los datos adicionales en la tabla portfolios
+    // Insertar datos en la tabla portfolios
     $stmt_portfolio = $conn->prepare("INSERT INTO portfolios (id_usuario, nombre, apellido1, apellido2, biografia, habilidades, experiencia, estudios, categoria, testimonio, telefono, enlaces, blog) 
                                       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt_portfolio->bind_param("issssssssssss", $user_id, $nombre, $apellido1, $apellido2, $biografia, $habilidades, $experiencia, $estudios, $categoria, $testimonio, $telefono, $enlaces, $blog);
-    $stmt_portfolio->execute();
 
-    // Obtener el ID del portfolio insertado
-    $id_portfolio = $conn->insert_id; // Reemplaza este valor con el valor real (por ejemplo, de la sesión o consulta anterior)
+    if ($stmt_portfolio->execute()) {
+        $id_portfolio = $conn->insert_id;
 
-    // Verificar si se obtuvo correctamente el ID
-    if ($id_portfolio <= 0) {
-        echo "Error: No se pudo obtener el ID del portfolio.";
-        exit();
-    }
+        if ($id_portfolio > 0) {
+            $trabajos = $_POST['trabajos'] ?? [];
+            $fechas_inicio = $_POST['fechas_inicio'] ?? [];
+            $fechas_fin = $_POST['fechas_fin'] ?? [];
 
-    // Obtener los datos de los trabajos y fechas
-    $trabajos = $_POST['trabajos'] ?? [];
-    $fechas_inicio = $_POST['fechas_inicio'] ?? []; // Fecha de inicio
-    $fechas_fin = $_POST['fechas_fin'] ?? []; // Fecha de fin
+            $stmt_trabajos = $conn->prepare("INSERT INTO trabajos (id_portfolio, id_usuario, trabajo, fecha_inicio, fecha_fin) VALUES (?, ?, ?, ?, ?)");
 
-    // Preparamos la sentencia para insertar los trabajos
-    $stmt_trabajos = $conn->prepare("INSERT INTO trabajos (id_portfolio, id_usuario, trabajo, fecha_inicio, fecha_fin) VALUES (?, ?, ?, ?, ?)");
+            $registro_exitoso = true;
 
-    // Insertamos los trabajos y las fechas en la base de datos
-    for ($i = 0; $i < count($trabajos); $i++) {
-        $trabajo = htmlspecialchars($trabajos[$i], ENT_QUOTES, 'UTF-8');
-        $fecha_inicio = !empty($fechas_inicio[$i]) ? DateTime::createFromFormat('Y-m-d', $fechas_inicio[$i])->format('Y-m-d') : null; // Validación de fecha de inicio
-        $fecha_fin = !empty($fechas_fin[$i]) ? DateTime::createFromFormat('Y-m-d', $fechas_fin[$i])->format('Y-m-d') : null; // Validación de fecha de fin
+            for ($i = 0; $i < count($trabajos); $i++) {
+                $trabajo = htmlspecialchars($trabajos[$i], ENT_QUOTES, 'UTF-8');
+                $fecha_inicio = !empty($fechas_inicio[$i]) ? $fechas_inicio[$i] : null;
+                $fecha_fin = !empty($fechas_fin[$i]) ? $fechas_fin[$i] : null;
 
-        // Ejecutamos la sentencia para cada trabajo
-        $stmt_trabajos->bind_param("iisss", $id_portfolio, $user_id, $trabajo, $fecha_inicio, $fecha_fin);
-        if (!$stmt_trabajos->execute()) {
-            echo "Error al insertar el trabajo: " . $stmt_trabajos->error;
-            exit();
+                $stmt_trabajos->bind_param("iisss", $id_portfolio, $user_id, $trabajo, $fecha_inicio, $fecha_fin);
+
+                if (!$stmt_trabajos->execute()) {
+                    $registro_exitoso = false;
+                    error_log("Error al insertar trabajo: " . $stmt_trabajos->error);
+                    break;
+                }
+            }
         }
+    } else {
+        error_log("Error en portfolio: " . $stmt_portfolio->error);
     }
+}
 
-    // Confirmación de éxito
-    echo "Trabajos insertados correctamente.";
-    // Redirigir o limpiar la pantalla después de la inserción si es necesario
-    // header("Location: editar.php"); exit();
+// Redirigir si todo salió bien
+if ($registro_exitoso) {
+    header("Location: portfolioContent.php?id=$id_portfolio", true, 302);
+    exit();
+} else {
+    echo "Error: No se pudo completar el registro.";
 }
 ?>
 
@@ -182,33 +175,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </div>
                 </div>
             </div>
-
-            <!-- Repite para trabajo2 y trabajo3 
-                    <div class="field-group">
-                        <label for="trabajo2">Trabajo 2 (Descripción y enlace):</label>
-                        <textarea id="trabajo2" name="trabajo2"></textarea>
-                        <label for="fecha_inicio2">Fecha de inicio:</label>
-                        <input class="time-date" type="date" id="fecha_inicio2" name="fecha_inicio2" required>
-                        <label for="fecha_fin2">Fecha de fin:</label>
-                        <input class="time-date" type="date" id="fecha_fin2" name="fecha_fin2" required>
-                    </div>
-                    <div class="field-group">
-                        <label for="trabajo2">Trabajo 3 (Descripción y enlace):</label>
-                        <textarea id="trabajo3" name="trabajo3"></textarea>
-                        <label for="fecha_inicio3">Fecha de inicio:</label>
-                        <input class="time-date" type="date" id="fecha_inicio3" name="fecha_inicio3" required>
-                        <label for="fecha_fin3">Fecha de fin:</label>
-                        <input class="time-date" type="date" id="fecha_fin3" name="fecha_fin3" required>
-                    </div>
-                    <div class="field-group">
-                        <label for="categoria">Categoría de Trabajos:</label>
-                        <select id="categoria" name="categoria">
-                            <option value="diseno">Diseño Gráfico</option>
-                            <option value="desarrollo">Desarrollo Web</option>
-                            <option value="fotografia">Fotografía</option>
-                        </select>
-                    </div>
-                    -->
 
             <!-- Sección de Testimonios -->
             <div class="form-section">

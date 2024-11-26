@@ -1,71 +1,48 @@
 <?php
-session_start(); // Inicia la sesión
+session_start();
 
 // Incluir archivo de conexión
 require 'conectar.php';
 
-// Crear una instancia de la clase Conectar
 $servidor = "localhost";
 $usuario = "root";
 $contrasena = "";
 $bbdd = "proyect";
 
-// Instanciar la conexión
 $conn = new Conectar($servidor, $usuario, $contrasena, $bbdd);
+$error_message = ''; 
 
-$error_message = ''; // Variable para el mensaje de error
-
-// Verificar si la sesión ya está iniciada (el usuario ya está logueado)
+// Verificar si la sesión ya está iniciada
 if (isset($_SESSION['user_id'])) {
-    // Verificar si el usuario todavía existe en la base de datos
     $user_id = $_SESSION['user_id'];
     $consulta = "SELECT * FROM usuarios WHERE id = ?";
     $usuarios = $conn->recibir_datos($consulta, 'i', [$user_id]);
 
-    if ($usuarios === false || empty($usuarios)) {
-        // Si no se encuentra el usuario, destruir la sesión
-        session_unset(); // Elimina todas las variables de sesión
-        session_destroy(); // Destruye la sesión
-        $error_message = "Tu sesión ha caducado o el usuario no existe.";
-    } else {
-        // Si el usuario existe, redirigir al panel de edición
-        header("Location: editar.php"); // Redirige al panel de edición
+    if ($usuarios && !empty($usuarios)) {
+        header("Location: portfolioContent.php?id=$user_id");
         exit();
+    } else {
+        session_unset();
+        session_destroy();
+        $error_message = "Tu sesión ha caducado o el usuario no existe.";
     }
 }
 
-// Si el formulario ha sido enviado, procesarlo
+// Procesar el formulario de inicio de sesión
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Obtener datos del formulario
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Depuración: Verifica los datos recibidos del formulario
-    // var_dump($email, $password); // Esto imprime los valores de email y password recibidos
-
-    // Consulta para obtener el usuario por el email (Usamos consultas preparadas)
     $consulta = "SELECT * FROM usuarios WHERE email = ?";
     $usuarios = $conn->recibir_datos($consulta, 's', [$email]);
 
-    // Verifica si la consulta se ejecutó correctamente
-    if ($usuarios === false) {
-        $error_message = "Error en la consulta a la base de datos.";
-    } elseif ($usuarios) {
-        $user = $usuarios[0]; // Si existe el usuario
-
-        // Verifica si la contraseña es correcta
+    if ($usuarios) {
+        $user = $usuarios[0];
         if (password_verify($password, $user['password'])) {
-            // Guardar ID y email del usuario en la sesión
             $_SESSION['user_id'] = $user['id'];
-            $_SESSION['user_email'] = $user['email']; // Agregar el email a la sesión
+            $_SESSION['user_email'] = $user['email'];
 
-            // Evitar que el navegador almacene en caché la página
-            header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-            header("Pragma: no-cache");
-            header("Expires: Thu, 19 Nov 1981 08:52:00 GMT");
-
-            // Redirigir al panel de edición
-            header("Location: editar.php");
+            header("Location: portfolioContent.php?id=" . $user['id']);
             exit();
         } else {
             $error_message = "Contraseña incorrecta.";
@@ -75,10 +52,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
-// Mostrar mensaje de error si existe
+// Mostrar mensajes de error
 if (!empty($error_message)) {
     echo $error_message;
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -98,8 +76,8 @@ if (!empty($error_message)) {
         <a href="#inicio-index">Inicio</a>
         <a href="">Registrarse</a>
         <a href=""></a>
-        <a href=""></a>
-        <a href=""></a>
+        <a href="">Galería</a>
+        <a href="">Favoritos</a>
     </nav>
     <!-- Galería de imágenes -->
     <div class="gallery">
