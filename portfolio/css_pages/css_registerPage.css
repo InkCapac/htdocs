@@ -9,66 +9,85 @@
     --naranja: rgb(255, 150, 0);
     --snow: snow;
 }
-/* Usar cuando el archivo registrarse.php ya no esté
-body {
-    font-family: Arial, sans-serif;
+body{
     background-color: var(--black);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+    font-family: "Source Code Pro", monospace;
 }
-    
 .form-container {
-    background-color: var(--naranja);
-    color: var(--snow);
+    max-width: 600px;
+    margin: 50px auto;
     padding: 20px;
-    font-size: larger;
-    border-radius: 8px;
+    background-color: var(--snow);
     border-style: dashed;
-    border-color: var(--azul);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 400px;
-}
-h1 {
-    font-style: italic;
-    font-size: 1.5em;
-    margin-bottom: 20px;
+    border-color: var(--morado);
     text-align: center;
 }
-label {
+
+.form-container h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: var(--black);
+}
+
+.form-container label {
     display: block;
-    margin-bottom: 5px;
+    font-size: 16px;
+    margin-bottom: 8px;
+    text-align: left;
+    color: var(--black);
 }
-input {
-    width: 380px;
-    max-width: 380px;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+
+.form-container input {
+    width: 90%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid --snow;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border 0.3s;
 }
-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #2196F3;
-    color: white;
+
+.form-container input:focus {
+    border-color: var(--morado);
+    outline: none;
+}
+
+.form-container button {
+    background-color: var(--morado);
+    color: var(--snow);
+    padding: 14px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
 }
-button:hover {
-    background-color: #0b7dda;
+
+.form-container button:hover {
+    background-color: var(--naranja);
 }
+
+.form-container p {
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.form-container a {
+    color: var(--azul);
+    text-decoration: none;
+}
+
+.form-container a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para el mensaje de error */
 .error-message {
-    color: red;
-    font-size: 0.9em;
-    margin-bottom: 15px;
+    background-color: var(--snow);
+    color: var(--rojoBrillante);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid --rojoBrillante;
+    border-radius: 5px;
+    text-align: center;
 }
-.success-message {
-    color: green;
-    font-size: 1.1em;
-    margin-bottom: 15px;
-}
-*/

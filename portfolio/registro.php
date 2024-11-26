@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <body>
     <nav class="grid navbar">
-        <a href="#inicio-index">Inicio</a>
+        <a href="./index.php">Inicio</a>
         <a href="">Registrarse</a>
         <a href=""></a>
         <a href=""></a>
