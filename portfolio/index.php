@@ -74,7 +74,7 @@ if (!empty($error_message)) {
     <!--Barra de navegación-->
     <nav class="grid navbar">
         <a href="#inicio-index">Inicio</a>
-        <a href="">Registrarse</a>
+        <a href="./registro.php">Registrarse</a>
         <a href=""></a>
         <a href="">Galería</a>
         <a href="">Favoritos</a>

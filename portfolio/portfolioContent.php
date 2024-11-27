@@ -12,18 +12,7 @@ try {
 
         // Consultar el portfolio y los trabajos relacionados
         $stmt = $conn->prepare("
-            SELECT 
-                p.id AS portfolio_id, p.id_usuario, p.nombre, p.apellido1, p.apellido2, 
-                p.biografia, p.habilidades, p.experiencia, p.estudios, p.categoria, 
-                p.testimonio, p.telefono, p.enlaces, p.blog,
-                t.id AS trabajo_id, t.trabajo, t.fecha_inicio, t.fecha_fin
-            FROM 
-                portfolios p
-            LEFT JOIN 
-                trabajos t ON p.id = t.id_portfolio
-            WHERE 
-                p.id = ?
-        ");
+            SELECT p.id AS portfolio_id, p.id_usuario, p.nombre, p.apellido1, p.apellido2, p.biografia, p.habilidades, p.experiencia, p.estudios, p.categoria, p.testimonio, p.telefono, p.enlaces, p.blog, t.id AS trabajo_id, t.trabajo, t.fecha_inicio, t.fecha_fin FROM portfolios p LEFT JOIN trabajos t ON p.id = t.id_portfolio WHERE p.id = ? ");
         $stmt->bind_param("i", $portfolio_id);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -53,17 +42,19 @@ try {
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Completado</title>
     <link rel="stylesheet" href="./css_pages/css_portfolioContent.css">
 </head>
+
 <body>
     <div class="container">
         <h1>¡Gracias por registrarte, <?php echo htmlspecialchars($portfolio['nombre']); ?>!</h1>
         <p>Detalles del portfolio:</p>
-        
+
         <div class="form-section">
             <h2>Información Personal</h2>
             <p><strong>ID Usuario:</strong> <?php echo htmlspecialchars($portfolio['id_usuario']); ?></p>
@@ -72,13 +63,15 @@ try {
             <p><strong>Experiencia:</strong> <?php echo htmlspecialchars($portfolio['experiencia']); ?></p>
             <p><strong>Estudios:</strong> <?php echo htmlspecialchars($portfolio['estudios']); ?></p>
             <p><strong>Teléfono:</strong> <?php echo htmlspecialchars($portfolio['telefono']); ?></p>
-            <p><strong>Enlaces:</strong> <a href="<?php echo htmlspecialchars($portfolio['enlaces']); ?>" target="_blank"><?php echo htmlspecialchars($portfolio['enlaces']); ?></a></p>
-            <p><strong>Blog:</strong> <a href="<?php echo htmlspecialchars($portfolio['blog']); ?>" target="_blank"><?php echo htmlspecialchars($portfolio['blog']); ?></a></p>
+            <p><strong>Enlaces:</strong> <a href="<?php echo htmlspecialchars($portfolio['enlaces']); ?>"
+                    target="_blank"><?php echo htmlspecialchars($portfolio['enlaces']); ?></a></p>
+            <p><strong>Blog:</strong> <a href="<?php echo htmlspecialchars($portfolio['blog']); ?>"
+                    target="_blank"><?php echo htmlspecialchars($portfolio['blog']); ?></a></p>
         </div>
 
         <div class="form-section">
             <h2>Trabajos Registrados</h2>
-            <?php 
+            <?php
             if (count($portfolio_data) > 0) {
                 foreach ($portfolio_data as $trabajo) {
                     if (!empty($trabajo['trabajo'])) {
@@ -104,4 +97,5 @@ try {
         </form>
     </div>
 </body>
+
 </html>
