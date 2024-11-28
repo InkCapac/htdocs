@@ -1,14 +1,15 @@
 <?php
 session_start();
-include 'conectar.php'; // Conexión a la base de datos
+// Conexión a la base de datos
+include 'conectar.php'; 
 
 // Verificar si el usuario está logueado
-if (!isset($_SESSION['user_id'])) { // Usar 'user_id' en lugar de 'id_usuario' para consistencia
+if (!isset($_SESSION['user_id'])) {
     // Redirigir al inicio de sesión si no está autenticado
     header("Location: index.php");
     exit();
 }
-$id_usuario = $_SESSION['user_id']; // Asegúrate de que esta variable corresponde al ID correcto
+$id_usuario = $_SESSION['user_id']; 
 
 // Inicializar conexión
 $conector = new Conectar("localhost", "root", "", "proyect");

@@ -10,12 +10,7 @@
     --naranja: rgb(255, 150, 0);
     --snow: snow;
 }
-/*
-@font-face {
-    font-family: Cormorant;
-    src: url(../fonts/static/Cormorant-BoldItalic.ttf);
-}
-*/
+
 /* Incluir el relleno y los bordes en el ancho y alto total del elemento */
 *.gallery {
     box-sizing: border-box;
@@ -23,108 +18,89 @@
 
 body {
     font-family: "Source Code Pro", monospace;
-    /* Eliminar el margen predeterminado del cuerpo */
     margin: 0;
-    /* Ocultar la barra de desplazamiento horizontal */
     overflow-x: hidden;
 }
 
 .gallery {
-    /* Posicionamiento relativo para la galería */
     position: relative;
-    /* Ocultar el desbordamiento de imágenes posicionadas absolutamente */
     overflow: hidden;
-    /* La galería ocupa el ancho total de la vista de la ventana */
     width: 100vw;
-    /* Altura completa de la ventana gráfica menos la altura del botón */
+    /*Altura completa de la ventana gráfica menos la altura del botón*/
     height: calc(100vh - 50px);
 }
 
 .gallery-container {
     position: relative;
-    /* Contenedor para posicionar imágenes */
     width: 100%;
-    /* Hacer que el contenedor llene la galería */
     height: 100%;
 }
 
-/* Configuración de las imágenes individuales de la galería */
+/*Configuración de las imágenes individuales de la galería*/
 .gallery-item {
+    /*Mantener la relación de aspecto y cubrir el espacio*/
     object-fit: cover;
-    /* Mantener la relación de aspecto y cubrir el espacio */
-    position: absolute;
     /* Posicionar imágenes absolutamente */
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    /* Hacer que las imágenes llenen la galería */
     height: 100%;
-    /* Hacer que las imágenes llenen la galería */
+    /*Asegurar que las imágenes estén detrás de los controles*/
     z-index: 1;
-    /* Asegurar que las imágenes estén detrás de los controles */
     opacity: 0;
-    /* Comenzar sin opacidad */
+    /*Iniciar con un ligero zoom-in*/
     transform: scale(2.0);
-    /* Iniciar con un ligero zoom-in */
+    /*Transiciones suaves para opacidad y zoom-out*/
     transition: opacity 3s ease, transform 2s ease;
-    /* Transiciones suaves para opacidad y zoom-out */
+    /*Ocultar imágenes inicialmente*/
     visibility: hidden;
-    /* Ocultar imágenes inicialmente */
 }
-
-/* Cuando la imagen está activa, aplicar estos estilos */
 .gallery-item.active {
+    /*Totalmente visible*/
     opacity: 1;
-    /* Totalmente visible */
+    /*Hacerla visible cuando está activa*/
     visibility: visible;
-    /* Hacerla visible cuando está activa */
+    /*Aplicar efecto de zoom-out*/
     transform: scale(1);
-    /* Aplicar efecto de zoom-out */
 }
 
-/* Estilos de los botones 'anterior' y 'siguiente' debajo de la galería */
+/*Estilos de los botones 'anterior' y 'siguiente'*/
 .nav-buttons {
     font-family: "Source Code Pro", monospace;
+    /*Usar flexbox para alinear botones*/
     display: flex;
-    /* Usar flexbox para alinear botones */
+    /*Ancho completo de la ventana gráfica*/
     width: 100vw;
-    /* Ancho completo de la ventana gráfica */
+    /*Establecer una altura para los botones*/
     height: 50px;
-    /* Establecer una altura para los botones */
-    background-color: #f0f0f0;
-    /* Opcional: color de fondo para el contenedor de los botones */
+    background-color: var(--snow);
 }
 
 .nav-button {
     /* El ancho de los botones ocupa el mismo espacio */
     flex: 1;
-    /* Tamaño de la fuente */
     font-size: 20px;
     cursor: pointer;
-    /* Color de fondo de los botones 'anterior' y 'siguiente' */
     background-color: var(--black);
     color: var(--snow);
     font-size: xx-large;
-    /* Cambiar esto al color de texto deseado */
     border: none;
+    /*Eliminar márgenes*/
     margin: 0;
-    /* Eliminar márgenes */
+    /*Establecer el botón como contenedor flex*/
     display: flex;
-    /* Establecer el botón como contenedor flex */
+    /*Centrar el texto verticalmente*/
     align-items: center;
-    /* Centrar el texto verticalmente */
+    /*Centrar el texto horizontalmente*/
     justify-content: center;
-    /* Centrar el texto horizontalmente */
     transition: background-color 0.3s ease;
-    /* Transición suave para efectos de hover */
 }
 
 /* Efecto hover */
 .nav-button:hover {
     background-color: var(--morado);
-    /* Sombra más oscura al pasar el cursor */
     color: var(--snow);
-    /* Color del texto al pasar el cursor */
 }
 
 /* Estado activo del botón (opcional) */

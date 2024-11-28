@@ -47,7 +47,6 @@ html {
     padding: 10px;
     /*Transition permite el cambio de color con un tiempo determinado*/
     transition: background-color 0.3s ease;
-    /*border-radius: 5px;*/
 }
 
 .logo-nav {
