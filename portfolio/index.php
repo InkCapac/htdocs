@@ -30,7 +30,6 @@ if (isset($_SESSION['user_id']) && basename($_SERVER['PHP_SELF']) !== 'galeria.p
         $error_message = "Tu sesión ha caducado o el usuario no existe.";
     }
 }
-
 // Procesar el formulario de inicio de sesión
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
@@ -46,8 +45,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['user_email'] = $user['email'];
 
-            // Redirigir al portfolio del usuario
-            header("Location: portfolioContent.php?id=" . $user['id']);
+            // Verificar si el usuario ya tiene un portfolio
+            $portfolio_query = "SELECT id FROM portfolios WHERE id_usuario = ?";
+            $portfolio_data = $conn->recibir_datos($portfolio_query, 'i', [$user['id']]);
+
+            if ($portfolio_data) {
+                // Si el usuario tiene un portfolio, redirigir a portfolioContent.php
+                $portfolio_id = $portfolio_data[0]['id'];
+                header("Location: portfolioContent.php?id=" . $portfolio_id);
+            } else {
+                // Si no tiene un portfolio, redirigir a editar.php
+                header("Location: editar.php");
+            }
             exit();
         } else {
             // Si la contraseña es incorrecta

@@ -129,7 +129,6 @@ if ($registro_exitoso) {
 </head>
 
 <body>
-    <!--
     <nav class="grid navbar">
         <a href="#inicio-index">Inicio</a>
         <a href="">Galería</a>
@@ -137,12 +136,11 @@ if ($registro_exitoso) {
         <a href=""></a>
         <a href="">Favoritos</a>
     </nav>
-    -->
     <div class="container">
         <form action="#" method="POST">
             <!-- Sección de Presentación personal -->
             <div class="form-section">
-                <h2>Presentación Personal</h2>
+                <h2>INFORMACIÓN</h2>
                 <div class="personal-info">
                     <label for="nombre">Nombre:</label>
                     <input type="text" id="nombre" name="nombre" required>
