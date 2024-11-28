@@ -79,7 +79,7 @@ try {
                     target="_blank"><?php echo htmlspecialchars($portfolio['enlaces']); ?></a></p>
             <p><strong>Blog:</strong> <a href="<?php echo htmlspecialchars($portfolio['blog']); ?>"
                     target="_blank"><?php echo htmlspecialchars($portfolio['blog']); ?></a></p>
-
+            <hr>
             <h2>Trabajos Registrados</h2>
             <?php
             if (count($portfolio_data) > 0) {
