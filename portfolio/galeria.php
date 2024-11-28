@@ -48,6 +48,8 @@ $result = $conn->query($query);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolios</title>
+    <!--Favicon-->
+    <link rel="shortcut icon" href="https://yt3.googleusercontent.com/6020N5e12escaooFy55JlqTYGp43y_0G1c9nfVkfPVjr9-W9iIqgm4L6TKOzDl1bhtF6WH1J=s900-c-k-c0x00ffffff-no-rj" type="image/x-icon">
     <!--Archivos css-->
     <link rel="stylesheet" href="./css_pages/css_galeria.css">
     <link rel="stylesheet" href="./css_linkedPages/css_navbarGeneral.css">
@@ -60,7 +62,7 @@ $result = $conn->query($query);
         <a href="./registro.php">Registrarse</a>
         <a href=""></a>
         <a href="./galeria.php">Galería</a>
-        <a href="">Favoritos</a>
+        <a href="./favorites.php">Favoritos</a>
     </nav>
     <div class="container-gallery">
         <h1 class="title-welcome">¡Bienvenido a los Portfolios</h1>

@@ -47,6 +47,9 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Completado</title>
+    <!--Favicon-->
+    <link rel="shortcut icon" href="https://yt3.googleusercontent.com/6020N5e12escaooFy55JlqTYGp43y_0G1c9nfVkfPVjr9-W9iIqgm4L6TKOzDl1bhtF6WH1J=s900-c-k-c0x00ffffff-no-rj" type="image/x-icon">
+    <!--Archivos css-->
     <link rel="stylesheet" href="./css_pages/css_portfolioContent.css">
     <link rel="stylesheet" href="./css_linkedPages/css_navbarGeneral.css">
 </head>
