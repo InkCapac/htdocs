@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <a href="./index.php">Inicio</a>
         <a href="./registro.php">Registrarse</a>
         <a href=""></a>
-        <a href="">Galería</a>
+        <a href="galeria.php">Galería</a>
         <a href="">Favoritos</a>
     </nav>
     <div class="form-container">

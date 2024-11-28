@@ -12,16 +12,19 @@ $bbdd = "proyect";
 $conn = new Conectar($servidor, $usuario, $contrasena, $bbdd);
 $error_message = ''; 
 
-// Verificar si la sesión ya está iniciada
-if (isset($_SESSION['user_id'])) {
+// Verificar si la sesión ya está iniciada y que no estamos en la página de la galería
+if (isset($_SESSION['user_id']) && basename($_SERVER['PHP_SELF']) !== 'galeria.php') {
+    // Si el usuario ya está logueado, redirigirlo al portfolio
     $user_id = $_SESSION['user_id'];
     $consulta = "SELECT * FROM usuarios WHERE id = ?";
     $usuarios = $conn->recibir_datos($consulta, 'i', [$user_id]);
 
     if ($usuarios && !empty($usuarios)) {
+        // Redirigir a portfolioContent.php si el usuario existe
         header("Location: portfolioContent.php?id=$user_id");
         exit();
     } else {
+        // Si el usuario no existe o la sesión ha caducado, cerrar sesión
         session_unset();
         session_destroy();
         $error_message = "Tu sesión ha caducado o el usuario no existe.";
@@ -39,15 +42,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($usuarios) {
         $user = $usuarios[0];
         if (password_verify($password, $user['password'])) {
+            // Guardar datos de usuario en sesión
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['user_email'] = $user['email'];
 
+            // Redirigir al portfolio del usuario
             header("Location: portfolioContent.php?id=" . $user['id']);
             exit();
         } else {
+            // Si la contraseña es incorrecta
             $error_message = "Contraseña incorrecta.";
         }
     } else {
+        // Si el usuario no existe
         $error_message = "Usuario no encontrado.";
     }
 }
@@ -56,14 +63,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 if (!empty($error_message)) {
     echo $error_message;
 }
-
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar sesión - Portfolio</title>
+    <link rel="shortcut icon" href="https://yt3.googleusercontent.com/6020N5e12escaooFy55JlqTYGp43y_0G1c9nfVkfPVjr9-W9iIqgm4L6TKOzDl1bhtF6WH1J=s900-c-k-c0x00ffffff-no-rj" type="image/x-icon">
     <!--Archivos css-->
     <link rel="stylesheet" href="./css_pages/css_indexPage.css">
     <link rel="stylesheet" href="./css_linkedPages/css_navbarGeneral.css">
@@ -76,7 +84,7 @@ if (!empty($error_message)) {
         <a href="#inicio-index">Inicio</a>
         <a href="./registro.php">Registrarse</a>
         <a href=""></a>
-        <a href="">Galería</a>
+        <a href="./galeria.php">Galería</a>
         <a href="">Favoritos</a>
     </nav>
     <!-- Galería de imágenes -->

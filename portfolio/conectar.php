@@ -8,8 +8,9 @@ class Conectar
     private $conn;
 
     // Constructor para la conexión
-    public function __construct($host, $user, $password, $db)
+    public function __construct($host = 'localhost', $user = 'root', $password = '', $db = 'proyect')
     {
+        // Asignamos los valores pasados al constructor
         $this->host = $host;
         $this->user = $user;
         $this->password = $password;
@@ -27,7 +28,7 @@ class Conectar
 
             // Verificar si hubo error en la conexión
             if ($this->conn->connect_error) {
-                throw new Exception("Conexión fallida: " . $this->conn->connect_error);
+                throw new Exception("Conexión fallida: " . $this->conn->connect_error, $this->conn->connect_errno);
             }
 
             // Establecer el conjunto de caracteres
@@ -35,6 +36,7 @@ class Conectar
         }
         return $this->conn;
     }
+
     // Método para ejecutar consultas y devolver los resultados
     public function recibir_datos($consulta, $tipos = '', $parametros = [])
     {
@@ -89,6 +91,7 @@ class Conectar
     {
         if ($this->conn) {
             $this->conn->close();
+            $this->conn = null; // Aseguramos que la conexión se cierre solo una vez
         }
     }
 }

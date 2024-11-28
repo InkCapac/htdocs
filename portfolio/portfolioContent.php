@@ -48,9 +48,18 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Completado</title>
     <link rel="stylesheet" href="./css_pages/css_portfolioContent.css">
+    <link rel="stylesheet" href="./css_linkedPages/css_navbarGeneral.css">
 </head>
 
 <body>
+    <!--Barra de navegación-->
+    <nav class="grid navbar">
+        <a href="#inicio-index">Inicio</a>
+        <a href="./registro.php">Registrarse</a>
+        <a href=""></a>
+        <a href="./galeria.php">Galería</a>
+        <a href="">Favoritos</a>
+    </nav>
     <div class="container">
         <h1>¡Gracias por registrarte, <?php echo htmlspecialchars($portfolio['nombre']); ?>!</h1>
         <p>Detalles del portfolio:</p>
@@ -96,6 +105,7 @@ try {
         <a style="font-size: xx-large; cursor:pointer" href="logout.php">Cerrar sesión</a>
         </form>
     </div>
+    <script src="./js_linkedPages/js_navbarGeneral.js"></script>
 </body>
 
 </html>
