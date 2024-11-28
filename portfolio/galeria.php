@@ -87,7 +87,7 @@ $result = $conn->query($query);
                 echo "<p><strong>Estudios:</strong> " . htmlspecialchars($portfolio['estudios']) . "</p>";
                 echo "<p><strong>Teléfono:</strong> " . htmlspecialchars($portfolio['telefono']) . "</p>";
                 echo '<p><strong>Enlaces:</strong> <a class="url-color" href="' . htmlspecialchars($portfolio['enlaces'], ENT_QUOTES, 'UTF-8') . '" target="_blank">' . htmlspecialchars($portfolio['enlaces'], ENT_QUOTES, 'UTF-8') . '</a></p>';
-                echo "<p><strong>Blog:</strong> <a href='" . htmlspecialchars($portfolio['blog']) . "' target='_blank'>" . htmlspecialchars($portfolio['blog']) . "</a></p>";
+                echo '<p><strong>Blog:</strong> <a class="url-color" href="' . htmlspecialchars($portfolio['blog'], ENT_QUOTES, 'UTF-8') . '" target="_blank">' . htmlspecialchars($portfolio['blog'], ENT_QUOTES, 'UTF-8') . '</a></p>';
                 echo "<hr>";
                 
         

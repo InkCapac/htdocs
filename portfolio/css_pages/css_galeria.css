@@ -97,6 +97,6 @@ a.url-color:hover{
     color: var(--verdeAzulado);
 }
 .separate-line {
-    border: 1px solid var(--snow);
+    border: solid var(--snow);
     margin: 30px 0;
 }

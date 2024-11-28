@@ -68,7 +68,7 @@ try {
         <p>Detalles del portfolio:</p>
 
         <div class="form-section">
-            <h2>Información Personal</h2>
+            <h2>INFORMACIÓN</h2>
             <p><strong>ID Usuario:</strong> <?php echo htmlspecialchars($portfolio['id_usuario']); ?></p>
             <p><strong>Biografía:</strong> <?php echo htmlspecialchars($portfolio['biografia']); ?></p>
             <p><strong>Habilidades:</strong> <?php echo htmlspecialchars($portfolio['habilidades']); ?></p>
@@ -79,9 +79,7 @@ try {
                     target="_blank"><?php echo htmlspecialchars($portfolio['enlaces']); ?></a></p>
             <p><strong>Blog:</strong> <a href="<?php echo htmlspecialchars($portfolio['blog']); ?>"
                     target="_blank"><?php echo htmlspecialchars($portfolio['blog']); ?></a></p>
-        </div>
 
-        <div class="form-section">
             <h2>Trabajos Registrados</h2>
             <?php
             if (count($portfolio_data) > 0) {
@@ -90,16 +88,13 @@ try {
                         echo "<p><strong>Trabajo:</strong> " . htmlspecialchars($trabajo['trabajo']) . "</p>";
                         echo "<p><strong>Fecha de Inicio:</strong> " . htmlspecialchars($trabajo['fecha_inicio']) . "</p>";
                         echo "<p><strong>Fecha de Fin:</strong> " . htmlspecialchars($trabajo['fecha_fin']) . "</p>";
-                        echo "<hr>";
                     }
                 }
             } else {
                 echo "<p>No se encontraron trabajos registrados.</p>";
             }
             ?>
-        </div>
-
-        <div class="form-section">
+            <hr>
             <h2>Testimonio</h2>
             <p><?php echo htmlspecialchars($portfolio['testimonio']); ?></p>
         </div>
@@ -108,6 +103,7 @@ try {
         <a style="font-size: xx-large; cursor:pointer" href="logout.php">Cerrar sesión</a>
         </form>
     </div>
+    <!--Archivos js-->
     <script src="./js_linkedPages/js_navbarGeneral.js"></script>
 </body>
 
