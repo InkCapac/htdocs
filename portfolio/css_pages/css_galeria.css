@@ -8,46 +8,95 @@
     --naranja: rgb(255, 150, 0);
     --snow: snow;
 }
+
 body {
     font-family: "Source Code Pro", monospace;
     margin: 0;
     padding: 0;
     background-color: var(--black);
 }
-.title-welcome{
+
+.title-welcome {
     color: var(--snow);
 }
-.p-show{
+
+.p-show {
     color: var(--snow);
 }
-.port-folio{
+
+.portfolio-item {
+    font-size: larger;
+
+}
+
+.port-folio {
     font-style: italic;
     font-size: x-large;
     color: var(--snow);
+    margin: 20px;
 }
-.info-user{
+
+.info-user {
     text-align: center;
-    font-size: x-large;
+    font-size: xx-large;
+    margin: 10px;
 }
-.portfolio-owner{
+
+.portfolio-owner {
     color: var(--snow);
 }
+
 .container-gallery {
     width: 80%;
     margin: 0 auto;
     padding-top: 20px;
 }
+
 .form-section {
     background-color: var(--snow);
     padding: 20px;
     margin-bottom: 20px;
-    border-radius: 8px;
+    /*Ancho del borde*/
+    border: 4px;
+    border-style: dashed;
+    border-color: var(--morado);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: background-color ease 0.3s, color ease 0.3s;
 }
+
+.form-section:hover {
+    background-color: var(--morado);
+    color: var(--snow);
+    border-color: var(--snow);
+}
+
 h2 {
     color: var(--black);
     text-align: center;
 }
-p, label {
+
+p,
+label {
     margin: 10px 0;
+}
+
+.favourite {
+    margin-left: 45%;
+    font-size: large;
+    cursor: pointer;
+    background-color: var(--snow);
+    color: var(--black);
+    transition: background-color ease 0.3s, color ease 0.3s;
+}
+
+.favourite:hover {
+    background-color: var(--naranja);
+    color: var(--snow);
+}
+a.url-color:hover{
+    color: var(--verdeAzulado);
+}
+.separate-line {
+    border: 1px solid var(--snow);
+    margin: 30px 0;
 }

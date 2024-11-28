@@ -73,26 +73,26 @@ $result = $conn->query($query);
         if (mysqli_num_rows($result) > 0) {
             // Mostrar cada portfolio de la base de datos
             while ($portfolio = mysqli_fetch_assoc($result)) {
-                echo "<div class='portfolio-item'>"; // Añadí clase para cada portfolio
+                // Añadí clase para cada portfolio
+                echo "<div class='portfolio-item'>"; 
                 // Mostrar mensaje de bienvenida con el nombre del usuario
                 echo "<h2>" . '' . "</h2>";
                 echo "<p class=port-folio><strong>Portfolio de:</strong> " . htmlspecialchars($portfolio['nombre'] . ' ' . $portfolio['apellido1']) . ' ' . $portfolio['apellido2'] . "</p>";
-
-
                 // Información personal
                 echo "<div class='form-section'>";
-                echo "<h3 class='info-user'>CONTENIDO</h3>";
-                echo "<p><strong>ID Usuario:</strong> " . htmlspecialchars($portfolio['id_usuario']) . "</p>";
+                echo "<h3 class='info-user'>INFORMACIÓN</h3>";
+                /* echo "<p><strong>ID Usuario:</strong> " . htmlspecialchars($portfolio['id_usuario']) . "</p>"; */
                 echo "<p><strong>Habilidades:</strong> " . htmlspecialchars($portfolio['habilidades']) . "</p>";
                 echo "<p><strong>Experiencia:</strong> " . htmlspecialchars($portfolio['experiencia']) . "</p>";
                 echo "<p><strong>Estudios:</strong> " . htmlspecialchars($portfolio['estudios']) . "</p>";
                 echo "<p><strong>Teléfono:</strong> " . htmlspecialchars($portfolio['telefono']) . "</p>";
-                echo "<p><strong>Enlaces:</strong> <a href='" . htmlspecialchars($portfolio['enlaces']) . "' target='_blank'>" . htmlspecialchars($portfolio['enlaces']) . "</a></p>";
+                echo '<p><strong>Enlaces:</strong> <a class="url-color" href="' . htmlspecialchars($portfolio['enlaces'], ENT_QUOTES, 'UTF-8') . '" target="_blank">' . htmlspecialchars($portfolio['enlaces'], ENT_QUOTES, 'UTF-8') . '</a></p>';
                 echo "<p><strong>Blog:</strong> <a href='" . htmlspecialchars($portfolio['blog']) . "' target='_blank'>" . htmlspecialchars($portfolio['blog']) . "</a></p>";
-                echo "</div>"; // Cierra el div de Información Personal
+                echo "<hr>";
+                
         
                 // Trabajos registrados
-                echo "<div class='form-section'>";
+                /*echo "<div class='form-section'>";*/
                 echo "<h3>Trabajos Registrados</h3>";
 
                 // Obtener los trabajos de este portfolio
@@ -112,10 +112,10 @@ $result = $conn->query($query);
                 } else {
                     echo "<p>No se encontraron trabajos registrados.</p>";
                 }
-                echo "</div>";
+                /*echo "</div>";*/
         
                 // Testimonio
-                echo "<div class='form-section'>";
+                /*echo "<div class='form-section'>";*/
                 echo "<h3>Testimonio</h3>";
                 echo "<p>" . htmlspecialchars($portfolio['testimonio']) . "</p>";
                 echo "</div>";
@@ -123,10 +123,14 @@ $result = $conn->query($query);
                 // Botón de Añadir a favoritos
                 echo "<form method='post'>";
                 echo "<input type='hidden' name='id_portfolio' value='" . $portfolio['id'] . "'>";
-                echo "<button class='' type='submit' name='add_favorite'>Añadir a Favoritos</button>";
+                echo "<button class='favourite' type='submit' name='add_favorite'>Añadir a Favoritos</button>";
                 echo "</form>";
 
+                /*echo "</div>";*/
+
+                // Cierra el div de Información Personal
                 echo "</div>";
+                echo "<hr class=\"separate-line\">";
             }
         } else {
             echo "<p>No se encontraron portfolios registrados.</p>";
