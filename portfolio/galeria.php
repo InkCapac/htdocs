@@ -136,7 +136,7 @@ $result = $conn->query($query);
             echo "<p>No se encontraron portfolios registrados.</p>";
         }
         ?>
-            <button class="log-out" type="submit">Cerrar Sesión</button>
+        <button class="log-out" type="button" onclick="window.location.href='logout.php'">Cerrar Sesión</button>
     </div>
 </body>
 
