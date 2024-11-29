@@ -42,7 +42,6 @@ if ($result->num_rows === 0) {
 
 $portfolio = $result->fetch_assoc();
 
-// Procesar el formulario si se envía
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Recoger los datos del formulario y asegurarse de escapar los valores
     $nombre = htmlspecialchars($_POST['nombre'] ?? '', ENT_QUOTES, 'UTF-8');
@@ -52,15 +51,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $habilidades = htmlspecialchars($_POST['habilidades'] ?? '', ENT_QUOTES, 'UTF-8');
     $experiencia = htmlspecialchars($_POST['experiencia'] ?? '', ENT_QUOTES, 'UTF-8');
     $estudios = htmlspecialchars($_POST['estudios'] ?? '', ENT_QUOTES, 'UTF-8');
-    $categoria = htmlspecialchars($_POST['categoria'] ?? '', ENT_QUOTES, 'UTF-8');
-    $testimonio = htmlspecialchars($_POST['testimonio'] ?? '', ENT_QUOTES, 'UTF-8');
     $telefono = htmlspecialchars($_POST['telefono'] ?? '', ENT_QUOTES, 'UTF-8');
     $enlaces = htmlspecialchars($_POST['enlaces'] ?? '', ENT_QUOTES, 'UTF-8');
     $blog = htmlspecialchars($_POST['blog'] ?? '', ENT_QUOTES, 'UTF-8');
+    // Actualizar los datos en la tabla portfolios
+    $stmt_update = $conn->prepare("UPDATE portfolios SET nombre = ?, apellido1 = ?, apellido2 = ?, biografia = ?, habilidades = ?, experiencia = ?, estudios = ?, telefono = ?, enlaces = ?, blog = ?, fecha_inicio = ?, fecha_fin = ? WHERE id = ? AND id_usuario = ?");
+    $stmt_update->bind_param("ssssssssssssi", $nombre, $apellido1, $apellido2, $biografia, $habilidades, $experiencia, $estudios, $telefono, $enlaces, $blog);
+    // Nuevas fechas
+    $fecha_inicio = htmlspecialchars($_POST['fecha_inicio'] ?? '', ENT_QUOTES, 'UTF-8');
+    $fecha_fin = htmlspecialchars($_POST['fecha_fin'] ?? '', ENT_QUOTES, 'UTF-8');
 
-    // Actualizar datos en la tabla portfolios
-    $stmt_update = $conn->prepare("UPDATE portfolios SET nombre = ?, apellido1 = ?, apellido2 = ?, biografia = ?, habilidades = ?, experiencia = ?, estudios = ?, categoria = ?, testimonio = ?, telefono = ?, enlaces = ?, blog = ? WHERE id = ? AND id_usuario = ?");
-    $stmt_update->bind_param("ssssssssssssi", $nombre, $apellido1, $apellido2, $biografia, $habilidades, $experiencia, $estudios, $categoria, $testimonio, $telefono, $enlaces, $blog, $portfolio_id, $user_id);
+
 
     if ($stmt_update->execute()) {
         header("Location: portfolioContent.php?id=$portfolio_id", true, 302);  // Redirige si la actualización es exitosa
@@ -89,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
-<nav class="grid navbar">
+    <nav class="grid navbar">
         <a href="./index.php">Inicio</a>
         <a href="./registro.php">Registrarse</a>
         <img src="" alt="" srcset="">
@@ -99,38 +100,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="edit-container">
         <form action="" method="POST">
             <div class="form-section">
-            <h2>Editar Portafolio</h2>
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" value="<?= htmlspecialchars($portfolio['nombre'], ENT_QUOTES, 'UTF-8') ?>" required>
-            
-            <label for="apellido1">Primer apellido:</label>
-            <input type="text" id="apellido1" name="apellido1" value="<?= htmlspecialchars($portfolio['apellido1'], ENT_QUOTES, 'UTF-8') ?>" required>
-            
-            <label for="apellido2">Segundo apellido:</label>
-            <input type="text" id="apellido2" name="apellido2" value="<?= htmlspecialchars($portfolio['apellido2'], ENT_QUOTES, 'UTF-8') ?>" required>
-            
-            <label for="biografia">Biografía:</label>
-            <textarea id="biografia" name="biografia" rows="4"><?= htmlspecialchars($portfolio['biografia'], ENT_QUOTES, 'UTF-8') ?></textarea>
-            
-            <label for="habilidades">Habilidades:</label>
-            <input type="text" id="habilidades" name="habilidades" value="<?= htmlspecialchars($portfolio['habilidades'], ENT_QUOTES, 'UTF-8') ?>">
-            
-            <label for="experiencia">Experiencia:</label>
-            <textarea id="experiencia" name="experiencia" rows="4"><?= htmlspecialchars($portfolio['experiencia'], ENT_QUOTES, 'UTF-8') ?></textarea>
-            
-            <label for="estudios">Estudios:</label>
-            <input type="text" id="estudios" name="estudios" value="<?= htmlspecialchars($portfolio['estudios'], ENT_QUOTES, 'UTF-8') ?>">
-            
-            <label for="telefono">Teléfono:</label>
-            <input type="text" id="telefono" name="telefono" value="<?= htmlspecialchars($portfolio['telefono'], ENT_QUOTES, 'UTF-8') ?>" required>
-            
-            <label for="enlaces">Enlaces:</label>
-            <input type="url" id="enlaces" name="enlaces" value="<?= htmlspecialchars($portfolio['enlaces'], ENT_QUOTES, 'UTF-8') ?>">
-            
-            <label for="blog">Blog:</label>
-            <input type="url" id="blog" name="blog" value="<?= htmlspecialchars($portfolio['blog'], ENT_QUOTES, 'UTF-8') ?>">
-            
-            <button type="submit">Guardar Cambios</button>
+                <h2>Editar Portafolio</h2>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" value="<?= htmlspecialchars($portfolio['nombre'], ENT_QUOTES, 'UTF-8') ?>" required>
+
+                <label for="apellido1">Primer apellido:</label>
+                <input type="text" id="apellido1" name="apellido1" value="<?= htmlspecialchars($portfolio['apellido1'], ENT_QUOTES, 'UTF-8') ?>" required>
+
+                <label for="apellido2">Segundo apellido:</label>
+                <input type="text" id="apellido2" name="apellido2" value="<?= htmlspecialchars($portfolio['apellido2'], ENT_QUOTES, 'UTF-8') ?>" required>
+
+                <label for="biografia">Biografía:</label>
+                <textarea id="biografia" name="biografia" rows="4"><?= htmlspecialchars($portfolio['biografia'], ENT_QUOTES, 'UTF-8') ?></textarea>
+
+                <label for="habilidades">Habilidades:</label>
+                <input type="text" id="habilidades" name="habilidades" value="<?= htmlspecialchars($portfolio['habilidades'], ENT_QUOTES, 'UTF-8') ?>">
+
+                <label for="experiencia">Experiencia:</label>
+                <textarea id="experiencia" name="experiencia" rows="4"><?= htmlspecialchars($portfolio['experiencia'], ENT_QUOTES, 'UTF-8') ?></textarea>
+
+                <label for="estudios">Estudios:</label>
+                <input type="text" id="estudios" name="estudios" value="<?= htmlspecialchars($portfolio['estudios'], ENT_QUOTES, 'UTF-8') ?>">
+
+                <label for="telefono">Teléfono:</label>
+                <input type="text" id="telefono" name="telefono" value="<?= htmlspecialchars($portfolio['telefono'], ENT_QUOTES, 'UTF-8') ?>" required>
+
+                <label for="enlaces">Enlaces:</label>
+                <input type="url" id="enlaces" name="enlaces" value="<?= htmlspecialchars($portfolio['enlaces'], ENT_QUOTES, 'UTF-8') ?>">
+
+                <label for="blog">Blog:</label>
+                <input type="url" id="blog" name="blog" value="<?= htmlspecialchars($portfolio['blog'], ENT_QUOTES, 'UTF-8') ?>">
+
+                <!-- Nuevos campos de fecha -->
+                <label for="fecha_inicio">Fecha de inicio:</label>
+                <input type="date" id="fecha_inicio" name="fecha_inicio" value="<?= htmlspecialchars($trabajo['fecha_inicio'], ENT_QUOTES, 'UTF-8') ?>">
+
+                <label for="fecha_fin">Fecha de finalización:</label>
+                <input type="date" id="fecha_fin" name="fecha_fin" value="<?= htmlspecialchars($trabajo['fecha_fin'], ENT_QUOTES, 'UTF-8') ?>">
+
+                <button type="submit">Guardar Cambios</button>
             </div>
         </form>
     </div>

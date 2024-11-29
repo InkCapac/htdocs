@@ -45,56 +45,6 @@ $user = $result->fetch_assoc();
 
 // Variable para verificar el éxito del registro
 $registro_exitoso = false;
-// Procesar la subida de la imagen
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Verificar si se ha subido una imagen
-    if (isset($_FILES['foto_perfil']) && $_FILES['foto_perfil']['error'] == 0) {
-        // Obtener información de la imagen subida
-        $imagen = $_FILES['foto_perfil'];
-        $nombre_imagen = $imagen['name'];
-        $tipo_imagen = $imagen['type'];
-        $ruta_imagen_temporal = $imagen['tmp_name'];
-
-        // Verificar que la imagen sea de un tipo permitido (JPEG o PNG)
-        if ($tipo_imagen == 'image/jpeg' || $tipo_imagen == 'image/png') {
-            // Crear una imagen desde el archivo subido
-            if ($tipo_imagen == 'image/jpeg') {
-                $img = imagecreatefromjpeg($ruta_imagen_temporal);
-            } elseif ($tipo_imagen == 'image/png') {
-                $img = imagecreatefrompng($ruta_imagen_temporal);
-            }
-
-            // Redimensionar la imagen (por ejemplo, 150x150 px)
-            $ancho_nuevo = 150;
-            $alto_nuevo = 150;
-            $img_redimensionada = imagecreatetruecolor($ancho_nuevo, $alto_nuevo);
-            imagecopyresampled($img_redimensionada, $img, 0, 0, 0, 0, $ancho_nuevo, $alto_nuevo, imagesx($img), imagesy($img));
-
-            // Definir la ruta donde se guardará la imagen
-            $directorio_destino = './imagenes_perfil'; // Ajusta esta ruta a tu carpeta de imágenes
-            $nombre_archivo_destino = uniqid('perfil_', true) . '.jpg'; // Generar un nombre único para la imagen
-
-            // Guardar la imagen redimensionada en el servidor
-            imagejpeg($img_redimensionada, $directorio_destino . $nombre_archivo_destino, 90); // 90 es la calidad de la imagen
-
-            // Liberar la memoria
-            imagedestroy($img);
-            imagedestroy($img_redimensionada);
-
-            // Aquí se guarda el nombre de la imagen en la tabla `portfolios` (suponiendo que ya tienes el id_usuario)
-            // Ejemplo: $id_usuario es el ID del usuario actual
-
-            $id_usuario = 1; // Obtén el ID del usuario de sesión o de alguna otra fuente
-            $stmt = $conn->prepare("UPDATE portfolios SET imagen_perfil = ? WHERE id_usuario = ?");
-            $stmt->bind_param("si", $nombre_archivo_destino, $id_usuario);
-            $stmt->execute();
-        } else {
-            echo "Solo se permiten imágenes en formato JPEG o PNG.";
-        }
-    }
-
-    // Aquí sigue el resto del procesamiento del formulario
-}
 // Procesar el formulario solo si se envía
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nombre = htmlspecialchars($_POST['nombre'] ?? '', ENT_QUOTES, 'UTF-8');
@@ -253,7 +203,10 @@ if ($registro_exitoso) {
         </form>
 
     </div>
-    <a style="font-size: xx-large; cursor:pointer" href="logout.php">Cerrar sesión</a>
+    <!-- Botón de Cerrar sesión -->
+    <div class="button-container">
+            <button class="log-out" type="button" onclick="window.location.href='logout.php'">Cerrar Sesión</button>
+        </div>
     <!-- ARCHIVOS JavaScript-->
 
     <script src="./js_linkedPages/js_trabajosContent.js"></script>
