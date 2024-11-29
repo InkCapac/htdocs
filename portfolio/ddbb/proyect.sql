@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-11-2024 a las 23:58:49
+-- Tiempo de generación: 29-11-2024 a las 13:09:20
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -33,6 +33,15 @@ CREATE TABLE `favoritos` (
   `id_portfolio` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `favoritos`
+--
+
+INSERT INTO `favoritos` (`id`, `id_usuario`, `id_portfolio`) VALUES
+(1, 1, 1),
+(2, 2, 1),
+(3, 1, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -53,17 +62,17 @@ CREATE TABLE `portfolios` (
   `testimonio` text DEFAULT NULL,
   `telefono` varchar(20) DEFAULT NULL,
   `enlaces` text DEFAULT NULL,
-  `blog` text DEFAULT NULL
+  `blog` text DEFAULT NULL,
+  `imagen_perfil` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `portfolios`
 --
 
-INSERT INTO `portfolios` (`id`, `id_usuario`, `nombre`, `apellido1`, `apellido2`, `biografia`, `habilidades`, `experiencia`, `estudios`, `categoria`, `testimonio`, `telefono`, `enlaces`, `blog`) VALUES
-(1, 1, 'Marco', 'Denegri', 'López', 'Erudito', 'HTML', 'Trabajé en la tele.', 'PUCP', '', 'Dicen que soy MAD.', '1234567891', 'https://es.linkedin.com/', 'https://www.climaterealityproject.org/blog'),
-(2, 2, 'Tony', 'Montana', 'Esmeralda', 'Hey chico.', 'HTML', 'No quieres saber.', 'UNMSM', '', 'Nada que agregar.', '9876543219', 'https://es.linkedin.com/', 'https://www.climaterealityproject.org/blog'),
-(3, 2, 'Tony', 'Montana', 'Esmeralda', 'Hey chico.', 'HTML', 'No quieres saber.', 'UNMSM', '', 'Nada que agregar.', '9876543219', 'https://es.linkedin.com/', 'https://www.climaterealityproject.org/blog');
+INSERT INTO `portfolios` (`id`, `id_usuario`, `nombre`, `apellido1`, `apellido2`, `biografia`, `habilidades`, `experiencia`, `estudios`, `categoria`, `testimonio`, `telefono`, `enlaces`, `blog`, `imagen_perfil`) VALUES
+(1, 1, 'Don', 'Corleone', 'Salvatore', 'AA', 'HTML, JavaScript', 'BB', 'Economía y Finanzas', '', 'DD', '9876543219', 'https://www.linkedin.com/jobs/search/?currentJobId=4065579350&amp;geoId=106693272&amp;origin=JOB_SEARCH_PAGE_LOCATION_AUTOCOMPLETE&amp;refresh=true', 'https://www.businessblogshub.com/', NULL),
+(2, 2, 'Carl', 'Johnson', 'CJ', 'Straight outta Comptom!', 'HTML, JavaScript', 'I made millions of dollars.', 'Entreprenourship', '', 'No witness', '6969697771', 'https://www.linkedin.com/jobs/search/?currentJobId=4065579350&amp;geoId=106693272&amp;origin=JOB_SEARCH_PAGE_LOCATION_AUTOCOMPLETE&amp;refresh=true', 'https://www.businessblogshub.com/', NULL);
 
 -- --------------------------------------------------------
 
@@ -85,9 +94,8 @@ CREATE TABLE `trabajos` (
 --
 
 INSERT INTO `trabajos` (`id`, `id_portfolio`, `trabajo`, `fecha_inicio`, `fecha_fin`, `id_usuario`) VALUES
-(1, 1, 'Entrevistador', '2024-11-25', '2024-12-01', 1),
-(2, 2, 'Camionero', '2024-11-25', '2024-12-01', 2),
-(3, 3, 'Camionero', '2024-11-25', '2024-12-01', 2);
+(1, 1, 'Empresario', '2024-11-25', '2024-12-01', 1),
+(2, 2, 'Businessman', '2024-11-25', '2024-12-01', 2);
 
 -- --------------------------------------------------------
 
@@ -107,8 +115,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `email`, `password`) VALUES
-(1, NULL, 'aurelio@gmail.com', '$2y$10$3kfbU58HPvwOFZOXILnrHOLnyg5mbQtQGvgU3dBdr9NTQ1FYsyOZy'),
-(2, NULL, 'montana@gmail.com', '$2y$10$Oa0osQoA9h2a3HbHX8kYYuujNLLvs6V7Lq6gTcblSYIf6/JT7Sx2K');
+(1, NULL, 'corleone@gmail.com', '$2y$10$RbBYnKX2LNiV7npD1LBhKeE/QkKuiOF908xl8IK94olcHUO5mgipK'),
+(2, NULL, 'johnson@gmail.com', '$2y$10$Y4TpPidmh8p7hZXtooIVAeUHpvXpx0pT7sjq8PwkZtPDmVMow9mua');
 
 --
 -- Índices para tablas volcadas
@@ -152,19 +160,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `favoritos`
 --
 ALTER TABLE `favoritos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `portfolios`
 --
 ALTER TABLE `portfolios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `trabajos`
 --
 ALTER TABLE `trabajos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
