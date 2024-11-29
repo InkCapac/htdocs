@@ -14,7 +14,14 @@
 html {
     scroll-behavior: smooth;
 }
-
+.success-register{
+        background-color: var(--morado);
+        color: var(--snow);
+        padding: 15px;
+        margin: 20px;
+        border-radius: 5px;
+        text-align: center;    
+}
 .navbar {
     position: fixed;
     overflow: hidden;
@@ -71,7 +78,7 @@ html {
     cursor: default;
     pointer-events: none;
 }
-
+/*Apartado de los botones 'cerrar sesión' y 'editar sesión'*/
 .log-out{
     background-color: var(--morado);
     color: var(--snow);
@@ -86,9 +93,6 @@ html {
 .log-out:hover{
     background-color: var(--naranja);
 }
-
-
-
 /*Estilos del footer y sus contenidos*/
 footer {
     text-align: center;

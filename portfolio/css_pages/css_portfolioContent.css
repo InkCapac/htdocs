@@ -25,8 +25,7 @@ body {
     margin: 0 auto;
     padding-top: 20px;
 }
-h2{
-    font-size: xx-large;
+.title-info{
     text-align: center;
     margin: 10px;
 }

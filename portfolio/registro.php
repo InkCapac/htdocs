@@ -24,20 +24,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->execute();
     $result = $stmt->get_result();
 
-    // Si el correo ya está registrado, mostrar un mensaje de error
-    if ($result->num_rows > 0) {
-        $error_message = "El correo ya está registrado.";
-    } else {
-        // Si no existe, insertar el nuevo usuario
+    // Si el correo no está registrado, insertar el nuevo usuario
+    if ($result->num_rows == 0) {
+        // Insertar el nuevo usuario
         $stmt = $conn->prepare("INSERT INTO usuarios (email, password) VALUES (?, ?)");
         $stmt->bind_param("ss", $email, $hashed_password);
+        
         if ($stmt->execute()) {
-            // Redirigir al usuario al login si el registro es exitoso
+            // Obtener el ID del nuevo usuario insertado
+            $user_id = $stmt->insert_id;
+
+            // Guardar el mensaje de éxito en la sesión
+            $_SESSION['registro_exitoso'] = "Registro exitoso. Tu ID de usuario es: $user_id";
+
+            // Redirigir al usuario a index.php
             header("Location: index.php");
             exit();
         } else {
+            // Si hubo un error al registrar el usuario
             $error_message = "Error al registrar el usuario. Intente nuevamente.";
         }
+    } else {
+        // Si el correo ya está registrado
+        $error_message = "El correo ya está registrado.";
     }
 }
 ?>
@@ -59,27 +68,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <nav class="grid navbar">
         <a href="./index.php">Inicio</a>
         <a href="./registro.php">Registrarse</a>
-        <a href=""></a>
+        <img src="" alt="" srcset="">
         <a href="galeria.php">Galería</a>
-        <a href="">Favoritos</a>
+        <a href="favorites.php">Favoritos</a>
     </nav>
-    <div class="form-container">
-        <h1>Registro de Usuario</h1>
+    <div class="box-container">
+        <div class="form-container">
+            <h1>Registro de Usuario</h1>
 
-        <!-- Mostrar error si hay alguno -->
-        <?php if (isset($error_message)): ?>
-            <div class="error-message"><?= htmlspecialchars($error_message) ?></div>
-        <?php endif; ?>
+            <!-- Mostrar error si hay alguno -->
+            <?php if (isset($error_message)): ?>
+                <div class="error-message"><?= htmlspecialchars($error_message) ?></div>
+            <?php endif; ?>
 
-        <form action="registro.php" method="POST">
-            <label for="email">Correo Electrónico:</label>
-            <input type="email" id="email" name="email" required><br>
-            <label for="password">Contraseña:</label>
-            <input type="password" id="password" name="password" required><br>
-            <button type="submit">Registrar</button>
-        </form>
+            <form action="registro.php" method="POST">
+                <label style="font-size:larger; margin-left: 10px" for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" required><br>
+                <label style="font-size:larger; margin-left: 10px" for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required><br>
+                <button type="submit">Registrar</button>
+            </form>
 
-        <p>¿Ya tienes cuenta? <a href="index.php">Inicia sesión aquí</a></p>
+            <p>¿Ya tienes cuenta? <a href="index.php">Inicia sesión aquí</a></p>
+        </div>
     </div>
     <script src="./js_linkedPages/js_navbarGeneral.js"></script>
 </body>

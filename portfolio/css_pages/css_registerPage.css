@@ -13,10 +13,12 @@ body{
     background-color: var(--black);
     font-family: "Source Code Pro", monospace;
 }
+.box-container{
+    padding-top: 95px;
+}
 .form-container {
     max-width: 600px;
     margin: 50px auto;
-    padding: 20px;
     background-color: var(--snow);
     border-style: dashed;
     border-color: var(--morado);
@@ -56,6 +58,7 @@ body{
     background-color: var(--morado);
     color: var(--snow);
     padding: 14px 20px;
+    margin: 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;

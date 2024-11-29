@@ -1,0 +1,109 @@
+:root {
+    /* Los colores principales de la página */
+    --black: rgb(20, 20, 20);
+    --verdeAzulado: rgb(0, 255, 200);
+    --cian: rgb(0, 200, 255);
+    --azul: rgb(0, 100, 255);
+    --morado: rgb(150, 0, 255);
+    --rojoBrillante: rgb(255, 50, 0);
+    --naranja: rgb(255, 150, 0);
+    --snow: snow;
+}
+body {
+    font-family: "Source Code Pro", monospace;
+    margin: 0;
+    padding: 0;
+    background-color: var(--snow);
+}
+.edit-container {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 95px;
+}
+.form-section {
+    background-color: var(--snow);
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 4px;
+    border-color: var(--morado);
+    border-style: dashed;
+    transition: border-color ease 0.3s;
+}
+.form-section:hover{
+    border-color: var(--naranja);
+}
+/*Apartado de información personal*/
+.personal-info  {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.personal-info label{
+    width: 150px;
+}
+.personal-info input{
+    flex: 1;
+    max-width: 300px;
+}
+/*Apartado de experiencia laboral*/
+.jobs-info{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.time-date{
+    flex: 1;
+    max-width: 150px;
+}
+.field-group { 
+    /*display: flex;*/ 
+    /*flex-direction: column;*/ 
+    margin-right: 10px; /* Ajustar para el espacio entre grupos */ 
+} 
+.field-group label, .field-group input, .field-group textarea, .field-group select { 
+    margin-bottom: 5px; /* Espacio entre los elementos dentro de un grupo */ 
+}
+h2 {
+    color: var(--black);
+    text-align: center;
+    font-size: xx-large;
+    margin: 10px;
+}
+.form-section textarea{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    transition: border 0.3s;
+}
+.form-section textarea:focus {
+    border-color: var(--morado);
+    outline: none;
+}
+input{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    transition: border 0.3s;
+}
+input:focus{
+    border-color: var(--morado);
+    outline: none;
+}
+button {
+    font-family: "Source Code Pro", monospace;
+    padding: 10px 20px;
+    background-color: var(--morado);
+    color: var(--snow);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color ease 0.3s;
+}
+button:hover {
+    background-color: var(--naranja);
+}

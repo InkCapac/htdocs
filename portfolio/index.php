@@ -1,6 +1,14 @@
 <?php
 session_start();
 
+// Mostrar mensaje de registro exitoso si existe
+if (isset($_SESSION['registro_exitoso'])) {
+    echo '<div class="success-register">' . htmlspecialchars($_SESSION['registro_exitoso']) . '</div>';
+    unset($_SESSION['registro_exitoso']); // Eliminar el mensaje de la sesión después de mostrarlo
+}
+
+// El resto de tu código en index.php sigue igual...
+
 // Incluir archivo de conexión
 require 'conectar.php';
 
@@ -20,9 +28,9 @@ if (isset($_SESSION['user_id']) && basename($_SERVER['PHP_SELF']) !== 'galeria.p
     $usuarios = $conn->recibir_datos($consulta, 'i', [$user_id]);
 
     if ($usuarios && !empty($usuarios)) {
-        // Redirigir a portfolioContent.php si el usuario existe
+        // Si el usuario existe, redirigir a portfolioContent.php
         header("Location: portfolioContent.php?id=$user_id");
-        exit();
+        exit(); // Asegúrate de terminar la ejecución del script
     } else {
         // Si el usuario no existe o la sesión ha caducado, cerrar sesión
         session_unset();
@@ -30,34 +38,39 @@ if (isset($_SESSION['user_id']) && basename($_SERVER['PHP_SELF']) !== 'galeria.p
         $error_message = "Tu sesión ha caducado o el usuario no existe.";
     }
 }
+
 // Procesar el formulario de inicio de sesión
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
+    // Buscar al usuario por su correo electrónico
     $consulta = "SELECT * FROM usuarios WHERE email = ?";
     $usuarios = $conn->recibir_datos($consulta, 's', [$email]);
 
     if ($usuarios) {
         $user = $usuarios[0];
+
+        // Verificar si la contraseña es correcta
         if (password_verify($password, $user['password'])) {
             // Guardar datos de usuario en sesión
             $_SESSION['user_id'] = $user['id'];
-            $_SESSION['user_email'] = $user['email'];
-
-            // Verificar si el usuario ya tiene un portfolio
+            
+            // Verificar si el usuario tiene un portfolio
             $portfolio_query = "SELECT id FROM portfolios WHERE id_usuario = ?";
             $portfolio_data = $conn->recibir_datos($portfolio_query, 'i', [$user['id']]);
 
+
+            // Si el usuario tiene un portfolio, redirigir a portfolioContent.php
             if ($portfolio_data) {
-                // Si el usuario tiene un portfolio, redirigir a portfolioContent.php
                 $portfolio_id = $portfolio_data[0]['id'];
                 header("Location: portfolioContent.php?id=" . $portfolio_id);
+                exit(); // Asegúrate de terminar la ejecución después de la redirección
             } else {
                 // Si no tiene un portfolio, redirigir a editar.php
                 header("Location: editar.php");
+                exit();
             }
-            exit();
         } else {
             // Si la contraseña es incorrecta
             $error_message = "Contraseña incorrecta.";
@@ -70,10 +83,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 // Mostrar mensajes de error
 if (!empty($error_message)) {
-    echo $error_message;
+    echo '<div class="error-message">' . htmlspecialchars($error_message) . '</div>';
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>

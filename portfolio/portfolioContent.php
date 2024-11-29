@@ -12,7 +12,11 @@ try {
 
         // Consultar el portfolio y los trabajos relacionados
         $stmt = $conn->prepare("
-            SELECT p.id AS portfolio_id, p.id_usuario, p.nombre, p.apellido1, p.apellido2, p.biografia, p.habilidades, p.experiencia, p.estudios, p.categoria, p.testimonio, p.telefono, p.enlaces, p.blog, t.id AS trabajo_id, t.trabajo, t.fecha_inicio, t.fecha_fin FROM portfolios p LEFT JOIN trabajos t ON p.id = t.id_portfolio WHERE p.id = ? ");
+            SELECT p.id AS portfolio_id, p.id_usuario, p.nombre, p.apellido1, p.apellido2, p.biografia, p.habilidades, p.experiencia, p.estudios, p.categoria, p.testimonio, p.telefono, p.enlaces, p.blog, p.imagen_perfil, 
+            t.id AS trabajo_id, t.trabajo, t.fecha_inicio, t.fecha_fin 
+            FROM portfolios p 
+            LEFT JOIN trabajos t ON p.id = t.id_portfolio 
+            WHERE p.id = ?");
         $stmt->bind_param("i", $portfolio_id);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -39,7 +43,6 @@ try {
     exit();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -61,23 +64,31 @@ try {
         <a href="./registro.php">Registrarse</a>
         <a href=""></a>
         <a href="./galeria.php">Galería</a>
-        <a href="">Favoritos</a>
+        <a href="./favorites.php">Favoritos</a>
     </nav>
     <div class="container">
         <h1>¡Gracias por registrarte, <?php echo htmlspecialchars($portfolio['nombre']); ?>!</h1>
         <p>Detalles del portfolio:</p>
 
         <div class="form-section">
-            <h2>INFORMACIÓN</h2>
+            <h2 class="title-info">INFORMACIÓN</h2>
             <p><strong>ID Usuario:</strong> <?php echo htmlspecialchars($portfolio['id_usuario']); ?></p>
+            <!-- Mostrar imagen de perfil si está disponible -->
+            <?php if (!empty($portfolio['imagen_perfil'])): ?>
+                <div class="portfolio-image">
+                    <img src="./imagenes_perfil/?php echo $portfolio['imagen_perfil']; ?>" alt="Imagen de perfil de <?php echo $portfolio['nombre']; ?>" class="perfil-img">
+                </div>
+            <?php else: ?>
+                <p>No hay imagen de perfil disponible.</p>
+            <?php endif; ?>
             <p><strong>Biografía:</strong> <?php echo htmlspecialchars($portfolio['biografia']); ?></p>
             <p><strong>Habilidades:</strong> <?php echo htmlspecialchars($portfolio['habilidades']); ?></p>
             <p><strong>Experiencia:</strong> <?php echo htmlspecialchars($portfolio['experiencia']); ?></p>
             <p><strong>Estudios:</strong> <?php echo htmlspecialchars($portfolio['estudios']); ?></p>
             <p><strong>Teléfono:</strong> <?php echo htmlspecialchars($portfolio['telefono']); ?></p>
-            <p><strong>Enlaces:</strong> <a href="<?php echo htmlspecialchars($portfolio['enlaces']); ?>"
+            <p><strong>Enlaces:</strong> <a class="url-color" href="<?php echo htmlspecialchars($portfolio['enlaces']); ?>"
                     target="_blank"><?php echo htmlspecialchars($portfolio['enlaces']); ?></a></p>
-            <p><strong>Blog:</strong> <a href="<?php echo htmlspecialchars($portfolio['blog']); ?>"
+            <p><strong>Blog:</strong> <a class="url-color" href="<?php echo htmlspecialchars($portfolio['blog']); ?>"
                     target="_blank"><?php echo htmlspecialchars($portfolio['blog']); ?></a></p>
             <hr>
             <h2>Trabajos Registrados</h2>
@@ -100,7 +111,10 @@ try {
         </div>
 
         <!-- Botón de Cerrar sesión -->
-        <a style="font-size: xx-large; cursor:pointer" href="logout.php">Cerrar sesión</a>
+        <div class="button-container">
+            <button class="log-out" type="button" onclick="window.location.href='logout.php'">Cerrar Sesión</button>
+            <button class="" type="button" onclick="window.location.href='editarPortfolio.php?id=<?php echo $portfolio['portfolio_id']; ?>'">Editar portfolio</button>
+        </div>
         </form>
     </div>
     <!--Archivos js-->
