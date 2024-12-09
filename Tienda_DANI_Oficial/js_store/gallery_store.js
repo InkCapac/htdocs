@@ -37,4 +37,3 @@ function resetCarousel() {
     clearInterval(carouselInterval); // Limpiar intervalo actual
     carouselInterval = setInterval(nextImage, 5000); // Reiniciar intervalo
 }
-
