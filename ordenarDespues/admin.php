@@ -9,7 +9,7 @@ if (isset($_GET["footers"])) {
     $conexion = new Conectar($servidor, $usuario, $contrasena, $bbdd);
     $header = 1;
     $footer = 2;
-
+    
     // $datos = $conexion->hacer_consulta("UPDATE pagina SET header=? WHERE id='1'", "i", [$_GET["headers"]]);
     $datos = $conexion->hacer_consulta("UPDATE pagina SET footer=?, header=? WHERE id=?", "ii", [$_GET["footers"]. $_GET["headers"]]);
 }
